@@ -1,0 +1,492 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C493367A185453010027C38C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4933679185453010027C38C /* Foundation.framework */; };
+		C493367C185453010027C38C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C493367B185453010027C38C /* CoreGraphics.framework */; };
+		C493367E185453010027C38C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C493367D185453010027C38C /* UIKit.framework */; };
+		C4933680185453010027C38C /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C493367F185453010027C38C /* SpriteKit.framework */; };
+		C4933686185453010027C38C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4933684185453010027C38C /* InfoPlist.strings */; };
+		C4933688185453010027C38C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4933687185453010027C38C /* main.m */; };
+		C493368C185453010027C38C /* DTDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C493368B185453010027C38C /* DTDAppDelegate.m */; };
+		C493368F185453010027C38C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C493368D185453010027C38C /* Main.storyboard */; };
+		C4933692185453010027C38C /* DTDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4933691185453010027C38C /* DTDViewController.m */; };
+		C4933695185453010027C38C /* DTDMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C4933694185453010027C38C /* DTDMyScene.m */; };
+		C4933697185453010027C38C /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = C4933696185453010027C38C /* Spaceship.png */; };
+		C4933699185453010027C38C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4933698185453010027C38C /* Images.xcassets */; };
+		C49336A0185453010027C38C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C493369F185453010027C38C /* XCTest.framework */; };
+		C49336A1185453010027C38C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4933679185453010027C38C /* Foundation.framework */; };
+		C49336A2185453010027C38C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C493367D185453010027C38C /* UIKit.framework */; };
+		C49336AA185453010027C38C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C49336A8185453010027C38C /* InfoPlist.strings */; };
+		C49336AC185453010027C38C /* DoTheDancing_SpriteKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C49336AB185453010027C38C /* DoTheDancing_SpriteKitTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C49336A3185453010027C38C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C493366E185453010027C38C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C4933675185453010027C38C;
+			remoteInfo = "DoTheDancing-SpriteKit";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C4933676185453010027C38C /* DoTheDancing-SpriteKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DoTheDancing-SpriteKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4933679185453010027C38C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C493367B185453010027C38C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C493367D185453010027C38C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C493367F185453010027C38C /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		C4933683185453010027C38C /* DoTheDancing-SpriteKit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DoTheDancing-SpriteKit-Info.plist"; sourceTree = "<group>"; };
+		C4933685185453010027C38C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C4933687185453010027C38C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C4933689185453010027C38C /* DoTheDancing-SpriteKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DoTheDancing-SpriteKit-Prefix.pch"; sourceTree = "<group>"; };
+		C493368A185453010027C38C /* DTDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTDAppDelegate.h; sourceTree = "<group>"; };
+		C493368B185453010027C38C /* DTDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTDAppDelegate.m; sourceTree = "<group>"; };
+		C493368E185453010027C38C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C4933690185453010027C38C /* DTDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTDViewController.h; sourceTree = "<group>"; };
+		C4933691185453010027C38C /* DTDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTDViewController.m; sourceTree = "<group>"; };
+		C4933693185453010027C38C /* DTDMyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTDMyScene.h; sourceTree = "<group>"; };
+		C4933694185453010027C38C /* DTDMyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTDMyScene.m; sourceTree = "<group>"; };
+		C4933696185453010027C38C /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
+		C4933698185453010027C38C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C493369E185453010027C38C /* DoTheDancing-SpriteKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DoTheDancing-SpriteKitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C493369F185453010027C38C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		C49336A7185453010027C38C /* DoTheDancing-SpriteKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DoTheDancing-SpriteKitTests-Info.plist"; sourceTree = "<group>"; };
+		C49336A9185453010027C38C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C49336AB185453010027C38C /* DoTheDancing_SpriteKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DoTheDancing_SpriteKitTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C4933673185453010027C38C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C493367C185453010027C38C /* CoreGraphics.framework in Frameworks */,
+				C493367E185453010027C38C /* UIKit.framework in Frameworks */,
+				C4933680185453010027C38C /* SpriteKit.framework in Frameworks */,
+				C493367A185453010027C38C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C493369B185453010027C38C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C49336A0185453010027C38C /* XCTest.framework in Frameworks */,
+				C49336A2185453010027C38C /* UIKit.framework in Frameworks */,
+				C49336A1185453010027C38C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C493366D185453010027C38C = {
+			isa = PBXGroup;
+			children = (
+				C4933681185453010027C38C /* DoTheDancing-SpriteKit */,
+				C49336A5185453010027C38C /* DoTheDancing-SpriteKitTests */,
+				C4933678185453010027C38C /* Frameworks */,
+				C4933677185453010027C38C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C4933677185453010027C38C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C4933676185453010027C38C /* DoTheDancing-SpriteKit.app */,
+				C493369E185453010027C38C /* DoTheDancing-SpriteKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C4933678185453010027C38C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C4933679185453010027C38C /* Foundation.framework */,
+				C493367B185453010027C38C /* CoreGraphics.framework */,
+				C493367D185453010027C38C /* UIKit.framework */,
+				C493367F185453010027C38C /* SpriteKit.framework */,
+				C493369F185453010027C38C /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C4933681185453010027C38C /* DoTheDancing-SpriteKit */ = {
+			isa = PBXGroup;
+			children = (
+				C493368A185453010027C38C /* DTDAppDelegate.h */,
+				C493368B185453010027C38C /* DTDAppDelegate.m */,
+				C493368D185453010027C38C /* Main.storyboard */,
+				C4933690185453010027C38C /* DTDViewController.h */,
+				C4933691185453010027C38C /* DTDViewController.m */,
+				C4933693185453010027C38C /* DTDMyScene.h */,
+				C4933694185453010027C38C /* DTDMyScene.m */,
+				C4933696185453010027C38C /* Spaceship.png */,
+				C4933698185453010027C38C /* Images.xcassets */,
+				C4933682185453010027C38C /* Supporting Files */,
+			);
+			path = "DoTheDancing-SpriteKit";
+			sourceTree = "<group>";
+		};
+		C4933682185453010027C38C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C4933683185453010027C38C /* DoTheDancing-SpriteKit-Info.plist */,
+				C4933684185453010027C38C /* InfoPlist.strings */,
+				C4933687185453010027C38C /* main.m */,
+				C4933689185453010027C38C /* DoTheDancing-SpriteKit-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C49336A5185453010027C38C /* DoTheDancing-SpriteKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				C49336AB185453010027C38C /* DoTheDancing_SpriteKitTests.m */,
+				C49336A6185453010027C38C /* Supporting Files */,
+			);
+			path = "DoTheDancing-SpriteKitTests";
+			sourceTree = "<group>";
+		};
+		C49336A6185453010027C38C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C49336A7185453010027C38C /* DoTheDancing-SpriteKitTests-Info.plist */,
+				C49336A8185453010027C38C /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C4933675185453010027C38C /* DoTheDancing-SpriteKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C49336AF185453010027C38C /* Build configuration list for PBXNativeTarget "DoTheDancing-SpriteKit" */;
+			buildPhases = (
+				C4933672185453010027C38C /* Sources */,
+				C4933673185453010027C38C /* Frameworks */,
+				C4933674185453010027C38C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DoTheDancing-SpriteKit";
+			productName = "DoTheDancing-SpriteKit";
+			productReference = C4933676185453010027C38C /* DoTheDancing-SpriteKit.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C493369D185453010027C38C /* DoTheDancing-SpriteKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C49336B2185453010027C38C /* Build configuration list for PBXNativeTarget "DoTheDancing-SpriteKitTests" */;
+			buildPhases = (
+				C493369A185453010027C38C /* Sources */,
+				C493369B185453010027C38C /* Frameworks */,
+				C493369C185453010027C38C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C49336A4185453010027C38C /* PBXTargetDependency */,
+			);
+			name = "DoTheDancing-SpriteKitTests";
+			productName = "DoTheDancing-SpriteKitTests";
+			productReference = C493369E185453010027C38C /* DoTheDancing-SpriteKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C493366E185453010027C38C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = DTD;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Chin and Cheeks LLC";
+				TargetAttributes = {
+					C493369D185453010027C38C = {
+						TestTargetID = C4933675185453010027C38C;
+					};
+				};
+			};
+			buildConfigurationList = C4933671185453010027C38C /* Build configuration list for PBXProject "DoTheDancing-SpriteKit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C493366D185453010027C38C;
+			productRefGroup = C4933677185453010027C38C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C4933675185453010027C38C /* DoTheDancing-SpriteKit */,
+				C493369D185453010027C38C /* DoTheDancing-SpriteKitTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C4933674185453010027C38C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4933686185453010027C38C /* InfoPlist.strings in Resources */,
+				C4933699185453010027C38C /* Images.xcassets in Resources */,
+				C4933697185453010027C38C /* Spaceship.png in Resources */,
+				C493368F185453010027C38C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C493369C185453010027C38C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C49336AA185453010027C38C /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C4933672185453010027C38C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4933688185453010027C38C /* main.m in Sources */,
+				C493368C185453010027C38C /* DTDAppDelegate.m in Sources */,
+				C4933692185453010027C38C /* DTDViewController.m in Sources */,
+				C4933695185453010027C38C /* DTDMyScene.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C493369A185453010027C38C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C49336AC185453010027C38C /* DoTheDancing_SpriteKitTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C49336A4185453010027C38C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C4933675185453010027C38C /* DoTheDancing-SpriteKit */;
+			targetProxy = C49336A3185453010027C38C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C4933684185453010027C38C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C4933685185453010027C38C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C493368D185453010027C38C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C493368E185453010027C38C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C49336A8185453010027C38C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C49336A9185453010027C38C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C49336AD185453010027C38C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C49336AE185453010027C38C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C49336B0185453010027C38C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DoTheDancing-SpriteKit/DoTheDancing-SpriteKit-Prefix.pch";
+				INFOPLIST_FILE = "DoTheDancing-SpriteKit/DoTheDancing-SpriteKit-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C49336B1185453010027C38C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DoTheDancing-SpriteKit/DoTheDancing-SpriteKit-Prefix.pch";
+				INFOPLIST_FILE = "DoTheDancing-SpriteKit/DoTheDancing-SpriteKit-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		C49336B3185453010027C38C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/DoTheDancing-SpriteKit.app/DoTheDancing-SpriteKit";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DoTheDancing-SpriteKit/DoTheDancing-SpriteKit-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "DoTheDancing-SpriteKitTests/DoTheDancing-SpriteKitTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		C49336B4185453010027C38C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/DoTheDancing-SpriteKit.app/DoTheDancing-SpriteKit";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DoTheDancing-SpriteKit/DoTheDancing-SpriteKit-Prefix.pch";
+				INFOPLIST_FILE = "DoTheDancing-SpriteKitTests/DoTheDancing-SpriteKitTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C4933671185453010027C38C /* Build configuration list for PBXProject "DoTheDancing-SpriteKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C49336AD185453010027C38C /* Debug */,
+				C49336AE185453010027C38C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C49336AF185453010027C38C /* Build configuration list for PBXNativeTarget "DoTheDancing-SpriteKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C49336B0185453010027C38C /* Debug */,
+				C49336B1185453010027C38C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C49336B2185453010027C38C /* Build configuration list for PBXNativeTarget "DoTheDancing-SpriteKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C49336B3185453010027C38C /* Debug */,
+				C49336B4185453010027C38C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C493366E185453010027C38C /* Project object */;
+}
