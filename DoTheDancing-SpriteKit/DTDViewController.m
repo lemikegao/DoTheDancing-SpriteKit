@@ -7,7 +7,7 @@
 //
 
 #import "DTDViewController.h"
-#import "DTDMyScene.h"
+#import "DTDMainMenuScene.h"
 
 @implementation DTDViewController
 
@@ -21,7 +21,7 @@
     skView.showsNodeCount = YES;
     
     // Create and configure the scene.
-    SKScene * scene = [DTDMyScene sceneWithSize:skView.bounds.size];
+    SKScene * scene = [DTDMainMenuScene sceneWithSize:skView.bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFill;
     
     // Present the scene.

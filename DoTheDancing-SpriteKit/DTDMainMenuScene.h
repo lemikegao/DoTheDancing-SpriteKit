@@ -1,5 +1,5 @@
 //
-//  DTDMyScene.h
+//  DTDMainMenuScene.h
 //  DoTheDancing-SpriteKit
 //
 
@@ -8,6 +8,6 @@
 
 #import <SpriteKit/SpriteKit.h>
 
-@interface DTDMyScene : SKScene
+@interface DTDMainMenuScene : SKScene
 
 @end
