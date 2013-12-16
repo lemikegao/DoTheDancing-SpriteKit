@@ -7,6 +7,7 @@
 //
 
 #import "DTDDanceMoveSelectionScene.h"
+#import "DTDMainMenuScene.h"
 
 @implementation DTDDanceMoveSelectionScene
 
@@ -14,33 +15,43 @@
 {
     if (self = [super initWithSize:size])
     {
-        self.backgroundColor = [SKColor colorWithRed:249/255.0 green:185/255.0 blue:56/255.0 alpha:1.0];
+        self.backgroundColor = RGB(249, 185, 56);
         
         [self _displayTopBar];
     }
     return self;
 }
 
-- (void)didMoveToView:(SKView *)view
-{
-    [super didMoveToView:view];
-}
-
 #pragma mark - Setup UI
 - (void)_displayTopBar
 {
     // Top banner bg
-    SKSpriteNode *topBannerBg = [SKSpriteNode spriteNodeWithColor:[SKColor colorWithRed:56/255.0 green:56/255.0 blue:56/255.0 alpha:1.0] size:CGSizeMake(320, 43)];
+    SKSpriteNode *topBannerBg = [SKSpriteNode spriteNodeWithColor:RGB(56, 56, 56) size:CGSizeMake(320, 43)];
     topBannerBg.anchorPoint = CGPointMake(0, 1);
     topBannerBg.position = CGPointMake(0, self.size.height);
     [self addChild:topBannerBg];
     
     // Title label
+    SKLabelNode *titleLabel = [SKLabelNode labelNodeWithFontNamed:@"Economica-Bold"];
+    titleLabel.fontSize = 32;
+    titleLabel.text = @"Select Dance";
+    titleLabel.fontColor = RGB(249, 185, 56);
+    titleLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
+    titleLabel.position = CGPointMake(self.size.width * 0.5f, -topBannerBg.size.height * 0.5);
+    [topBannerBg addChild:titleLabel];
     
-//    CCLabelBMFont *selectDanceLabel = [CCLabelBMFont labelWithString:@"Select Dance" fntFile:@"economica-bold_64.fnt"];
-//    selectDanceLabel.color = ccc3(249, 185, 56);
-//    selectDanceLabel.position = ccp(self.screenSize.width * 0.5, topBannerBg.contentSize.height * 0.5);
-//    [topBannerBg addChild:selectDanceLabel];
+    // Back button
+    SKButton *backButton = [SKButton buttonWithImageNamedNormal:@"back" selected:@"back-highlight"];
+    backButton.anchorPoint = CGPointMake(0, 0.5);
+    backButton.position = CGPointMake(0, -topBannerBg.size.height * 0.5);
+    [backButton setTouchUpInsideTarget:self action:@selector(_pressedBack:)];
+    [topBannerBg addChild:backButton];
+}
+
+#pragma mark - Button actions
+- (void)_pressedBack:(id)sender
+{
+    [self.view presentScene:[DTDMainMenuScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionRight duration:0.25]];
 }
 
 @end

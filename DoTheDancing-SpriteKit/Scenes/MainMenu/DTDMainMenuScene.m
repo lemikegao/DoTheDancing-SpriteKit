@@ -9,12 +9,6 @@
 #import "DTDMainMenuScene.h"
 #import "DTDDanceMoveSelectionScene.h"
 
-@interface DTDMainMenuScene()
-
-@property (nonatomic, strong) UIImageView *menuBg;
-
-@end
-
 @implementation DTDMainMenuScene
 
 - (id)initWithSize:(CGSize)size
@@ -23,15 +17,9 @@
     {
         [self _displayBackground];
         [self _displayLogo];
+        [self _displayMenu];
     }
     return self;
-}
-
-- (void)didMoveToView:(SKView *)view
-{
-    [super didMoveToView:view];
-    
-    [self _displayMenu];
 }
 
 #pragma mark - Setup UI
@@ -58,46 +46,30 @@
 
 - (void)_displayMenu
 {
-    UIImage *tempImage;         // Used to get size for buttons
-    
     // Menu - Bg
-    self.menuBg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mainmenu-cream-box"]];
-    self.menuBg.layer.anchorPoint = CGPointMake(0.5, 1);
-    self.menuBg.layer.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.56);
-    [self.menuBg setUserInteractionEnabled:YES];
-    [self.view addSubview:self.menuBg];
+    SKSpriteNode *menuBg = [SKSpriteNode spriteNodeWithImageNamed:@"mainmenu-cream-box"];
+    menuBg.anchorPoint = CGPointMake(0.5, 1);
+    menuBg.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.74);
+    [self addChild:menuBg];
     
     // Menu - Single Player button
-    UIButton *mainMenuSingleButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    tempImage = [UIImage imageNamed:@"mainmenu-button-single"];
-    [mainMenuSingleButton setImage:tempImage forState:UIControlStateNormal];
-    [mainMenuSingleButton setImage:[UIImage imageNamed:@"mainmenu-button-single-highlight"] forState:UIControlStateHighlighted];
-    [mainMenuSingleButton setBounds:CGRectMake(0, 0, tempImage.size.width, tempImage.size.height)];
-    mainMenuSingleButton.layer.anchorPoint = CGPointMake(0.5, 0.5);
-    mainMenuSingleButton.layer.position = CGPointMake(self.menuBg.frame.size.width * 0.5, self.menuBg.frame.size.height * 0.25);
-    [mainMenuSingleButton addTarget:self action:@selector(_pressedSingleButton:) forControlEvents:UIControlEventTouchUpInside];
-    [self.menuBg addSubview:mainMenuSingleButton];
+    SKButton *singleButton = [SKButton buttonWithImageNamedNormal:@"mainmenu-button-single" selected:@"mainmenu-button-single-highlight"];
+    singleButton.position = CGPointMake(0, -menuBg.size.height * 0.25);
+    [singleButton setTouchUpInsideTarget:self action:@selector(_pressedSingleButton:)];
+    [menuBg addChild:singleButton];
     
     // Menu - Multiplayer button
-    UIButton *mainMenuMultiplayerButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    tempImage = [UIImage imageNamed:@"mainmenu-button-multi"];
-    [mainMenuMultiplayerButton setImage:tempImage forState:UIControlStateNormal];
-    [mainMenuMultiplayerButton setImage:[UIImage imageNamed:@"mainmenu-button-multi-highlight"] forState:UIControlStateHighlighted];
-    [mainMenuMultiplayerButton setBounds:CGRectMake(0, 0, tempImage.size.width, tempImage.size.height)];
-    mainMenuMultiplayerButton.layer.anchorPoint = CGPointMake(0.5, 0.5);
-    mainMenuMultiplayerButton.layer.position = CGPointMake(self.menuBg.frame.size.width * 0.5, self.menuBg.frame.size.height * 0.75);
-    [mainMenuMultiplayerButton addTarget:self action:@selector(_pressedMultiplayerButton:) forControlEvents:UIControlEventTouchUpInside];
-    [self.menuBg addSubview:mainMenuMultiplayerButton];
+    SKButton *multiButton = [SKButton buttonWithImageNamedNormal:@"mainmenu-button-multi" selected:@"mainmenu-button-multi-highlight"];
+    multiButton.position = CGPointMake(0, -menuBg.size.height * 0.75);
+    [multiButton setTouchUpInsideTarget:self action:@selector(_pressedMultiplayerButton:)];
+    [menuBg addChild:multiButton];
 }
 
 #pragma mark - Button actions
 - (void)_pressedSingleButton:(id)sender
 {
-    // Remove menu
-    [self.menuBg removeFromSuperview];
-    
     // Present scene
-    [self.view presentScene:[[DTDDanceMoveSelectionScene alloc] initWithSize:self.size]];
+    [self.view presentScene:[DTDDanceMoveSelectionScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
 }
 
 - (void)_pressedMultiplayerButton:(id)sender

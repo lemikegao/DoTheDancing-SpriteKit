@@ -24,6 +24,13 @@
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Economica-Bold.otf</string>
+		<string>Economica-BoldItalic.otf</string>
+		<string>Economica-Italic.otf</string>
+		<string>Economica-Regular.otf</string>
+	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
