@@ -18,6 +18,7 @@
         self.backgroundColor = RGB(249, 185, 56);
         
         [self _displayTopBar];
+        [self _displayDanceMoves];
     }
     return self;
 }
@@ -46,6 +47,29 @@
     backButton.position = CGPointMake(0, -topBannerBg.size.height * 0.5);
     [backButton setTouchUpInsideTarget:self action:@selector(_pressedBack:)];
     [topBannerBg addChild:backButton];
+}
+
+- (void)_displayDanceMoves
+{
+    // Bernie
+    SKButton *bernieButton = [[SKButton alloc] initWithColor:RGB(249, 228, 172) size:CGSizeMake(261, 129)];
+    bernieButton.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.76);
+    [self addChild:bernieButton];
+    
+    // Peter Griffin
+    SKButton *peterGriffinButton = [bernieButton copy];
+    peterGriffinButton.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.51);
+    [self addChild:peterGriffinButton];
+    
+    // Cat Daddy
+    SKButton *catDaddyButton = [bernieButton copy];
+    catDaddyButton.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.26);
+    [self addChild:catDaddyButton];
+    
+    
+    // Temporarily disable dance moves that are not yet implemented
+    peterGriffinButton.alpha = 0.4f;
+    catDaddyButton.alpha = 0.4f;
 }
 
 #pragma mark - Button actions
