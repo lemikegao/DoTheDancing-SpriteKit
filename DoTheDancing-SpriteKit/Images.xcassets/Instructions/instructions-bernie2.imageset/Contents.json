@@ -2,13 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "mainmenu-cream-box.png"
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "mainmenu-cream-box@2x.png"
+      "filename" : "instructions-bernie2.png"
     }
   ],
   "info" : {
