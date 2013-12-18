@@ -31,7 +31,7 @@ _Pragma("clang diagnostic pop") \
  * Override the super-classes designated initializer, to get a properly set SKButton in every case
  */
 - (id)initWithTexture:(SKTexture *)texture color:(UIColor *)color size:(CGSize)size {
-    return [self initWithTextureNormal:texture selected:nil disabled:nil];
+    return [self initWithTextureNormal:texture selected:nil disabled:nil color:color size:size];
 }
 
 - (id)initWithTextureNormal:(SKTexture *)normal selected:(SKTexture *)selected {
@@ -42,7 +42,12 @@ _Pragma("clang diagnostic pop") \
  * This is the designated Initializer
  */
 - (id)initWithTextureNormal:(SKTexture *)normal selected:(SKTexture *)selected disabled:(SKTexture *)disabled {
-    self = [super initWithTexture:normal color:[UIColor whiteColor] size:normal.size];
+    return [self initWithTextureNormal:normal selected:selected disabled:disabled color:[SKColor whiteColor] size:normal.size];
+}
+
+- (id)initWithTextureNormal:(SKTexture *)normal selected:(SKTexture *)selected disabled:(SKTexture *)disabled color:(SKColor *)color size:(CGSize)size
+{
+    self = [super initWithTexture:normal color:color size:size];
     if (self) {
         [self setNormalTexture:normal];
         [self setSelectedTexture:selected];
