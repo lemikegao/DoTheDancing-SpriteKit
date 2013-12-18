@@ -47,7 +47,7 @@
 - (void)_displayMenu
 {
     // Menu - Bg
-    SKSpriteNode *menuBg = [SKSpriteNode spriteNodeWithImageNamed:@"mainmenu-cream-box"];
+    SKSpriteNode *menuBg = [SKSpriteNode spriteNodeWithColor:RGB(249, 228, 172) size:CGSizeMake(227, 165)];
     menuBg.anchorPoint = CGPointMake(0.5, 1);
     menuBg.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.74);
     [self addChild:menuBg];
