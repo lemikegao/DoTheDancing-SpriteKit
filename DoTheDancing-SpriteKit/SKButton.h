@@ -28,7 +28,7 @@
 
 - (id)initWithTextureNormal:(SKTexture *)normal selected:(SKTexture *)selected;
 - (id)initWithTextureNormal:(SKTexture *)normal selected:(SKTexture *)selected disabled:(SKTexture *)disabled;
-- (id)initWithTextureNormal:(SKTexture *)normal selected:(SKTexture *)selected disabled:(SKTexture *)disabled color:(SKColor *)color; // Designated Initializer
+- (id)initWithTextureNormal:(SKTexture *)normal selected:(SKTexture *)selected disabled:(SKTexture *)disabled color:(SKColor *)color size:(CGSize)size; // Designated Initializer
 
 - (id)initWithImageNamedNormal:(NSString *)normal selected:(NSString *)selected;
 - (id)initWithImageNamedNormal:(NSString *)normal selected:(NSString *)selected disabled:(NSString *)disabled;
