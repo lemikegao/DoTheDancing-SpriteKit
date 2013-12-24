@@ -26,6 +26,7 @@
 		C429143A1867B2D7000D7F6B /* DTDGameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C42914391867B2D7000D7F6B /* DTDGameManager.m */; };
 		C42914421867D333000D7F6B /* DTDDanceMoveInstructionsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C42914411867D333000D7F6B /* DTDDanceMoveInstructionsScene.m */; };
 		C43913BC1868C501006F5716 /* SKMultilineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C43913BB1868C501006F5716 /* SKMultilineLabel.m */; };
+		C43913C018696854006F5716 /* DTDDanceMoveSeeInActionScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C43913BF18696854006F5716 /* DTDDanceMoveSeeInActionScene.m */; };
 		C493367A185453010027C38C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4933679185453010027C38C /* Foundation.framework */; };
 		C493367C185453010027C38C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C493367B185453010027C38C /* CoreGraphics.framework */; };
 		C493367E185453010027C38C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C493367D185453010027C38C /* UIKit.framework */; };
@@ -83,6 +84,8 @@
 		C42914411867D333000D7F6B /* DTDDanceMoveInstructionsScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDDanceMoveInstructionsScene.m; sourceTree = "<group>"; };
 		C43913BA1868C501006F5716 /* SKMultilineLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMultilineLabel.h; sourceTree = "<group>"; };
 		C43913BB1868C501006F5716 /* SKMultilineLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMultilineLabel.m; sourceTree = "<group>"; };
+		C43913BE18696854006F5716 /* DTDDanceMoveSeeInActionScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDDanceMoveSeeInActionScene.h; sourceTree = "<group>"; };
+		C43913BF18696854006F5716 /* DTDDanceMoveSeeInActionScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDDanceMoveSeeInActionScene.m; sourceTree = "<group>"; };
 		C4933676185453010027C38C /* DoTheDancing-SpriteKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DoTheDancing-SpriteKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4933679185453010027C38C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C493367B185453010027C38C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -208,6 +211,7 @@
 				C42914281867B2A4000D7F6B /* MainMenu */,
 				C42914251867B2A4000D7F6B /* DanceMoveSelection */,
 				C429143F1867CCC7000D7F6B /* DanceMoveInstructions */,
+				C43913BD18696844006F5716 /* DanceMoveSeeInAction */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -255,6 +259,15 @@
 			children = (
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		C43913BD18696844006F5716 /* DanceMoveSeeInAction */ = {
+			isa = PBXGroup;
+			children = (
+				C43913BE18696854006F5716 /* DTDDanceMoveSeeInActionScene.h */,
+				C43913BF18696854006F5716 /* DTDDanceMoveSeeInActionScene.m */,
+			);
+			path = DanceMoveSeeInAction;
 			sourceTree = "<group>";
 		};
 		C44CD3FD185D6B730019B20C /* Assets */ = {
@@ -465,6 +478,7 @@
 				C43913BC1868C501006F5716 /* SKMultilineLabel.m in Sources */,
 				C42914311867B2A4000D7F6B /* DTDDanceMoveBernie.m in Sources */,
 				C42914331867B2A4000D7F6B /* DTDViewController.m in Sources */,
+				C43913C018696854006F5716 /* DTDDanceMoveSeeInActionScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

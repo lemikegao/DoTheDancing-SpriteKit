@@ -9,6 +9,7 @@
 #import "DTDDanceMoveInstructionsScene.h"
 #import "DTDGameManager.h"
 #import "DTDDanceMoveSelectionScene.h"
+#import "DTDDanceMoveSeeInActionScene.h"
 #import "SKMultilineLabel.h"
 
 @interface DTDDanceMoveInstructionsScene()
@@ -33,7 +34,8 @@
 
 - (id)initWithSize:(CGSize)size
 {
-    if (self = [super initWithSize:size])
+    self = [super initWithSize:size];
+    if (self)
     {
         self.backgroundColor = RGB(249, 185, 56);
         _danceMove = [DTDGameManager sharedGameManager].individualDanceMove;
@@ -46,6 +48,7 @@
         [self _displayIllustration];
         [self _displayIllustrationButtons];
         [self _displayInstructions];
+        [self _displayBottomMenu];
     }
     return self;
 }
@@ -79,7 +82,7 @@
 
 - (void)_displayTopBar
 {
-    // Top banner bg
+    // Top bar bg
     SKSpriteNode *topBannerBg = [SKSpriteNode spriteNodeWithColor:RGB(56, 56, 56) size:CGSizeMake(320, 43)];
     topBannerBg.anchorPoint = CGPointMake(0, 1);
     topBannerBg.position = CGPointMake(0, self.size.height);
@@ -205,6 +208,22 @@
     }
 }
 
+- (void)_displayBottomMenu
+{
+    // 'See in action' button
+    SKButton *seeInActionButton = [SKButton buttonWithImageNamedNormal:@"instructions-button-action" selected:@"instructions-button-action-highlight"];
+    seeInActionButton.anchorPoint = CGPointMake(1, 0);
+    seeInActionButton.position = CGPointMake(self.size.width * 0.57, self.size.height * 0.02);
+    [seeInActionButton setTouchUpInsideTarget:self action:@selector(_pressedSeeInAction:)];
+    [self addChild:seeInActionButton];
+    
+    // 'Try it out!' button
+    SKButton *tryItOutButton = [SKButton buttonWithImageNamedNormal:@"instructions-button-try" selected:@"instructions-button-try-highlight"];
+    tryItOutButton.anchorPoint = CGPointMake(0, 0);
+    tryItOutButton.position = CGPointMake(self.size.width * 0.53, seeInActionButton.position.y);
+    [self addChild:tryItOutButton];
+}
+
 #pragma mark - Button actions
 - (void)_pressedBack:(id)sender
 {
@@ -220,6 +239,12 @@
 - (void)_pressedRightButton:(id)sender
 {
     [self _showNextStep];
+}
+
+- (void)_pressedSeeInAction:(id)sender
+{
+    [[DTDGameManager sharedGameManager] pauseBackgroundMusic];
+    [self.view presentScene:[DTDDanceMoveSeeInActionScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
 }
 
 #pragma mark - Private methods

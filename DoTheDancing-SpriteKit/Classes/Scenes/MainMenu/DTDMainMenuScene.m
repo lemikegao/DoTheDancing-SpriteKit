@@ -13,7 +13,8 @@
 
 - (id)initWithSize:(CGSize)size
 {
-    if (self = [super initWithSize:size])
+    self = [super initWithSize:size];
+    if (self)
     {
         [self _displayBackground];
         [self _displayLogo];

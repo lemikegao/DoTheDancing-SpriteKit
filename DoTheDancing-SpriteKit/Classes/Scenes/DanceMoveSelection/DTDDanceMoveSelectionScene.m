@@ -17,7 +17,8 @@
 
 - (id)initWithSize:(CGSize)size
 {
-    if (self = [super initWithSize:size])
+    self = [super initWithSize:size];
+    if (self)
     {
         self.backgroundColor = RGB(249, 185, 56);
         
