@@ -7,11 +7,14 @@
 //
 
 #import "DTDAppDelegate.h"
+#import "DTDGameManager.h"
 
 @implementation DTDAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // Initialize game manager
+    [DTDGameManager sharedGameManager];
     
     return YES;
 }

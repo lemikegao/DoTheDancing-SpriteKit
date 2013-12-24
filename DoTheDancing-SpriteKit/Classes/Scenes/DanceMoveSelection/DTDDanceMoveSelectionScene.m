@@ -7,7 +7,11 @@
 //
 
 #import "DTDDanceMoveSelectionScene.h"
+#import "DTDGameManager.h"
 #import "DTDMainMenuScene.h"
+#import "DTDDanceMoveInstructionsScene.h"
+#import "DTDDanceMove.h"
+#import "DTDDanceMoveBernie.h"
 
 @implementation DTDDanceMoveSelectionScene
 
@@ -19,6 +23,7 @@
         
         [self _displayTopBar];
         [self _displayDanceMoves];
+        [self _displayBottomPageControls];
     }
     return self;
 }
@@ -54,6 +59,8 @@
     // Bernie
     SKButton *bernieButton = [[SKButton alloc] initWithColor:RGB(249, 228, 172) size:CGSizeMake(261, 129)];
     bernieButton.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.76);
+    bernieButton.name = [@(kDanceMoveBernie) stringValue];
+    [bernieButton setTouchUpInsideTarget:self action:@selector(_showDanceInstructions:)];
     [self addChild:bernieButton];
     
     SKLabelNode *bernieLabel = [SKLabelNode labelNodeWithFontNamed:@"Economica-Bold"];
@@ -92,33 +99,102 @@
     catDaddyLabel.fontColor = RGB(56, 56, 56);
     catDaddyLabel.fontSize = 31;
     catDaddyLabel.text = @"Peter Griffin";
-    catDaddyLabel.position = CGPointMake(0, catDaddyButton.size.height * 0.23f);
+    catDaddyLabel.position = CGPointMake(0, catDaddyButton.size.height * 0.23);
     [catDaddyButton addChild:catDaddyLabel];
     
     SKSpriteNode *catDaddyImage = [SKSpriteNode spriteNodeWithImageNamed:@"select-dance-soon"];
-    catDaddyImage.position = CGPointMake(0, -catDaddyButton.size.height * 0.10f);
+    catDaddyImage.position = CGPointMake(0, -catDaddyButton.size.height * 0.1);
     [catDaddyButton addChild:catDaddyImage];
     
     // Scale down buttons for smaller devices
     if (IS_IPHONE_4)
     {
-        CGFloat newScale = 0.87f;
+        CGFloat newScale = 0.87;
         [bernieButton setScale:newScale];
         [peterGriffinButton setScale:newScale];
         [catDaddyButton setScale:newScale];
     }
     
     // Temporarily disable dance moves that are not yet implemented
-    peterGriffinButton.alpha = 0.4f;
-    catDaddyButton.alpha = 0.4f;
+    peterGriffinButton.alpha = 0.4;
+    catDaddyButton.alpha = 0.4;
     peterGriffinButton.isEnabled = NO;
     catDaddyButton.isEnabled = NO;
+}
+
+- (void)_displayBottomPageControls
+{
+    // Menu buttons
+    SKButton *previousButton = [SKButton buttonWithImageNamedNormal:@"select-dance-button-prev" selected:@"select-dance-button-prev-highlight"];
+    previousButton.position = CGPointMake(self.size.width * 0.185, self.size.height * 0.08);
+    [self addChild:previousButton];
+    
+    SKButton *nextButton = [SKButton buttonWithImageNamedNormal:@"select-dance-button-next" selected:@"select-dance-button-next-highlight"];
+    nextButton.position = CGPointMake(self.size.width * 0.815, self.size.height * 0.08);
+    [self addChild:nextButton];
+    
+    // Temporarily disable menu buttons
+    previousButton.alpha = 0.4;
+    nextButton.alpha = 0.4;
+    previousButton.isEnabled = NO;
+    nextButton.isEnabled = NO;
+    
+    // Page info
+    SKLabelNode *currentPageLabel = [SKLabelNode labelNodeWithFontNamed:@"Economica-Bold"];
+    currentPageLabel.fontColor = RGB(56, 56, 56);
+    currentPageLabel.fontSize = 31;
+    currentPageLabel.text = @"1";
+    currentPageLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
+    currentPageLabel.position = CGPointMake(self.size.width * 0.39, self.size.height * 0.08);
+    [self addChild:currentPageLabel];
+    
+    SKLabelNode *outOfLabel = [SKLabelNode labelNodeWithFontNamed:@"ACaslonPro-BoldItalic"];
+    outOfLabel.fontColor = currentPageLabel.fontColor;
+    outOfLabel.fontSize = 19;
+    outOfLabel.text = @"out of";
+    outOfLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
+    outOfLabel.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.08);
+    [self addChild:outOfLabel];
+    
+    SKLabelNode *totalPageLabel = [SKLabelNode labelNodeWithFontNamed:@"Economica-Bold"];
+    totalPageLabel.fontColor = currentPageLabel.fontColor;
+    totalPageLabel.fontSize = 31;
+    totalPageLabel.text = @"1";
+    totalPageLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
+    totalPageLabel.position = CGPointMake(self.size.width * 0.61, self.size.height * 0.08);
+    [self addChild:totalPageLabel];
 }
 
 #pragma mark - Button actions
 - (void)_pressedBack:(id)sender
 {
     [self.view presentScene:[DTDMainMenuScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionRight duration:0.25]];
+}
+
+- (void)_showDanceInstructions:(id)sender
+{
+    DanceMoves danceMoveType = [[(SKButton *)sender name] intValue];
+    
+    if (danceMoveType != kDanceMoveNone)
+    {
+        DTDDanceMove *danceMove;
+        switch (danceMoveType)
+        {
+            case kDanceMoveBernie:
+                danceMove = [[DTDDanceMoveBernie alloc] init];
+                break;
+                
+            default:
+                NSLog(@"DTDDanceMoveSelectionScene->_showDanceInstructions: INVALID DANCE MOVE!");
+                return;
+        }
+        
+        DTDGameManager *gm = [DTDGameManager sharedGameManager];
+        gm.individualDanceMove = danceMove;
+        
+        // Transition to instructions cene
+        [self.view presentScene:[DTDDanceMoveInstructionsScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
+    }
 }
 
 @end

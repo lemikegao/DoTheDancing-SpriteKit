@@ -11,24 +11,34 @@
 		C409AAF7185E917400BE51A3 /* Economica-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = C409AAF3185E917400BE51A3 /* Economica-BoldItalic.otf */; };
 		C409AAF8185E917400BE51A3 /* Economica-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = C409AAF4185E917400BE51A3 /* Economica-Italic.otf */; };
 		C409AAF9185E917400BE51A3 /* Economica-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C409AAF5185E917400BE51A3 /* Economica-Regular.otf */; };
-		C44CD41D185D85C80019B20C /* DTDMainMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C44CD41C185D85C80019B20C /* DTDMainMenuScene.m */; };
-		C44CD420185D86110019B20C /* DTDDanceMoveSelectionScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C44CD41F185D86110019B20C /* DTDDanceMoveSelectionScene.m */; };
+		C42914001867A7DF000D7F6B /* ACaslonPro-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = C42913FF1867A7DF000D7F6B /* ACaslonPro-BoldItalic.otf */; };
+		C42914131867B178000D7F6B /* the_bernie.caf in Resources */ = {isa = PBXBuildFile; fileRef = C429140F1867B178000D7F6B /* the_bernie.caf */; };
+		C42914141867B178000D7F6B /* step1_alice.caf in Resources */ = {isa = PBXBuildFile; fileRef = C42914111867B178000D7F6B /* step1_alice.caf */; };
+		C42914151867B178000D7F6B /* step2_alice.caf in Resources */ = {isa = PBXBuildFile; fileRef = C42914121867B178000D7F6B /* step2_alice.caf */; };
+		C42914301867B2A4000D7F6B /* DTDDanceMove.m in Sources */ = {isa = PBXBuildFile; fileRef = C429141D1867B2A4000D7F6B /* DTDDanceMove.m */; };
+		C42914311867B2A4000D7F6B /* DTDDanceMoveBernie.m in Sources */ = {isa = PBXBuildFile; fileRef = C429141F1867B2A4000D7F6B /* DTDDanceMoveBernie.m */; };
+		C42914321867B2A4000D7F6B /* DTDMotionRequirements.m in Sources */ = {isa = PBXBuildFile; fileRef = C42914211867B2A4000D7F6B /* DTDMotionRequirements.m */; };
+		C42914331867B2A4000D7F6B /* DTDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C42914231867B2A4000D7F6B /* DTDViewController.m */; };
+		C42914341867B2A4000D7F6B /* DTDDanceMoveSelectionScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C42914271867B2A4000D7F6B /* DTDDanceMoveSelectionScene.m */; };
+		C42914351867B2A4000D7F6B /* DTDMainMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C429142A1867B2A4000D7F6B /* DTDMainMenuScene.m */; };
+		C42914361867B2A4000D7F6B /* DTDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C429142D1867B2A4000D7F6B /* DTDAppDelegate.m */; };
+		C42914371867B2A4000D7F6B /* SKButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C429142F1867B2A4000D7F6B /* SKButton.m */; };
+		C429143A1867B2D7000D7F6B /* DTDGameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C42914391867B2D7000D7F6B /* DTDGameManager.m */; };
+		C42914421867D333000D7F6B /* DTDDanceMoveInstructionsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C42914411867D333000D7F6B /* DTDDanceMoveInstructionsScene.m */; };
+		C43913BC1868C501006F5716 /* SKMultilineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C43913BB1868C501006F5716 /* SKMultilineLabel.m */; };
 		C493367A185453010027C38C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4933679185453010027C38C /* Foundation.framework */; };
 		C493367C185453010027C38C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C493367B185453010027C38C /* CoreGraphics.framework */; };
 		C493367E185453010027C38C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C493367D185453010027C38C /* UIKit.framework */; };
 		C4933680185453010027C38C /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C493367F185453010027C38C /* SpriteKit.framework */; };
 		C4933686185453010027C38C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4933684185453010027C38C /* InfoPlist.strings */; };
 		C4933688185453010027C38C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4933687185453010027C38C /* main.m */; };
-		C493368C185453010027C38C /* DTDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C493368B185453010027C38C /* DTDAppDelegate.m */; };
 		C493368F185453010027C38C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C493368D185453010027C38C /* Main.storyboard */; };
-		C4933692185453010027C38C /* DTDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4933691185453010027C38C /* DTDViewController.m */; };
 		C4933699185453010027C38C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4933698185453010027C38C /* Images.xcassets */; };
 		C49336A0185453010027C38C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C493369F185453010027C38C /* XCTest.framework */; };
 		C49336A1185453010027C38C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4933679185453010027C38C /* Foundation.framework */; };
 		C49336A2185453010027C38C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C493367D185453010027C38C /* UIKit.framework */; };
 		C49336AA185453010027C38C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C49336A8185453010027C38C /* InfoPlist.strings */; };
 		C49336AC185453010027C38C /* DoTheDancing_SpriteKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C49336AB185453010027C38C /* DoTheDancing_SpriteKitTests.m */; };
-		C4B47606185ED5A000FA4648 /* SKButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B47605185ED5A000FA4648 /* SKButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,10 +57,32 @@
 		C409AAF4185E917400BE51A3 /* Economica-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Economica-Italic.otf"; sourceTree = "<group>"; };
 		C409AAF5185E917400BE51A3 /* Economica-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Economica-Regular.otf"; sourceTree = "<group>"; };
 		C409AB04185E92F000BE51A3 /* DTDConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDConstants.h; sourceTree = "<group>"; };
-		C44CD41B185D85C80019B20C /* DTDMainMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDMainMenuScene.h; sourceTree = "<group>"; };
-		C44CD41C185D85C80019B20C /* DTDMainMenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDMainMenuScene.m; sourceTree = "<group>"; };
-		C44CD41E185D86110019B20C /* DTDDanceMoveSelectionScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDDanceMoveSelectionScene.h; sourceTree = "<group>"; };
-		C44CD41F185D86110019B20C /* DTDDanceMoveSelectionScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDDanceMoveSelectionScene.m; sourceTree = "<group>"; };
+		C42913FF1867A7DF000D7F6B /* ACaslonPro-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ACaslonPro-BoldItalic.otf"; sourceTree = "<group>"; };
+		C429140F1867B178000D7F6B /* the_bernie.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = the_bernie.caf; sourceTree = "<group>"; };
+		C42914111867B178000D7F6B /* step1_alice.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = step1_alice.caf; sourceTree = "<group>"; };
+		C42914121867B178000D7F6B /* step2_alice.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = step2_alice.caf; sourceTree = "<group>"; };
+		C429141C1867B2A4000D7F6B /* DTDDanceMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDDanceMove.h; sourceTree = "<group>"; };
+		C429141D1867B2A4000D7F6B /* DTDDanceMove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDDanceMove.m; sourceTree = "<group>"; };
+		C429141E1867B2A4000D7F6B /* DTDDanceMoveBernie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDDanceMoveBernie.h; sourceTree = "<group>"; };
+		C429141F1867B2A4000D7F6B /* DTDDanceMoveBernie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDDanceMoveBernie.m; sourceTree = "<group>"; };
+		C42914201867B2A4000D7F6B /* DTDMotionRequirements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDMotionRequirements.h; sourceTree = "<group>"; };
+		C42914211867B2A4000D7F6B /* DTDMotionRequirements.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDMotionRequirements.m; sourceTree = "<group>"; };
+		C42914221867B2A4000D7F6B /* DTDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDViewController.h; sourceTree = "<group>"; };
+		C42914231867B2A4000D7F6B /* DTDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDViewController.m; sourceTree = "<group>"; };
+		C42914261867B2A4000D7F6B /* DTDDanceMoveSelectionScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDDanceMoveSelectionScene.h; sourceTree = "<group>"; };
+		C42914271867B2A4000D7F6B /* DTDDanceMoveSelectionScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDDanceMoveSelectionScene.m; sourceTree = "<group>"; };
+		C42914291867B2A4000D7F6B /* DTDMainMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDMainMenuScene.h; sourceTree = "<group>"; };
+		C429142A1867B2A4000D7F6B /* DTDMainMenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDMainMenuScene.m; sourceTree = "<group>"; };
+		C429142C1867B2A4000D7F6B /* DTDAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDAppDelegate.h; sourceTree = "<group>"; };
+		C429142D1867B2A4000D7F6B /* DTDAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDAppDelegate.m; sourceTree = "<group>"; };
+		C429142E1867B2A4000D7F6B /* SKButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKButton.h; sourceTree = "<group>"; };
+		C429142F1867B2A4000D7F6B /* SKButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKButton.m; sourceTree = "<group>"; };
+		C42914381867B2D7000D7F6B /* DTDGameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDGameManager.h; sourceTree = "<group>"; };
+		C42914391867B2D7000D7F6B /* DTDGameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDGameManager.m; sourceTree = "<group>"; };
+		C42914401867D333000D7F6B /* DTDDanceMoveInstructionsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDDanceMoveInstructionsScene.h; sourceTree = "<group>"; };
+		C42914411867D333000D7F6B /* DTDDanceMoveInstructionsScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDDanceMoveInstructionsScene.m; sourceTree = "<group>"; };
+		C43913BA1868C501006F5716 /* SKMultilineLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMultilineLabel.h; sourceTree = "<group>"; };
+		C43913BB1868C501006F5716 /* SKMultilineLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMultilineLabel.m; sourceTree = "<group>"; };
 		C4933676185453010027C38C /* DoTheDancing-SpriteKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DoTheDancing-SpriteKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4933679185453010027C38C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C493367B185453010027C38C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -60,19 +92,13 @@
 		C4933685185453010027C38C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C4933687185453010027C38C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C4933689185453010027C38C /* DoTheDancing-SpriteKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DoTheDancing-SpriteKit-Prefix.pch"; sourceTree = "<group>"; };
-		C493368A185453010027C38C /* DTDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTDAppDelegate.h; sourceTree = "<group>"; };
-		C493368B185453010027C38C /* DTDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTDAppDelegate.m; sourceTree = "<group>"; };
 		C493368E185453010027C38C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C4933690185453010027C38C /* DTDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTDViewController.h; sourceTree = "<group>"; };
-		C4933691185453010027C38C /* DTDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTDViewController.m; sourceTree = "<group>"; };
 		C4933698185453010027C38C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
 		C493369E185453010027C38C /* DoTheDancing-SpriteKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DoTheDancing-SpriteKitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C493369F185453010027C38C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		C49336A7185453010027C38C /* DoTheDancing-SpriteKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DoTheDancing-SpriteKitTests-Info.plist"; sourceTree = "<group>"; };
 		C49336A9185453010027C38C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C49336AB185453010027C38C /* DoTheDancing_SpriteKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DoTheDancing_SpriteKitTests.m; sourceTree = "<group>"; };
-		C4B47604185ED5A000FA4648 /* SKButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKButton.h; sourceTree = "<group>"; };
-		C4B47605185ED5A000FA4648 /* SKButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +129,7 @@
 		C409AAF1185E917400BE51A3 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				C42913FF1867A7DF000D7F6B /* ACaslonPro-BoldItalic.otf */,
 				C409AAF2185E917400BE51A3 /* Economica-Bold.otf */,
 				C409AAF3185E917400BE51A3 /* Economica-BoldItalic.otf */,
 				C409AAF4185E917400BE51A3 /* Economica-Italic.otf */,
@@ -111,13 +138,123 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		C44CD3F9185D6B650019B20C /* Scenes */ = {
+		C429140C1867B178000D7F6B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C44CD41A185D85C80019B20C /* MainMenu */,
-				C44CD419185D85C80019B20C /* DanceMoveSelection */,
+				C429140D1867B178000D7F6B /* Sounds */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C429140D1867B178000D7F6B /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				C429140E1867B178000D7F6B /* Music */,
+				C42914101867B178000D7F6B /* SFX */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		C429140E1867B178000D7F6B /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				C429140F1867B178000D7F6B /* the_bernie.caf */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
+		C42914101867B178000D7F6B /* SFX */ = {
+			isa = PBXGroup;
+			children = (
+				C42914111867B178000D7F6B /* step1_alice.caf */,
+				C42914121867B178000D7F6B /* step2_alice.caf */,
+			);
+			path = SFX;
+			sourceTree = "<group>";
+		};
+		C429141A1867B2A4000D7F6B /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C429141B1867B2A4000D7F6B /* DanceMoves */,
+				C42914221867B2A4000D7F6B /* DTDViewController.h */,
+				C42914231867B2A4000D7F6B /* DTDViewController.m */,
+				C42914241867B2A4000D7F6B /* Scenes */,
+				C429142B1867B2A4000D7F6B /* Singletons */,
+				C43913AC1868B6D5006F5716 /* Categories */,
+				C429142E1867B2A4000D7F6B /* SKButton.h */,
+				C429142F1867B2A4000D7F6B /* SKButton.m */,
+				C43913BA1868C501006F5716 /* SKMultilineLabel.h */,
+				C43913BB1868C501006F5716 /* SKMultilineLabel.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		C429141B1867B2A4000D7F6B /* DanceMoves */ = {
+			isa = PBXGroup;
+			children = (
+				C429141C1867B2A4000D7F6B /* DTDDanceMove.h */,
+				C429141D1867B2A4000D7F6B /* DTDDanceMove.m */,
+				C429141E1867B2A4000D7F6B /* DTDDanceMoveBernie.h */,
+				C429141F1867B2A4000D7F6B /* DTDDanceMoveBernie.m */,
+				C42914201867B2A4000D7F6B /* DTDMotionRequirements.h */,
+				C42914211867B2A4000D7F6B /* DTDMotionRequirements.m */,
+			);
+			path = DanceMoves;
+			sourceTree = "<group>";
+		};
+		C42914241867B2A4000D7F6B /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				C42914281867B2A4000D7F6B /* MainMenu */,
+				C42914251867B2A4000D7F6B /* DanceMoveSelection */,
+				C429143F1867CCC7000D7F6B /* DanceMoveInstructions */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		C42914251867B2A4000D7F6B /* DanceMoveSelection */ = {
+			isa = PBXGroup;
+			children = (
+				C42914261867B2A4000D7F6B /* DTDDanceMoveSelectionScene.h */,
+				C42914271867B2A4000D7F6B /* DTDDanceMoveSelectionScene.m */,
+			);
+			path = DanceMoveSelection;
+			sourceTree = "<group>";
+		};
+		C42914281867B2A4000D7F6B /* MainMenu */ = {
+			isa = PBXGroup;
+			children = (
+				C42914291867B2A4000D7F6B /* DTDMainMenuScene.h */,
+				C429142A1867B2A4000D7F6B /* DTDMainMenuScene.m */,
+			);
+			path = MainMenu;
+			sourceTree = "<group>";
+		};
+		C429142B1867B2A4000D7F6B /* Singletons */ = {
+			isa = PBXGroup;
+			children = (
+				C429142C1867B2A4000D7F6B /* DTDAppDelegate.h */,
+				C429142D1867B2A4000D7F6B /* DTDAppDelegate.m */,
+				C42914381867B2D7000D7F6B /* DTDGameManager.h */,
+				C42914391867B2D7000D7F6B /* DTDGameManager.m */,
+			);
+			path = Singletons;
+			sourceTree = "<group>";
+		};
+		C429143F1867CCC7000D7F6B /* DanceMoveInstructions */ = {
+			isa = PBXGroup;
+			children = (
+				C42914401867D333000D7F6B /* DTDDanceMoveInstructionsScene.h */,
+				C42914411867D333000D7F6B /* DTDDanceMoveInstructionsScene.m */,
+			);
+			path = DanceMoveInstructions;
+			sourceTree = "<group>";
+		};
+		C43913AC1868B6D5006F5716 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 		C44CD3FD185D6B730019B20C /* Assets */ = {
@@ -134,24 +271,6 @@
 			children = (
 			);
 			path = Sprites;
-			sourceTree = "<group>";
-		};
-		C44CD419185D85C80019B20C /* DanceMoveSelection */ = {
-			isa = PBXGroup;
-			children = (
-				C44CD41E185D86110019B20C /* DTDDanceMoveSelectionScene.h */,
-				C44CD41F185D86110019B20C /* DTDDanceMoveSelectionScene.m */,
-			);
-			path = DanceMoveSelection;
-			sourceTree = "<group>";
-		};
-		C44CD41A185D85C80019B20C /* MainMenu */ = {
-			isa = PBXGroup;
-			children = (
-				C44CD41B185D85C80019B20C /* DTDMainMenuScene.h */,
-				C44CD41C185D85C80019B20C /* DTDMainMenuScene.m */,
-			);
-			path = MainMenu;
 			sourceTree = "<group>";
 		};
 		C493366D185453010027C38C = {
@@ -188,12 +307,9 @@
 		C4933681185453010027C38C /* DoTheDancing-SpriteKit */ = {
 			isa = PBXGroup;
 			children = (
-				C44CD3F9185D6B650019B20C /* Scenes */,
-				C493368A185453010027C38C /* DTDAppDelegate.h */,
-				C493368B185453010027C38C /* DTDAppDelegate.m */,
 				C493368D185453010027C38C /* Main.storyboard */,
-				C4933690185453010027C38C /* DTDViewController.h */,
-				C4933691185453010027C38C /* DTDViewController.m */,
+				C429141A1867B2A4000D7F6B /* Classes */,
+				C429140C1867B178000D7F6B /* Resources */,
 				C44CD3FD185D6B730019B20C /* Assets */,
 				C409AAF1185E917400BE51A3 /* Fonts */,
 				C4933682185453010027C38C /* Supporting Files */,
@@ -204,8 +320,6 @@
 		C4933682185453010027C38C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C4B47604185ED5A000FA4648 /* SKButton.h */,
-				C4B47605185ED5A000FA4648 /* SKButton.m */,
 				C4933683185453010027C38C /* DoTheDancing-SpriteKit-Info.plist */,
 				C4933684185453010027C38C /* InfoPlist.strings */,
 				C4933687185453010027C38C /* main.m */,
@@ -310,12 +424,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C42914131867B178000D7F6B /* the_bernie.caf in Resources */,
 				C4933686185453010027C38C /* InfoPlist.strings in Resources */,
 				C409AAF6185E917400BE51A3 /* Economica-Bold.otf in Resources */,
 				C4933699185453010027C38C /* Images.xcassets in Resources */,
 				C409AAF9185E917400BE51A3 /* Economica-Regular.otf in Resources */,
+				C42914151867B178000D7F6B /* step2_alice.caf in Resources */,
 				C493368F185453010027C38C /* Main.storyboard in Resources */,
 				C409AAF8185E917400BE51A3 /* Economica-Italic.otf in Resources */,
+				C42914141867B178000D7F6B /* step1_alice.caf in Resources */,
+				C42914001867A7DF000D7F6B /* ACaslonPro-BoldItalic.otf in Resources */,
 				C409AAF7185E917400BE51A3 /* Economica-BoldItalic.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,12 +453,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C429143A1867B2D7000D7F6B /* DTDGameManager.m in Sources */,
+				C42914351867B2A4000D7F6B /* DTDMainMenuScene.m in Sources */,
+				C42914321867B2A4000D7F6B /* DTDMotionRequirements.m in Sources */,
+				C42914421867D333000D7F6B /* DTDDanceMoveInstructionsScene.m in Sources */,
+				C42914341867B2A4000D7F6B /* DTDDanceMoveSelectionScene.m in Sources */,
+				C42914361867B2A4000D7F6B /* DTDAppDelegate.m in Sources */,
 				C4933688185453010027C38C /* main.m in Sources */,
-				C44CD41D185D85C80019B20C /* DTDMainMenuScene.m in Sources */,
-				C493368C185453010027C38C /* DTDAppDelegate.m in Sources */,
-				C44CD420185D86110019B20C /* DTDDanceMoveSelectionScene.m in Sources */,
-				C4933692185453010027C38C /* DTDViewController.m in Sources */,
-				C4B47606185ED5A000FA4648 /* SKButton.m in Sources */,
+				C42914371867B2A4000D7F6B /* SKButton.m in Sources */,
+				C42914301867B2A4000D7F6B /* DTDDanceMove.m in Sources */,
+				C43913BC1868C501006F5716 /* SKMultilineLabel.m in Sources */,
+				C42914311867B2A4000D7F6B /* DTDDanceMoveBernie.m in Sources */,
+				C42914331867B2A4000D7F6B /* DTDViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
