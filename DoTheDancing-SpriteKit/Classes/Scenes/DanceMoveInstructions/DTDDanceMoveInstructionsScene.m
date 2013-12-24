@@ -40,8 +40,7 @@
         _currentShownStep = 1;
         
         // Play background track
-#warning Uncomment to play music
-//        [[DTDGameManager sharedGameManager] playBackgroundMusic:self.danceMove.trackName];
+        [[DTDGameManager sharedGameManager] playBackgroundMusic:self.danceMove.trackName];
         
         [self _displayTopBar];
         [self _displayIllustration];
