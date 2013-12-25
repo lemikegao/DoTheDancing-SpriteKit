@@ -56,7 +56,6 @@ static DTDGameManager *_sharedGameManager = nil;   // singleton
         
         // individual dance moves practice
         _individualDanceMove = nil;
-        _danceMoveIterationResults = nil;
         
         // multiplayer
 //        _isMultiplayer = NO;

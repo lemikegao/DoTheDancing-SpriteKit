@@ -18,11 +18,10 @@
 @property (nonatomic, strong) NSMutableDictionary *listOfSoundEffectFiles;
 @property (nonatomic, strong) NSMutableDictionary *soundEffectsState;
 
-// individual dance moves practice
+// Individual dance moves practice
 @property (nonatomic, strong) DTDDanceMove *individualDanceMove;
-@property (nonatomic, strong) NSMutableArray *danceMoveIterationResults;
 
-// multiplayer
+// Multiplayer
 //@property (nonatomic) BOOL isMultiplayer;
 //@property (nonatomic) BOOL isHost;
 //@property (nonatomic, strong) MatchmakingClient *client;

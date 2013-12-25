@@ -10,6 +10,7 @@
 #import "DTDGameManager.h"
 #import "DTDDanceMoveSelectionScene.h"
 #import "DTDDanceMoveSeeInActionScene.h"
+#import "DTDDanceMoveTryItOutScene.h"
 #import "SKMultilineLabel.h"
 
 @interface DTDDanceMoveInstructionsScene()
@@ -41,14 +42,14 @@
         _danceMove = [DTDGameManager sharedGameManager].individualDanceMove;
         _currentShownStep = 1;
         
-        // Play background track
-        [[DTDGameManager sharedGameManager] playBackgroundMusic:self.danceMove.trackName];
-        
         [self _displayTopBar];
         [self _displayIllustration];
         [self _displayIllustrationButtons];
         [self _displayInstructions];
         [self _displayBottomMenu];
+        
+        // Play background track
+        [[DTDGameManager sharedGameManager] playBackgroundMusic:self.danceMove.trackName];
     }
     return self;
 }
@@ -221,6 +222,7 @@
     SKButton *tryItOutButton = [SKButton buttonWithImageNamedNormal:@"instructions-button-try" selected:@"instructions-button-try-highlight"];
     tryItOutButton.anchorPoint = CGPointMake(0, 0);
     tryItOutButton.position = CGPointMake(self.size.width * 0.53, seeInActionButton.position.y);
+    [tryItOutButton setTouchUpInsideTarget:self action:@selector(_pressedTryItOut:)];
     [self addChild:tryItOutButton];
 }
 
@@ -245,6 +247,12 @@
 {
     [[DTDGameManager sharedGameManager] pauseBackgroundMusic];
     [self.view presentScene:[DTDDanceMoveSeeInActionScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
+}
+
+- (void)_pressedTryItOut:(id)sender
+{
+    [[DTDGameManager sharedGameManager] pauseBackgroundMusic];
+    [self.view presentScene:[DTDDanceMoveTryItOutScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
 }
 
 #pragma mark - Private methods

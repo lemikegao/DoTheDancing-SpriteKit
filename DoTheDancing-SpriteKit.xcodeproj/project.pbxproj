@@ -27,6 +27,10 @@
 		C42914421867D333000D7F6B /* DTDDanceMoveInstructionsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C42914411867D333000D7F6B /* DTDDanceMoveInstructionsScene.m */; };
 		C43913BC1868C501006F5716 /* SKMultilineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C43913BB1868C501006F5716 /* SKMultilineLabel.m */; };
 		C43913C018696854006F5716 /* DTDDanceMoveSeeInActionScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C43913BF18696854006F5716 /* DTDDanceMoveSeeInActionScene.m */; };
+		C4784529186A011B00243110 /* TCProgressTimerForegroundCropNode.m in Sources */ = {isa = PBXBuildFile; fileRef = C4784526186A011B00243110 /* TCProgressTimerForegroundCropNode.m */; };
+		C478452A186A011B00243110 /* TCProgressTimerNode.m in Sources */ = {isa = PBXBuildFile; fileRef = C4784528186A011B00243110 /* TCProgressTimerNode.m */; };
+		C478452E186A9A8900243110 /* DTDDanceMoveTryItOutScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C478452D186A9A8900243110 /* DTDDanceMoveTryItOutScene.m */; };
+		C4784532186AB8CA00243110 /* DTDDanceMoveResultsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C4784531186AB8CA00243110 /* DTDDanceMoveResultsScene.m */; };
 		C493367A185453010027C38C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4933679185453010027C38C /* Foundation.framework */; };
 		C493367C185453010027C38C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C493367B185453010027C38C /* CoreGraphics.framework */; };
 		C493367E185453010027C38C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C493367D185453010027C38C /* UIKit.framework */; };
@@ -86,6 +90,14 @@
 		C43913BB1868C501006F5716 /* SKMultilineLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMultilineLabel.m; sourceTree = "<group>"; };
 		C43913BE18696854006F5716 /* DTDDanceMoveSeeInActionScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDDanceMoveSeeInActionScene.h; sourceTree = "<group>"; };
 		C43913BF18696854006F5716 /* DTDDanceMoveSeeInActionScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDDanceMoveSeeInActionScene.m; sourceTree = "<group>"; };
+		C4784525186A011B00243110 /* TCProgressTimerForegroundCropNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCProgressTimerForegroundCropNode.h; sourceTree = "<group>"; };
+		C4784526186A011B00243110 /* TCProgressTimerForegroundCropNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCProgressTimerForegroundCropNode.m; sourceTree = "<group>"; };
+		C4784527186A011B00243110 /* TCProgressTimerNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCProgressTimerNode.h; sourceTree = "<group>"; };
+		C4784528186A011B00243110 /* TCProgressTimerNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCProgressTimerNode.m; sourceTree = "<group>"; };
+		C478452C186A9A8900243110 /* DTDDanceMoveTryItOutScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDDanceMoveTryItOutScene.h; sourceTree = "<group>"; };
+		C478452D186A9A8900243110 /* DTDDanceMoveTryItOutScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDDanceMoveTryItOutScene.m; sourceTree = "<group>"; };
+		C4784530186AB8CA00243110 /* DTDDanceMoveResultsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDDanceMoveResultsScene.h; sourceTree = "<group>"; };
+		C4784531186AB8CA00243110 /* DTDDanceMoveResultsScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDDanceMoveResultsScene.m; sourceTree = "<group>"; };
 		C4933676185453010027C38C /* DoTheDancing-SpriteKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DoTheDancing-SpriteKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4933679185453010027C38C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C493367B185453010027C38C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -188,6 +200,10 @@
 				C429142F1867B2A4000D7F6B /* SKButton.m */,
 				C43913BA1868C501006F5716 /* SKMultilineLabel.h */,
 				C43913BB1868C501006F5716 /* SKMultilineLabel.m */,
+				C4784525186A011B00243110 /* TCProgressTimerForegroundCropNode.h */,
+				C4784526186A011B00243110 /* TCProgressTimerForegroundCropNode.m */,
+				C4784527186A011B00243110 /* TCProgressTimerNode.h */,
+				C4784528186A011B00243110 /* TCProgressTimerNode.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -212,6 +228,8 @@
 				C42914251867B2A4000D7F6B /* DanceMoveSelection */,
 				C429143F1867CCC7000D7F6B /* DanceMoveInstructions */,
 				C43913BD18696844006F5716 /* DanceMoveSeeInAction */,
+				C478452B186A9A7D00243110 /* DanceMoveTryItOut */,
+				C478452F186AB8BF00243110 /* DanceMoveResults */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -284,6 +302,24 @@
 			children = (
 			);
 			path = Sprites;
+			sourceTree = "<group>";
+		};
+		C478452B186A9A7D00243110 /* DanceMoveTryItOut */ = {
+			isa = PBXGroup;
+			children = (
+				C478452C186A9A8900243110 /* DTDDanceMoveTryItOutScene.h */,
+				C478452D186A9A8900243110 /* DTDDanceMoveTryItOutScene.m */,
+			);
+			path = DanceMoveTryItOut;
+			sourceTree = "<group>";
+		};
+		C478452F186AB8BF00243110 /* DanceMoveResults */ = {
+			isa = PBXGroup;
+			children = (
+				C4784530186AB8CA00243110 /* DTDDanceMoveResultsScene.h */,
+				C4784531186AB8CA00243110 /* DTDDanceMoveResultsScene.m */,
+			);
+			path = DanceMoveResults;
 			sourceTree = "<group>";
 		};
 		C493366D185453010027C38C = {
@@ -472,8 +508,12 @@
 				C42914421867D333000D7F6B /* DTDDanceMoveInstructionsScene.m in Sources */,
 				C42914341867B2A4000D7F6B /* DTDDanceMoveSelectionScene.m in Sources */,
 				C42914361867B2A4000D7F6B /* DTDAppDelegate.m in Sources */,
+				C4784532186AB8CA00243110 /* DTDDanceMoveResultsScene.m in Sources */,
+				C478452E186A9A8900243110 /* DTDDanceMoveTryItOutScene.m in Sources */,
+				C4784529186A011B00243110 /* TCProgressTimerForegroundCropNode.m in Sources */,
 				C4933688185453010027C38C /* main.m in Sources */,
 				C42914371867B2A4000D7F6B /* SKButton.m in Sources */,
+				C478452A186A011B00243110 /* TCProgressTimerNode.m in Sources */,
 				C42914301867B2A4000D7F6B /* DTDDanceMove.m in Sources */,
 				C43913BC1868C501006F5716 /* SKMultilineLabel.m in Sources */,
 				C42914311867B2A4000D7F6B /* DTDDanceMoveBernie.m in Sources */,

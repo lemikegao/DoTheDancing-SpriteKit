@@ -1,19 +1,18 @@
 //
-//  DTDDanceMoveSeeInActionScene.m
+//  DTDDanceMoveTryItOutScene.m
 //  DoTheDancing-SpriteKit
 //
-//  Created by Michael Gao on 12/23/13.
+//  Created by Michael Gao on 12/24/13.
 //  Copyright (c) 2013 Chin and Cheeks LLC. All rights reserved.
 //
 
-#import "DTDDanceMoveSeeInActionScene.h"
-#import "DTDDanceMoveInstructionsScene.h"
 #import "DTDDanceMoveTryItOutScene.h"
+#import "DTDDanceMoveResultsScene.h"
 #import "DTDGameManager.h"
-#import "SKMultilineLabel.h"
 #import "TCProgressTimerNode.h"
+#include <CoreMotion/CoreMotion.h>
 
-@interface DTDDanceMoveSeeInActionScene()
+@interface DTDDanceMoveTryItOutScene()
 
 @property (nonatomic, strong) DTDDanceMove *danceMove;
 @property (nonatomic) NSTimeInterval lastUpdateTime;
@@ -23,10 +22,9 @@
 // Sprite management
 @property (nonatomic, strong) SKLabelNode *movesCompletedCountLabel;
 @property (nonatomic, strong) SKSpriteNode *illustration;
-@property (nonatomic, strong) SKMultilineLabel *countdownLabel;
+@property (nonatomic, strong) SKLabelNode *countdownLabel;
 @property (nonatomic, strong) SKLabelNode *stepCountLabel;
 @property (nonatomic, strong) TCProgressTimerNode *stepTimer;
-@property (nonatomic, strong) NSArray *hiddenMenuItems;
 
 // Countdown
 @property (nonatomic) CGFloat countdownElapsedTime;
@@ -37,45 +35,79 @@
 @property (nonatomic) BOOL isDanceActivated;
 @property (nonatomic) CGFloat currentStepElapsedTime;
 @property (nonatomic) CGFloat currentIterationElapsedTime;
+@property (nonatomic) NSUInteger currentPart;
 @property (nonatomic) NSUInteger currentStep;
 @property (nonatomic) NSUInteger currentIteration;
 @property (nonatomic) CGFloat timeToMoveToNextStep;
 
+// Dance detection
+@property (nonatomic) BOOL shouldDetectDanceMove;
+@property (nonatomic, strong) NSArray *currentDanceStepParts;
+@property (nonatomic, strong) NSMutableArray *currentIterationStepsDetected;
+@property (nonatomic, strong) NSMutableArray *danceIterationStepsDetected;
+@property (nonatomic, strong) CMMotionManager *motionManager;
+
 @end
 
-@implementation DTDDanceMoveSeeInActionScene
+@implementation DTDDanceMoveTryItOutScene
 
 - (id)initWithSize:(CGSize)size
 {
     self = [super initWithSize:size];
     if (self)
     {
-        // Init properties
         self.backgroundColor = RGB(249, 185, 56);
         _danceMove = [DTDGameManager sharedGameManager].individualDanceMove;
-        _countdownElapsedTime = 0;
-        _isCountdownActivated = NO;
-        _currentCountdownNum = 3;
-        _isDanceActivated = NO;
-        _currentStepElapsedTime = 0;
-        _currentIterationElapsedTime = 0;
-        _currentStep = 1;
-        _currentIteration = 1;
-        _timeToMoveToNextStep = [self.danceMove.timePerSteps[0] floatValue];
         _isSceneOver = NO;
+        
+        // Initialize motion detection
+        [self _initCountdown];
+        [self _initDanceMoveDetection];
         
         // Set up UI
         [self _displayTopBar];
         [self _displayMovesCompletedBar];
         [self _displayIllustration];
         [self _addStepLabelAndTimer];
-        [self _addMenu];
         
-        // Play background music
+        // Play background track
         [[DTDGameManager sharedGameManager] playBackgroundMusic:self.danceMove.trackName];
     }
     
     return self;
+}
+
+- (void)_initCountdown
+{
+    _isDanceActivated = NO;
+    _isCountdownActivated = NO;
+    _countdownElapsedTime = 0;
+    self.currentCountdownNum = 3;
+}
+
+- (void)_initDanceMoveDetection
+{
+    _shouldDetectDanceMove = NO;
+    _currentIteration = 1;
+    _currentStep = 1;
+    _currentPart = 1;
+    _currentDanceStepParts = self.danceMove.stepsArray[0];
+    _timeToMoveToNextStep = [self.danceMove.timePerSteps[0] floatValue];
+    _danceIterationStepsDetected = [NSMutableArray arrayWithCapacity:self.danceMove.numIndividualIterations];
+    [self _resetCurrentIterationStepsDetected];
+    
+    // Motion manager
+    _motionManager = [[CMMotionManager alloc] init];
+    _motionManager.deviceMotionUpdateInterval = 1.0/60.0f;
+    [_motionManager startDeviceMotionUpdates];
+}
+
+#pragma mark - Exit scene
+- (void)willMoveFromView:(SKView *)view
+{
+    [self.motionManager stopDeviceMotionUpdates];
+    
+    [super willMoveFromView:view];
 }
 
 #pragma mark - UI setup
@@ -99,7 +131,7 @@
     // 'IN ACTION' label
     SKLabelNode *instructionsLabel = [SKLabelNode labelNodeWithFontNamed:@"Economica-Italic"];
     instructionsLabel.fontSize = 16.5;
-    instructionsLabel.text = @"IN ACTION";
+    instructionsLabel.text = @"DANCE MODE";
     instructionsLabel.fontColor = RGB(249, 185, 56);
     instructionsLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
     instructionsLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeRight;
@@ -170,8 +202,12 @@
     [self addChild:self.illustration];
     
     // Display 'Ready?' label
-    self.countdownLabel = [SKMultilineLabel multilineLabelFromStringContainingNewLines:@"Watch &\nLearn" fontName:@"Economica-Bold" fontColor:RGB(56, 56, 56) fontSize:51 verticalMargin:4 emptyLineHeight:0];
+    self.countdownLabel = [SKLabelNode labelNodeWithFontNamed:@"Economica-Bold"];
+    self.countdownLabel.fontSize = 63;
+    self.countdownLabel.fontColor = RGB(56, 56, 56);
     self.countdownLabel.position = self.illustration.position;
+    self.countdownLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
+    self.countdownLabel.text = @"Ready?";
     [self addChild:self.countdownLabel];
 }
 
@@ -207,32 +243,6 @@
     [self addChild:self.stepTimer];
 }
 
-- (void)_addMenu
-{
-    // 'TRY IT OUT!' button
-    SKButton *tryItOutButton = [SKButton buttonWithImageNamedNormal:@"inaction-button-try" selected:@"inaction-button-try-highlight"];
-    tryItOutButton.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.72);
-    tryItOutButton.hidden = YES;
-    [tryItOutButton setTouchUpInsideTarget:self action:@selector(_pressedTryItOut:)];
-    [self addChild:tryItOutButton];
-    
-    // 'WATCH AGAIN' button
-    SKButton *watchAgainButton = [SKButton buttonWithImageNamedNormal:@"inaction-button-watchagain" selected:@"inaction-button-watchagain-highlight"];
-    watchAgainButton.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.58);
-    watchAgainButton.hidden = YES;
-    [watchAgainButton setTouchUpInsideTarget:self action:@selector(_pressedWatchAgain:)];
-    [self addChild:watchAgainButton];
-    
-    // 'INSTRUCTIONS' button
-    SKButton *instructionsButton = [SKButton buttonWithImageNamedNormal:@"inaction-button-instructions" selected:@"inaction-button-instructions-highlight"];
-    instructionsButton.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.44);
-    instructionsButton.hidden = YES;
-    [instructionsButton setTouchUpInsideTarget:self action:@selector(_pressedInstructions:)];
-    [self addChild:instructionsButton];
-    
-    self.hiddenMenuItems = @[tryItOutButton, watchAgainButton, instructionsButton];
-}
-
 #pragma mark - Countdown methods
 - (void)_checkToStartCountdown
 {
@@ -246,6 +256,7 @@
         }];
         [self runAction:[SKAction repeatAction:[SKAction sequence:@[updateCountdown, wait]] count:3] completion:^{
             [self.countdownLabel removeFromParent];
+            self.shouldDetectDanceMove = YES;
             self.isDanceActivated = YES;
             self.stepCountLabel.hidden = NO;
             self.stepTimer.hidden = NO;
@@ -260,36 +271,42 @@
     self.currentCountdownNum--;
 }
 
-#pragma mark - Button actions
-- (void)_pressedTryItOut:(id)sender
+#pragma mark - Dance move detection
+- (void)_resetCurrentIterationStepsDetected
 {
-    [[DTDGameManager sharedGameManager] pauseBackgroundMusic];
-    [self.view presentScene:[DTDDanceMoveTryItOutScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
-}
-
-- (void)_pressedWatchAgain:(id)sender
-{
-    [[DTDGameManager sharedGameManager] pauseBackgroundMusic];
-    [self.view presentScene:[DTDDanceMoveSeeInActionScene sceneWithSize:self.size]];
-}
-
-- (void)_pressedInstructions:(id)sender
-{
-    [[DTDGameManager sharedGameManager] pauseBackgroundMusic];
-    [self.view presentScene:[DTDDanceMoveInstructionsScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionRight duration:0.25]];
-}
-
-#pragma mark - Private methods
-- (void)_moveOnToNextStep
-{
-    if (self.currentStep < self.danceMove.numSteps)
+    self.currentIterationStepsDetected = [NSMutableArray arrayWithCapacity:self.danceMove.numSteps];
+    for (NSUInteger i=0; i < self.danceMove.numSteps; i++)
     {
-        self.currentStep++;
-        self.timeToMoveToNextStep = [self.danceMove.timePerSteps[self.currentStep-1] floatValue];
-        self.stepCountLabel.text = [NSString stringWithFormat:@"Step %i", self.currentStep];
-        self.currentStepElapsedTime = 0;
-        
-        [self _updateIllustrations];
+        self.currentIterationStepsDetected[i] = @(NO);
+    }
+}
+
+- (void)_detectDancePart
+{
+    CGFloat yaw = (RadiansToDegrees(self.motionManager.deviceMotion.attitude.yaw));
+    CGFloat pitch = (RadiansToDegrees(self.motionManager.deviceMotion.attitude.pitch));
+    CGFloat roll = (RadiansToDegrees(self.motionManager.deviceMotion.attitude.roll));
+    CMAcceleration totalAcceleration = self.motionManager.deviceMotion.userAcceleration;
+    
+    if (self.shouldDetectDanceMove)
+    {
+        DTDMotionRequirements *currentPartMotionRequirements = self.currentDanceStepParts[self.currentPart-1];
+        if ((yaw > currentPartMotionRequirements.yawMin) &&
+            (yaw < currentPartMotionRequirements.yawMax) &&
+            (pitch > currentPartMotionRequirements.pitchMin) &&
+            (pitch < currentPartMotionRequirements.pitchMax) &&
+            (roll > currentPartMotionRequirements.rollMin) &&
+            (roll < currentPartMotionRequirements.rollMax) &&
+            (totalAcceleration.x > currentPartMotionRequirements.accelerationXMin) &&
+            (totalAcceleration.x < currentPartMotionRequirements.accelerationXMax) &&
+            (totalAcceleration.y > currentPartMotionRequirements.accelerationYMin) &&
+            (totalAcceleration.y < currentPartMotionRequirements.accelerationYMax) &&
+            (totalAcceleration.z > currentPartMotionRequirements.accelerationZMin) &&
+            (totalAcceleration.z < currentPartMotionRequirements.accelerationZMax)) {
+            NSLog(@"iteration: %i, step: %i, part: %i detected", self.currentIteration, self.currentStep, self.currentPart);
+            
+            [self _moveOnToNextPart];
+        }
     }
 }
 
@@ -297,37 +314,84 @@
 {
     self.currentIteration++;
     self.currentStep = 1;
+    self.currentPart = 1;
+    self.shouldDetectDanceMove = YES;
     [self _updateIterationCountWithNum:self.currentIteration-1];
     self.stepCountLabel.text = @"Step 1";
     self.currentIterationElapsedTime = 0;
     self.currentStepElapsedTime = 0;
     self.timeToMoveToNextStep = [self.danceMove.timePerSteps[0] floatValue];
+    self.currentDanceStepParts = self.danceMove.stepsArray[0];
+    
+    // Save results of current iteration
+    [self.danceIterationStepsDetected addObject:self.currentIterationStepsDetected];
+    [self _resetCurrentIterationStepsDetected];
     
     [self _updateIllustrations];
 }
 
-- (void)_endScene
+- (void)_moveOnToNextStep
 {
+    if (self.currentStep < self.danceMove.numSteps)
+    {
+        self.currentStep++;
+        self.timeToMoveToNextStep = [self.danceMove.timePerSteps[self.currentStep-1] floatValue];
+        self.stepCountLabel.text = [NSString stringWithFormat:@"Step %i", self.currentStep];
+        self.currentDanceStepParts = self.danceMove.stepsArray[self.currentStep-1];
+        self.currentPart = 1;
+        self.shouldDetectDanceMove = YES;
+        self.currentStepElapsedTime = 0;
+        
+        [self _updateIllustrations];
+    }
+}
+
+- (void)_moveOnToNextPart
+{
+    if (self.currentPart == self.currentDanceStepParts.count)
+    {
+        // Step detected!
+        self.shouldDetectDanceMove = NO;
+        NSLog(@"Iteration: %i, Step: %i Successfully Detected!", self.currentIteration, self.currentStep);
+        self.currentIterationStepsDetected[self.currentStep-1] = @(YES);
+    }
+    else
+    {
+        // Move on to next part
+        self.currentPart++;
+    }
+}
+
+#pragma mark - Private methods
+- (void)_segueToResults
+{
+    // Terminate scene
+    self.isSceneOver = YES;
+    
+    // Add last step results
+    [self.danceIterationStepsDetected addObject:self.currentIterationStepsDetected];
     [self _updateIterationCountWithNum:self.currentIteration];
-    _isSceneOver = YES;
     
-    // Remove illustration, step label, and step timer
-    [self.illustration removeFromParent];
-    [self.stepCountLabel removeFromParent];
-    [self.stepTimer removeFromParent];
-    
-    // Display menu
-    [self.hiddenMenuItems enumerateObjectsUsingBlock:^(SKButton *button, NSUInteger idx, BOOL *stop) {
-        button.hidden = NO;
-    }];
+    // Segue to results scene
+    [[DTDGameManager sharedGameManager] pauseBackgroundMusic];
+    [self.view presentScene:[DTDDanceMoveResultsScene sceneWithSize:self.size results:self.danceIterationStepsDetected] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
 }
 
 #pragma mark - Update
-
 - (void)_updateIllustrations
 {
     // Stop any animations
     [self.illustration removeAllActions];
+    
+    // Play step SFX
+    if (self.currentStep == 1)
+    {
+        [[DTDGameManager sharedGameManager] playSoundEffect:kStep1_SFX];
+    }
+    else if (self.currentStep == 2)
+    {
+        [[DTDGameManager sharedGameManager] playSoundEffect:kStep2_SFX];
+    }
     
     /* Update illustration */
     // Check for animation
@@ -360,10 +424,11 @@
     {
         self.currentIterationElapsedTime = 0;
         self.currentStepElapsedTime = 0;
+        
         // End scene
         if (self.currentIteration == self.danceMove.numIndividualIterations)
         {
-            [self _endScene];
+            [self _segueToResults];
         }
         else
         {
@@ -402,13 +467,14 @@
             _dt = 0;
         }
         _lastUpdateTime = currentTime;
-        
+
         // Update dance timer & illustrations
         if (self.isDanceActivated == YES)
         {
             self.currentStepElapsedTime = self.currentStepElapsedTime + _dt;
             self.currentIterationElapsedTime = self.currentIterationElapsedTime + _dt;
             [self _updateTimers];
+            [self _detectDancePart];
         }
         else if (self.isCountdownActivated == NO)
         {

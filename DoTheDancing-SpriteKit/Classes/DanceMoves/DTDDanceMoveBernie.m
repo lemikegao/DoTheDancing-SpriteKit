@@ -28,7 +28,7 @@
         [self _setUpIllustrations];
         [self _setUpInstructions];
         
-        self.timeToStartCountdown = 2.45;       // actual countdown start time - delayForCountdown
+        self.timeToStartCountdown = 3.14;       // actual countdown start time - delayForCountdown
         self.delayForCountdown = 0.69;
     }
     

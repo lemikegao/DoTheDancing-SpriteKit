@@ -10,7 +10,6 @@
 #import "DTDGameManager.h"
 #import "DTDMainMenuScene.h"
 #import "DTDDanceMoveInstructionsScene.h"
-#import "DTDDanceMove.h"
 #import "DTDDanceMoveBernie.h"
 
 @implementation DTDDanceMoveSelectionScene
