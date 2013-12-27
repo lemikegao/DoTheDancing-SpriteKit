@@ -136,6 +136,12 @@ _Pragma("clang diagnostic pop") \
     }
 }
 
+- (void)setNormalTexture:(SKTexture *)normalTexture
+{
+    _normalTexture = normalTexture;
+    [self setTexture:_normalTexture];
+}
+
 #pragma -
 #pragma mark Touch Handling
 
