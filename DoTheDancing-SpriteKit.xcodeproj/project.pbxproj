@@ -27,6 +27,7 @@
 		C42914421867D333000D7F6B /* DTDDanceMoveInstructionsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C42914411867D333000D7F6B /* DTDDanceMoveInstructionsScene.m */; };
 		C43913BC1868C501006F5716 /* SKMultilineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C43913BB1868C501006F5716 /* SKMultilineLabel.m */; };
 		C43913C018696854006F5716 /* DTDDanceMoveSeeInActionScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C43913BF18696854006F5716 /* DTDDanceMoveSeeInActionScene.m */; };
+		C4737256186D756E00B147B9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4737255186D756E00B147B9 /* Images.xcassets */; };
 		C4784529186A011B00243110 /* TCProgressTimerForegroundCropNode.m in Sources */ = {isa = PBXBuildFile; fileRef = C4784526186A011B00243110 /* TCProgressTimerForegroundCropNode.m */; };
 		C478452A186A011B00243110 /* TCProgressTimerNode.m in Sources */ = {isa = PBXBuildFile; fileRef = C4784528186A011B00243110 /* TCProgressTimerNode.m */; };
 		C478452E186A9A8900243110 /* DTDDanceMoveTryItOutScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C478452D186A9A8900243110 /* DTDDanceMoveTryItOutScene.m */; };
@@ -38,7 +39,6 @@
 		C4933686185453010027C38C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4933684185453010027C38C /* InfoPlist.strings */; };
 		C4933688185453010027C38C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4933687185453010027C38C /* main.m */; };
 		C493368F185453010027C38C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C493368D185453010027C38C /* Main.storyboard */; };
-		C4933699185453010027C38C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4933698185453010027C38C /* Images.xcassets */; };
 		C49336A0185453010027C38C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C493369F185453010027C38C /* XCTest.framework */; };
 		C49336A1185453010027C38C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4933679185453010027C38C /* Foundation.framework */; };
 		C49336A2185453010027C38C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C493367D185453010027C38C /* UIKit.framework */; };
@@ -90,6 +90,7 @@
 		C43913BB1868C501006F5716 /* SKMultilineLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMultilineLabel.m; sourceTree = "<group>"; };
 		C43913BE18696854006F5716 /* DTDDanceMoveSeeInActionScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDDanceMoveSeeInActionScene.h; sourceTree = "<group>"; };
 		C43913BF18696854006F5716 /* DTDDanceMoveSeeInActionScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDDanceMoveSeeInActionScene.m; sourceTree = "<group>"; };
+		C4737255186D756E00B147B9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C4784525186A011B00243110 /* TCProgressTimerForegroundCropNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCProgressTimerForegroundCropNode.h; sourceTree = "<group>"; };
 		C4784526186A011B00243110 /* TCProgressTimerForegroundCropNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCProgressTimerForegroundCropNode.m; sourceTree = "<group>"; };
 		C4784527186A011B00243110 /* TCProgressTimerNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCProgressTimerNode.h; sourceTree = "<group>"; };
@@ -108,7 +109,6 @@
 		C4933687185453010027C38C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C4933689185453010027C38C /* DoTheDancing-SpriteKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DoTheDancing-SpriteKit-Prefix.pch"; sourceTree = "<group>"; };
 		C493368E185453010027C38C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C4933698185453010027C38C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
 		C493369E185453010027C38C /* DoTheDancing-SpriteKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DoTheDancing-SpriteKitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C493369F185453010027C38C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		C49336A7185453010027C38C /* DoTheDancing-SpriteKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DoTheDancing-SpriteKitTests-Info.plist"; sourceTree = "<group>"; };
@@ -195,7 +195,6 @@
 				C42914231867B2A4000D7F6B /* DTDViewController.m */,
 				C42914241867B2A4000D7F6B /* Scenes */,
 				C429142B1867B2A4000D7F6B /* Singletons */,
-				C43913AC1868B6D5006F5716 /* Categories */,
 				C429142E1867B2A4000D7F6B /* SKButton.h */,
 				C429142F1867B2A4000D7F6B /* SKButton.m */,
 				C43913BA1868C501006F5716 /* SKMultilineLabel.h */,
@@ -272,13 +271,6 @@
 			path = DanceMoveInstructions;
 			sourceTree = "<group>";
 		};
-		C43913AC1868B6D5006F5716 /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Categories;
-			sourceTree = "<group>";
-		};
 		C43913BD18696844006F5716 /* DanceMoveSeeInAction */ = {
 			isa = PBXGroup;
 			children = (
@@ -291,17 +283,9 @@
 		C44CD3FD185D6B730019B20C /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				C4933698185453010027C38C /* Images.xcassets */,
-				C44CD40B185D6B730019B20C /* Sprites */,
+				C4737255186D756E00B147B9 /* Images.xcassets */,
 			);
 			path = Assets;
-			sourceTree = "<group>";
-		};
-		C44CD40B185D6B730019B20C /* Sprites */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Sprites;
 			sourceTree = "<group>";
 		};
 		C478452B186A9A7D00243110 /* DanceMoveTryItOut */ = {
@@ -444,6 +428,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Chin and Cheeks LLC";
 				TargetAttributes = {
+					C4933675185453010027C38C = {
+						DevelopmentTeam = 7MDA67429Z;
+					};
 					C493369D185453010027C38C = {
 						TestTargetID = C4933675185453010027C38C;
 					};
@@ -476,8 +463,8 @@
 				C42914131867B178000D7F6B /* the_bernie.caf in Resources */,
 				C4933686185453010027C38C /* InfoPlist.strings in Resources */,
 				C409AAF6185E917400BE51A3 /* Economica-Bold.otf in Resources */,
-				C4933699185453010027C38C /* Images.xcassets in Resources */,
 				C409AAF9185E917400BE51A3 /* Economica-Regular.otf in Resources */,
+				C4737256186D756E00B147B9 /* Images.xcassets in Resources */,
 				C42914151867B178000D7F6B /* step2_alice.caf in Resources */,
 				C493368F185453010027C38C /* Main.storyboard in Resources */,
 				C409AAF8185E917400BE51A3 /* Economica-Italic.otf in Resources */,
@@ -645,6 +632,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DoTheDancing-SpriteKit/DoTheDancing-SpriteKit-Prefix.pch";
 				INFOPLIST_FILE = "DoTheDancing-SpriteKit/DoTheDancing-SpriteKit-Info.plist";
@@ -659,6 +647,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DoTheDancing-SpriteKit/DoTheDancing-SpriteKit-Prefix.pch";
 				INFOPLIST_FILE = "DoTheDancing-SpriteKit/DoTheDancing-SpriteKit-Info.plist";
