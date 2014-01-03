@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>DoTheDancing-SpriteKit-iPad.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>DoTheDancing-SpriteKit.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +17,26 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>C428898918769D3C001FFB3A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C42889AB18769D3C001FFB3A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C45EE0D9187697D2003DF245</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C45EE0FB187697D3003DF245</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C4933675185453010027C38C</key>
 		<dict>
 			<key>primary</key>

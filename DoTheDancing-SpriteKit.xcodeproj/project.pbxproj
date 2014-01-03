@@ -7,29 +7,59 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C409AAF6185E917400BE51A3 /* Economica-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C409AAF2185E917400BE51A3 /* Economica-Bold.otf */; };
-		C409AAF7185E917400BE51A3 /* Economica-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = C409AAF3185E917400BE51A3 /* Economica-BoldItalic.otf */; };
-		C409AAF8185E917400BE51A3 /* Economica-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = C409AAF4185E917400BE51A3 /* Economica-Italic.otf */; };
-		C409AAF9185E917400BE51A3 /* Economica-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C409AAF5185E917400BE51A3 /* Economica-Regular.otf */; };
-		C42914001867A7DF000D7F6B /* ACaslonPro-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = C42913FF1867A7DF000D7F6B /* ACaslonPro-BoldItalic.otf */; };
-		C42914131867B178000D7F6B /* the_bernie.caf in Resources */ = {isa = PBXBuildFile; fileRef = C429140F1867B178000D7F6B /* the_bernie.caf */; };
-		C42914141867B178000D7F6B /* step1_alice.caf in Resources */ = {isa = PBXBuildFile; fileRef = C42914111867B178000D7F6B /* step1_alice.caf */; };
-		C42914151867B178000D7F6B /* step2_alice.caf in Resources */ = {isa = PBXBuildFile; fileRef = C42914121867B178000D7F6B /* step2_alice.caf */; };
-		C42914301867B2A4000D7F6B /* DTDDanceMove.m in Sources */ = {isa = PBXBuildFile; fileRef = C429141D1867B2A4000D7F6B /* DTDDanceMove.m */; };
-		C42914311867B2A4000D7F6B /* DTDDanceMoveBernie.m in Sources */ = {isa = PBXBuildFile; fileRef = C429141F1867B2A4000D7F6B /* DTDDanceMoveBernie.m */; };
-		C42914321867B2A4000D7F6B /* DTDMotionRequirements.m in Sources */ = {isa = PBXBuildFile; fileRef = C42914211867B2A4000D7F6B /* DTDMotionRequirements.m */; };
+		C408D62518769DD60070FC43 /* DTDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C408D62018769DD60070FC43 /* DTDViewController.m */; };
+		C408D62618769DD60070FC43 /* DTDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C408D62418769DD60070FC43 /* DTDAppDelegate.m */; };
+		C408D62918769DF70070FC43 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C408D62818769DF70070FC43 /* Images.xcassets */; };
+		C408D62B18769E0A0070FC43 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C408D62A18769E0A0070FC43 /* Images.xcassets */; };
+		C408D62D18769E610070FC43 /* DTDDanceMove.m in Sources */ = {isa = PBXBuildFile; fileRef = C45EE12118769921003DF245 /* DTDDanceMove.m */; };
+		C408D62F18769E610070FC43 /* DTDDanceMoveBernie.m in Sources */ = {isa = PBXBuildFile; fileRef = C45EE12318769921003DF245 /* DTDDanceMoveBernie.m */; };
+		C408D63118769E610070FC43 /* DTDMotionRequirements.m in Sources */ = {isa = PBXBuildFile; fileRef = C45EE12518769921003DF245 /* DTDMotionRequirements.m */; };
+		C408D63318769E610070FC43 /* SKButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C45EE12718769921003DF245 /* SKButton.m */; };
+		C408D63518769E610070FC43 /* SKMultilineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C45EE12918769921003DF245 /* SKMultilineLabel.m */; };
+		C408D63718769E610070FC43 /* TCProgressTimerForegroundCropNode.m in Sources */ = {isa = PBXBuildFile; fileRef = C45EE12B18769921003DF245 /* TCProgressTimerForegroundCropNode.m */; };
+		C408D63918769E610070FC43 /* TCProgressTimerNode.m in Sources */ = {isa = PBXBuildFile; fileRef = C45EE12D18769921003DF245 /* TCProgressTimerNode.m */; };
+		C408D65118769EEB0070FC43 /* ACaslonPro-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = C408D64618769EEB0070FC43 /* ACaslonPro-BoldItalic.otf */; };
+		C408D65218769EEB0070FC43 /* ACaslonPro-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = C408D64618769EEB0070FC43 /* ACaslonPro-BoldItalic.otf */; };
+		C408D65318769EEB0070FC43 /* Economica-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C408D64718769EEB0070FC43 /* Economica-Bold.otf */; };
+		C408D65418769EEB0070FC43 /* Economica-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C408D64718769EEB0070FC43 /* Economica-Bold.otf */; };
+		C408D65518769EEB0070FC43 /* Economica-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = C408D64818769EEB0070FC43 /* Economica-BoldItalic.otf */; };
+		C408D65618769EEB0070FC43 /* Economica-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = C408D64818769EEB0070FC43 /* Economica-BoldItalic.otf */; };
+		C408D65718769EEB0070FC43 /* Economica-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = C408D64918769EEB0070FC43 /* Economica-Italic.otf */; };
+		C408D65818769EEB0070FC43 /* Economica-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = C408D64918769EEB0070FC43 /* Economica-Italic.otf */; };
+		C408D65918769EEB0070FC43 /* Economica-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C408D64A18769EEB0070FC43 /* Economica-Regular.otf */; };
+		C408D65A18769EEB0070FC43 /* Economica-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C408D64A18769EEB0070FC43 /* Economica-Regular.otf */; };
+		C408D65B18769EEB0070FC43 /* the_bernie.caf in Resources */ = {isa = PBXBuildFile; fileRef = C408D64D18769EEB0070FC43 /* the_bernie.caf */; };
+		C408D65C18769EEB0070FC43 /* the_bernie.caf in Resources */ = {isa = PBXBuildFile; fileRef = C408D64D18769EEB0070FC43 /* the_bernie.caf */; };
+		C408D65D18769EEB0070FC43 /* step1_alice.caf in Resources */ = {isa = PBXBuildFile; fileRef = C408D64F18769EEB0070FC43 /* step1_alice.caf */; };
+		C408D65E18769EEB0070FC43 /* step1_alice.caf in Resources */ = {isa = PBXBuildFile; fileRef = C408D64F18769EEB0070FC43 /* step1_alice.caf */; };
+		C408D65F18769EEB0070FC43 /* step2_alice.caf in Resources */ = {isa = PBXBuildFile; fileRef = C408D65018769EEB0070FC43 /* step2_alice.caf */; };
+		C408D66018769EEB0070FC43 /* step2_alice.caf in Resources */ = {isa = PBXBuildFile; fileRef = C408D65018769EEB0070FC43 /* step2_alice.caf */; };
+		C428898B18769D3C001FFB3A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4933679185453010027C38C /* Foundation.framework */; };
+		C428898C18769D3C001FFB3A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C493367B185453010027C38C /* CoreGraphics.framework */; };
+		C428898D18769D3C001FFB3A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C493367D185453010027C38C /* UIKit.framework */; };
+		C428898E18769D3C001FFB3A /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C493367F185453010027C38C /* SpriteKit.framework */; };
+		C428899418769D3C001FFB3A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C428899218769D3C001FFB3A /* InfoPlist.strings */; };
+		C428899618769D3C001FFB3A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C428899518769D3C001FFB3A /* main.m */; };
+		C428899D18769D3C001FFB3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C428899B18769D3C001FFB3A /* Main.storyboard */; };
+		C42889AD18769D3D001FFB3A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C493369F185453010027C38C /* XCTest.framework */; };
+		C42889AE18769D3D001FFB3A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4933679185453010027C38C /* Foundation.framework */; };
+		C42889AF18769D3D001FFB3A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C493367D185453010027C38C /* UIKit.framework */; };
+		C42889B718769D3D001FFB3A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C42889B518769D3D001FFB3A /* InfoPlist.strings */; };
+		C42889B918769D3D001FFB3A /* DoTheDancing_SpriteKit_iPadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C42889B818769D3D001FFB3A /* DoTheDancing_SpriteKit_iPadTests.m */; };
 		C42914331867B2A4000D7F6B /* DTDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C42914231867B2A4000D7F6B /* DTDViewController.m */; };
 		C42914341867B2A4000D7F6B /* DTDDanceMoveSelectionScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C42914271867B2A4000D7F6B /* DTDDanceMoveSelectionScene.m */; };
 		C42914351867B2A4000D7F6B /* DTDMainMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C429142A1867B2A4000D7F6B /* DTDMainMenuScene.m */; };
 		C42914361867B2A4000D7F6B /* DTDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C429142D1867B2A4000D7F6B /* DTDAppDelegate.m */; };
-		C42914371867B2A4000D7F6B /* SKButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C429142F1867B2A4000D7F6B /* SKButton.m */; };
 		C429143A1867B2D7000D7F6B /* DTDGameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C42914391867B2D7000D7F6B /* DTDGameManager.m */; };
 		C42914421867D333000D7F6B /* DTDDanceMoveInstructionsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C42914411867D333000D7F6B /* DTDDanceMoveInstructionsScene.m */; };
-		C43913BC1868C501006F5716 /* SKMultilineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C43913BB1868C501006F5716 /* SKMultilineLabel.m */; };
 		C43913C018696854006F5716 /* DTDDanceMoveSeeInActionScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C43913BF18696854006F5716 /* DTDDanceMoveSeeInActionScene.m */; };
-		C4737256186D756E00B147B9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4737255186D756E00B147B9 /* Images.xcassets */; };
-		C4784529186A011B00243110 /* TCProgressTimerForegroundCropNode.m in Sources */ = {isa = PBXBuildFile; fileRef = C4784526186A011B00243110 /* TCProgressTimerForegroundCropNode.m */; };
-		C478452A186A011B00243110 /* TCProgressTimerNode.m in Sources */ = {isa = PBXBuildFile; fileRef = C4784528186A011B00243110 /* TCProgressTimerNode.m */; };
+		C45EE13418769921003DF245 /* DTDDanceMove.m in Sources */ = {isa = PBXBuildFile; fileRef = C45EE12118769921003DF245 /* DTDDanceMove.m */; };
+		C45EE13618769921003DF245 /* DTDDanceMoveBernie.m in Sources */ = {isa = PBXBuildFile; fileRef = C45EE12318769921003DF245 /* DTDDanceMoveBernie.m */; };
+		C45EE13818769921003DF245 /* DTDMotionRequirements.m in Sources */ = {isa = PBXBuildFile; fileRef = C45EE12518769921003DF245 /* DTDMotionRequirements.m */; };
+		C45EE13A18769921003DF245 /* SKButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C45EE12718769921003DF245 /* SKButton.m */; };
+		C45EE13C18769921003DF245 /* SKMultilineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C45EE12918769921003DF245 /* SKMultilineLabel.m */; };
+		C45EE13E18769921003DF245 /* TCProgressTimerForegroundCropNode.m in Sources */ = {isa = PBXBuildFile; fileRef = C45EE12B18769921003DF245 /* TCProgressTimerForegroundCropNode.m */; };
+		C45EE14018769921003DF245 /* TCProgressTimerNode.m in Sources */ = {isa = PBXBuildFile; fileRef = C45EE12D18769921003DF245 /* TCProgressTimerNode.m */; };
 		C478452E186A9A8900243110 /* DTDDanceMoveTryItOutScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C478452D186A9A8900243110 /* DTDDanceMoveTryItOutScene.m */; };
 		C4784532186AB8CA00243110 /* DTDDanceMoveResultsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C4784531186AB8CA00243110 /* DTDDanceMoveResultsScene.m */; };
 		C493367A185453010027C38C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4933679185453010027C38C /* Foundation.framework */; };
@@ -47,6 +77,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C42889B018769D3D001FFB3A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C493366E185453010027C38C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C428898918769D3C001FFB3A;
+			remoteInfo = "DoTheDancing-SpriteKit-iPad";
+		};
 		C49336A3185453010027C38C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C493366E185453010027C38C /* Project object */;
@@ -57,21 +94,31 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C409AAF2185E917400BE51A3 /* Economica-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Economica-Bold.otf"; sourceTree = "<group>"; };
-		C409AAF3185E917400BE51A3 /* Economica-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Economica-BoldItalic.otf"; sourceTree = "<group>"; };
-		C409AAF4185E917400BE51A3 /* Economica-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Economica-Italic.otf"; sourceTree = "<group>"; };
-		C409AAF5185E917400BE51A3 /* Economica-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Economica-Regular.otf"; sourceTree = "<group>"; };
+		C408D61F18769DD60070FC43 /* DTDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDViewController.h; sourceTree = "<group>"; };
+		C408D62018769DD60070FC43 /* DTDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDViewController.m; sourceTree = "<group>"; };
+		C408D62318769DD60070FC43 /* DTDAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDAppDelegate.h; sourceTree = "<group>"; };
+		C408D62418769DD60070FC43 /* DTDAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDAppDelegate.m; sourceTree = "<group>"; };
+		C408D62818769DF70070FC43 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C408D62A18769E0A0070FC43 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C408D64618769EEB0070FC43 /* ACaslonPro-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ACaslonPro-BoldItalic.otf"; sourceTree = "<group>"; };
+		C408D64718769EEB0070FC43 /* Economica-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Economica-Bold.otf"; sourceTree = "<group>"; };
+		C408D64818769EEB0070FC43 /* Economica-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Economica-BoldItalic.otf"; sourceTree = "<group>"; };
+		C408D64918769EEB0070FC43 /* Economica-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Economica-Italic.otf"; sourceTree = "<group>"; };
+		C408D64A18769EEB0070FC43 /* Economica-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Economica-Regular.otf"; sourceTree = "<group>"; };
+		C408D64D18769EEB0070FC43 /* the_bernie.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = the_bernie.caf; sourceTree = "<group>"; };
+		C408D64F18769EEB0070FC43 /* step1_alice.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = step1_alice.caf; sourceTree = "<group>"; };
+		C408D65018769EEB0070FC43 /* step2_alice.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = step2_alice.caf; sourceTree = "<group>"; };
 		C409AB04185E92F000BE51A3 /* DTDConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDConstants.h; sourceTree = "<group>"; };
-		C42913FF1867A7DF000D7F6B /* ACaslonPro-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ACaslonPro-BoldItalic.otf"; sourceTree = "<group>"; };
-		C429140F1867B178000D7F6B /* the_bernie.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = the_bernie.caf; sourceTree = "<group>"; };
-		C42914111867B178000D7F6B /* step1_alice.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = step1_alice.caf; sourceTree = "<group>"; };
-		C42914121867B178000D7F6B /* step2_alice.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = step2_alice.caf; sourceTree = "<group>"; };
-		C429141C1867B2A4000D7F6B /* DTDDanceMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDDanceMove.h; sourceTree = "<group>"; };
-		C429141D1867B2A4000D7F6B /* DTDDanceMove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDDanceMove.m; sourceTree = "<group>"; };
-		C429141E1867B2A4000D7F6B /* DTDDanceMoveBernie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDDanceMoveBernie.h; sourceTree = "<group>"; };
-		C429141F1867B2A4000D7F6B /* DTDDanceMoveBernie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDDanceMoveBernie.m; sourceTree = "<group>"; };
-		C42914201867B2A4000D7F6B /* DTDMotionRequirements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDMotionRequirements.h; sourceTree = "<group>"; };
-		C42914211867B2A4000D7F6B /* DTDMotionRequirements.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDMotionRequirements.m; sourceTree = "<group>"; };
+		C428898A18769D3C001FFB3A /* DoTheDancing-SpriteKit-iPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DoTheDancing-SpriteKit-iPad.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C428899118769D3C001FFB3A /* DoTheDancing-SpriteKit-iPad-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DoTheDancing-SpriteKit-iPad-Info.plist"; sourceTree = "<group>"; };
+		C428899318769D3C001FFB3A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C428899518769D3C001FFB3A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C428899718769D3C001FFB3A /* DoTheDancing-SpriteKit-iPad-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DoTheDancing-SpriteKit-iPad-Prefix.pch"; sourceTree = "<group>"; };
+		C428899C18769D3C001FFB3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C42889AC18769D3C001FFB3A /* DoTheDancing-SpriteKit-iPadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DoTheDancing-SpriteKit-iPadTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C42889B418769D3D001FFB3A /* DoTheDancing-SpriteKit-iPadTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DoTheDancing-SpriteKit-iPadTests-Info.plist"; sourceTree = "<group>"; };
+		C42889B618769D3D001FFB3A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C42889B818769D3D001FFB3A /* DoTheDancing_SpriteKit_iPadTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DoTheDancing_SpriteKit_iPadTests.m; sourceTree = "<group>"; };
 		C42914221867B2A4000D7F6B /* DTDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDViewController.h; sourceTree = "<group>"; };
 		C42914231867B2A4000D7F6B /* DTDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDViewController.m; sourceTree = "<group>"; };
 		C42914261867B2A4000D7F6B /* DTDDanceMoveSelectionScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDDanceMoveSelectionScene.h; sourceTree = "<group>"; };
@@ -80,21 +127,26 @@
 		C429142A1867B2A4000D7F6B /* DTDMainMenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDMainMenuScene.m; sourceTree = "<group>"; };
 		C429142C1867B2A4000D7F6B /* DTDAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDAppDelegate.h; sourceTree = "<group>"; };
 		C429142D1867B2A4000D7F6B /* DTDAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDAppDelegate.m; sourceTree = "<group>"; };
-		C429142E1867B2A4000D7F6B /* SKButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKButton.h; sourceTree = "<group>"; };
-		C429142F1867B2A4000D7F6B /* SKButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKButton.m; sourceTree = "<group>"; };
 		C42914381867B2D7000D7F6B /* DTDGameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDGameManager.h; sourceTree = "<group>"; };
 		C42914391867B2D7000D7F6B /* DTDGameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDGameManager.m; sourceTree = "<group>"; };
 		C42914401867D333000D7F6B /* DTDDanceMoveInstructionsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDDanceMoveInstructionsScene.h; sourceTree = "<group>"; };
 		C42914411867D333000D7F6B /* DTDDanceMoveInstructionsScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDDanceMoveInstructionsScene.m; sourceTree = "<group>"; };
-		C43913BA1868C501006F5716 /* SKMultilineLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMultilineLabel.h; sourceTree = "<group>"; };
-		C43913BB1868C501006F5716 /* SKMultilineLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMultilineLabel.m; sourceTree = "<group>"; };
 		C43913BE18696854006F5716 /* DTDDanceMoveSeeInActionScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDDanceMoveSeeInActionScene.h; sourceTree = "<group>"; };
 		C43913BF18696854006F5716 /* DTDDanceMoveSeeInActionScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDDanceMoveSeeInActionScene.m; sourceTree = "<group>"; };
-		C4737255186D756E00B147B9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		C4784525186A011B00243110 /* TCProgressTimerForegroundCropNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCProgressTimerForegroundCropNode.h; sourceTree = "<group>"; };
-		C4784526186A011B00243110 /* TCProgressTimerForegroundCropNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCProgressTimerForegroundCropNode.m; sourceTree = "<group>"; };
-		C4784527186A011B00243110 /* TCProgressTimerNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCProgressTimerNode.h; sourceTree = "<group>"; };
-		C4784528186A011B00243110 /* TCProgressTimerNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCProgressTimerNode.m; sourceTree = "<group>"; };
+		C45EE12018769921003DF245 /* DTDDanceMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDDanceMove.h; sourceTree = "<group>"; };
+		C45EE12118769921003DF245 /* DTDDanceMove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDDanceMove.m; sourceTree = "<group>"; };
+		C45EE12218769921003DF245 /* DTDDanceMoveBernie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDDanceMoveBernie.h; sourceTree = "<group>"; };
+		C45EE12318769921003DF245 /* DTDDanceMoveBernie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDDanceMoveBernie.m; sourceTree = "<group>"; };
+		C45EE12418769921003DF245 /* DTDMotionRequirements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDMotionRequirements.h; sourceTree = "<group>"; };
+		C45EE12518769921003DF245 /* DTDMotionRequirements.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDMotionRequirements.m; sourceTree = "<group>"; };
+		C45EE12618769921003DF245 /* SKButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKButton.h; sourceTree = "<group>"; };
+		C45EE12718769921003DF245 /* SKButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKButton.m; sourceTree = "<group>"; };
+		C45EE12818769921003DF245 /* SKMultilineLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMultilineLabel.h; sourceTree = "<group>"; };
+		C45EE12918769921003DF245 /* SKMultilineLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMultilineLabel.m; sourceTree = "<group>"; };
+		C45EE12A18769921003DF245 /* TCProgressTimerForegroundCropNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCProgressTimerForegroundCropNode.h; sourceTree = "<group>"; };
+		C45EE12B18769921003DF245 /* TCProgressTimerForegroundCropNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCProgressTimerForegroundCropNode.m; sourceTree = "<group>"; };
+		C45EE12C18769921003DF245 /* TCProgressTimerNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCProgressTimerNode.h; sourceTree = "<group>"; };
+		C45EE12D18769921003DF245 /* TCProgressTimerNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCProgressTimerNode.m; sourceTree = "<group>"; };
 		C478452C186A9A8900243110 /* DTDDanceMoveTryItOutScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDDanceMoveTryItOutScene.h; sourceTree = "<group>"; };
 		C478452D186A9A8900243110 /* DTDDanceMoveTryItOutScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDDanceMoveTryItOutScene.m; sourceTree = "<group>"; };
 		C4784530186AB8CA00243110 /* DTDDanceMoveResultsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDDanceMoveResultsScene.h; sourceTree = "<group>"; };
@@ -117,6 +169,27 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C428898718769D3C001FFB3A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C428898C18769D3C001FFB3A /* CoreGraphics.framework in Frameworks */,
+				C428898D18769D3C001FFB3A /* UIKit.framework in Frameworks */,
+				C428898E18769D3C001FFB3A /* SpriteKit.framework in Frameworks */,
+				C428898B18769D3C001FFB3A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C42889A918769D3C001FFB3A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C42889AD18769D3D001FFB3A /* XCTest.framework in Frameworks */,
+				C42889AF18769D3D001FFB3A /* UIKit.framework in Frameworks */,
+				C42889AE18769D3D001FFB3A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C4933673185453010027C38C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -141,83 +214,145 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C409AAF1185E917400BE51A3 /* Fonts */ = {
+		C408D61E18769DD60070FC43 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				C42913FF1867A7DF000D7F6B /* ACaslonPro-BoldItalic.otf */,
-				C409AAF2185E917400BE51A3 /* Economica-Bold.otf */,
-				C409AAF3185E917400BE51A3 /* Economica-BoldItalic.otf */,
-				C409AAF4185E917400BE51A3 /* Economica-Italic.otf */,
-				C409AAF5185E917400BE51A3 /* Economica-Regular.otf */,
+				C408D61F18769DD60070FC43 /* DTDViewController.h */,
+				C408D62018769DD60070FC43 /* DTDViewController.m */,
+				C408D62118769DD60070FC43 /* Scenes */,
+				C408D62218769DD60070FC43 /* Singletons */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		C408D62118769DD60070FC43 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		C408D62218769DD60070FC43 /* Singletons */ = {
+			isa = PBXGroup;
+			children = (
+				C408D62318769DD60070FC43 /* DTDAppDelegate.h */,
+				C408D62418769DD60070FC43 /* DTDAppDelegate.m */,
+			);
+			path = Singletons;
+			sourceTree = "<group>";
+		};
+		C408D62718769DF70070FC43 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C408D62818769DF70070FC43 /* Images.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C408D64418769EEB0070FC43 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C408D64518769EEB0070FC43 /* Fonts */,
+				C408D64B18769EEB0070FC43 /* Sounds */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C408D64518769EEB0070FC43 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				C408D64618769EEB0070FC43 /* ACaslonPro-BoldItalic.otf */,
+				C408D64718769EEB0070FC43 /* Economica-Bold.otf */,
+				C408D64818769EEB0070FC43 /* Economica-BoldItalic.otf */,
+				C408D64918769EEB0070FC43 /* Economica-Italic.otf */,
+				C408D64A18769EEB0070FC43 /* Economica-Regular.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		C408D64B18769EEB0070FC43 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				C408D64C18769EEB0070FC43 /* Music */,
+				C408D64E18769EEB0070FC43 /* SFX */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		C408D64C18769EEB0070FC43 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				C408D64D18769EEB0070FC43 /* the_bernie.caf */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
+		C408D64E18769EEB0070FC43 /* SFX */ = {
+			isa = PBXGroup;
+			children = (
+				C408D64F18769EEB0070FC43 /* step1_alice.caf */,
+				C408D65018769EEB0070FC43 /* step2_alice.caf */,
+			);
+			path = SFX;
+			sourceTree = "<group>";
+		};
+		C428898F18769D3C001FFB3A /* DoTheDancing-SpriteKit-iPad */ = {
+			isa = PBXGroup;
+			children = (
+				C428899B18769D3C001FFB3A /* Main.storyboard */,
+				C408D61E18769DD60070FC43 /* Classes */,
+				C408D62718769DF70070FC43 /* Resources */,
+				C428899018769D3C001FFB3A /* Supporting Files */,
+			);
+			path = "DoTheDancing-SpriteKit-iPad";
+			sourceTree = "<group>";
+		};
+		C428899018769D3C001FFB3A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C428899118769D3C001FFB3A /* DoTheDancing-SpriteKit-iPad-Info.plist */,
+				C428899218769D3C001FFB3A /* InfoPlist.strings */,
+				C428899518769D3C001FFB3A /* main.m */,
+				C428899718769D3C001FFB3A /* DoTheDancing-SpriteKit-iPad-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C42889B218769D3D001FFB3A /* DoTheDancing-SpriteKit-iPadTests */ = {
+			isa = PBXGroup;
+			children = (
+				C42889B818769D3D001FFB3A /* DoTheDancing_SpriteKit_iPadTests.m */,
+				C42889B318769D3D001FFB3A /* Supporting Files */,
+			);
+			path = "DoTheDancing-SpriteKit-iPadTests";
+			sourceTree = "<group>";
+		};
+		C42889B318769D3D001FFB3A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C42889B418769D3D001FFB3A /* DoTheDancing-SpriteKit-iPadTests-Info.plist */,
+				C42889B518769D3D001FFB3A /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		C429140C1867B178000D7F6B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C429140D1867B178000D7F6B /* Sounds */,
+				C408D62A18769E0A0070FC43 /* Images.xcassets */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		C429140D1867B178000D7F6B /* Sounds */ = {
-			isa = PBXGroup;
-			children = (
-				C429140E1867B178000D7F6B /* Music */,
-				C42914101867B178000D7F6B /* SFX */,
-			);
-			path = Sounds;
-			sourceTree = "<group>";
-		};
-		C429140E1867B178000D7F6B /* Music */ = {
-			isa = PBXGroup;
-			children = (
-				C429140F1867B178000D7F6B /* the_bernie.caf */,
-			);
-			path = Music;
-			sourceTree = "<group>";
-		};
-		C42914101867B178000D7F6B /* SFX */ = {
-			isa = PBXGroup;
-			children = (
-				C42914111867B178000D7F6B /* step1_alice.caf */,
-				C42914121867B178000D7F6B /* step2_alice.caf */,
-			);
-			path = SFX;
 			sourceTree = "<group>";
 		};
 		C429141A1867B2A4000D7F6B /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				C429141B1867B2A4000D7F6B /* DanceMoves */,
 				C42914221867B2A4000D7F6B /* DTDViewController.h */,
 				C42914231867B2A4000D7F6B /* DTDViewController.m */,
 				C42914241867B2A4000D7F6B /* Scenes */,
 				C429142B1867B2A4000D7F6B /* Singletons */,
-				C429142E1867B2A4000D7F6B /* SKButton.h */,
-				C429142F1867B2A4000D7F6B /* SKButton.m */,
-				C43913BA1868C501006F5716 /* SKMultilineLabel.h */,
-				C43913BB1868C501006F5716 /* SKMultilineLabel.m */,
-				C4784525186A011B00243110 /* TCProgressTimerForegroundCropNode.h */,
-				C4784526186A011B00243110 /* TCProgressTimerForegroundCropNode.m */,
-				C4784527186A011B00243110 /* TCProgressTimerNode.h */,
-				C4784528186A011B00243110 /* TCProgressTimerNode.m */,
 			);
 			path = Classes;
-			sourceTree = "<group>";
-		};
-		C429141B1867B2A4000D7F6B /* DanceMoves */ = {
-			isa = PBXGroup;
-			children = (
-				C429141C1867B2A4000D7F6B /* DTDDanceMove.h */,
-				C429141D1867B2A4000D7F6B /* DTDDanceMove.m */,
-				C429141E1867B2A4000D7F6B /* DTDDanceMoveBernie.h */,
-				C429141F1867B2A4000D7F6B /* DTDDanceMoveBernie.m */,
-				C42914201867B2A4000D7F6B /* DTDMotionRequirements.h */,
-				C42914211867B2A4000D7F6B /* DTDMotionRequirements.m */,
-			);
-			path = DanceMoves;
 			sourceTree = "<group>";
 		};
 		C42914241867B2A4000D7F6B /* Scenes */ = {
@@ -280,12 +415,42 @@
 			path = DanceMoveSeeInAction;
 			sourceTree = "<group>";
 		};
-		C44CD3FD185D6B730019B20C /* Assets */ = {
+		C45EE11D18769921003DF245 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				C4737255186D756E00B147B9 /* Images.xcassets */,
+				C45EE11E18769921003DF245 /* Classes */,
+				C408D64418769EEB0070FC43 /* Resources */,
 			);
-			path = Assets;
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		C45EE11E18769921003DF245 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C45EE11F18769921003DF245 /* DanceMoves */,
+				C45EE12618769921003DF245 /* SKButton.h */,
+				C45EE12718769921003DF245 /* SKButton.m */,
+				C45EE12818769921003DF245 /* SKMultilineLabel.h */,
+				C45EE12918769921003DF245 /* SKMultilineLabel.m */,
+				C45EE12A18769921003DF245 /* TCProgressTimerForegroundCropNode.h */,
+				C45EE12B18769921003DF245 /* TCProgressTimerForegroundCropNode.m */,
+				C45EE12C18769921003DF245 /* TCProgressTimerNode.h */,
+				C45EE12D18769921003DF245 /* TCProgressTimerNode.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		C45EE11F18769921003DF245 /* DanceMoves */ = {
+			isa = PBXGroup;
+			children = (
+				C45EE12018769921003DF245 /* DTDDanceMove.h */,
+				C45EE12118769921003DF245 /* DTDDanceMove.m */,
+				C45EE12218769921003DF245 /* DTDDanceMoveBernie.h */,
+				C45EE12318769921003DF245 /* DTDDanceMoveBernie.m */,
+				C45EE12418769921003DF245 /* DTDMotionRequirements.h */,
+				C45EE12518769921003DF245 /* DTDMotionRequirements.m */,
+			);
+			path = DanceMoves;
 			sourceTree = "<group>";
 		};
 		C478452B186A9A7D00243110 /* DanceMoveTryItOut */ = {
@@ -309,8 +474,11 @@
 		C493366D185453010027C38C = {
 			isa = PBXGroup;
 			children = (
+				C45EE11D18769921003DF245 /* Shared */,
 				C4933681185453010027C38C /* DoTheDancing-SpriteKit */,
 				C49336A5185453010027C38C /* DoTheDancing-SpriteKitTests */,
+				C428898F18769D3C001FFB3A /* DoTheDancing-SpriteKit-iPad */,
+				C42889B218769D3D001FFB3A /* DoTheDancing-SpriteKit-iPadTests */,
 				C4933678185453010027C38C /* Frameworks */,
 				C4933677185453010027C38C /* Products */,
 			);
@@ -321,6 +489,8 @@
 			children = (
 				C4933676185453010027C38C /* DoTheDancing-SpriteKit.app */,
 				C493369E185453010027C38C /* DoTheDancing-SpriteKitTests.xctest */,
+				C428898A18769D3C001FFB3A /* DoTheDancing-SpriteKit-iPad.app */,
+				C42889AC18769D3C001FFB3A /* DoTheDancing-SpriteKit-iPadTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -343,8 +513,6 @@
 				C493368D185453010027C38C /* Main.storyboard */,
 				C429141A1867B2A4000D7F6B /* Classes */,
 				C429140C1867B178000D7F6B /* Resources */,
-				C44CD3FD185D6B730019B20C /* Assets */,
-				C409AAF1185E917400BE51A3 /* Fonts */,
 				C4933682185453010027C38C /* Supporting Files */,
 			);
 			path = "DoTheDancing-SpriteKit";
@@ -383,6 +551,41 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C428898918769D3C001FFB3A /* DoTheDancing-SpriteKit-iPad */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C42889BA18769D3D001FFB3A /* Build configuration list for PBXNativeTarget "DoTheDancing-SpriteKit-iPad" */;
+			buildPhases = (
+				C428898618769D3C001FFB3A /* Sources */,
+				C428898718769D3C001FFB3A /* Frameworks */,
+				C428898818769D3C001FFB3A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DoTheDancing-SpriteKit-iPad";
+			productName = "DoTheDancing-SpriteKit-iPad";
+			productReference = C428898A18769D3C001FFB3A /* DoTheDancing-SpriteKit-iPad.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C42889AB18769D3C001FFB3A /* DoTheDancing-SpriteKit-iPadTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C42889BD18769D3D001FFB3A /* Build configuration list for PBXNativeTarget "DoTheDancing-SpriteKit-iPadTests" */;
+			buildPhases = (
+				C42889A818769D3C001FFB3A /* Sources */,
+				C42889A918769D3C001FFB3A /* Frameworks */,
+				C42889AA18769D3C001FFB3A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C42889B118769D3D001FFB3A /* PBXTargetDependency */,
+			);
+			name = "DoTheDancing-SpriteKit-iPadTests";
+			productName = "DoTheDancing-SpriteKit-iPadTests";
+			productReference = C42889AC18769D3C001FFB3A /* DoTheDancing-SpriteKit-iPadTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C4933675185453010027C38C /* DoTheDancing-SpriteKit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C49336AF185453010027C38C /* Build configuration list for PBXNativeTarget "DoTheDancing-SpriteKit" */;
@@ -428,6 +631,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Chin and Cheeks LLC";
 				TargetAttributes = {
+					C42889AB18769D3C001FFB3A = {
+						TestTargetID = C4933675185453010027C38C;
+					};
 					C4933675185453010027C38C = {
 						DevelopmentTeam = 7MDA67429Z;
 					};
@@ -451,26 +657,54 @@
 			targets = (
 				C4933675185453010027C38C /* DoTheDancing-SpriteKit */,
 				C493369D185453010027C38C /* DoTheDancing-SpriteKitTests */,
+				C428898918769D3C001FFB3A /* DoTheDancing-SpriteKit-iPad */,
+				C42889AB18769D3C001FFB3A /* DoTheDancing-SpriteKit-iPadTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C428898818769D3C001FFB3A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C408D65218769EEB0070FC43 /* ACaslonPro-BoldItalic.otf in Resources */,
+				C408D66018769EEB0070FC43 /* step2_alice.caf in Resources */,
+				C408D65E18769EEB0070FC43 /* step1_alice.caf in Resources */,
+				C408D65818769EEB0070FC43 /* Economica-Italic.otf in Resources */,
+				C408D65418769EEB0070FC43 /* Economica-Bold.otf in Resources */,
+				C408D65A18769EEB0070FC43 /* Economica-Regular.otf in Resources */,
+				C408D65618769EEB0070FC43 /* Economica-BoldItalic.otf in Resources */,
+				C408D62918769DF70070FC43 /* Images.xcassets in Resources */,
+				C408D65C18769EEB0070FC43 /* the_bernie.caf in Resources */,
+				C428899418769D3C001FFB3A /* InfoPlist.strings in Resources */,
+				C428899D18769D3C001FFB3A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C42889AA18769D3C001FFB3A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C42889B718769D3D001FFB3A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C4933674185453010027C38C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C42914131867B178000D7F6B /* the_bernie.caf in Resources */,
+				C408D65518769EEB0070FC43 /* Economica-BoldItalic.otf in Resources */,
 				C4933686185453010027C38C /* InfoPlist.strings in Resources */,
-				C409AAF6185E917400BE51A3 /* Economica-Bold.otf in Resources */,
-				C409AAF9185E917400BE51A3 /* Economica-Regular.otf in Resources */,
-				C4737256186D756E00B147B9 /* Images.xcassets in Resources */,
-				C42914151867B178000D7F6B /* step2_alice.caf in Resources */,
+				C408D62B18769E0A0070FC43 /* Images.xcassets in Resources */,
+				C408D65B18769EEB0070FC43 /* the_bernie.caf in Resources */,
+				C408D65F18769EEB0070FC43 /* step2_alice.caf in Resources */,
+				C408D65918769EEB0070FC43 /* Economica-Regular.otf in Resources */,
+				C408D65D18769EEB0070FC43 /* step1_alice.caf in Resources */,
+				C408D65718769EEB0070FC43 /* Economica-Italic.otf in Resources */,
+				C408D65318769EEB0070FC43 /* Economica-Bold.otf in Resources */,
 				C493368F185453010027C38C /* Main.storyboard in Resources */,
-				C409AAF8185E917400BE51A3 /* Economica-Italic.otf in Resources */,
-				C42914141867B178000D7F6B /* step1_alice.caf in Resources */,
-				C42914001867A7DF000D7F6B /* ACaslonPro-BoldItalic.otf in Resources */,
-				C409AAF7185E917400BE51A3 /* Economica-BoldItalic.otf in Resources */,
+				C408D65118769EEB0070FC43 /* ACaslonPro-BoldItalic.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,25 +719,50 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C428898618769D3C001FFB3A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C408D62D18769E610070FC43 /* DTDDanceMove.m in Sources */,
+				C408D62F18769E610070FC43 /* DTDDanceMoveBernie.m in Sources */,
+				C408D63118769E610070FC43 /* DTDMotionRequirements.m in Sources */,
+				C408D63318769E610070FC43 /* SKButton.m in Sources */,
+				C408D63518769E610070FC43 /* SKMultilineLabel.m in Sources */,
+				C408D63718769E610070FC43 /* TCProgressTimerForegroundCropNode.m in Sources */,
+				C408D63918769E610070FC43 /* TCProgressTimerNode.m in Sources */,
+				C428899618769D3C001FFB3A /* main.m in Sources */,
+				C408D62518769DD60070FC43 /* DTDViewController.m in Sources */,
+				C408D62618769DD60070FC43 /* DTDAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C42889A818769D3C001FFB3A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C42889B918769D3D001FFB3A /* DoTheDancing_SpriteKit_iPadTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C4933672185453010027C38C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C45EE13E18769921003DF245 /* TCProgressTimerForegroundCropNode.m in Sources */,
 				C429143A1867B2D7000D7F6B /* DTDGameManager.m in Sources */,
+				C45EE13818769921003DF245 /* DTDMotionRequirements.m in Sources */,
+				C45EE13418769921003DF245 /* DTDDanceMove.m in Sources */,
+				C45EE13C18769921003DF245 /* SKMultilineLabel.m in Sources */,
+				C45EE14018769921003DF245 /* TCProgressTimerNode.m in Sources */,
+				C45EE13618769921003DF245 /* DTDDanceMoveBernie.m in Sources */,
 				C42914351867B2A4000D7F6B /* DTDMainMenuScene.m in Sources */,
-				C42914321867B2A4000D7F6B /* DTDMotionRequirements.m in Sources */,
 				C42914421867D333000D7F6B /* DTDDanceMoveInstructionsScene.m in Sources */,
 				C42914341867B2A4000D7F6B /* DTDDanceMoveSelectionScene.m in Sources */,
+				C45EE13A18769921003DF245 /* SKButton.m in Sources */,
 				C42914361867B2A4000D7F6B /* DTDAppDelegate.m in Sources */,
 				C4784532186AB8CA00243110 /* DTDDanceMoveResultsScene.m in Sources */,
 				C478452E186A9A8900243110 /* DTDDanceMoveTryItOutScene.m in Sources */,
-				C4784529186A011B00243110 /* TCProgressTimerForegroundCropNode.m in Sources */,
 				C4933688185453010027C38C /* main.m in Sources */,
-				C42914371867B2A4000D7F6B /* SKButton.m in Sources */,
-				C478452A186A011B00243110 /* TCProgressTimerNode.m in Sources */,
-				C42914301867B2A4000D7F6B /* DTDDanceMove.m in Sources */,
-				C43913BC1868C501006F5716 /* SKMultilineLabel.m in Sources */,
-				C42914311867B2A4000D7F6B /* DTDDanceMoveBernie.m in Sources */,
 				C42914331867B2A4000D7F6B /* DTDViewController.m in Sources */,
 				C43913C018696854006F5716 /* DTDDanceMoveSeeInActionScene.m in Sources */,
 			);
@@ -520,6 +779,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C42889B118769D3D001FFB3A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C428898918769D3C001FFB3A /* DoTheDancing-SpriteKit-iPad */;
+			targetProxy = C42889B018769D3D001FFB3A /* PBXContainerItemProxy */;
+		};
 		C49336A4185453010027C38C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C4933675185453010027C38C /* DoTheDancing-SpriteKit */;
@@ -528,6 +792,30 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		C428899218769D3C001FFB3A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C428899318769D3C001FFB3A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C428899B18769D3C001FFB3A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C428899C18769D3C001FFB3A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C42889B518769D3D001FFB3A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C42889B618769D3D001FFB3A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		C4933684185453010027C38C /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -555,6 +843,84 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C42889BB18769D3D001FFB3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DoTheDancing-SpriteKit-iPad/DoTheDancing-SpriteKit-iPad-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "DoTheDancing-SpriteKit-iPad/DoTheDancing-SpriteKit-iPad-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				TARGETED_DEVICE_FAMILY = 2;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C42889BC18769D3D001FFB3A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DoTheDancing-SpriteKit-iPad/DoTheDancing-SpriteKit-iPad-Prefix.pch";
+				INFOPLIST_FILE = "DoTheDancing-SpriteKit-iPad/DoTheDancing-SpriteKit-iPad-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				TARGETED_DEVICE_FAMILY = 2;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		C42889BE18769D3D001FFB3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/DoTheDancing-SpriteKit.app/DoTheDancing-SpriteKit";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DoTheDancing-SpriteKit-iPad/DoTheDancing-SpriteKit-iPad-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "DoTheDancing-SpriteKit-iPadTests/DoTheDancing-SpriteKit-iPadTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		C42889BF18769D3D001FFB3A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/DoTheDancing-SpriteKit.app/DoTheDancing-SpriteKit";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DoTheDancing-SpriteKit-iPad/DoTheDancing-SpriteKit-iPad-Prefix.pch";
+				INFOPLIST_FILE = "DoTheDancing-SpriteKit-iPadTests/DoTheDancing-SpriteKit-iPadTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
 		C49336AD185453010027C38C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -702,6 +1068,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C42889BA18769D3D001FFB3A /* Build configuration list for PBXNativeTarget "DoTheDancing-SpriteKit-iPad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C42889BB18769D3D001FFB3A /* Debug */,
+				C42889BC18769D3D001FFB3A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C42889BD18769D3D001FFB3A /* Build configuration list for PBXNativeTarget "DoTheDancing-SpriteKit-iPadTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C42889BE18769D3D001FFB3A /* Debug */,
+				C42889BF18769D3D001FFB3A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C4933671185453010027C38C /* Build configuration list for PBXProject "DoTheDancing-SpriteKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

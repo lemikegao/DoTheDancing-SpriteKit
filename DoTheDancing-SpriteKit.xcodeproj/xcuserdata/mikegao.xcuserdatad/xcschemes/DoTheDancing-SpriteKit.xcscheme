@@ -38,6 +38,16 @@
                ReferencedContainer = "container:DoTheDancing-SpriteKit.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C42889AB18769D3C001FFB3A"
+               BuildableName = "DoTheDancing-SpriteKit-iPadTests.xctest"
+               BlueprintName = "DoTheDancing-SpriteKit-iPadTests"
+               ReferencedContainer = "container:DoTheDancing-SpriteKit.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
