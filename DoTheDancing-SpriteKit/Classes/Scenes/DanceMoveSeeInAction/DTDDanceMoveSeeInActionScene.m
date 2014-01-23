@@ -9,7 +9,6 @@
 #import "DTDDanceMoveSeeInActionScene.h"
 #import "DTDDanceMoveInstructionsScene.h"
 #import "DTDDanceMoveTryItOutScene.h"
-#import "DTDGameManager.h"
 #import "SKMultilineLabel.h"
 #import "TCProgressTimerNode.h"
 

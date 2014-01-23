@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C408D62518769DD60070FC43 /* DTDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C408D62018769DD60070FC43 /* DTDViewController.m */; };
-		C408D62618769DD60070FC43 /* DTDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C408D62418769DD60070FC43 /* DTDAppDelegate.m */; };
+		C408D62518769DD60070FC43 /* DTDTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C408D62018769DD60070FC43 /* DTDTViewController.m */; };
+		C408D62618769DD60070FC43 /* DTDTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C408D62418769DD60070FC43 /* DTDTAppDelegate.m */; };
 		C408D62918769DF70070FC43 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C408D62818769DF70070FC43 /* Images.xcassets */; };
 		C408D62B18769E0A0070FC43 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C408D62A18769E0A0070FC43 /* Images.xcassets */; };
 		C408D62D18769E610070FC43 /* DTDDanceMove.m in Sources */ = {isa = PBXBuildFile; fileRef = C45EE12118769921003DF245 /* DTDDanceMove.m */; };
@@ -53,6 +53,9 @@
 		C429143A1867B2D7000D7F6B /* DTDGameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C42914391867B2D7000D7F6B /* DTDGameManager.m */; };
 		C42914421867D333000D7F6B /* DTDDanceMoveInstructionsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C42914411867D333000D7F6B /* DTDDanceMoveInstructionsScene.m */; };
 		C43913C018696854006F5716 /* DTDDanceMoveSeeInActionScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C43913BF18696854006F5716 /* DTDDanceMoveSeeInActionScene.m */; };
+		C45A2FDC188E357000AB4904 /* DTDTMainMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C45A2FDB188E357000AB4904 /* DTDTMainMenuScene.m */; };
+		C45A2FDD188E357000AB4904 /* DTDTMainMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C45A2FDB188E357000AB4904 /* DTDTMainMenuScene.m */; };
+		C45A2FE1188E441F00AB4904 /* DTDTSearchingForDeviceScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C45A2FE0188E441F00AB4904 /* DTDTSearchingForDeviceScene.m */; };
 		C45EE13418769921003DF245 /* DTDDanceMove.m in Sources */ = {isa = PBXBuildFile; fileRef = C45EE12118769921003DF245 /* DTDDanceMove.m */; };
 		C45EE13618769921003DF245 /* DTDDanceMoveBernie.m in Sources */ = {isa = PBXBuildFile; fileRef = C45EE12318769921003DF245 /* DTDDanceMoveBernie.m */; };
 		C45EE13818769921003DF245 /* DTDMotionRequirements.m in Sources */ = {isa = PBXBuildFile; fileRef = C45EE12518769921003DF245 /* DTDMotionRequirements.m */; };
@@ -62,6 +65,11 @@
 		C45EE14018769921003DF245 /* TCProgressTimerNode.m in Sources */ = {isa = PBXBuildFile; fileRef = C45EE12D18769921003DF245 /* TCProgressTimerNode.m */; };
 		C478452E186A9A8900243110 /* DTDDanceMoveTryItOutScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C478452D186A9A8900243110 /* DTDDanceMoveTryItOutScene.m */; };
 		C4784532186AB8CA00243110 /* DTDDanceMoveResultsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C4784531186AB8CA00243110 /* DTDDanceMoveResultsScene.m */; };
+		C48DB4CB189101C500D6D988 /* DTDTGameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C48DB4C91890FB0700D6D988 /* DTDTGameManager.m */; };
+		C48DB4CD189104CF00D6D988 /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48DB4CC189104CF00D6D988 /* MultipeerConnectivity.framework */; };
+		C48DB4CE189104D600D6D988 /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48DB4CC189104CF00D6D988 /* MultipeerConnectivity.framework */; };
+		C48DB4DE18910BB200D6D988 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48DB4DD18910BB200D6D988 /* AVFoundation.framework */; };
+		C48DB4DF18910BB800D6D988 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48DB4DD18910BB200D6D988 /* AVFoundation.framework */; };
 		C493367A185453010027C38C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4933679185453010027C38C /* Foundation.framework */; };
 		C493367C185453010027C38C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C493367B185453010027C38C /* CoreGraphics.framework */; };
 		C493367E185453010027C38C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C493367D185453010027C38C /* UIKit.framework */; };
@@ -94,10 +102,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C408D61F18769DD60070FC43 /* DTDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDViewController.h; sourceTree = "<group>"; };
-		C408D62018769DD60070FC43 /* DTDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDViewController.m; sourceTree = "<group>"; };
-		C408D62318769DD60070FC43 /* DTDAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDAppDelegate.h; sourceTree = "<group>"; };
-		C408D62418769DD60070FC43 /* DTDAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDAppDelegate.m; sourceTree = "<group>"; };
+		C408D61F18769DD60070FC43 /* DTDTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDTViewController.h; sourceTree = "<group>"; };
+		C408D62018769DD60070FC43 /* DTDTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDTViewController.m; sourceTree = "<group>"; };
+		C408D62318769DD60070FC43 /* DTDTAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDTAppDelegate.h; sourceTree = "<group>"; };
+		C408D62418769DD60070FC43 /* DTDTAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDTAppDelegate.m; sourceTree = "<group>"; };
 		C408D62818769DF70070FC43 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C408D62A18769E0A0070FC43 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C408D64618769EEB0070FC43 /* ACaslonPro-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ACaslonPro-BoldItalic.otf"; sourceTree = "<group>"; };
@@ -108,12 +116,10 @@
 		C408D64D18769EEB0070FC43 /* the_bernie.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = the_bernie.caf; sourceTree = "<group>"; };
 		C408D64F18769EEB0070FC43 /* step1_alice.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = step1_alice.caf; sourceTree = "<group>"; };
 		C408D65018769EEB0070FC43 /* step2_alice.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = step2_alice.caf; sourceTree = "<group>"; };
-		C409AB04185E92F000BE51A3 /* DTDConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDConstants.h; sourceTree = "<group>"; };
 		C428898A18769D3C001FFB3A /* DoTheDancing-SpriteKit-iPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DoTheDancing-SpriteKit-iPad.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C428899118769D3C001FFB3A /* DoTheDancing-SpriteKit-iPad-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DoTheDancing-SpriteKit-iPad-Info.plist"; sourceTree = "<group>"; };
 		C428899318769D3C001FFB3A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C428899518769D3C001FFB3A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C428899718769D3C001FFB3A /* DoTheDancing-SpriteKit-iPad-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DoTheDancing-SpriteKit-iPad-Prefix.pch"; sourceTree = "<group>"; };
 		C428899C18769D3C001FFB3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C42889AC18769D3C001FFB3A /* DoTheDancing-SpriteKit-iPadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DoTheDancing-SpriteKit-iPadTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C42889B418769D3D001FFB3A /* DoTheDancing-SpriteKit-iPadTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DoTheDancing-SpriteKit-iPadTests-Info.plist"; sourceTree = "<group>"; };
@@ -133,6 +139,10 @@
 		C42914411867D333000D7F6B /* DTDDanceMoveInstructionsScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDDanceMoveInstructionsScene.m; sourceTree = "<group>"; };
 		C43913BE18696854006F5716 /* DTDDanceMoveSeeInActionScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDDanceMoveSeeInActionScene.h; sourceTree = "<group>"; };
 		C43913BF18696854006F5716 /* DTDDanceMoveSeeInActionScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDDanceMoveSeeInActionScene.m; sourceTree = "<group>"; };
+		C45A2FDA188E357000AB4904 /* DTDTMainMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDTMainMenuScene.h; sourceTree = "<group>"; };
+		C45A2FDB188E357000AB4904 /* DTDTMainMenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDTMainMenuScene.m; sourceTree = "<group>"; };
+		C45A2FDF188E441F00AB4904 /* DTDTSearchingForDeviceScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDTSearchingForDeviceScene.h; sourceTree = "<group>"; };
+		C45A2FE0188E441F00AB4904 /* DTDTSearchingForDeviceScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDTSearchingForDeviceScene.m; sourceTree = "<group>"; };
 		C45EE12018769921003DF245 /* DTDDanceMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDDanceMove.h; sourceTree = "<group>"; };
 		C45EE12118769921003DF245 /* DTDDanceMove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDDanceMove.m; sourceTree = "<group>"; };
 		C45EE12218769921003DF245 /* DTDDanceMoveBernie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDDanceMoveBernie.h; sourceTree = "<group>"; };
@@ -151,6 +161,13 @@
 		C478452D186A9A8900243110 /* DTDDanceMoveTryItOutScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDDanceMoveTryItOutScene.m; sourceTree = "<group>"; };
 		C4784530186AB8CA00243110 /* DTDDanceMoveResultsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDDanceMoveResultsScene.h; sourceTree = "<group>"; };
 		C4784531186AB8CA00243110 /* DTDDanceMoveResultsScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDDanceMoveResultsScene.m; sourceTree = "<group>"; };
+		C48DB4C81890FB0700D6D988 /* DTDTGameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDTGameManager.h; sourceTree = "<group>"; };
+		C48DB4C91890FB0700D6D988 /* DTDTGameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDTGameManager.m; sourceTree = "<group>"; };
+		C48DB4CC189104CF00D6D988 /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
+		C48DB4DA18910A2D00D6D988 /* DoTheDancing-SpriteKit-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DoTheDancing-SpriteKit-Prefix.pch"; sourceTree = "<group>"; };
+		C48DB4DB18910A5600D6D988 /* DTDConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDConstants.h; sourceTree = "<group>"; };
+		C48DB4DC18910A6800D6D988 /* DoTheDancing-SpriteKit-iPad-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DoTheDancing-SpriteKit-iPad-Prefix.pch"; sourceTree = "<group>"; };
+		C48DB4DD18910BB200D6D988 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C4933676185453010027C38C /* DoTheDancing-SpriteKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DoTheDancing-SpriteKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4933679185453010027C38C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C493367B185453010027C38C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -159,13 +176,16 @@
 		C4933683185453010027C38C /* DoTheDancing-SpriteKit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DoTheDancing-SpriteKit-Info.plist"; sourceTree = "<group>"; };
 		C4933685185453010027C38C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C4933687185453010027C38C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C4933689185453010027C38C /* DoTheDancing-SpriteKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DoTheDancing-SpriteKit-Prefix.pch"; sourceTree = "<group>"; };
 		C493368E185453010027C38C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C493369E185453010027C38C /* DoTheDancing-SpriteKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DoTheDancing-SpriteKitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C493369F185453010027C38C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		C49336A7185453010027C38C /* DoTheDancing-SpriteKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DoTheDancing-SpriteKitTests-Info.plist"; sourceTree = "<group>"; };
 		C49336A9185453010027C38C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C49336AB185453010027C38C /* DoTheDancing_SpriteKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DoTheDancing_SpriteKitTests.m; sourceTree = "<group>"; };
+		C4EC61B6188FA4CF00DF4F20 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		C4EC61B8188FA4D700DF4F20 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		C4EC61BA188FA4DD00DF4F20 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		C4EC61BC188FA4EA00DF4F20 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +193,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C48DB4DF18910BB800D6D988 /* AVFoundation.framework in Frameworks */,
+				C48DB4CE189104D600D6D988 /* MultipeerConnectivity.framework in Frameworks */,
 				C428898C18769D3C001FFB3A /* CoreGraphics.framework in Frameworks */,
 				C428898D18769D3C001FFB3A /* UIKit.framework in Frameworks */,
 				C428898E18769D3C001FFB3A /* SpriteKit.framework in Frameworks */,
@@ -194,6 +216,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C48DB4DE18910BB200D6D988 /* AVFoundation.framework in Frameworks */,
+				C48DB4CD189104CF00D6D988 /* MultipeerConnectivity.framework in Frameworks */,
 				C493367C185453010027C38C /* CoreGraphics.framework in Frameworks */,
 				C493367E185453010027C38C /* UIKit.framework in Frameworks */,
 				C4933680185453010027C38C /* SpriteKit.framework in Frameworks */,
@@ -217,9 +241,10 @@
 		C408D61E18769DD60070FC43 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				C408D61F18769DD60070FC43 /* DTDViewController.h */,
-				C408D62018769DD60070FC43 /* DTDViewController.m */,
+				C408D61F18769DD60070FC43 /* DTDTViewController.h */,
+				C408D62018769DD60070FC43 /* DTDTViewController.m */,
 				C408D62118769DD60070FC43 /* Scenes */,
+				C4EC61B2188FA3C000DF4F20 /* Networking */,
 				C408D62218769DD60070FC43 /* Singletons */,
 			);
 			path = Classes;
@@ -228,6 +253,8 @@
 		C408D62118769DD60070FC43 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				C45A2FD5188E348500AB4904 /* MainMenu */,
+				C45A2FDE188E441100AB4904 /* SearchingForDevice */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -235,8 +262,10 @@
 		C408D62218769DD60070FC43 /* Singletons */ = {
 			isa = PBXGroup;
 			children = (
-				C408D62318769DD60070FC43 /* DTDAppDelegate.h */,
-				C408D62418769DD60070FC43 /* DTDAppDelegate.m */,
+				C408D62318769DD60070FC43 /* DTDTAppDelegate.h */,
+				C408D62418769DD60070FC43 /* DTDTAppDelegate.m */,
+				C48DB4C81890FB0700D6D988 /* DTDTGameManager.h */,
+				C48DB4C91890FB0700D6D988 /* DTDTGameManager.m */,
 			);
 			path = Singletons;
 			sourceTree = "<group>";
@@ -310,10 +339,10 @@
 		C428899018769D3C001FFB3A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C48DB4DC18910A6800D6D988 /* DoTheDancing-SpriteKit-iPad-Prefix.pch */,
 				C428899118769D3C001FFB3A /* DoTheDancing-SpriteKit-iPad-Info.plist */,
 				C428899218769D3C001FFB3A /* InfoPlist.strings */,
 				C428899518769D3C001FFB3A /* main.m */,
-				C428899718769D3C001FFB3A /* DoTheDancing-SpriteKit-iPad-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -415,11 +444,30 @@
 			path = DanceMoveSeeInAction;
 			sourceTree = "<group>";
 		};
+		C45A2FD5188E348500AB4904 /* MainMenu */ = {
+			isa = PBXGroup;
+			children = (
+				C45A2FDA188E357000AB4904 /* DTDTMainMenuScene.h */,
+				C45A2FDB188E357000AB4904 /* DTDTMainMenuScene.m */,
+			);
+			path = MainMenu;
+			sourceTree = "<group>";
+		};
+		C45A2FDE188E441100AB4904 /* SearchingForDevice */ = {
+			isa = PBXGroup;
+			children = (
+				C45A2FDF188E441F00AB4904 /* DTDTSearchingForDeviceScene.h */,
+				C45A2FE0188E441F00AB4904 /* DTDTSearchingForDeviceScene.m */,
+			);
+			path = SearchingForDevice;
+			sourceTree = "<group>";
+		};
 		C45EE11D18769921003DF245 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
 				C45EE11E18769921003DF245 /* Classes */,
 				C408D64418769EEB0070FC43 /* Resources */,
+				C48DB4DB18910A5600D6D988 /* DTDConstants.h */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -498,6 +546,12 @@
 		C4933678185453010027C38C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C48DB4DD18910BB200D6D988 /* AVFoundation.framework */,
+				C48DB4CC189104CF00D6D988 /* MultipeerConnectivity.framework */,
+				C4EC61BC188FA4EA00DF4F20 /* GameKit.framework */,
+				C4EC61BA188FA4DD00DF4F20 /* CoreMedia.framework */,
+				C4EC61B8188FA4D700DF4F20 /* MediaPlayer.framework */,
+				C4EC61B6188FA4CF00DF4F20 /* MobileCoreServices.framework */,
 				C4933679185453010027C38C /* Foundation.framework */,
 				C493367B185453010027C38C /* CoreGraphics.framework */,
 				C493367D185453010027C38C /* UIKit.framework */,
@@ -521,11 +575,10 @@
 		C4933682185453010027C38C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C48DB4DA18910A2D00D6D988 /* DoTheDancing-SpriteKit-Prefix.pch */,
 				C4933683185453010027C38C /* DoTheDancing-SpriteKit-Info.plist */,
 				C4933684185453010027C38C /* InfoPlist.strings */,
 				C4933687185453010027C38C /* main.m */,
-				C4933689185453010027C38C /* DoTheDancing-SpriteKit-Prefix.pch */,
-				C409AB04185E92F000BE51A3 /* DTDConstants.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -546,6 +599,13 @@
 				C49336A8185453010027C38C /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C4EC61B2188FA3C000DF4F20 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -627,7 +687,7 @@
 		C493366E185453010027C38C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = DTD;
+				CLASSPREFIX = DTDT;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Chin and Cheeks LLC";
 				TargetAttributes = {
@@ -727,12 +787,15 @@
 				C408D62F18769E610070FC43 /* DTDDanceMoveBernie.m in Sources */,
 				C408D63118769E610070FC43 /* DTDMotionRequirements.m in Sources */,
 				C408D63318769E610070FC43 /* SKButton.m in Sources */,
+				C45A2FE1188E441F00AB4904 /* DTDTSearchingForDeviceScene.m in Sources */,
 				C408D63518769E610070FC43 /* SKMultilineLabel.m in Sources */,
 				C408D63718769E610070FC43 /* TCProgressTimerForegroundCropNode.m in Sources */,
 				C408D63918769E610070FC43 /* TCProgressTimerNode.m in Sources */,
+				C45A2FDC188E357000AB4904 /* DTDTMainMenuScene.m in Sources */,
 				C428899618769D3C001FFB3A /* main.m in Sources */,
-				C408D62518769DD60070FC43 /* DTDViewController.m in Sources */,
-				C408D62618769DD60070FC43 /* DTDAppDelegate.m in Sources */,
+				C48DB4CB189101C500D6D988 /* DTDTGameManager.m in Sources */,
+				C408D62518769DD60070FC43 /* DTDTViewController.m in Sources */,
+				C408D62618769DD60070FC43 /* DTDTAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -741,6 +804,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C42889B918769D3D001FFB3A /* DoTheDancing_SpriteKit_iPadTests.m in Sources */,
+				C45A2FDD188E357000AB4904 /* DTDTMainMenuScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

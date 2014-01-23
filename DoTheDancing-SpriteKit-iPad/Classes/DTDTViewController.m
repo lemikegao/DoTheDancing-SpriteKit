@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 Chin and Cheeks LLC. All rights reserved.
 //
 
-#import "DTDViewController.h"
-#import "DTDMyScene.h"
+#import "DTDTViewController.h"
+#import "DTDTMainMenuScene.h"
 
-@implementation DTDViewController
+@implementation DTDTViewController
 
 - (void)viewDidLoad
 {
@@ -21,7 +21,7 @@
     skView.showsNodeCount = YES;
     
     // Create and configure the scene.
-    SKScene * scene = [DTDMyScene sceneWithSize:skView.bounds.size];
+    SKScene * scene = [DTDTMainMenuScene sceneWithSize:skView.bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFill;
     
     // Present the scene.

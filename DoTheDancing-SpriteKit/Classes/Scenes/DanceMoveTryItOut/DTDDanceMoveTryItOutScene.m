@@ -8,7 +8,6 @@
 
 #import "DTDDanceMoveTryItOutScene.h"
 #import "DTDDanceMoveResultsScene.h"
-#import "DTDGameManager.h"
 #import "TCProgressTimerNode.h"
 #include <CoreMotion/CoreMotion.h>
 

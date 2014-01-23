@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-#import "DTDAppDelegate.h"
+#import "DTDTAppDelegate.h"
 
 int main(int argc, char * argv[])
 {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([DTDAppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([DTDTAppDelegate class]));
     }
 }

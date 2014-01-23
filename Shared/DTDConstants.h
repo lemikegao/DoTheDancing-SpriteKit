@@ -51,6 +51,8 @@ typedef enum
 	QuitReasonHostQuit,           // the host quit the game (on purpose)
 } QuitReason;
 
+#define kMultipeerServiceType @"!DoTheDancing!"
+
 #define kDanceMoveBernieName @"Bernie"
 
 #define kStep1_SFX @"step1_alice.caf"

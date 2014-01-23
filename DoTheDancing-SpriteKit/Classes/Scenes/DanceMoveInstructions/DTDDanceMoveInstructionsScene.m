@@ -7,7 +7,6 @@
 //
 
 #import "DTDDanceMoveInstructionsScene.h"
-#import "DTDGameManager.h"
 #import "DTDDanceMoveSelectionScene.h"
 #import "DTDDanceMoveSeeInActionScene.h"
 #import "DTDDanceMoveTryItOutScene.h"

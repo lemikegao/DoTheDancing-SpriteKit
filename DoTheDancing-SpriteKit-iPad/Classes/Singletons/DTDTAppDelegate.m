@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Chin and Cheeks LLC. All rights reserved.
 //
 
-#import "DTDAppDelegate.h"
+#import "DTDTAppDelegate.h"
 
-@implementation DTDAppDelegate
+@implementation DTDTAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

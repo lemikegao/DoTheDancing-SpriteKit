@@ -15,4 +15,5 @@
     #import <Foundation/Foundation.h>
     #import "DTDConstants.h"
     #import "SKButton.h"
+    #import "DTDGameManager.h"
 #endif
