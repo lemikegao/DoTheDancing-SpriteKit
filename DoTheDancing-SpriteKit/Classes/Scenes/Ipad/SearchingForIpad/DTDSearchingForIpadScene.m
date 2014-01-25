@@ -36,6 +36,11 @@
     return self;
 }
 
+- (void)willMoveFromView:(SKView *)view
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 #pragma mark - Setup UI
 - (void)_displaySearchingForIpad
 {
@@ -90,6 +95,8 @@
     {
         // Accept the invitation immediately for single player mode
         invitationHandler(YES, [DTDGameManager sharedGameManager].sessionManager.session);
+        
+        NSLog(@"Accepted invitation from peer: %@", peerID);
     }
 }
 
