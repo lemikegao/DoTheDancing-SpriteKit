@@ -8,6 +8,7 @@
 
 #import "DTDMainMenuScene.h"
 #import "DTDDanceMoveSelectionScene.h"
+#import "DTDSearchingForIpadScene.h"
 
 @implementation DTDMainMenuScene
 
@@ -64,6 +65,14 @@
     multiButton.position = CGPointMake(0, -menuBg.size.height * 0.75);
     [multiButton setTouchUpInsideTarget:self action:@selector(_pressedMultiplayerButton:)];
     [menuBg addChild:multiButton];
+    
+    
+    
+    // Temp menu
+    SKButton *connectToIpadButton = [SKButton buttonWithImageNamedNormal:@"mainmenu-button-single" selected:@"mainmenu-button-single-highlight"];
+    connectToIpadButton.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.15);
+    [connectToIpadButton setTouchUpInsideTarget:self action:@selector(_pressedConnectToIpadButton:)];
+    [self addChild:connectToIpadButton];
 }
 
 #pragma mark - Button actions
@@ -76,6 +85,11 @@
 - (void)_pressedMultiplayerButton:(id)sender
 {
     
+}
+
+- (void)_pressedConnectToIpadButton:(id)sender
+{
+    [self.view presentScene:[DTDSearchingForIpadScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
 }
 
 @end

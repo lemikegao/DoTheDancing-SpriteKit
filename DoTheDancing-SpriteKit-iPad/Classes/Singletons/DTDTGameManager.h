@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
+#import "DTDTSessionManager.h"
 #import "DTDDanceMove.h"
 @import AVFoundation;
 
@@ -24,6 +25,7 @@
 
 // Networking
 @property (nonatomic, strong) MCNearbyServiceBrowser *browser;
+@property (nonatomic, strong) DTDTSessionManager *sessionManager;
 
 +(DTDTGameManager*)sharedGameManager;
 

@@ -8,6 +8,11 @@
 
 #import "DTDTSearchingForDeviceScene.h"
 #import "DTDTMainMenuScene.h"
+#import "DTDTConnectedToDeviceScene.h"
+
+@interface DTDTSearchingForDeviceScene() <MCNearbyServiceBrowserDelegate>
+
+@end
 
 @implementation DTDTSearchingForDeviceScene
 
@@ -21,6 +26,13 @@
         [self _displaySearchingMessage];
         [self _displayBackButton];
         [self _startSearchingForDevice];
+        
+        // Register for notifications when connected to advertiser
+        [[NSNotificationCenter defaultCenter]
+         addObserver:self
+         selector:@selector(_peerConnected:)
+         name:kPeerConnectionAcceptedNotification
+         object:nil];
     }
     return self;
 }
@@ -49,13 +61,49 @@
 #pragma mark - Button actions
 - (void)_pressedBack:(id)sender
 {
+    // Stop browsing
+    [[DTDTGameManager sharedGameManager].browser stopBrowsingForPeers];
+    
     [self.view presentScene:[DTDTMainMenuScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionRight duration:0.25]];
 }
 
-#pragma mark - Connection
+#pragma mark - Networking
 - (void)_startSearchingForDevice
 {
+    MCNearbyServiceBrowser *browser = [DTDTGameManager sharedGameManager].browser;
+    browser.delegate = self;
+    [browser startBrowsingForPeers];
+}
+
+- (void)_peerConnected:(NSNotification *)notification
+{
+    // Stop browsing
+    [[DTDTGameManager sharedGameManager].browser stopBrowsingForPeers];
     
+    [self.view presentScene:[DTDTConnectedToDeviceScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
+}
+
+#pragma mark - MCNearbyServiceBrowserDelegate methods
+// Found a nearby advertising peer
+- (void)browser:(MCNearbyServiceBrowser *)browser foundPeer:(MCPeerID *)peerID withDiscoveryInfo:(NSDictionary *)info
+{
+    NSLog(@"Found peer! %@", peerID);
+    // TODO: Allow multiple peers; currently only single player
+    // Send invite to peer
+    [browser invitePeer:peerID toSession:[DTDTGameManager sharedGameManager].sessionManager.session withContext:[kSessionContextType dataUsingEncoding:NSUTF8StringEncoding] timeout:10];
+}
+
+// A nearby peer has stopped advertising
+- (void)browser:(MCNearbyServiceBrowser *)browser lostPeer:(MCPeerID *)peerID
+{
+    // TODO: Required
+}
+
+// Browsing did not start due to an error
+- (void)browser:(MCNearbyServiceBrowser *)browser didNotStartBrowsingForPeers:(NSError *)error
+{
+    // TODO: Optional
+    NSLog(@"Error browsing: %@", error.localizedDescription);
 }
 
 @end

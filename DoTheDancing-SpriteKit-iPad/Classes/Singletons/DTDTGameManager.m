@@ -58,7 +58,8 @@ static DTDTGameManager *_sharedGameManager = nil;   // singleton
         _individualDanceMove = nil;
         
         MCPeerID *peerID = [[MCPeerID alloc] initWithDisplayName:@"iPad"];
-        _browser = [[MCNearbyServiceBrowser alloc] initWithPeer:peerID serviceType:kMultipeerServiceType];
+        _browser = [[MCNearbyServiceBrowser alloc] initWithPeer:peerID serviceType:kServiceType];
+        _sessionManager = [[DTDTSessionManager alloc] initWithPeer:peerID];
     }
     
     return self;

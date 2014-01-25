@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MultipeerConnectivity/MultipeerConnectivity.h>
+#import "DTDSessionManager.h"
 #import "DTDDanceMove.h"
 @import AVFoundation;
 
@@ -21,11 +23,9 @@
 // Individual dance moves practice
 @property (nonatomic, strong) DTDDanceMove *individualDanceMove;
 
-// Multiplayer
-//@property (nonatomic) BOOL isMultiplayer;
-//@property (nonatomic) BOOL isHost;
-//@property (nonatomic, strong) MatchmakingClient *client;
-//@property (nonatomic, strong) MatchmakingServer *server;
+// Networking
+@property (nonatomic, strong) MCNearbyServiceAdvertiser *advertiser;
+@property (nonatomic, strong) DTDSessionManager *sessionManager;
 
 +(DTDGameManager*)sharedGameManager;
 

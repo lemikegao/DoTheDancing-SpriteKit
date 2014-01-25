@@ -34,6 +34,7 @@
 		C408D65E18769EEB0070FC43 /* step1_alice.caf in Resources */ = {isa = PBXBuildFile; fileRef = C408D64F18769EEB0070FC43 /* step1_alice.caf */; };
 		C408D65F18769EEB0070FC43 /* step2_alice.caf in Resources */ = {isa = PBXBuildFile; fileRef = C408D65018769EEB0070FC43 /* step2_alice.caf */; };
 		C408D66018769EEB0070FC43 /* step2_alice.caf in Resources */ = {isa = PBXBuildFile; fileRef = C408D65018769EEB0070FC43 /* step2_alice.caf */; };
+		C4153A011892455E00A04354 /* DTDTConnectedToDeviceScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C4153A001892455E00A04354 /* DTDTConnectedToDeviceScene.m */; };
 		C428898B18769D3C001FFB3A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4933679185453010027C38C /* Foundation.framework */; };
 		C428898C18769D3C001FFB3A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C493367B185453010027C38C /* CoreGraphics.framework */; };
 		C428898D18769D3C001FFB3A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C493367D185453010027C38C /* UIKit.framework */; };
@@ -82,6 +83,9 @@
 		C49336A2185453010027C38C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C493367D185453010027C38C /* UIKit.framework */; };
 		C49336AA185453010027C38C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C49336A8185453010027C38C /* InfoPlist.strings */; };
 		C49336AC185453010027C38C /* DoTheDancing_SpriteKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C49336AB185453010027C38C /* DoTheDancing_SpriteKitTests.m */; };
+		C4FC08E0189252DA00F2EEED /* DTDTSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FC08DF189252DA00F2EEED /* DTDTSessionManager.m */; };
+		C4FC08E418925A1900F2EEED /* DTDSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FC08E318925A1900F2EEED /* DTDSessionManager.m */; };
+		C4FC08E918925CDD00F2EEED /* DTDSearchingForIpadScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FC08E818925CDD00F2EEED /* DTDSearchingForIpadScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +120,8 @@
 		C408D64D18769EEB0070FC43 /* the_bernie.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = the_bernie.caf; sourceTree = "<group>"; };
 		C408D64F18769EEB0070FC43 /* step1_alice.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = step1_alice.caf; sourceTree = "<group>"; };
 		C408D65018769EEB0070FC43 /* step2_alice.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = step2_alice.caf; sourceTree = "<group>"; };
+		C41539FF1892455E00A04354 /* DTDTConnectedToDeviceScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDTConnectedToDeviceScene.h; sourceTree = "<group>"; };
+		C4153A001892455E00A04354 /* DTDTConnectedToDeviceScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDTConnectedToDeviceScene.m; sourceTree = "<group>"; };
 		C428898A18769D3C001FFB3A /* DoTheDancing-SpriteKit-iPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DoTheDancing-SpriteKit-iPad.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C428899118769D3C001FFB3A /* DoTheDancing-SpriteKit-iPad-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DoTheDancing-SpriteKit-iPad-Info.plist"; sourceTree = "<group>"; };
 		C428899318769D3C001FFB3A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -186,6 +192,12 @@
 		C4EC61B8188FA4D700DF4F20 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		C4EC61BA188FA4DD00DF4F20 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		C4EC61BC188FA4EA00DF4F20 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		C4FC08DE189252DA00F2EEED /* DTDTSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDTSessionManager.h; sourceTree = "<group>"; };
+		C4FC08DF189252DA00F2EEED /* DTDTSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDTSessionManager.m; sourceTree = "<group>"; };
+		C4FC08E218925A1900F2EEED /* DTDSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDSessionManager.h; sourceTree = "<group>"; };
+		C4FC08E318925A1900F2EEED /* DTDSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDSessionManager.m; sourceTree = "<group>"; };
+		C4FC08E718925CDD00F2EEED /* DTDSearchingForIpadScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDSearchingForIpadScene.h; sourceTree = "<group>"; };
+		C4FC08E818925CDD00F2EEED /* DTDSearchingForIpadScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDSearchingForIpadScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,7 +256,7 @@
 				C408D61F18769DD60070FC43 /* DTDTViewController.h */,
 				C408D62018769DD60070FC43 /* DTDTViewController.m */,
 				C408D62118769DD60070FC43 /* Scenes */,
-				C4EC61B2188FA3C000DF4F20 /* Networking */,
+				C4FC08DD189252C800F2EEED /* Networking */,
 				C408D62218769DD60070FC43 /* Singletons */,
 			);
 			path = Classes;
@@ -255,6 +267,7 @@
 			children = (
 				C45A2FD5188E348500AB4904 /* MainMenu */,
 				C45A2FDE188E441100AB4904 /* SearchingForDevice */,
+				C41539FE1892455100A04354 /* ConnectedToDevice */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -325,6 +338,15 @@
 			path = SFX;
 			sourceTree = "<group>";
 		};
+		C41539FE1892455100A04354 /* ConnectedToDevice */ = {
+			isa = PBXGroup;
+			children = (
+				C41539FF1892455E00A04354 /* DTDTConnectedToDeviceScene.h */,
+				C4153A001892455E00A04354 /* DTDTConnectedToDeviceScene.m */,
+			);
+			path = ConnectedToDevice;
+			sourceTree = "<group>";
+		};
 		C428898F18769D3C001FFB3A /* DoTheDancing-SpriteKit-iPad */ = {
 			isa = PBXGroup;
 			children = (
@@ -379,6 +401,7 @@
 				C42914221867B2A4000D7F6B /* DTDViewController.h */,
 				C42914231867B2A4000D7F6B /* DTDViewController.m */,
 				C42914241867B2A4000D7F6B /* Scenes */,
+				C4FC08E118925A0C00F2EEED /* Networking */,
 				C429142B1867B2A4000D7F6B /* Singletons */,
 			);
 			path = Classes;
@@ -393,6 +416,7 @@
 				C43913BD18696844006F5716 /* DanceMoveSeeInAction */,
 				C478452B186A9A7D00243110 /* DanceMoveTryItOut */,
 				C478452F186AB8BF00243110 /* DanceMoveResults */,
+				C4FC08E518925CCA00F2EEED /* Ipad */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -601,11 +625,39 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		C4EC61B2188FA3C000DF4F20 /* Networking */ = {
+		C4FC08DD189252C800F2EEED /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				C4FC08DE189252DA00F2EEED /* DTDTSessionManager.h */,
+				C4FC08DF189252DA00F2EEED /* DTDTSessionManager.m */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		C4FC08E118925A0C00F2EEED /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				C4FC08E218925A1900F2EEED /* DTDSessionManager.h */,
+				C4FC08E318925A1900F2EEED /* DTDSessionManager.m */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		C4FC08E518925CCA00F2EEED /* Ipad */ = {
+			isa = PBXGroup;
+			children = (
+				C4FC08E618925CCA00F2EEED /* SearchingForIpad */,
+			);
+			path = Ipad;
+			sourceTree = "<group>";
+		};
+		C4FC08E618925CCA00F2EEED /* SearchingForIpad */ = {
+			isa = PBXGroup;
+			children = (
+				C4FC08E718925CDD00F2EEED /* DTDSearchingForIpadScene.h */,
+				C4FC08E818925CDD00F2EEED /* DTDSearchingForIpadScene.m */,
+			);
+			path = SearchingForIpad;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -789,11 +841,13 @@
 				C408D63318769E610070FC43 /* SKButton.m in Sources */,
 				C45A2FE1188E441F00AB4904 /* DTDTSearchingForDeviceScene.m in Sources */,
 				C408D63518769E610070FC43 /* SKMultilineLabel.m in Sources */,
+				C4FC08E0189252DA00F2EEED /* DTDTSessionManager.m in Sources */,
 				C408D63718769E610070FC43 /* TCProgressTimerForegroundCropNode.m in Sources */,
 				C408D63918769E610070FC43 /* TCProgressTimerNode.m in Sources */,
 				C45A2FDC188E357000AB4904 /* DTDTMainMenuScene.m in Sources */,
 				C428899618769D3C001FFB3A /* main.m in Sources */,
 				C48DB4CB189101C500D6D988 /* DTDTGameManager.m in Sources */,
+				C4153A011892455E00A04354 /* DTDTConnectedToDeviceScene.m in Sources */,
 				C408D62518769DD60070FC43 /* DTDTViewController.m in Sources */,
 				C408D62618769DD60070FC43 /* DTDTAppDelegate.m in Sources */,
 			);
@@ -818,11 +872,13 @@
 				C45EE13418769921003DF245 /* DTDDanceMove.m in Sources */,
 				C45EE13C18769921003DF245 /* SKMultilineLabel.m in Sources */,
 				C45EE14018769921003DF245 /* TCProgressTimerNode.m in Sources */,
+				C4FC08E918925CDD00F2EEED /* DTDSearchingForIpadScene.m in Sources */,
 				C45EE13618769921003DF245 /* DTDDanceMoveBernie.m in Sources */,
 				C42914351867B2A4000D7F6B /* DTDMainMenuScene.m in Sources */,
 				C42914421867D333000D7F6B /* DTDDanceMoveInstructionsScene.m in Sources */,
 				C42914341867B2A4000D7F6B /* DTDDanceMoveSelectionScene.m in Sources */,
 				C45EE13A18769921003DF245 /* SKButton.m in Sources */,
+				C4FC08E418925A1900F2EEED /* DTDSessionManager.m in Sources */,
 				C42914361867B2A4000D7F6B /* DTDAppDelegate.m in Sources */,
 				C4784532186AB8CA00243110 /* DTDDanceMoveResultsScene.m in Sources */,
 				C478452E186A9A8900243110 /* DTDDanceMoveTryItOutScene.m in Sources */,

@@ -54,14 +54,12 @@ static DTDGameManager *_sharedGameManager = nil;   // singleton
         _isMusicOn = YES;
         _isSoundEffectsOn = YES;
         
-        // individual dance moves practice
+        // Individual dance moves practice
         _individualDanceMove = nil;
         
-        // multiplayer
-//        _isMultiplayer = NO;
-//        _isHost = NO;
-//        _client = nil;
-//        _server = nil;
+        MCPeerID *peerID = [[MCPeerID alloc] initWithDisplayName:@"iPhone"];
+        _advertiser = [[MCNearbyServiceAdvertiser alloc] initWithPeer:peerID discoveryInfo:nil serviceType:kServiceType];
+        _sessionManager = [[DTDSessionManager alloc] initWithPeer:peerID];
     }
     
     return self;

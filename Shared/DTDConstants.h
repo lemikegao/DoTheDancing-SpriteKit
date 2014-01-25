@@ -51,7 +51,9 @@ typedef enum
 	QuitReasonHostQuit,           // the host quit the game (on purpose)
 } QuitReason;
 
-#define kMultipeerServiceType @"!DoTheDancing!"
+#define kServiceType @"dtd-service"
+#define kSessionContextType @"dtd-connect-context"
+#define kPeerConnectionAcceptedNotification @"com.chinandcheeks.DoTheDancing-SpriteKit:PeerConnectionAcceptedNotification"
 
 #define kDanceMoveBernieName @"Bernie"
 
