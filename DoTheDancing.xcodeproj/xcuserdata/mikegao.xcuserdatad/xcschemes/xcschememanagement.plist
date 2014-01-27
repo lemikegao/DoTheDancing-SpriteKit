@@ -4,12 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>DoTheDancing-SpriteKit-iPad.xcscheme</key>
+		<key>DoTheDancing-External.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>DoTheDancing-SpriteKit.xcscheme</key>
+		<key>DoTheDancing.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>

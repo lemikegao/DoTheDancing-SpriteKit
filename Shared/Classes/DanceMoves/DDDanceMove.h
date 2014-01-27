@@ -1,5 +1,5 @@
 //
-//  DTDDanceMove.h
+//  DDDanceMove.h
 //  DoTheDancing-SpriteKit
 //
 //  Created by Michael Gao on 12/22/13.
@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DTDMotionRequirements.h"
+#import "DDMotionRequirements.h"
 
-@interface DTDDanceMove : NSObject
+@interface DDDanceMove : NSObject
 
 @property (nonatomic) DanceMoves danceMoveType;
 @property (nonatomic, strong) NSString *name;

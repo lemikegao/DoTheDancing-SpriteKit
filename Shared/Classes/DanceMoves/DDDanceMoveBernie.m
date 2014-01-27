@@ -1,14 +1,14 @@
 //
-//  DTDDanceMoveBernie.m
+//  DDDanceMoveBernie.m
 //  DoTheDancing-SpriteKit
 //
 //  Created by Michael Gao on 12/22/13.
 //  Copyright (c) 2013 Chin and Cheeks LLC. All rights reserved.
 //
 
-#import "DTDDanceMoveBernie.h"
+#import "DDDanceMoveBernie.h"
 
-@implementation DTDDanceMoveBernie
+@implementation DDDanceMoveBernie
 
 -(id)init
 {
@@ -41,31 +41,31 @@
     
     /* step 1 breakdown - 1 part */
     // part 1
-    DTDMotionRequirements *step1_1 = [[DTDMotionRequirements alloc] init];
+    DDMotionRequirements *step1_1 = [[DDMotionRequirements alloc] init];
     step1_1.pitchMin = -80;
     step1_1.pitchMax = -20;
     
     /* step 2 breakdown - 4 parts */
     // part 1
-    DTDMotionRequirements *step2_1 = [[DTDMotionRequirements alloc] init];
+    DDMotionRequirements *step2_1 = [[DDMotionRequirements alloc] init];
     step2_1.pitchMin = -80;
     step2_1.pitchMax = -20;
     step2_1.accelerationZMin = 0.3;
     
     // part 2
-    DTDMotionRequirements *step2_2 = [[DTDMotionRequirements alloc] init];
+    DDMotionRequirements *step2_2 = [[DDMotionRequirements alloc] init];
     step2_2.pitchMin = -80;
     step2_2.pitchMax = -20;
     step2_2.accelerationZMax = -0.3;
     
     // part 3
-    DTDMotionRequirements *step2_3 = [[DTDMotionRequirements alloc] init];
+    DDMotionRequirements *step2_3 = [[DDMotionRequirements alloc] init];
     step2_3.pitchMin = -80;
     step2_3.pitchMax = -20;
     step2_3.accelerationZMin = 0.3;
     
     // part 4
-    DTDMotionRequirements *step2_4 = [[DTDMotionRequirements alloc] init];
+    DDMotionRequirements *step2_4 = [[DDMotionRequirements alloc] init];
     step2_4.pitchMin = -80;
     step2_4.pitchMax = -20;
     step2_4.accelerationZMax = -0.3;

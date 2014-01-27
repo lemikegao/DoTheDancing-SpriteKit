@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:DoTheDancing-SpriteKit.xcodeproj">
+      location = "self:DoTheDancing.xcodeproj">
    </FileRef>
 </Workspace>

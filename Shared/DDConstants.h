@@ -54,6 +54,7 @@ typedef enum
 #define kServiceType @"dtd-service"
 #define kSessionContextType @"dtd-connect-context"
 #define kPeerConnectionAcceptedNotification @"com.chinandcheeks.DoTheDancing-SpriteKit:PeerConnectionAcceptedNotification"
+#define kPeerDidReceiveDataNotification @"com.chinandcheeks.DoTheDancing-SpriteKit:PeerDidReceiveDataNotification"
 
 #define kDanceMoveBernieName @"Bernie"
 

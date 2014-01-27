@@ -6,8 +6,12 @@
 //  Copyright (c) 2014 Chin and Cheeks LLC. All rights reserved.
 //
 
-#import "DTDPacket.h"
+#import "DDPacket.h"
 
-@interface DTDPacketStartDanceMoveDance : DTDPacket
+@interface DDPacketStartDanceMoveDance : DDPacket
+
+@property (nonatomic) DanceMoves danceMoveType;
+
++(id)packetWithDanceMoveType:(DanceMoves)danceMoveType;
 
 @end

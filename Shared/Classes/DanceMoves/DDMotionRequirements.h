@@ -1,5 +1,5 @@
 //
-//  DTDMotionRequirements.h
+//  DDMotionRequirements.h
 //  DoTheDancing-SpriteKit
 //
 //  Created by Michael Gao on 12/22/13.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DTDMotionRequirements : NSObject
+@interface DDMotionRequirements : NSObject
 
 @property (nonatomic) CGFloat yawMin;
 @property (nonatomic) CGFloat yawMax;

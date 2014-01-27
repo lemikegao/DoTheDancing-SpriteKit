@@ -6,8 +6,25 @@
 //  Copyright (c) 2014 Chin and Cheeks LLC. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "NSData+Networking.h"
 
-@interface DTDPacket : NSObject
+typedef enum
+{
+    PacketTypeStartDanceMoveDance = 0x64,       // server to client
+}
+PacketType;
+
+extern const size_t PACKET_HEADER_SIZE;
+
+@interface DDPacket : NSObject
+
+@property (nonatomic) PacketType packetType;
+
++ (id)packetWithType:(PacketType)packetType;
+- (id)initWithType:(PacketType)packetType;
+
++ (id)packetWithData:(NSData *)data;
+- (NSData *)data;
+- (NSDictionary *)dict;
 
 @end
