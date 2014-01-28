@@ -6,14 +6,14 @@
 //  Copyright (c) 2014 Chin and Cheeks LLC. All rights reserved.
 //
 
-#import "DDSearchingForIpadScene.h"
+#import "DDSearchingForExternalScene.h"
 #import "DDMainMenuScene.h"
 
-@interface DDSearchingForIpadScene() <MCNearbyServiceAdvertiserDelegate>
+@interface DDSearchingForExternalScene() <MCNearbyServiceAdvertiserDelegate>
 
 @end
 
-@implementation DDSearchingForIpadScene
+@implementation DDSearchingForExternalScene
 
 - (id)initWithSize:(CGSize)size
 {

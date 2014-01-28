@@ -7,7 +7,7 @@
 //
 
 #import "DDEMainMenuScene.h"
-#import "DDESearchingForDeviceScene.h"
+#import "DDESearchingForControllerScene.h"
 
 @implementation DDEMainMenuScene
 
@@ -73,7 +73,7 @@
 - (void)_pressedSingleButton:(id)sender
 {
     // Present scene
-    [self.view presentScene:[DDESearchingForDeviceScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
+    [self.view presentScene:[DDESearchingForControllerScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
 }
 
 - (void)_pressedMultiplayerButton:(id)sender

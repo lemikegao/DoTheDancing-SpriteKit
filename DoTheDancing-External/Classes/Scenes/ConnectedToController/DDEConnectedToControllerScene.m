@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Chin and Cheeks LLC. All rights reserved.
 //
 
-#import "DDEConnectedToDeviceScene.h"
+#import "DDEConnectedToControllerScene.h"
 
-@implementation DDEConnectedToDeviceScene
+@implementation DDEConnectedToControllerScene
 
 - (id)initWithSize:(CGSize)size
 {

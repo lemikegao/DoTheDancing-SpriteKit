@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 Chin and Cheeks LLC. All rights reserved.
 //
 
-#import "DDConnectedToIpadScene.h"
+#import "DDConnectedToExternalScene.h"
 #import <CoreMotion/CoreMotion.h>
 #import "DDDanceMoveBernie.h"
 
-@interface DDConnectedToIpadScene()
+@interface DDConnectedToExternalScene()
 
 @property (nonatomic, strong) DDDanceMove *danceMove;
 @property (nonatomic) NSTimeInterval lastUpdateTime;
@@ -37,7 +37,7 @@
 
 @end
 
-@implementation DDConnectedToIpadScene
+@implementation DDConnectedToExternalScene
 
 - (id)initWithSize:(CGSize)size
 {

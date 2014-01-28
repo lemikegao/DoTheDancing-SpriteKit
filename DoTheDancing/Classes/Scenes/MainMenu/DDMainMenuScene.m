@@ -8,7 +8,7 @@
 
 #import "DDMainMenuScene.h"
 #import "DDDanceMoveSelectionScene.h"
-#import "DDSearchingForIpadScene.h"
+#import "DDSearchingForExternalScene.h"
 
 @implementation DDMainMenuScene
 
@@ -89,7 +89,7 @@
 
 - (void)_pressedConnectToIpadButton:(id)sender
 {
-    [self.view presentScene:[DDSearchingForIpadScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
+    [self.view presentScene:[DDSearchingForExternalScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
 }
 
 @end

@@ -6,15 +6,15 @@
 //  Copyright (c) 2014 Chin and Cheeks LLC. All rights reserved.
 //
 
-#import "DDESearchingForDeviceScene.h"
+#import "DDESearchingForControllerScene.h"
 #import "DDEMainMenuScene.h"
-#import "DDEConnectedToDeviceScene.h"
+#import "DDEConnectedToControllerScene.h"
 
-@interface DDESearchingForDeviceScene() <MCNearbyServiceBrowserDelegate>
+@interface DDESearchingForControllerScene() <MCNearbyServiceBrowserDelegate>
 
 @end
 
-@implementation DDESearchingForDeviceScene
+@implementation DDESearchingForControllerScene
 
 - (id)initWithSize:(CGSize)size
 {
@@ -85,7 +85,7 @@
     // Stop browsing
     [[DDGameManager sharedGameManager].browser stopBrowsingForPeers];
     
-    [self.view presentScene:[DDEConnectedToDeviceScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
+    [self.view presentScene:[DDEConnectedToControllerScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
 }
 
 #pragma mark - MCNearbyServiceBrowserDelegate methods

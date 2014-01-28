@@ -1,13 +1,13 @@
 //
-//  DTDSearchingForDeviceScene.h
+//  DDEConnectedToDeviceScene.h
 //  DoTheDancing-SpriteKit
 //
-//  Created by Michael Gao on 1/20/14.
+//  Created by Michael Gao on 1/23/14.
 //  Copyright (c) 2014 Chin and Cheeks LLC. All rights reserved.
 //
 
 #import <SpriteKit/SpriteKit.h>
 
-@interface DDESearchingForDeviceScene : SKScene
+@interface DDEConnectedToControllerScene : SKScene
 
 @end
