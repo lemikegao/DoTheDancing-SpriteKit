@@ -7,7 +7,7 @@
 //
 
 #import "DDViewController.h"
-#import "DTDMainMenuScene.h"
+#import "DDMainMenuScene.h"
 
 @implementation DDViewController
 
@@ -21,7 +21,7 @@
     skView.showsNodeCount = YES;
     
     // Create and configure the scene.
-    SKScene * scene = [DTDMainMenuScene sceneWithSize:skView.bounds.size];
+    SKScene * scene = [DDMainMenuScene sceneWithSize:skView.bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFill;
     
     // Present the scene.

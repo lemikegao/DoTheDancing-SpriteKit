@@ -15,5 +15,5 @@
     #import <Foundation/Foundation.h>
     #import "SKButton.h"
     #import "DDConstants.h"
-    #import "DDEGameManager.h"
+    #import "DDGameManager.h"
 #endif

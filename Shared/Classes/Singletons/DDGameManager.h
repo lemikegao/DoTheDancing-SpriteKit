@@ -24,6 +24,7 @@
 @property (nonatomic, strong) DDDanceMove *individualDanceMove;
 
 // Networking
+@property (nonatomic, strong) MCNearbyServiceBrowser *browser;
 @property (nonatomic, strong) MCNearbyServiceAdvertiser *advertiser;
 @property (nonatomic, strong) DDSessionManager *sessionManager;
 

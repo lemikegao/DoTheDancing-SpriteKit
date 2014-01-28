@@ -41,7 +41,7 @@ const size_t PACKET_HEADER_SIZE = 10;
 		return nil;
 	}
     
-	int packetNumber = [data rw_int32AtOffset:4];
+//	int packetNumber = [data rw_int32AtOffset:4];
 	PacketType packetType = [data rw_int16AtOffset:8];
     
 	DDPacket *packet;

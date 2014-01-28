@@ -7,7 +7,7 @@
 //
 
 #import "DDSearchingForIpadScene.h"
-#import "DTDMainMenuScene.h"
+#import "DDMainMenuScene.h"
 
 @interface DDSearchingForIpadScene() <MCNearbyServiceAdvertiserDelegate>
 
@@ -67,7 +67,7 @@
     // Stop advertising
     [[DDGameManager sharedGameManager].advertiser stopAdvertisingPeer];
     
-    [self.view presentScene:[DTDMainMenuScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionRight duration:0.25]];
+    [self.view presentScene:[DDMainMenuScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionRight duration:0.25]];
 }
 
 #pragma mark - Networking

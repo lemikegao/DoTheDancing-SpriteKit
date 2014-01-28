@@ -7,9 +7,14 @@
 //
 
 #import "DDDanceMoveSelectionScene.h"
-#import "DTDMainMenuScene.h"
 #import "DDDanceMoveInstructionsScene.h"
 #import "DDDanceMoveBernie.h"
+
+#if CONTROLLER
+#import "DDMainMenuScene.h"
+#else
+#import "DDEMainMenuScene.h"
+#endif
 
 @implementation DDDanceMoveSelectionScene
 
@@ -167,7 +172,13 @@
 #pragma mark - Button actions
 - (void)_pressedBack:(id)sender
 {
-    [self.view presentScene:[DTDMainMenuScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionRight duration:0.25]];
+    Class mainMenuClass;
+#if CONTROLLER
+    mainMenuClass = [DDMainMenuScene class];
+#else
+    mainMenuClass = [DDEMainMenuScene class];
+#endif
+    [self.view presentScene:[mainMenuClass sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionRight duration:0.25]];
 }
 
 - (void)_showDanceInstructions:(id)sender

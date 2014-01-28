@@ -57,7 +57,11 @@ static DDGameManager *_sharedGameManager = nil;   // singleton
         // Individual dance moves practice
         _individualDanceMove = nil;
         
-        MCPeerID *peerID = [[MCPeerID alloc] initWithDisplayName:@"iPhone"];
+        NSString *peerDisplayName = @"Controller";
+#if EXTERNAL
+        peerDisplayName = @"External";
+#endif
+        MCPeerID *peerID = [[MCPeerID alloc] initWithDisplayName:peerDisplayName];
         _advertiser = [[MCNearbyServiceAdvertiser alloc] initWithPeer:peerID discoveryInfo:nil serviceType:kServiceType];
         _sessionManager = [[DDSessionManager alloc] initWithPeer:peerID];
     }

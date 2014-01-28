@@ -8,6 +8,6 @@
 
 #import <SpriteKit/SpriteKit.h>
 
-@interface DTDMainMenuScene : SKScene
+@interface DDMainMenuScene : SKScene
 
 @end

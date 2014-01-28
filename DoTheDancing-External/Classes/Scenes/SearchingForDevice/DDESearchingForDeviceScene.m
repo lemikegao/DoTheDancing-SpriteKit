@@ -67,7 +67,7 @@
 - (void)_pressedBack:(id)sender
 {
     // Stop browsing
-    [[DDEGameManager sharedGameManager].browser stopBrowsingForPeers];
+    [[DDGameManager sharedGameManager].browser stopBrowsingForPeers];
     
     [self.view presentScene:[DDEMainMenuScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionRight duration:0.25]];
 }
@@ -75,7 +75,7 @@
 #pragma mark - Networking
 - (void)_startSearchingForDevice
 {
-    MCNearbyServiceBrowser *browser = [DDEGameManager sharedGameManager].browser;
+    MCNearbyServiceBrowser *browser = [DDGameManager sharedGameManager].browser;
     browser.delegate = self;
     [browser startBrowsingForPeers];
 }
@@ -83,7 +83,7 @@
 - (void)_peerConnected:(NSNotification *)notification
 {
     // Stop browsing
-    [[DDEGameManager sharedGameManager].browser stopBrowsingForPeers];
+    [[DDGameManager sharedGameManager].browser stopBrowsingForPeers];
     
     [self.view presentScene:[DDEConnectedToDeviceScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
 }
@@ -95,7 +95,7 @@
     NSLog(@"Found peer! %@", peerID);
     // TODO: Allow multiple peers; currently only single player
     // Send invite to peer
-    [browser invitePeer:peerID toSession:[DDEGameManager sharedGameManager].sessionManager.session withContext:[kSessionContextType dataUsingEncoding:NSUTF8StringEncoding] timeout:10];
+    [browser invitePeer:peerID toSession:[DDGameManager sharedGameManager].sessionManager.session withContext:[kSessionContextType dataUsingEncoding:NSUTF8StringEncoding] timeout:10];
 }
 
 // A nearby peer has stopped advertising

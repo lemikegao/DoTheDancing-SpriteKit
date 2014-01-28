@@ -6,11 +6,11 @@
 //  Copyright (c) 2013 Chin and Cheeks LLC. All rights reserved.
 //
 
-#import "DTDMainMenuScene.h"
+#import "DDMainMenuScene.h"
 #import "DDDanceMoveSelectionScene.h"
 #import "DDSearchingForIpadScene.h"
 
-@implementation DTDMainMenuScene
+@implementation DDMainMenuScene
 
 - (id)initWithSize:(CGSize)size
 {
