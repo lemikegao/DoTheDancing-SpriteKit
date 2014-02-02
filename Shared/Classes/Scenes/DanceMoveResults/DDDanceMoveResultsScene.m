@@ -36,7 +36,6 @@
     self = [self initWithSize:size];
     if (self)
     {
-        self.backgroundColor = RGB(249, 185, 56);
         _results = results;
         _danceMove = [DDGameManager sharedGameManager].individualDanceMove;
         _expandButtons = [[NSMutableArray alloc] initWithCapacity:self.danceMove.numIndividualIterations];
@@ -53,23 +52,23 @@
 - (void)_displayTopBar
 {
     // Top bar bg
-    SKSpriteNode *topBannerBg = [SKSpriteNode spriteNodeWithColor:RGB(56, 56, 56) size:CGSizeMake(320, 43)];
+    SKSpriteNode *topBannerBg = [SKSpriteNode spriteNodeWithColor:RGB(56, 56, 56) size:CGSizeMake(self.size.width, 43*self.sizeMultiplier)];
     topBannerBg.anchorPoint = CGPointMake(0, 1);
     topBannerBg.position = CGPointMake(0, self.size.height);
     [self addChild:topBannerBg];
     
     // Dance move name
     SKLabelNode *titleLabel = [SKLabelNode labelNodeWithFontNamed:@"Economica-Bold"];
-    titleLabel.fontSize = 32;
+    titleLabel.fontSize = 32*self.sizeMultiplier;
     titleLabel.text = self.danceMove.name;
     titleLabel.fontColor = RGB(249, 185, 56);
     titleLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
     titleLabel.position = CGPointMake(self.size.width * 0.5f, -topBannerBg.size.height * 0.5);
     [topBannerBg addChild:titleLabel];
     
-    // 'IN ACTION' label
+    // 'RESULTS' label
     SKLabelNode *instructionsLabel = [SKLabelNode labelNodeWithFontNamed:@"Economica-Italic"];
-    instructionsLabel.fontSize = 16.5;
+    instructionsLabel.fontSize = 16.5*self.sizeMultiplier;
     instructionsLabel.text = @"RESULTS";
     instructionsLabel.fontColor = RGB(249, 185, 56);
     instructionsLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
@@ -94,13 +93,13 @@
     for (NSUInteger i=0; i<self.results.count; i++)
     {
         // Add results bg
-        SKSpriteNode *bg = [SKSpriteNode spriteNodeWithColor:RGB(249, 228, 172) size:CGSizeMake(215, 55)];
+        SKSpriteNode *bg = [SKSpriteNode spriteNodeWithColor:RGB(249, 228, 172) size:CGSizeMake(215*self.sizeMultiplier, 55*self.sizeMultiplier)];
         bg.position = CGPointMake(self.size.width * 0.45, positionY);
         [self addChild:bg];
         
         // Add move label
         SKLabelNode *moveLabel = [SKLabelNode labelNodeWithFontNamed:@"Economica-Bold"];
-        moveLabel.fontSize = 32;
+        moveLabel.fontSize = 32*self.sizeMultiplier;
         moveLabel.fontColor = RGB(56, 56, 56);
         moveLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
         moveLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
@@ -152,7 +151,7 @@
         
         // Add 'Steps' label
         SKLabelNode *stepsLabel = [SKLabelNode labelNodeWithFontNamed:@"Economica-Bold"];
-        stepsLabel.fontSize = 18;
+        stepsLabel.fontSize = 18*self.sizeMultiplier;
         stepsLabel.fontColor = RGB(56, 56, 56);
         stepsLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
         stepsLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
@@ -195,7 +194,7 @@
     
     SKSpriteNode *messageSprite = [SKSpriteNode spriteNodeWithImageNamed:messageFile];
     messageSprite.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.83);
-    if (IS_IPHONE_4)
+    if (IS_IPHONE_4 || IS_IPAD)
     {
         [messageSprite setScale:0.8];
     }

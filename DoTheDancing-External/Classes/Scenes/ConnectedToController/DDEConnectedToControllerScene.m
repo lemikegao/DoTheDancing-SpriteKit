@@ -7,6 +7,7 @@
 //
 
 #import "DDEConnectedToControllerScene.h"
+#import "DDDanceMoveSelectionScene.h"
 
 @implementation DDEConnectedToControllerScene
 
@@ -15,8 +16,6 @@
     self = [super initWithSize:size];
     if (self)
     {
-        self.backgroundColor = RGB(249, 185, 56);
-        
         [self _displayConnectedLabel];
         [self _displayPlayButton];
     }
@@ -46,7 +45,8 @@
 #pragma mark - Button actions
 - (void)_pressedPlayButton:(id)sender
 {
-    
+    // Show dance move selection scene
+    [self.view presentScene:[DDDanceMoveSelectionScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionRight duration:0.25]];
 }
 
 @end

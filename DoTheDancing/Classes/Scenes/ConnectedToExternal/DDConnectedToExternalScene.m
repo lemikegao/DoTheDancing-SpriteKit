@@ -9,6 +9,7 @@
 #import "DDConnectedToExternalScene.h"
 #import <CoreMotion/CoreMotion.h>
 #import "DDDanceMoveBernie.h"
+#import "DDMainMenuScene.h"
 
 @interface DDConnectedToExternalScene()
 
@@ -45,7 +46,7 @@
     if (self)
     {
         [self _displayPrompt];
-        [self _displayDisconnectButton];
+        [self _displayBackButton];
         
         [[NSNotificationCenter defaultCenter]
          addObserver:self
@@ -73,9 +74,20 @@
     [self addChild:promptLabel];
 }
 
-- (void)_displayDisconnectButton
+- (void)_displayBackButton
 {
-    
+    SKButton *backButton = [SKButton buttonWithImageNamedNormal:@"back" selected:@"back-highlight"];
+    backButton.anchorPoint = CGPointMake(0, 1);
+    backButton.position = CGPointMake(0, self.size.height);
+    [backButton setTouchUpInsideTarget:self action:@selector(_pressedBack:)];
+    [self addChild:backButton];
+}
+
+#pragma mark - Button actions
+- (void)_pressedBack:(id)sender
+{
+    [[DDGameManager sharedGameManager].sessionManager.session disconnect];
+    [self.view presentScene:[DDMainMenuScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionRight duration:0.25]];
 }
 
 #pragma mark - Networking

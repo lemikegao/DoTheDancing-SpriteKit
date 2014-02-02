@@ -8,6 +8,7 @@
 
 #import "DDSearchingForExternalScene.h"
 #import "DDMainMenuScene.h"
+#import "DDConnectedToExternalScene.h"
 
 @interface DDSearchingForExternalScene() <MCNearbyServiceAdvertiserDelegate>
 
@@ -19,9 +20,7 @@
 {
     self = [super initWithSize:size];
     if (self)
-    {
-        self.backgroundColor = RGB(249, 185, 56);
-        
+    {   
         [self _displaySearchingForIpad];
         [self _displayBackButton];
         [self _startSearchingForIpad];
@@ -84,7 +83,7 @@
     [[DDGameManager sharedGameManager].advertiser stopAdvertisingPeer];
     
     // TODO: Segue to connected to ipad scene
-    
+    [self.view presentScene:[DDConnectedToExternalScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
 }
 
 #pragma mark - MCNearbyServiceAdvertiserDelegate methods

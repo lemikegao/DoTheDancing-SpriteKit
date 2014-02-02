@@ -37,7 +37,6 @@
     self = [super initWithSize:size];
     if (self)
     {
-        self.backgroundColor = RGB(249, 185, 56);
         _danceMove = [DDGameManager sharedGameManager].individualDanceMove;
         _currentShownStep = 1;
         
@@ -83,7 +82,7 @@
 - (void)_displayTopBar
 {
     // Top bar bg
-    SKSpriteNode *topBannerBg = [SKSpriteNode spriteNodeWithColor:RGB(56, 56, 56) size:CGSizeMake(320, 43)];
+    SKSpriteNode *topBannerBg = [SKSpriteNode spriteNodeWithColor:RGB(56, 56, 56) size:CGSizeMake(self.size.width, 43 * self.sizeMultiplier)];
     topBannerBg.anchorPoint = CGPointMake(0, 1);
     topBannerBg.position = CGPointMake(0, self.size.height);
     [self addChild:topBannerBg];
@@ -97,7 +96,7 @@
     
     // Title label
     SKLabelNode *titleLabel = [SKLabelNode labelNodeWithFontNamed:@"Economica-Bold"];
-    titleLabel.fontSize = 32;
+    titleLabel.fontSize = 32 * self.sizeMultiplier;
     titleLabel.text = self.danceMove.name;
     titleLabel.fontColor = RGB(249, 185, 56);
     titleLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
@@ -106,7 +105,7 @@
     
     // Instructions label
     SKLabelNode *instructionsLabel = [SKLabelNode labelNodeWithFontNamed:@"Economica-Italic"];
-    instructionsLabel.fontSize = 16.5;
+    instructionsLabel.fontSize = 16.5 * self.sizeMultiplier;
     instructionsLabel.text = @"INSTRUCTIONS";
     instructionsLabel.fontColor = RGB(249, 185, 56);
     instructionsLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
@@ -122,7 +121,7 @@
     self.illustration = [SKSpriteNode spriteNodeWithImageNamed:step1Illustrations[0]];
     self.illustration.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.63);
     
-    if (IS_IPHONE_4)
+    if (IS_IPHONE_4 || IS_IPAD)
     {
         self.illustration.scale = 0.75;
     }
@@ -157,22 +156,22 @@
 - (void)_displayInstructions
 {
     // Instructions bg
-    SKSpriteNode *instructionsBg = [SKSpriteNode spriteNodeWithColor:RGB(249, 228, 172) size:CGSizeMake(261, 129)];
+    SKSpriteNode *instructionsBg = [SKSpriteNode spriteNodeWithColor:RGB(249, 228, 172) size:CGSizeMake(261 * self.sizeMultiplier, 129 * self.sizeMultiplier)];
     instructionsBg.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.21);
     [self addChild:instructionsBg];
     
     // Add step decor lines
-    SKSpriteNode *line1 = [SKSpriteNode spriteNodeWithColor:RGB(56, 56, 56) size:CGSizeMake(52, 1)];
+    SKSpriteNode *line1 = [SKSpriteNode spriteNodeWithColor:RGB(56, 56, 56) size:CGSizeMake(52 * self.sizeMultiplier, 1 * self.sizeMultiplier)];
     line1.position = CGPointMake(-instructionsBg.size.width * 0.33, instructionsBg.size.height * 0.35);
     [instructionsBg addChild:line1];
     
-    SKSpriteNode *line2 = [SKSpriteNode spriteNodeWithColor:RGB(56, 56, 56) size:CGSizeMake(52, 1)];
+    SKSpriteNode *line2 = [SKSpriteNode spriteNodeWithColor:RGB(56, 56, 56) size:line1.size];
     line2.position = CGPointMake(instructionsBg.size.width * 0.33, line1.position.y);
     [instructionsBg addChild:line2];
     
     // Current step count label
     self.stepCountLabel = [SKLabelNode labelNodeWithFontNamed:@"Economica-Bold"];
-    self.stepCountLabel.fontSize = 26;
+    self.stepCountLabel.fontSize = 26 * self.sizeMultiplier;
     self.stepCountLabel.fontColor = RGB(56, 56, 56);
     self.stepCountLabel.text = @"Step 1";
     self.stepCountLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
@@ -181,7 +180,7 @@
     
     // 'out of' label
     SKLabelNode *outOfLabel = [SKLabelNode labelNodeWithFontNamed:@"ACaslonPro-BoldItalic"];
-    outOfLabel.fontSize = 10.5;
+    outOfLabel.fontSize = 10.5 * self.sizeMultiplier;
     outOfLabel.fontColor = self.stepCountLabel.fontColor;
     outOfLabel.text = @"out of";
     outOfLabel.position = CGPointMake(instructionsBg.size.width * 0.085, line1.position.y);
@@ -197,11 +196,11 @@
     [instructionsBg addChild:totalCountLabel];
     
     // Instructions
-    self.instructionsLabel = [SKMultilineLabel multilineLabelFromStringContainingNewLines:self.danceMove.instructionsForSteps[0] fontName:@"Economica-Regular" fontColor:self.stepCountLabel.fontColor fontSize:20.5 verticalMargin:4 emptyLineHeight:0];
+    self.instructionsLabel = [SKMultilineLabel multilineLabelFromStringContainingNewLines:self.danceMove.instructionsForSteps[0] fontName:@"Economica-Regular" fontColor:self.stepCountLabel.fontColor fontSize:20.5*self.sizeMultiplier verticalMargin:4 emptyLineHeight:0];
     self.instructionsLabel.position = CGPointMake(0, 0);
     [instructionsBg addChild:self.instructionsLabel];
     
-    if (IS_IPHONE_4)
+    if (IS_IPHONE_4 || IS_IPAD)
     {
         instructionsBg.yScale = 0.95;
         instructionsBg.position = CGPointMake(instructionsBg.position.x, self.size.height * 0.23);

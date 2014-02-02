@@ -63,6 +63,7 @@ static DDGameManager *_sharedGameManager = nil;   // singleton
 #endif
         MCPeerID *peerID = [[MCPeerID alloc] initWithDisplayName:peerDisplayName];
         _advertiser = [[MCNearbyServiceAdvertiser alloc] initWithPeer:peerID discoveryInfo:nil serviceType:kServiceType];
+        _browser = [[MCNearbyServiceBrowser alloc] initWithPeer:peerID serviceType:kServiceType];
         _sessionManager = [[DDSessionManager alloc] initWithPeer:peerID];
     }
     

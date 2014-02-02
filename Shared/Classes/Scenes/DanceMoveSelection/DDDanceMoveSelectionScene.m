@@ -23,8 +23,6 @@
     self = [super initWithSize:size];
     if (self)
     {
-        self.backgroundColor = RGB(249, 185, 56);
-        
         [self _displayTopBar];
         [self _displayDanceMoves];
         [self _displayBottomPageControls];
@@ -36,14 +34,14 @@
 - (void)_displayTopBar
 {
     // Top banner bg
-    SKSpriteNode *topBannerBg = [SKSpriteNode spriteNodeWithColor:RGB(56, 56, 56) size:CGSizeMake(320, 43)];
+    SKSpriteNode *topBannerBg = [SKSpriteNode spriteNodeWithColor:RGB(56, 56, 56) size:CGSizeMake(self.size.width, 43 * self.sizeMultiplier)];
     topBannerBg.anchorPoint = CGPointMake(0, 1);
     topBannerBg.position = CGPointMake(0, self.size.height);
     [self addChild:topBannerBg];
     
     // Title label
     SKLabelNode *titleLabel = [SKLabelNode labelNodeWithFontNamed:@"Economica-Bold"];
-    titleLabel.fontSize = 32;
+    titleLabel.fontSize = 32 * self.sizeMultiplier;
     titleLabel.text = @"Select Dance";
     titleLabel.fontColor = RGB(249, 185, 56);
     titleLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
@@ -61,7 +59,7 @@
 - (void)_displayDanceMoves
 {
     // Bernie
-    SKButton *bernieButton = [[SKButton alloc] initWithColor:RGB(249, 228, 172) size:CGSizeMake(261, 129)];
+    SKButton *bernieButton = [[SKButton alloc] initWithColor:RGB(249, 228, 172) size:CGSizeMake(261 * self.sizeMultiplier, 129 * self.sizeMultiplier)];
     bernieButton.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.76);
     bernieButton.name = [@(kDanceMoveBernie) stringValue];
     [bernieButton setTouchUpInsideTarget:self action:@selector(_showDanceInstructions:)];
@@ -69,7 +67,7 @@
     
     SKLabelNode *bernieLabel = [SKLabelNode labelNodeWithFontNamed:@"Economica-Bold"];
     bernieLabel.fontColor = RGB(56, 56, 56);
-    bernieLabel.fontSize = 31;
+    bernieLabel.fontSize = 31 * self.sizeMultiplier;
     bernieLabel.text = @"Bernie";
     bernieLabel.position = CGPointMake(0, bernieButton.size.height * 0.23f);
     [bernieButton addChild:bernieLabel];
@@ -79,13 +77,13 @@
     [bernieButton addChild:bernieImage];
     
     // Peter Griffin
-    SKButton *peterGriffinButton = [[SKButton alloc] initWithColor:RGB(249, 228, 172) size:CGSizeMake(261, 129)];
+    SKButton *peterGriffinButton = [[SKButton alloc] initWithColor:RGB(249, 228, 172) size:CGSizeMake(bernieButton.size.width, bernieButton.size.height)];
     peterGriffinButton.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.51);
     [self addChild:peterGriffinButton];
     
     SKLabelNode *peterGriffinLabel = [SKLabelNode labelNodeWithFontNamed:@"Economica-Bold"];
     peterGriffinLabel.fontColor = RGB(56, 56, 56);
-    peterGriffinLabel.fontSize = 31;
+    peterGriffinLabel.fontSize = bernieLabel.fontSize;
     peterGriffinLabel.text = @"Peter Griffin";
     peterGriffinLabel.position = CGPointMake(0, peterGriffinButton.size.height * 0.23f);
     [peterGriffinButton addChild:peterGriffinLabel];
@@ -95,13 +93,13 @@
     [peterGriffinButton addChild:peterGriffinImage];
     
     // Cat Daddy
-    SKButton *catDaddyButton = [[SKButton alloc] initWithColor:RGB(249, 228, 172) size:CGSizeMake(261, 129)];
+    SKButton *catDaddyButton = [[SKButton alloc] initWithColor:RGB(249, 228, 172) size:CGSizeMake(bernieButton.size.width, bernieButton.size.height)];
     catDaddyButton.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.26);
     [self addChild:catDaddyButton];
     
     SKLabelNode *catDaddyLabel = [SKLabelNode labelNodeWithFontNamed:@"Economica-Bold"];
     catDaddyLabel.fontColor = RGB(56, 56, 56);
-    catDaddyLabel.fontSize = 31;
+    catDaddyLabel.fontSize = bernieLabel.fontSize;
     catDaddyLabel.text = @"Peter Griffin";
     catDaddyLabel.position = CGPointMake(0, catDaddyButton.size.height * 0.23);
     [catDaddyButton addChild:catDaddyLabel];
@@ -110,8 +108,7 @@
     catDaddyImage.position = CGPointMake(0, -catDaddyButton.size.height * 0.1);
     [catDaddyButton addChild:catDaddyImage];
     
-    // Scale down buttons for smaller devices
-    if (IS_IPHONE_4)
+    if (IS_IPHONE_4 || IS_IPAD)
     {
         CGFloat newScale = 0.87;
         [bernieButton setScale:newScale];
@@ -146,7 +143,7 @@
     // Page info
     SKLabelNode *currentPageLabel = [SKLabelNode labelNodeWithFontNamed:@"Economica-Bold"];
     currentPageLabel.fontColor = RGB(56, 56, 56);
-    currentPageLabel.fontSize = 31;
+    currentPageLabel.fontSize = 31 * self.sizeMultiplier;
     currentPageLabel.text = @"1";
     currentPageLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
     currentPageLabel.position = CGPointMake(self.size.width * 0.39, self.size.height * 0.08);
@@ -154,7 +151,7 @@
     
     SKLabelNode *outOfLabel = [SKLabelNode labelNodeWithFontNamed:@"ACaslonPro-BoldItalic"];
     outOfLabel.fontColor = currentPageLabel.fontColor;
-    outOfLabel.fontSize = 19;
+    outOfLabel.fontSize = 19 * self.sizeMultiplier;
     outOfLabel.text = @"out of";
     outOfLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
     outOfLabel.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.08);
@@ -162,7 +159,7 @@
     
     SKLabelNode *totalPageLabel = [SKLabelNode labelNodeWithFontNamed:@"Economica-Bold"];
     totalPageLabel.fontColor = currentPageLabel.fontColor;
-    totalPageLabel.fontSize = 31;
+    totalPageLabel.fontSize = currentPageLabel.fontSize;
     totalPageLabel.text = @"1";
     totalPageLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
     totalPageLabel.position = CGPointMake(self.size.width * 0.61, self.size.height * 0.08);

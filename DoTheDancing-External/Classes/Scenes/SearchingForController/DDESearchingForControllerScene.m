@@ -21,8 +21,6 @@
     self = [super initWithSize:size];
     if (self)
     {
-        self.backgroundColor = RGB(249, 185, 56);
-        
         [self _displaySearchingMessage];
         [self _displayBackButton];
         [self _startSearchingForDevice];
@@ -75,6 +73,7 @@
 #pragma mark - Networking
 - (void)_startSearchingForDevice
 {
+    NSLog(@"DDESearchingForControllerScene -> Start browsing for peers");
     MCNearbyServiceBrowser *browser = [DDGameManager sharedGameManager].browser;
     browser.delegate = self;
     [browser startBrowsingForPeers];

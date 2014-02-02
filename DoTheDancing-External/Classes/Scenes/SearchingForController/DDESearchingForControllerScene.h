@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Chin and Cheeks LLC. All rights reserved.
 //
 
-#import <SpriteKit/SpriteKit.h>
+#import "DDScene.h"
 
-@interface DDESearchingForControllerScene : SKScene
+@interface DDESearchingForControllerScene : DDScene
 
 @end

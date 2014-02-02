@@ -46,6 +46,8 @@
 		C437064B1896450700BF6ECC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C43706381896450700BF6ECC /* InfoPlist.strings */; };
 		C437064C1896450700BF6ECC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C437063A1896450700BF6ECC /* main.m */; };
 		C437064D1896450700BF6ECC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C437063C1896450700BF6ECC /* Images.xcassets */; };
+		C4444BE8189E3F0000762EAB /* DDScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C4444BE7189E3F0000762EAB /* DDScene.m */; };
+		C4444BE9189E3F0000762EAB /* DDScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C4444BE7189E3F0000762EAB /* DDScene.m */; };
 		C45EE13418769921003DF245 /* DDDanceMove.m in Sources */ = {isa = PBXBuildFile; fileRef = C45EE12118769921003DF245 /* DDDanceMove.m */; };
 		C45EE13618769921003DF245 /* DDDanceMoveBernie.m in Sources */ = {isa = PBXBuildFile; fileRef = C45EE12318769921003DF245 /* DDDanceMoveBernie.m */; };
 		C45EE13818769921003DF245 /* DDMotionRequirements.m in Sources */ = {isa = PBXBuildFile; fileRef = C45EE12518769921003DF245 /* DDMotionRequirements.m */; };
@@ -118,6 +120,8 @@
 		C437063A1896450700BF6ECC /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C437063C1896450700BF6ECC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C437064E1896467D00BF6ECC /* DoTheDancing-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "DoTheDancing-Info.plist"; sourceTree = "<group>"; };
+		C4444BE6189E3F0000762EAB /* DDScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDScene.h; sourceTree = "<group>"; };
+		C4444BE7189E3F0000762EAB /* DDScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDScene.m; sourceTree = "<group>"; };
 		C45EE12018769921003DF245 /* DDDanceMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDDanceMove.h; sourceTree = "<group>"; };
 		C45EE12118769921003DF245 /* DDDanceMove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDDanceMove.m; sourceTree = "<group>"; };
 		C45EE12218769921003DF245 /* DDDanceMoveBernie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDDanceMoveBernie.h; sourceTree = "<group>"; };
@@ -424,6 +428,8 @@
 		C478E2391897A187007B60EC /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				C4444BE6189E3F0000762EAB /* DDScene.h */,
+				C4444BE7189E3F0000762EAB /* DDScene.m */,
 				C478E2431897A187007B60EC /* DanceMoveSelection */,
 				C478E23A1897A187007B60EC /* DanceMoveInstructions */,
 				C478E2401897A187007B60EC /* DanceMoveSeeInAction */,
@@ -728,6 +734,7 @@
 				C478E23418979FD7007B60EC /* DDGameManager.m in Sources */,
 				C4AE2FF21894D20500D23E30 /* DDPacketStartDanceMoveDance.m in Sources */,
 				C408D63918769E610070FC43 /* TCProgressTimerNode.m in Sources */,
+				C4444BE9189E3F0000762EAB /* DDScene.m in Sources */,
 				C4AE2FE91894CD6A00D23E30 /* DDPacket.m in Sources */,
 				C4AE2FEE1894CDB900D23E30 /* NSData+Networking.m in Sources */,
 				C428899618769D3C001FFB3A /* main.m in Sources */,
@@ -758,6 +765,7 @@
 				C478E24C1897A187007B60EC /* DDDanceMoveInstructionsScene.m in Sources */,
 				C4AE2FE81894CD6A00D23E30 /* DDPacket.m in Sources */,
 				C45EE13A18769921003DF245 /* SKButton.m in Sources */,
+				C4444BE8189E3F0000762EAB /* DDScene.m in Sources */,
 				C4AE2FF11894D20500D23E30 /* DDPacketStartDanceMoveDance.m in Sources */,
 				C478E2371897A070007B60EC /* DDSessionManager.m in Sources */,
 				C478E2501897A187007B60EC /* DDDanceMoveSeeInActionScene.m in Sources */,
