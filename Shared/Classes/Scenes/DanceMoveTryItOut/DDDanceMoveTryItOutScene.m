@@ -11,6 +11,10 @@
 #import "TCProgressTimerNode.h"
 #include <CoreMotion/CoreMotion.h>
 
+#if EXTERNAL
+#import "DDPacketStartDanceMoveDance.h"
+#endif
+
 @interface DDDanceMoveTryItOutScene()
 
 @property (nonatomic, strong) DDDanceMove *danceMove;
@@ -55,6 +59,13 @@
     self = [super initWithSize:size];
     if (self)
     {
+#if EXTERNAL
+        // Send packet to controller
+        NSError *error;
+        DDPacketStartDanceMoveDance *packet = [DDPacketStartDanceMoveDance packetWithDanceMoveType:self.danceMove.danceMoveType];
+        [[DDGameManager sharedGameManager].sessionManager sendDataToAllPeers:[packet data] withMode:MCSessionSendDataUnreliable error:&error];
+#endif
+        
         _danceMove = [DDGameManager sharedGameManager].individualDanceMove;
         _isSceneOver = NO;
         

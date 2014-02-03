@@ -48,6 +48,8 @@
 		C437064D1896450700BF6ECC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C437063C1896450700BF6ECC /* Images.xcassets */; };
 		C4444BE8189E3F0000762EAB /* DDScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C4444BE7189E3F0000762EAB /* DDScene.m */; };
 		C4444BE9189E3F0000762EAB /* DDScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C4444BE7189E3F0000762EAB /* DDScene.m */; };
+		C4585EF5189F8FA500458392 /* DDPacketSendResults.m in Sources */ = {isa = PBXBuildFile; fileRef = C4585EF4189F8FA500458392 /* DDPacketSendResults.m */; };
+		C4585EF6189F8FA500458392 /* DDPacketSendResults.m in Sources */ = {isa = PBXBuildFile; fileRef = C4585EF4189F8FA500458392 /* DDPacketSendResults.m */; };
 		C45EE13418769921003DF245 /* DDDanceMove.m in Sources */ = {isa = PBXBuildFile; fileRef = C45EE12118769921003DF245 /* DDDanceMove.m */; };
 		C45EE13618769921003DF245 /* DDDanceMoveBernie.m in Sources */ = {isa = PBXBuildFile; fileRef = C45EE12318769921003DF245 /* DDDanceMoveBernie.m */; };
 		C45EE13818769921003DF245 /* DDMotionRequirements.m in Sources */ = {isa = PBXBuildFile; fileRef = C45EE12518769921003DF245 /* DDMotionRequirements.m */; };
@@ -122,6 +124,8 @@
 		C437064E1896467D00BF6ECC /* DoTheDancing-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "DoTheDancing-Info.plist"; sourceTree = "<group>"; };
 		C4444BE6189E3F0000762EAB /* DDScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDScene.h; sourceTree = "<group>"; };
 		C4444BE7189E3F0000762EAB /* DDScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDScene.m; sourceTree = "<group>"; };
+		C4585EF3189F8FA500458392 /* DDPacketSendResults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDPacketSendResults.h; sourceTree = "<group>"; };
+		C4585EF4189F8FA500458392 /* DDPacketSendResults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDPacketSendResults.m; sourceTree = "<group>"; };
 		C45EE12018769921003DF245 /* DDDanceMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDDanceMove.h; sourceTree = "<group>"; };
 		C45EE12118769921003DF245 /* DDDanceMove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDDanceMove.m; sourceTree = "<group>"; };
 		C45EE12218769921003DF245 /* DDDanceMoveBernie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDDanceMoveBernie.h; sourceTree = "<group>"; };
@@ -585,6 +589,8 @@
 				C4AE2FE71894CD6A00D23E30 /* DDPacket.m */,
 				C4AE2FEF1894D20500D23E30 /* DDPacketStartDanceMoveDance.h */,
 				C4AE2FF01894D20500D23E30 /* DDPacketStartDanceMoveDance.m */,
+				C4585EF3189F8FA500458392 /* DDPacketSendResults.h */,
+				C4585EF4189F8FA500458392 /* DDPacketSendResults.m */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -727,6 +733,7 @@
 				C478E24F1897A187007B60EC /* DDDanceMoveResultsScene.m in Sources */,
 				C408D63518769E610070FC43 /* SKMultilineLabel.m in Sources */,
 				C408D63718769E610070FC43 /* TCProgressTimerForegroundCropNode.m in Sources */,
+				C4585EF6189F8FA500458392 /* DDPacketSendResults.m in Sources */,
 				C478E24D1897A187007B60EC /* DDDanceMoveInstructionsScene.m in Sources */,
 				C478E2511897A187007B60EC /* DDDanceMoveSeeInActionScene.m in Sources */,
 				C478E2551897A187007B60EC /* DDDanceMoveTryItOutScene.m in Sources */,
@@ -758,6 +765,7 @@
 				C437063E1896450700BF6ECC /* DDViewController.m in Sources */,
 				C478E24E1897A187007B60EC /* DDDanceMoveResultsScene.m in Sources */,
 				C478E2521897A187007B60EC /* DDDanceMoveSelectionScene.m in Sources */,
+				C4585EF5189F8FA500458392 /* DDPacketSendResults.m in Sources */,
 				C478E26B1897ABF7007B60EC /* DDSearchingForExternalScene.m in Sources */,
 				C478E25F1897A1D8007B60EC /* DDMainMenuScene.m in Sources */,
 				C4AE2FED1894CDB900D23E30 /* NSData+Networking.m in Sources */,

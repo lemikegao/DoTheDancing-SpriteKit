@@ -380,7 +380,7 @@
 - (void)_updateIterationCountWithNum:(NSUInteger)num
 {
     self.movesCompletedCountLabel.text = [NSString stringWithFormat:@"%i", num];
-    
+
     // Enlarge and shrink animation
     self.movesCompletedCountLabel.scale = 2.5;
     [self.movesCompletedCountLabel runAction:[SKAction scaleTo:1.0 duration:0.2]];

@@ -38,10 +38,10 @@
 
 - (NSDictionary *)dict
 {
-    NSDictionary *dict = [super dict];
+    NSMutableDictionary *dict = [[super dict] mutableCopy];
     [dict setValue:@(self.danceMoveType) forKey:@"data"];
     
-    return dict;
+    return [dict copy];
 }
 
 @end

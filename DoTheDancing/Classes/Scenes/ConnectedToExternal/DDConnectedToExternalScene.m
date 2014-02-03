@@ -10,9 +10,11 @@
 #import <CoreMotion/CoreMotion.h>
 #import "DDDanceMoveBernie.h"
 #import "DDMainMenuScene.h"
+#import "DDPacket.h"
 
 @interface DDConnectedToExternalScene()
 
+@property (nonatomic) BOOL isUpdateActivated;
 @property (nonatomic, strong) DDDanceMove *danceMove;
 @property (nonatomic) NSTimeInterval lastUpdateTime;
 @property (nonatomic) NSTimeInterval dt;
@@ -45,13 +47,15 @@
     self = [super initWithSize:size];
     if (self)
     {
+        _isUpdateActivated = NO;
+        
         [self _displayPrompt];
         [self _displayBackButton];
         
         [[NSNotificationCenter defaultCenter]
          addObserver:self
          selector:@selector(_didReceiveData:)
-         name:kPeerConnectionAcceptedNotification
+         name:kPeerDidReceiveDataNotification
          object:nil];
     }
     
@@ -61,6 +65,12 @@
 - (void)willMoveFromView:(SKView *)view
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    if (self.motionManager)
+    {
+        [self.motionManager stopDeviceMotionUpdates];
+    }
+    
+    [super willMoveFromView:view];
 }
 
 #pragma mark - UI setup
@@ -103,6 +113,217 @@
             
         default:
             break;
+    }
+    
+    // Start detection!
+    [self _initCountdown];
+    [self _initDanceMoveDetection];
+}
+
+#pragma mark - Init detection
+- (void)_initCountdown
+{
+    self.isUpdateActivated = YES;
+    self.isDanceActivated = NO;
+    self.isCountdownActivated = NO;
+    self.countdownElapsedTime = 0;
+    self.currentCountdownNum = 3;
+}
+
+- (void)_initDanceMoveDetection
+{
+    self.shouldDetectDanceMove = NO;
+    self.currentIteration = 1;
+    self.currentStep = 1;
+    self.currentPart = 1;
+    self.currentDanceStepParts = self.danceMove.stepsArray[0];
+    self.timeToMoveToNextStep = [self.danceMove.timePerSteps[0] floatValue];
+    self.danceIterationStepsDetected = [NSMutableArray arrayWithCapacity:self.danceMove.numIndividualIterations];
+    [self _resetCurrentIterationStepsDetected];
+    
+    // Motion manager
+    self.motionManager = [[CMMotionManager alloc] init];
+    self.motionManager.deviceMotionUpdateInterval = 1.0/60.0f;
+    [self.motionManager startDeviceMotionUpdates];
+}
+
+#pragma mark - Countdown methods
+- (void)_checkToStartCountdown
+{
+    if (self.isCountdownActivated == NO && self.countdownElapsedTime >= self.danceMove.timeToStartCountdown)
+    {
+        self.isCountdownActivated = YES;
+        // Start countdown
+        SKAction *wait = [SKAction waitForDuration:self.danceMove.delayForCountdown];
+        SKAction *updateCountdown = [SKAction runBlock:^{
+            [self _countdown];
+        }];
+        [self runAction:[SKAction repeatAction:[SKAction sequence:@[updateCountdown, wait]] count:3] completion:^{
+            self.shouldDetectDanceMove = YES;
+            self.isDanceActivated = YES;
+        }];
+    }
+}
+
+- (void)_countdown
+{
+    self.currentCountdownNum--;
+}
+
+#pragma mark - Dance move detection
+- (void)_resetCurrentIterationStepsDetected
+{
+    self.currentIterationStepsDetected = [NSMutableArray arrayWithCapacity:self.danceMove.numSteps];
+    for (NSUInteger i=0; i < self.danceMove.numSteps; i++)
+    {
+        self.currentIterationStepsDetected[i] = @(NO);
+    }
+}
+
+- (void)_detectDancePart
+{
+    CGFloat yaw = (RadiansToDegrees(self.motionManager.deviceMotion.attitude.yaw));
+    CGFloat pitch = (RadiansToDegrees(self.motionManager.deviceMotion.attitude.pitch));
+    CGFloat roll = (RadiansToDegrees(self.motionManager.deviceMotion.attitude.roll));
+    CMAcceleration totalAcceleration = self.motionManager.deviceMotion.userAcceleration;
+    
+    if (self.shouldDetectDanceMove)
+    {
+        DDMotionRequirements *currentPartMotionRequirements = self.currentDanceStepParts[self.currentPart-1];
+        if ((yaw > currentPartMotionRequirements.yawMin) &&
+            (yaw < currentPartMotionRequirements.yawMax) &&
+            (pitch > currentPartMotionRequirements.pitchMin) &&
+            (pitch < currentPartMotionRequirements.pitchMax) &&
+            (roll > currentPartMotionRequirements.rollMin) &&
+            (roll < currentPartMotionRequirements.rollMax) &&
+            (totalAcceleration.x > currentPartMotionRequirements.accelerationXMin) &&
+            (totalAcceleration.x < currentPartMotionRequirements.accelerationXMax) &&
+            (totalAcceleration.y > currentPartMotionRequirements.accelerationYMin) &&
+            (totalAcceleration.y < currentPartMotionRequirements.accelerationYMax) &&
+            (totalAcceleration.z > currentPartMotionRequirements.accelerationZMin) &&
+            (totalAcceleration.z < currentPartMotionRequirements.accelerationZMax)) {
+            NSLog(@"iteration: %i, step: %i, part: %i detected", self.currentIteration, self.currentStep, self.currentPart);
+            
+            [self _moveOnToNextPart];
+        }
+    }
+}
+
+- (void)_moveOnToNextIteration
+{
+    self.currentIteration++;
+    self.currentStep = 1;
+    self.currentPart = 1;
+    self.shouldDetectDanceMove = YES;
+    self.currentIterationElapsedTime = 0;
+    self.currentStepElapsedTime = 0;
+    self.timeToMoveToNextStep = [self.danceMove.timePerSteps[0] floatValue];
+    self.currentDanceStepParts = self.danceMove.stepsArray[0];
+    
+    // Save results of current iteration
+    [self.danceIterationStepsDetected addObject:self.currentIterationStepsDetected];
+    [self _resetCurrentIterationStepsDetected];
+}
+
+- (void)_moveOnToNextStep
+{
+    if (self.currentStep < self.danceMove.numSteps)
+    {
+        self.currentStep++;
+        self.timeToMoveToNextStep = [self.danceMove.timePerSteps[self.currentStep-1] floatValue];
+        self.currentDanceStepParts = self.danceMove.stepsArray[self.currentStep-1];
+        self.currentPart = 1;
+        self.shouldDetectDanceMove = YES;
+        self.currentStepElapsedTime = 0;
+    }
+}
+
+- (void)_moveOnToNextPart
+{
+    if (self.currentPart == self.currentDanceStepParts.count)
+    {
+        // Step detected!
+        self.shouldDetectDanceMove = NO;
+        NSLog(@"Iteration: %i, Step: %i Successfully Detected!", self.currentIteration, self.currentStep);
+        self.currentIterationStepsDetected[self.currentStep-1] = @(YES);
+    }
+    else
+    {
+        // Move on to next part
+        self.currentPart++;
+    }
+}
+
+#pragma mark - Results
+- (void)_sendResultsToIpad
+{
+    self.isUpdateActivated = NO;
+    
+    // Add last step results
+    [self.danceIterationStepsDetected addObject:self.currentIterationStepsDetected];
+    
+    // Create packet with dance step results
+#warning - Continue here
+//    DDPacket *packet = [DDPacket packetWithData:self.danceIterationStepsDetected];
+//    [[GameManager sharedGameManager].client sendPacketToServer:packet];
+}
+
+#pragma mark - Update
+- (void)_updateTimers
+{
+    // Move to next iteration
+    if (self.currentIterationElapsedTime >= self.danceMove.timePerIteration)
+    {
+        self.currentIterationElapsedTime = 0;
+        self.currentStepElapsedTime = 0;
+        
+        // End scene
+        if (self.currentIteration == self.danceMove.numIndividualIterations)
+        {
+            [self _sendResultsToIpad];
+        }
+        else
+        {
+            // Move on to next iteration
+            [self _moveOnToNextIteration];
+        }
+    }
+    else if (self.currentStepElapsedTime >= self.timeToMoveToNextStep)
+    {
+        // Move on to next step of current iteration
+        self.currentStepElapsedTime = 0;
+        [self _moveOnToNextStep];
+    }
+}
+
+- (void)update:(NSTimeInterval)currentTime
+{
+    // Keep track of deltaTime
+    if (_lastUpdateTime)
+    {
+        _dt = currentTime - _lastUpdateTime;
+    }
+    else
+    {
+        _dt = 0;
+    }
+    _lastUpdateTime = currentTime;
+    
+    if (self.isUpdateActivated)
+    {
+        // Update dance timer & illustrations
+        if (self.isDanceActivated == YES)
+        {
+            self.currentStepElapsedTime = self.currentStepElapsedTime + _dt;
+            self.currentIterationElapsedTime = self.currentIterationElapsedTime + _dt;
+            [self _updateTimers];
+            [self _detectDancePart];
+        }
+        else if (self.isCountdownActivated == NO)
+        {
+            _countdownElapsedTime = _countdownElapsedTime + _dt;
+            [self _checkToStartCountdown];
+        }
     }
 }
 

@@ -18,9 +18,15 @@
     {
         _session = [[MCSession alloc] initWithPeer:peerId];
         _session.delegate = self;
+        _peerIDs = [[NSMutableArray alloc] init];
     }
     
     return self;
+}
+
+- (BOOL)sendDataToAllPeers:(NSData *)data withMode:(MCSessionSendDataMode)mode error:(NSError **)error
+{
+    return [self.session sendData:data toPeers:self.peerIDs withMode:mode error:error];
 }
 
 #pragma mark - MCSessionDelegate methods
@@ -28,6 +34,8 @@
 - (void)session:(MCSession *)session peer:(MCPeerID *)peerID didChangeState:(MCSessionState)state
 {
     if (state == MCSessionStateConnected && self.session) {
+        [self.peerIDs addObject:peerID];
+        
         // For programmatic discovery, send a notification to the custom advertiser
         // that an invitation was accepted.
         [[NSNotificationCenter defaultCenter]
@@ -40,6 +48,8 @@
 // Received data from remote peer
 - (void)session:(MCSession *)session didReceiveData:(NSData *)data fromPeer:(MCPeerID *)peerID
 {
+    NSLog(@"DDSessionManager -> didReceiveData: %@ fromPeer: %@", data, peerID);
+    
     [[NSNotificationCenter defaultCenter]
      postNotificationName:kPeerDidReceiveDataNotification
      object:nil

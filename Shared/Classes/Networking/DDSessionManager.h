@@ -9,7 +9,9 @@
 @interface DDSessionManager : NSObject <MCSessionDelegate>
 
 @property (nonatomic, strong) MCSession *session;
+@property (nonatomic, copy, readonly) NSMutableArray *peerIDs;
 
 - (instancetype)initWithPeer:(MCPeerID *)peerId;
+- (BOOL)sendDataToAllPeers:(NSData *)data withMode:(MCSessionSendDataMode)mode error:(NSError **)error;
 
 @end
