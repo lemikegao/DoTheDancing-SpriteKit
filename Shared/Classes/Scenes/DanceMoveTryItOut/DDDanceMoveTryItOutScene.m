@@ -81,6 +81,12 @@
         
         // Play background track
         [[DDGameManager sharedGameManager] playBackgroundMusic:self.danceMove.trackName];
+        
+        [[NSNotificationCenter defaultCenter]
+         addObserver:self
+         selector:@selector(_didReceiveData:)
+         name:kPeerDidReceiveDataNotification
+         object:nil];
     }
     
     return self;
@@ -114,6 +120,7 @@
 #pragma mark - Exit scene
 - (void)willMoveFromView:(SKView *)view
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [self.motionManager stopDeviceMotionUpdates];
     
     [super willMoveFromView:view];
@@ -374,9 +381,6 @@
 #pragma mark - Private methods
 - (void)_segueToResults
 {
-    // Terminate scene
-    self.isSceneOver = YES;
-    
     // Add last step results
     [self.danceIterationStepsDetected addObject:self.currentIterationStepsDetected];
     [self _updateIterationCountWithNum:self.currentIteration];
@@ -384,6 +388,16 @@
     // Segue to results scene
     [[DDGameManager sharedGameManager] pauseBackgroundMusic];
     [self.view presentScene:[DDDanceMoveResultsScene sceneWithSize:self.size results:self.danceIterationStepsDetected] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
+}
+
+#pragma mark - Networking
+- (void)_didReceiveData:(NSNotification *)notification
+{
+    NSArray *results = notification.userInfo[@"data"];
+    
+    // Segue to results scene
+    [[DDGameManager sharedGameManager] pauseBackgroundMusic];
+    [self.view presentScene:[DDDanceMoveResultsScene sceneWithSize:self.size results:results] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
 }
 
 #pragma mark - Update
@@ -437,7 +451,10 @@
         // End scene
         if (self.currentIteration == self.danceMove.numIndividualIterations)
         {
+            self.isSceneOver = YES;
+#if CONTROLLER
             [self _segueToResults];
+#endif
         }
         else
         {

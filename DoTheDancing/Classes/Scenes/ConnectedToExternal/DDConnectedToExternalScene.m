@@ -10,7 +10,7 @@
 #import <CoreMotion/CoreMotion.h>
 #import "DDDanceMoveBernie.h"
 #import "DDMainMenuScene.h"
-#import "DDPacket.h"
+#import "DDPacketSendResults.h"
 
 @interface DDConnectedToExternalScene()
 
@@ -211,6 +211,7 @@
 
 - (void)_moveOnToNextIteration
 {
+    NSLog(@"Move on to next iteration");
     self.currentIteration++;
     self.currentStep = 1;
     self.currentPart = 1;
@@ -263,9 +264,14 @@
     [self.danceIterationStepsDetected addObject:self.currentIterationStepsDetected];
     
     // Create packet with dance step results
-#warning - Continue here
-//    DDPacket *packet = [DDPacket packetWithData:self.danceIterationStepsDetected];
-//    [[GameManager sharedGameManager].client sendPacketToServer:packet];
+    DDPacketSendResults *packet = [DDPacketSendResults packetWithDanceMoveResults:self.danceIterationStepsDetected];
+    NSError *error;
+    [[DDGameManager sharedGameManager].sessionManager sendDataToAllPeers:[packet data] withMode:MCSessionSendDataUnreliable error:&error];
+    
+    if (error)
+    {
+        NSLog(@"DDConnectedToExternalScene -> _sendResultsToIpad ERROR: %@", error.localizedDescription);
+    }
 }
 
 #pragma mark - Update

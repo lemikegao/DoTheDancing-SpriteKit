@@ -26,6 +26,7 @@
 
 - (BOOL)sendDataToAllPeers:(NSData *)data withMode:(MCSessionSendDataMode)mode error:(NSError **)error
 {
+    NSLog(@"DDSessionManager -> sendDataToAllPeers: %@", self.peerIDs);
     return [self.session sendData:data toPeers:self.peerIDs withMode:mode error:error];
 }
 
@@ -33,15 +34,18 @@
 // Remote peer changed state
 - (void)session:(MCSession *)session peer:(MCPeerID *)peerID didChangeState:(MCSessionState)state
 {
-    if (state == MCSessionStateConnected && self.session) {
+    if (state == MCSessionStateConnected && self.session)
+    {
         [self.peerIDs addObject:peerID];
         
         // For programmatic discovery, send a notification to the custom advertiser
         // that an invitation was accepted.
-        [[NSNotificationCenter defaultCenter]
-         postNotificationName:kPeerConnectionAcceptedNotification
-         object:nil
-         userInfo:nil];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:kPeerConnectionAcceptedNotification
+             object:nil
+             userInfo:nil];
+        });
     }
 }
 
@@ -50,10 +54,12 @@
 {
     NSLog(@"DDSessionManager -> didReceiveData: %@ fromPeer: %@", data, peerID);
     
-    [[NSNotificationCenter defaultCenter]
-     postNotificationName:kPeerDidReceiveDataNotification
-     object:nil
-     userInfo:[[DDPacket packetWithData:data] dict]];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:kPeerDidReceiveDataNotification
+         object:nil
+         userInfo:[[DDPacket packetWithData:data] dict]];
+    });
 }
 
 // Received a byte stream from remote peer
