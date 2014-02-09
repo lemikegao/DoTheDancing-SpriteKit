@@ -19,6 +19,7 @@
         _session = [[MCSession alloc] initWithPeer:peerId];
         _session.delegate = self;
         _peerIDs = [[NSMutableArray alloc] init];
+        _isConnected = NO;
     }
     
     return self;
@@ -36,6 +37,7 @@
 {
     if (state == MCSessionStateConnected && self.session)
     {
+        self.isConnected = YES;
         [self.peerIDs addObject:peerID];
         
         // For programmatic discovery, send a notification to the custom advertiser
@@ -47,13 +49,16 @@
              userInfo:nil];
         });
     }
+    else if (state == MCSessionStateNotConnected)
+    {
+        self.isConnected = NO;
+    }
 }
 
 // Received data from remote peer
 - (void)session:(MCSession *)session didReceiveData:(NSData *)data fromPeer:(MCPeerID *)peerID
 {
     NSLog(@"DDSessionManager -> didReceiveData: %@ fromPeer: %@", data, peerID);
-    
     dispatch_async(dispatch_get_main_queue(), ^{
         [[NSNotificationCenter defaultCenter]
          postNotificationName:kPeerDidReceiveDataNotification

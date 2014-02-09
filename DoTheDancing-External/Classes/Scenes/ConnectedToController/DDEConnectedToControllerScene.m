@@ -18,6 +18,12 @@
     {
         [self _displayConnectedLabel];
         [self _displayPlayButton];
+        
+        [[NSNotificationCenter defaultCenter]
+         addObserver:self
+         selector:@selector(_didReceiveData:)
+         name:kPeerDidReceiveDataNotification
+         object:nil];
     }
     return self;
 }
@@ -47,6 +53,24 @@
 {
     // Show dance move selection scene
     [self.view presentScene:[DDDanceMoveSelectionScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionRight duration:0.25]];
+}
+
+#pragma mark - Networking
+- (void)_didReceiveData:(NSNotification *)notification
+{
+    SceneTypes sceneType = (SceneTypes)[notification.userInfo[@"data"] intValue];
+    SKScene *scene;
+    switch (sceneType)
+    {
+        case kSceneTypeDanceMoveSelection:
+            scene = [DDDanceMoveSelectionScene sceneWithSize:self.size];
+            break;
+            
+        default:
+            break;
+    }
+    
+    [self.view presentScene:scene transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
 }
 
 @end

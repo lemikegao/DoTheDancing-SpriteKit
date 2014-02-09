@@ -9,6 +9,7 @@
 #import "DDDanceMoveSelectionScene.h"
 #import "DDDanceMoveInstructionsScene.h"
 #import "DDDanceMoveBernie.h"
+#import "DDPacketShowDanceMoveInstructions.h"
 
 #if CONTROLLER
 #import "DDMainMenuScene.h"
@@ -26,6 +27,12 @@
         [self _displayTopBar];
         [self _displayDanceMoves];
         [self _displayBottomPageControls];
+        
+        [[NSNotificationCenter defaultCenter]
+         addObserver:self
+         selector:@selector(_didReceiveData:)
+         name:kPeerDidReceiveDataNotification
+         object:nil];
     }
     return self;
 }
@@ -184,24 +191,45 @@
     
     if (danceMoveType != kDanceMoveNone)
     {
-        DDDanceMove *danceMove;
-        switch (danceMoveType)
-        {
-            case kDanceMoveBernie:
-                danceMove = [[DDDanceMoveBernie alloc] init];
-                break;
-                
-            default:
-                NSLog(@"DDDanceMoveSelectionScene->_showDanceInstructions: INVALID DANCE MOVE!");
-                return;
-        }
+        [DDGameManager sharedGameManager].individualDanceMove = [self _danceMoveForType:danceMoveType];
         
-        DDGameManager *gm = [DDGameManager sharedGameManager];
-        gm.individualDanceMove = danceMove;
-        
-        // Transition to instructions cene
+        // Transition to instructions scene
         [self.view presentScene:[DDDanceMoveInstructionsScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
+        
+        if ([DDGameManager sharedGameManager].sessionManager.isConnected == YES)
+        {
+            NSError *error;
+            DDPacketShowDanceMoveInstructions *packet = [DDPacketShowDanceMoveInstructions packetWithDanceMoveType:danceMoveType];
+            [[DDGameManager sharedGameManager].sessionManager sendDataToAllPeers:[packet data] withMode:MCSessionSendDataUnreliable error:&error];
+        }
     }
+}
+
+#pragma mark - Networking
+- (void)_didReceiveData:(NSNotification *)notification
+{
+    DanceMoves danceMoveType = (DanceMoves)[notification.userInfo[@"data"] intValue];
+    [DDGameManager sharedGameManager].individualDanceMove = [self _danceMoveForType:danceMoveType];
+    
+    [self.view presentScene:[DDDanceMoveInstructionsScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
+}
+
+#pragma mark - Private methods
+- (DDDanceMove *)_danceMoveForType:(DanceMoves)danceMoveType
+{
+    DDDanceMove *danceMove;
+    switch (danceMoveType)
+    {
+        case kDanceMoveBernie:
+            danceMove = [[DDDanceMoveBernie alloc] init];
+            break;
+            
+        default:
+            NSLog(@"DDDanceMoveSelectionScene->_showDanceInstructions: INVALID DANCE MOVE!");
+            return nil;
+    }
+
+    return danceMove;
 }
 
 @end

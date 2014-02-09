@@ -11,6 +11,8 @@
 #import "DDDanceMoveSeeInActionScene.h"
 #import "DDDanceMoveTryItOutScene.h"
 #import "SKMultilineLabel.h"
+#import "DDPacketTransitionToScene.h"
+#import "DDPacketShowNextInstruction.h"
 
 @interface DDDanceMoveInstructionsScene()
 
@@ -48,6 +50,12 @@
         
         // Play background track
         [[DDGameManager sharedGameManager] playBackgroundMusic:self.danceMove.trackName];
+        
+        [[NSNotificationCenter defaultCenter]
+         addObserver:self
+         selector:@selector(_didReceiveData:)
+         name:kPeerDidReceiveDataNotification
+         object:nil];
     }
     return self;
 }
@@ -229,28 +237,101 @@
 {
     [[DDGameManager sharedGameManager] pauseBackgroundMusic];
     [self.view presentScene:[DDDanceMoveSelectionScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionRight duration:0.25]];
+    
+    [self _sendPacketWithSceneType:kSceneTypeDanceMoveSelection];
 }
 
 - (void)_pressedLeftButton:(id)sender
 {
     [self _showPreviousStep];
+    [self _sendNextInstruction:NO];
 }
 
 - (void)_pressedRightButton:(id)sender
 {
     [self _showNextStep];
+    [self _sendNextInstruction:YES];
 }
 
 - (void)_pressedSeeInAction:(id)sender
 {
     [[DDGameManager sharedGameManager] pauseBackgroundMusic];
     [self.view presentScene:[DDDanceMoveSeeInActionScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
+    
+    [self _sendPacketWithSceneType:kSceneTypeDanceMoveSeeInAction];
 }
 
 - (void)_pressedTryItOut:(id)sender
 {
     [[DDGameManager sharedGameManager] pauseBackgroundMusic];
     [self.view presentScene:[DDDanceMoveTryItOutScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
+    
+    [self _sendPacketWithSceneType:kSceneTypeDanceMoveTryItOut];
+}
+
+#pragma mark - Networking
+- (void)_didReceiveData:(NSNotification *)notification
+{
+    PacketType packetType = (PacketType)[notification.userInfo[@"type"] intValue];
+    
+    if (packetType == PacketTypeTransitionToScene)
+    {
+        SceneTypes sceneType = (SceneTypes)[notification.userInfo[@"data"] intValue];
+        SKScene *scene;
+        SKTransitionDirection direction = SKTransitionDirectionLeft;
+        switch (sceneType)
+        {
+            case kSceneTypeDanceMoveSelection:
+                scene = [DDDanceMoveSelectionScene sceneWithSize:self.size];
+                direction = SKTransitionDirectionRight;
+                break;
+                
+            case kSceneTypeDanceMoveSeeInAction:
+                scene = [DDDanceMoveSeeInActionScene sceneWithSize:self.size];
+                break;
+                
+            case kSceneTypeDanceMoveTryItOut:
+                scene = [DDDanceMoveTryItOutScene sceneWithSize:self.size];
+                break;
+                
+            default:
+                break;
+        }
+        
+        [self.view presentScene:scene transition:[SKTransition pushWithDirection:direction duration:0.25]];
+    }
+    else if (packetType == PacketTypeShowNextInstruction)
+    {
+        BOOL shouldShowNextInstruction = [notification.userInfo[@"data"] boolValue];
+        if (shouldShowNextInstruction == YES)
+        {
+            [self _showNextStep];
+        }
+        else
+        {
+            [self _showPreviousStep];
+        }
+    }
+}
+
+- (void)_sendPacketWithSceneType:(SceneTypes)sceneType
+{
+    if ([DDGameManager sharedGameManager].sessionManager.isConnected == YES)
+    {
+        NSError *error;
+        DDPacketTransitionToScene *packet = [DDPacketTransitionToScene packetWithSceneType:sceneType];
+        [[DDGameManager sharedGameManager].sessionManager sendDataToAllPeers:[packet data] withMode:MCSessionSendDataUnreliable error:&error];
+    }
+}
+
+- (void)_sendNextInstruction:(BOOL)shouldShowNextInstruction
+{
+    if ([DDGameManager sharedGameManager].sessionManager.isConnected == YES)
+    {
+        NSError *error;
+        DDPacketShowNextInstruction *packet = [DDPacketShowNextInstruction packetWithNextInstruction:shouldShowNextInstruction];
+        [[DDGameManager sharedGameManager].sessionManager sendDataToAllPeers:[packet data] withMode:MCSessionSendDataUnreliable error:&error];
+    }
 }
 
 #pragma mark - Private methods

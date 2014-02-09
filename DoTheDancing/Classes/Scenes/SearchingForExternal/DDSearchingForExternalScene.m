@@ -35,13 +35,6 @@
     return self;
 }
 
-- (void)willMoveFromView:(SKView *)view
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    
-    [super willMoveFromView:view];
-}
-
 #pragma mark - Setup UI
 - (void)_displaySearchingForIpad
 {

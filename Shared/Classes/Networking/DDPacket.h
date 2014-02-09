@@ -12,6 +12,9 @@ typedef enum
 {
     PacketTypeStartDanceMoveDance = 0x64,       // external to controller
     PacketTypeSendResults,                      // controller to external
+    PacketTypeTransitionToScene,                // external <> controller
+    PacketTypeShowDanceMoveInstructions,        // external <> controller
+    PacketTypeShowNextInstruction,              // external <> controller
 }
 PacketType;
 

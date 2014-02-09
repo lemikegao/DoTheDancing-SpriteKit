@@ -17,7 +17,7 @@ typedef enum
     kSceneTypeDanceMoveSelection,
     kSceneTypeDanceMoveInstructions,
     kSceneTypeDanceMoveSeeInAction,
-    kSceneTypeDanceMoveDance,
+    kSceneTypeDanceMoveTryItOut,
     kSceneTypeDanceMoveResults,
     kSceneTypeMultiplayerHostOrJoin,
     kSceneTypeMultiplayerWaitingRoom,

@@ -46,6 +46,12 @@
 		C437064B1896450700BF6ECC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C43706381896450700BF6ECC /* InfoPlist.strings */; };
 		C437064C1896450700BF6ECC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C437063A1896450700BF6ECC /* main.m */; };
 		C437064D1896450700BF6ECC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C437063C1896450700BF6ECC /* Images.xcassets */; };
+		C441CC5E18A75703007F0920 /* DDPacketTransitionToScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C441CC5D18A75703007F0920 /* DDPacketTransitionToScene.m */; };
+		C441CC5F18A75703007F0920 /* DDPacketTransitionToScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C441CC5D18A75703007F0920 /* DDPacketTransitionToScene.m */; };
+		C441CC6218A783AC007F0920 /* DDPacketShowDanceMoveInstructions.m in Sources */ = {isa = PBXBuildFile; fileRef = C441CC6118A783AC007F0920 /* DDPacketShowDanceMoveInstructions.m */; };
+		C441CC6318A783AC007F0920 /* DDPacketShowDanceMoveInstructions.m in Sources */ = {isa = PBXBuildFile; fileRef = C441CC6118A783AC007F0920 /* DDPacketShowDanceMoveInstructions.m */; };
+		C441CC6618A78D97007F0920 /* DDPacketShowNextInstruction.m in Sources */ = {isa = PBXBuildFile; fileRef = C441CC6518A78D97007F0920 /* DDPacketShowNextInstruction.m */; };
+		C441CC6718A78D97007F0920 /* DDPacketShowNextInstruction.m in Sources */ = {isa = PBXBuildFile; fileRef = C441CC6518A78D97007F0920 /* DDPacketShowNextInstruction.m */; };
 		C4444BE8189E3F0000762EAB /* DDScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C4444BE7189E3F0000762EAB /* DDScene.m */; };
 		C4444BE9189E3F0000762EAB /* DDScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C4444BE7189E3F0000762EAB /* DDScene.m */; };
 		C4585EF5189F8FA500458392 /* DDPacketSendResults.m in Sources */ = {isa = PBXBuildFile; fileRef = C4585EF4189F8FA500458392 /* DDPacketSendResults.m */; };
@@ -122,6 +128,12 @@
 		C437063A1896450700BF6ECC /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C437063C1896450700BF6ECC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C437064E1896467D00BF6ECC /* DoTheDancing-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "DoTheDancing-Info.plist"; sourceTree = "<group>"; };
+		C441CC5C18A75703007F0920 /* DDPacketTransitionToScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDPacketTransitionToScene.h; sourceTree = "<group>"; };
+		C441CC5D18A75703007F0920 /* DDPacketTransitionToScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDPacketTransitionToScene.m; sourceTree = "<group>"; };
+		C441CC6018A783AC007F0920 /* DDPacketShowDanceMoveInstructions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDPacketShowDanceMoveInstructions.h; sourceTree = "<group>"; };
+		C441CC6118A783AC007F0920 /* DDPacketShowDanceMoveInstructions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDPacketShowDanceMoveInstructions.m; sourceTree = "<group>"; };
+		C441CC6418A78D97007F0920 /* DDPacketShowNextInstruction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDPacketShowNextInstruction.h; sourceTree = "<group>"; };
+		C441CC6518A78D97007F0920 /* DDPacketShowNextInstruction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDPacketShowNextInstruction.m; sourceTree = "<group>"; };
 		C4444BE6189E3F0000762EAB /* DDScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDScene.h; sourceTree = "<group>"; };
 		C4444BE7189E3F0000762EAB /* DDScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDScene.m; sourceTree = "<group>"; };
 		C4585EF3189F8FA500458392 /* DDPacketSendResults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDPacketSendResults.h; sourceTree = "<group>"; };
@@ -591,6 +603,12 @@
 				C4AE2FF01894D20500D23E30 /* DDPacketStartDanceMoveDance.m */,
 				C4585EF3189F8FA500458392 /* DDPacketSendResults.h */,
 				C4585EF4189F8FA500458392 /* DDPacketSendResults.m */,
+				C441CC5C18A75703007F0920 /* DDPacketTransitionToScene.h */,
+				C441CC5D18A75703007F0920 /* DDPacketTransitionToScene.m */,
+				C441CC6018A783AC007F0920 /* DDPacketShowDanceMoveInstructions.h */,
+				C441CC6118A783AC007F0920 /* DDPacketShowDanceMoveInstructions.m */,
+				C441CC6418A78D97007F0920 /* DDPacketShowNextInstruction.h */,
+				C441CC6518A78D97007F0920 /* DDPacketShowNextInstruction.m */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -726,11 +744,13 @@
 				C408D62D18769E610070FC43 /* DDDanceMove.m in Sources */,
 				C408D62F18769E610070FC43 /* DDDanceMoveBernie.m in Sources */,
 				C478E25B1897A1C5007B60EC /* DDEMainMenuScene.m in Sources */,
+				C441CC6318A783AC007F0920 /* DDPacketShowDanceMoveInstructions.m in Sources */,
 				C408D63118769E610070FC43 /* DDMotionRequirements.m in Sources */,
 				C478E2381897A070007B60EC /* DDSessionManager.m in Sources */,
 				C478E2531897A187007B60EC /* DDDanceMoveSelectionScene.m in Sources */,
 				C408D63318769E610070FC43 /* SKButton.m in Sources */,
 				C478E24F1897A187007B60EC /* DDDanceMoveResultsScene.m in Sources */,
+				C441CC6718A78D97007F0920 /* DDPacketShowNextInstruction.m in Sources */,
 				C408D63518769E610070FC43 /* SKMultilineLabel.m in Sources */,
 				C408D63718769E610070FC43 /* TCProgressTimerForegroundCropNode.m in Sources */,
 				C4585EF6189F8FA500458392 /* DDPacketSendResults.m in Sources */,
@@ -740,6 +760,7 @@
 				C478E2771897AC37007B60EC /* DDEConnectedToControllerScene.m in Sources */,
 				C478E23418979FD7007B60EC /* DDGameManager.m in Sources */,
 				C4AE2FF21894D20500D23E30 /* DDPacketStartDanceMoveDance.m in Sources */,
+				C441CC5F18A75703007F0920 /* DDPacketTransitionToScene.m in Sources */,
 				C408D63918769E610070FC43 /* TCProgressTimerNode.m in Sources */,
 				C4444BE9189E3F0000762EAB /* DDScene.m in Sources */,
 				C4AE2FE91894CD6A00D23E30 /* DDPacket.m in Sources */,
@@ -758,11 +779,13 @@
 				C45EE13818769921003DF245 /* DDMotionRequirements.m in Sources */,
 				C45EE13418769921003DF245 /* DDDanceMove.m in Sources */,
 				C478E26F1897ABFD007B60EC /* DDConnectedToExternalScene.m in Sources */,
+				C441CC6218A783AC007F0920 /* DDPacketShowDanceMoveInstructions.m in Sources */,
 				C478E23318979FD7007B60EC /* DDGameManager.m in Sources */,
 				C45EE13C18769921003DF245 /* SKMultilineLabel.m in Sources */,
 				C437064C1896450700BF6ECC /* main.m in Sources */,
 				C45EE14018769921003DF245 /* TCProgressTimerNode.m in Sources */,
 				C437063E1896450700BF6ECC /* DDViewController.m in Sources */,
+				C441CC6618A78D97007F0920 /* DDPacketShowNextInstruction.m in Sources */,
 				C478E24E1897A187007B60EC /* DDDanceMoveResultsScene.m in Sources */,
 				C478E2521897A187007B60EC /* DDDanceMoveSelectionScene.m in Sources */,
 				C4585EF5189F8FA500458392 /* DDPacketSendResults.m in Sources */,
@@ -772,6 +795,7 @@
 				C45EE13618769921003DF245 /* DDDanceMoveBernie.m in Sources */,
 				C478E24C1897A187007B60EC /* DDDanceMoveInstructionsScene.m in Sources */,
 				C4AE2FE81894CD6A00D23E30 /* DDPacket.m in Sources */,
+				C441CC5E18A75703007F0920 /* DDPacketTransitionToScene.m in Sources */,
 				C45EE13A18769921003DF245 /* SKButton.m in Sources */,
 				C4444BE8189E3F0000762EAB /* DDScene.m in Sources */,
 				C4AE2FF11894D20500D23E30 /* DDPacketStartDanceMoveDance.m in Sources */,

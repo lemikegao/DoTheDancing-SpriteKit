@@ -10,6 +10,7 @@
 
 @property (nonatomic, strong) MCSession *session;
 @property (nonatomic, copy, readonly) NSMutableArray *peerIDs;
+@property (nonatomic, assign) BOOL isConnected;
 
 - (instancetype)initWithPeer:(MCPeerID *)peerId;
 - (BOOL)sendDataToAllPeers:(NSData *)data withMode:(MCSessionSendDataMode)mode error:(NSError **)error;

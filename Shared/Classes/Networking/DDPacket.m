@@ -9,6 +9,9 @@
 #import "DDPacket.h"
 #import "DDPacketStartDanceMoveDance.h"
 #import "DDPacketSendResults.h"
+#import "DDPacketTransitionToScene.h"
+#import "DDPacketShowDanceMoveInstructions.h"
+#import "DDPacketShowNextInstruction.h"
 
 const size_t PACKET_HEADER_SIZE = 10;
 
@@ -55,6 +58,18 @@ const size_t PACKET_HEADER_SIZE = 10;
             
         case PacketTypeSendResults:
             packet = [DDPacketSendResults packetWithData:data];
+            break;
+            
+        case PacketTypeTransitionToScene:
+            packet = [DDPacketTransitionToScene packetWithData:data];
+            break;
+            
+        case PacketTypeShowDanceMoveInstructions:
+            packet = [DDPacketShowDanceMoveInstructions packetWithData:data];
+            break;
+            
+        case PacketTypeShowNextInstruction:
+            packet = [DDPacketShowNextInstruction packetWithData:data];
             break;
             
 		default:

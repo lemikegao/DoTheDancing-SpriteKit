@@ -120,7 +120,6 @@
 #pragma mark - Exit scene
 - (void)willMoveFromView:(SKView *)view
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [self.motionManager stopDeviceMotionUpdates];
     
     [super willMoveFromView:view];

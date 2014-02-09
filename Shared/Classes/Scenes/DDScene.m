@@ -29,4 +29,12 @@
     return self;
 }
 
+#pragma mark - Exit scene
+- (void)willMoveFromView:(SKView *)view
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    [super willMoveFromView:view];
+}
+
 @end
