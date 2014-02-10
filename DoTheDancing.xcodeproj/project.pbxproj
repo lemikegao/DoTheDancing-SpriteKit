@@ -95,8 +95,6 @@
 		C4AE2FE91894CD6A00D23E30 /* DDPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = C4AE2FE71894CD6A00D23E30 /* DDPacket.m */; };
 		C4AE2FED1894CDB900D23E30 /* NSData+Networking.m in Sources */ = {isa = PBXBuildFile; fileRef = C4AE2FEC1894CDB900D23E30 /* NSData+Networking.m */; };
 		C4AE2FEE1894CDB900D23E30 /* NSData+Networking.m in Sources */ = {isa = PBXBuildFile; fileRef = C4AE2FEC1894CDB900D23E30 /* NSData+Networking.m */; };
-		C4AE2FF11894D20500D23E30 /* DDPacketStartDanceMoveDance.m in Sources */ = {isa = PBXBuildFile; fileRef = C4AE2FF01894D20500D23E30 /* DDPacketStartDanceMoveDance.m */; };
-		C4AE2FF21894D20500D23E30 /* DDPacketStartDanceMoveDance.m in Sources */ = {isa = PBXBuildFile; fileRef = C4AE2FF01894D20500D23E30 /* DDPacketStartDanceMoveDance.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -192,8 +190,6 @@
 		C4AE2FE71894CD6A00D23E30 /* DDPacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDPacket.m; sourceTree = "<group>"; };
 		C4AE2FEB1894CDB900D23E30 /* NSData+Networking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Networking.h"; sourceTree = "<group>"; };
 		C4AE2FEC1894CDB900D23E30 /* NSData+Networking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Networking.m"; sourceTree = "<group>"; };
-		C4AE2FEF1894D20500D23E30 /* DDPacketStartDanceMoveDance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDPacketStartDanceMoveDance.h; sourceTree = "<group>"; };
-		C4AE2FF01894D20500D23E30 /* DDPacketStartDanceMoveDance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDPacketStartDanceMoveDance.m; sourceTree = "<group>"; };
 		C4EC61B6188FA4CF00DF4F20 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		C4EC61B8188FA4D700DF4F20 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		C4EC61BA188FA4DD00DF4F20 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
@@ -599,8 +595,6 @@
 				C478E2361897A070007B60EC /* DDSessionManager.m */,
 				C4AE2FE61894CD6A00D23E30 /* DDPacket.h */,
 				C4AE2FE71894CD6A00D23E30 /* DDPacket.m */,
-				C4AE2FEF1894D20500D23E30 /* DDPacketStartDanceMoveDance.h */,
-				C4AE2FF01894D20500D23E30 /* DDPacketStartDanceMoveDance.m */,
 				C4585EF3189F8FA500458392 /* DDPacketSendResults.h */,
 				C4585EF4189F8FA500458392 /* DDPacketSendResults.m */,
 				C441CC5C18A75703007F0920 /* DDPacketTransitionToScene.h */,
@@ -759,7 +753,6 @@
 				C478E2551897A187007B60EC /* DDDanceMoveTryItOutScene.m in Sources */,
 				C478E2771897AC37007B60EC /* DDEConnectedToControllerScene.m in Sources */,
 				C478E23418979FD7007B60EC /* DDGameManager.m in Sources */,
-				C4AE2FF21894D20500D23E30 /* DDPacketStartDanceMoveDance.m in Sources */,
 				C441CC5F18A75703007F0920 /* DDPacketTransitionToScene.m in Sources */,
 				C408D63918769E610070FC43 /* TCProgressTimerNode.m in Sources */,
 				C4444BE9189E3F0000762EAB /* DDScene.m in Sources */,
@@ -798,7 +791,6 @@
 				C441CC5E18A75703007F0920 /* DDPacketTransitionToScene.m in Sources */,
 				C45EE13A18769921003DF245 /* SKButton.m in Sources */,
 				C4444BE8189E3F0000762EAB /* DDScene.m in Sources */,
-				C4AE2FF11894D20500D23E30 /* DDPacketStartDanceMoveDance.m in Sources */,
 				C478E2371897A070007B60EC /* DDSessionManager.m in Sources */,
 				C478E2501897A187007B60EC /* DDDanceMoveSeeInActionScene.m in Sources */,
 				C43706481896450700BF6ECC /* DDAppDelegate.m in Sources */,

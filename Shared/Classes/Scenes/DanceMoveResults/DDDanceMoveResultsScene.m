@@ -9,6 +9,7 @@
 #import "DDDanceMoveResultsScene.h"
 #import "DDDanceMoveSelectionScene.h"
 #import "DDDanceMoveInstructionsScene.h"
+#import "DDPacketTransitionToScene.h"
 
 @interface DDDanceMoveResultsScene()
 
@@ -43,6 +44,12 @@
         [self _displayTopBar];
         [self _displayResults];
         [self _displayMenu];
+        
+        [[NSNotificationCenter defaultCenter]
+         addObserver:self
+         selector:@selector(_didReceiveData:)
+         name:kPeerDidReceiveDataNotification
+         object:nil];
     }
     
     return self;
@@ -219,11 +226,15 @@
 - (void)_pressedMainMenu:(id)sender
 {
     [self.view presentScene:[DDDanceMoveSelectionScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionRight duration:0.25]];
+    
+    [self _sendPacketWithSceneType:kSceneTypeDanceMoveSelection];
 }
 
 - (void)_pressedTryAgain:(id)sender
 {
     [self.view presentScene:[DDDanceMoveInstructionsScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionRight duration:0.25]];
+    
+    [self _sendPacketWithSceneType:kSceneTypeDanceMoveInstructions];
 }
 
 - (void)_pressedExpandResults:(id)sender
@@ -299,6 +310,39 @@
     
     self.isResultExpanded = YES;
     self.lastClickedIndex = senderIndex;
+}
+
+#pragma mark - Networking
+- (void)_didReceiveData:(NSNotification *)notification
+{
+    SceneTypes sceneType = (SceneTypes)[notification.userInfo[@"data"] intValue];
+    SKScene *scene;
+    SKTransitionDirection direction = SKTransitionDirectionRight;
+    switch (sceneType)
+    {
+        case kSceneTypeDanceMoveSelection:
+            scene = [DDDanceMoveSelectionScene sceneWithSize:self.size];
+            break;
+            
+        case kSceneTypeDanceMoveInstructions:
+            scene = [DDDanceMoveInstructionsScene sceneWithSize:self.size];
+            break;
+            
+        default:
+            break;
+    }
+    
+    [self.view presentScene:scene transition:[SKTransition pushWithDirection:direction duration:0.25]];
+}
+
+- (void)_sendPacketWithSceneType:(SceneTypes)sceneType
+{
+    if ([DDGameManager sharedGameManager].sessionManager.isConnected == YES)
+    {
+        NSError *error;
+        DDPacketTransitionToScene *packet = [DDPacketTransitionToScene packetWithSceneType:sceneType];
+        [[DDGameManager sharedGameManager].sessionManager sendDataToAllPeers:[packet data] withMode:MCSessionSendDataUnreliable error:&error];
+    }
 }
 
 @end

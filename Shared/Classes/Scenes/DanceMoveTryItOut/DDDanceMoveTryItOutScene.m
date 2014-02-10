@@ -10,10 +10,7 @@
 #import "DDDanceMoveResultsScene.h"
 #import "TCProgressTimerNode.h"
 #include <CoreMotion/CoreMotion.h>
-
-#if EXTERNAL
-#import "DDPacketStartDanceMoveDance.h"
-#endif
+#import "DDPacketSendResults.h"
 
 @interface DDDanceMoveTryItOutScene()
 
@@ -59,13 +56,6 @@
     self = [super initWithSize:size];
     if (self)
     {
-#if EXTERNAL
-        // Send packet to controller
-        NSError *error;
-        DDPacketStartDanceMoveDance *packet = [DDPacketStartDanceMoveDance packetWithDanceMoveType:self.danceMove.danceMoveType];
-        [[DDGameManager sharedGameManager].sessionManager sendDataToAllPeers:[packet data] withMode:MCSessionSendDataUnreliable error:&error];
-#endif
-        
         _danceMove = [DDGameManager sharedGameManager].individualDanceMove;
         _isSceneOver = NO;
         
@@ -384,6 +374,11 @@
     [self.danceIterationStepsDetected addObject:self.currentIterationStepsDetected];
     [self _updateIterationCountWithNum:self.currentIteration];
     
+    if ([DDGameManager sharedGameManager].sessionManager.isConnected == YES)
+    {
+        [self _sendResultsToExternal];
+    }
+    
     // Segue to results scene
     [[DDGameManager sharedGameManager] pauseBackgroundMusic];
     [self.view presentScene:[DDDanceMoveResultsScene sceneWithSize:self.size results:self.danceIterationStepsDetected] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
@@ -397,6 +392,19 @@
     // Segue to results scene
     [[DDGameManager sharedGameManager] pauseBackgroundMusic];
     [self.view presentScene:[DDDanceMoveResultsScene sceneWithSize:self.size results:results] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
+}
+
+- (void)_sendResultsToExternal
+{
+    // Create packet with dance step results
+    DDPacketSendResults *packet = [DDPacketSendResults packetWithDanceMoveResults:self.danceIterationStepsDetected];
+    NSError *error;
+    [[DDGameManager sharedGameManager].sessionManager sendDataToAllPeers:[packet data] withMode:MCSessionSendDataUnreliable error:&error];
+    
+    if (error)
+    {
+        NSLog(@"DDDanceMoveTryItOutScene -> _sendResultsToExternal ERROR: %@", error.localizedDescription);
+    }
 }
 
 #pragma mark - Update

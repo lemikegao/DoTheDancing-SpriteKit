@@ -11,6 +11,7 @@
 #import "DDDanceMoveTryItOutScene.h"
 #import "SKMultilineLabel.h"
 #import "TCProgressTimerNode.h"
+#import "DDPacketTransitionToScene.h"
 
 @interface DDDanceMoveSeeInActionScene()
 
@@ -61,6 +62,12 @@
         _currentIteration = 1;
         _timeToMoveToNextStep = [self.danceMove.timePerSteps[0] floatValue];
         _isSceneOver = NO;
+        
+        [[NSNotificationCenter defaultCenter]
+         addObserver:self
+         selector:@selector(_didReceiveData:)
+         name:kPeerDidReceiveDataNotification
+         object:nil];
         
         // Set up UI
         [self _displayTopBar];
@@ -263,18 +270,57 @@
 {
     [[DDGameManager sharedGameManager] pauseBackgroundMusic];
     [self.view presentScene:[DDDanceMoveTryItOutScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
+    
+    [self _sendPacketWithSceneType:kSceneTypeDanceMoveTryItOut];
 }
 
 - (void)_pressedWatchAgain:(id)sender
 {
     [[DDGameManager sharedGameManager] pauseBackgroundMusic];
     [self.view presentScene:[DDDanceMoveSeeInActionScene sceneWithSize:self.size]];
+    
+    [self _sendPacketWithSceneType:kSceneTypeDanceMoveSeeInAction];
 }
 
 - (void)_pressedInstructions:(id)sender
 {
     [[DDGameManager sharedGameManager] pauseBackgroundMusic];
     [self.view presentScene:[DDDanceMoveInstructionsScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionRight duration:0.25]];
+    
+    [self _sendPacketWithSceneType:kSceneTypeDanceMoveInstructions];
+}
+
+#pragma mark - Networking
+- (void)_didReceiveData:(NSNotification *)notification
+{
+    SceneTypes sceneType = (SceneTypes)[notification.userInfo[@"data"] intValue];
+    switch (sceneType)
+    {
+        case kSceneTypeDanceMoveTryItOut:
+            [self.view presentScene:[DDDanceMoveTryItOutScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
+            break;
+            
+        case kSceneTypeDanceMoveSeeInAction:
+            [self.view presentScene:[DDDanceMoveSeeInActionScene sceneWithSize:self.size]];
+            break;
+            
+        case kSceneTypeDanceMoveInstructions:
+            [self.view presentScene:[DDDanceMoveInstructionsScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionRight duration:0.25]];
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void)_sendPacketWithSceneType:(SceneTypes)sceneType
+{
+    if ([DDGameManager sharedGameManager].sessionManager.isConnected == YES)
+    {
+        NSError *error;
+        DDPacketTransitionToScene *packet = [DDPacketTransitionToScene packetWithSceneType:sceneType];
+        [[DDGameManager sharedGameManager].sessionManager sendDataToAllPeers:[packet data] withMode:MCSessionSendDataUnreliable error:&error];
+    }
 }
 
 #pragma mark - Private methods
