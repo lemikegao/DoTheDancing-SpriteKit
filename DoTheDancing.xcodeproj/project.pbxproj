@@ -91,6 +91,7 @@
 		C493367C185453010027C38C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C493367B185453010027C38C /* CoreGraphics.framework */; };
 		C493367E185453010027C38C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C493367D185453010027C38C /* UIKit.framework */; };
 		C4933680185453010027C38C /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C493367F185453010027C38C /* SpriteKit.framework */; };
+		C4A84F4B18B0AEAA00ECE8F6 /* DDConnectToExternalScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A84F4A18B0AEAA00ECE8F6 /* DDConnectToExternalScene.m */; };
 		C4AE2FE81894CD6A00D23E30 /* DDPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = C4AE2FE71894CD6A00D23E30 /* DDPacket.m */; };
 		C4AE2FE91894CD6A00D23E30 /* DDPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = C4AE2FE71894CD6A00D23E30 /* DDPacket.m */; };
 		C4AE2FED1894CDB900D23E30 /* NSData+Networking.m in Sources */ = {isa = PBXBuildFile; fileRef = C4AE2FEC1894CDB900D23E30 /* NSData+Networking.m */; };
@@ -186,6 +187,8 @@
 		C493367D185453010027C38C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C493367F185453010027C38C /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		C493369F185453010027C38C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		C4A84F4918B0AEAA00ECE8F6 /* DDConnectToExternalScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDConnectToExternalScene.h; sourceTree = "<group>"; };
+		C4A84F4A18B0AEAA00ECE8F6 /* DDConnectToExternalScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDConnectToExternalScene.m; sourceTree = "<group>"; };
 		C4AE2FE61894CD6A00D23E30 /* DDPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDPacket.h; sourceTree = "<group>"; };
 		C4AE2FE71894CD6A00D23E30 /* DDPacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDPacket.m; sourceTree = "<group>"; };
 		C4AE2FEB1894CDB900D23E30 /* NSData+Networking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Networking.h"; sourceTree = "<group>"; };
@@ -362,6 +365,7 @@
 			isa = PBXGroup;
 			children = (
 				C478E25C1897A1D8007B60EC /* MainMenu */,
+				C4A84F4818B0AE9B00ECE8F6 /* ConnectToExternal */,
 				C478E2681897ABF7007B60EC /* SearchingForExternal */,
 				C478E26C1897ABFD007B60EC /* ConnectedToExternal */,
 			);
@@ -588,6 +592,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C4A84F4818B0AE9B00ECE8F6 /* ConnectToExternal */ = {
+			isa = PBXGroup;
+			children = (
+				C4A84F4918B0AEAA00ECE8F6 /* DDConnectToExternalScene.h */,
+				C4A84F4A18B0AEAA00ECE8F6 /* DDConnectToExternalScene.m */,
+			);
+			path = ConnectToExternal;
+			sourceTree = "<group>";
+		};
 		C4AE2FE51894CD4000D23E30 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -776,6 +789,7 @@
 				C478E23318979FD7007B60EC /* DDGameManager.m in Sources */,
 				C45EE13C18769921003DF245 /* SKMultilineLabel.m in Sources */,
 				C437064C1896450700BF6ECC /* main.m in Sources */,
+				C4A84F4B18B0AEAA00ECE8F6 /* DDConnectToExternalScene.m in Sources */,
 				C45EE14018769921003DF245 /* TCProgressTimerNode.m in Sources */,
 				C437063E1896450700BF6ECC /* DDViewController.m in Sources */,
 				C441CC6618A78D97007F0920 /* DDPacketShowNextInstruction.m in Sources */,
