@@ -56,6 +56,8 @@
 		C4444BE9189E3F0000762EAB /* DDScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C4444BE7189E3F0000762EAB /* DDScene.m */; };
 		C4585EF5189F8FA500458392 /* DDPacketSendResults.m in Sources */ = {isa = PBXBuildFile; fileRef = C4585EF4189F8FA500458392 /* DDPacketSendResults.m */; };
 		C4585EF6189F8FA500458392 /* DDPacketSendResults.m in Sources */ = {isa = PBXBuildFile; fileRef = C4585EF4189F8FA500458392 /* DDPacketSendResults.m */; };
+		C45BDEB818B2034A00E49376 /* DDConnectedToExternalScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C45BDEB718B2034A00E49376 /* DDConnectedToExternalScene.m */; };
+		C45BDEB918B2034A00E49376 /* DDConnectedToExternalScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C45BDEB718B2034A00E49376 /* DDConnectedToExternalScene.m */; };
 		C45EE13418769921003DF245 /* DDDanceMove.m in Sources */ = {isa = PBXBuildFile; fileRef = C45EE12118769921003DF245 /* DDDanceMove.m */; };
 		C45EE13618769921003DF245 /* DDDanceMoveBernie.m in Sources */ = {isa = PBXBuildFile; fileRef = C45EE12318769921003DF245 /* DDDanceMoveBernie.m */; };
 		C45EE13818769921003DF245 /* DDMotionRequirements.m in Sources */ = {isa = PBXBuildFile; fileRef = C45EE12518769921003DF245 /* DDMotionRequirements.m */; };
@@ -80,9 +82,7 @@
 		C478E25B1897A1C5007B60EC /* DDEMainMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C478E25A1897A1C5007B60EC /* DDEMainMenuScene.m */; };
 		C478E25F1897A1D8007B60EC /* DDMainMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C478E25E1897A1D8007B60EC /* DDMainMenuScene.m */; };
 		C478E26B1897ABF7007B60EC /* DDSearchingForExternalScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C478E26A1897ABF7007B60EC /* DDSearchingForExternalScene.m */; };
-		C478E26F1897ABFD007B60EC /* DDConnectedToExternalScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C478E26E1897ABFD007B60EC /* DDConnectedToExternalScene.m */; };
 		C478E2731897AC31007B60EC /* DDESearchingForControllerScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C478E2721897AC31007B60EC /* DDESearchingForControllerScene.m */; };
-		C478E2771897AC37007B60EC /* DDEConnectedToControllerScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C478E2761897AC37007B60EC /* DDEConnectedToControllerScene.m */; };
 		C48DB4CD189104CF00D6D988 /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48DB4CC189104CF00D6D988 /* MultipeerConnectivity.framework */; };
 		C48DB4CE189104D600D6D988 /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48DB4CC189104CF00D6D988 /* MultipeerConnectivity.framework */; };
 		C48DB4DE18910BB200D6D988 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48DB4DD18910BB200D6D988 /* AVFoundation.framework */; };
@@ -137,6 +137,8 @@
 		C4444BE7189E3F0000762EAB /* DDScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDScene.m; sourceTree = "<group>"; };
 		C4585EF3189F8FA500458392 /* DDPacketSendResults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDPacketSendResults.h; sourceTree = "<group>"; };
 		C4585EF4189F8FA500458392 /* DDPacketSendResults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDPacketSendResults.m; sourceTree = "<group>"; };
+		C45BDEB618B2034A00E49376 /* DDConnectedToExternalScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDConnectedToExternalScene.h; sourceTree = "<group>"; };
+		C45BDEB718B2034A00E49376 /* DDConnectedToExternalScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDConnectedToExternalScene.m; sourceTree = "<group>"; };
 		C45EE12018769921003DF245 /* DDDanceMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDDanceMove.h; sourceTree = "<group>"; };
 		C45EE12118769921003DF245 /* DDDanceMove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDDanceMove.m; sourceTree = "<group>"; };
 		C45EE12218769921003DF245 /* DDDanceMoveBernie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDDanceMoveBernie.h; sourceTree = "<group>"; };
@@ -171,12 +173,8 @@
 		C478E25E1897A1D8007B60EC /* DDMainMenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMainMenuScene.m; sourceTree = "<group>"; };
 		C478E2691897ABF7007B60EC /* DDSearchingForExternalScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDSearchingForExternalScene.h; sourceTree = "<group>"; };
 		C478E26A1897ABF7007B60EC /* DDSearchingForExternalScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDSearchingForExternalScene.m; sourceTree = "<group>"; };
-		C478E26D1897ABFD007B60EC /* DDConnectedToExternalScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDConnectedToExternalScene.h; sourceTree = "<group>"; };
-		C478E26E1897ABFD007B60EC /* DDConnectedToExternalScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDConnectedToExternalScene.m; sourceTree = "<group>"; };
 		C478E2711897AC31007B60EC /* DDESearchingForControllerScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDESearchingForControllerScene.h; sourceTree = "<group>"; };
 		C478E2721897AC31007B60EC /* DDESearchingForControllerScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDESearchingForControllerScene.m; sourceTree = "<group>"; };
-		C478E2751897AC37007B60EC /* DDEConnectedToControllerScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDEConnectedToControllerScene.h; sourceTree = "<group>"; };
-		C478E2761897AC37007B60EC /* DDEConnectedToControllerScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDEConnectedToControllerScene.m; sourceTree = "<group>"; };
 		C48DB4CC189104CF00D6D988 /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
 		C48DB4DB18910A5600D6D988 /* DDConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDConstants.h; sourceTree = "<group>"; };
 		C48DB4DC18910A6800D6D988 /* DoTheDancing-External-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DoTheDancing-External-Prefix.pch"; sourceTree = "<group>"; };
@@ -245,7 +243,6 @@
 			children = (
 				C478E2581897A1C5007B60EC /* MainMenu */,
 				C478E2701897AC31007B60EC /* SearchingForController */,
-				C478E2741897AC37007B60EC /* ConnectedToController */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -367,7 +364,6 @@
 				C478E25C1897A1D8007B60EC /* MainMenu */,
 				C4A84F4818B0AE9B00ECE8F6 /* ConnectToExternal */,
 				C478E2681897ABF7007B60EC /* SearchingForExternal */,
-				C478E26C1897ABFD007B60EC /* ConnectedToExternal */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -387,6 +383,15 @@
 				C437063C1896450700BF6ECC /* Images.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		C45BDEB518B2033E00E49376 /* ConnectedToExternal */ = {
+			isa = PBXGroup;
+			children = (
+				C45BDEB618B2034A00E49376 /* DDConnectedToExternalScene.h */,
+				C45BDEB718B2034A00E49376 /* DDConnectedToExternalScene.m */,
+			);
+			path = ConnectedToExternal;
 			sourceTree = "<group>";
 		};
 		C45EE11D18769921003DF245 /* Shared */ = {
@@ -451,6 +456,7 @@
 				C478E2401897A187007B60EC /* DanceMoveSeeInAction */,
 				C478E2461897A187007B60EC /* DanceMoveTryItOut */,
 				C478E23D1897A187007B60EC /* DanceMoveResults */,
+				C45BDEB518B2033E00E49376 /* ConnectedToExternal */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -527,15 +533,6 @@
 			path = SearchingForExternal;
 			sourceTree = "<group>";
 		};
-		C478E26C1897ABFD007B60EC /* ConnectedToExternal */ = {
-			isa = PBXGroup;
-			children = (
-				C478E26D1897ABFD007B60EC /* DDConnectedToExternalScene.h */,
-				C478E26E1897ABFD007B60EC /* DDConnectedToExternalScene.m */,
-			);
-			path = ConnectedToExternal;
-			sourceTree = "<group>";
-		};
 		C478E2701897AC31007B60EC /* SearchingForController */ = {
 			isa = PBXGroup;
 			children = (
@@ -543,15 +540,6 @@
 				C478E2721897AC31007B60EC /* DDESearchingForControllerScene.m */,
 			);
 			path = SearchingForController;
-			sourceTree = "<group>";
-		};
-		C478E2741897AC37007B60EC /* ConnectedToController */ = {
-			isa = PBXGroup;
-			children = (
-				C478E2751897AC37007B60EC /* DDEConnectedToControllerScene.h */,
-				C478E2761897AC37007B60EC /* DDEConnectedToControllerScene.m */,
-			);
-			path = ConnectedToController;
 			sourceTree = "<group>";
 		};
 		C493366D185453010027C38C = {
@@ -764,11 +752,11 @@
 				C478E24D1897A187007B60EC /* DDDanceMoveInstructionsScene.m in Sources */,
 				C478E2511897A187007B60EC /* DDDanceMoveSeeInActionScene.m in Sources */,
 				C478E2551897A187007B60EC /* DDDanceMoveTryItOutScene.m in Sources */,
-				C478E2771897AC37007B60EC /* DDEConnectedToControllerScene.m in Sources */,
 				C478E23418979FD7007B60EC /* DDGameManager.m in Sources */,
 				C441CC5F18A75703007F0920 /* DDPacketTransitionToScene.m in Sources */,
 				C408D63918769E610070FC43 /* TCProgressTimerNode.m in Sources */,
 				C4444BE9189E3F0000762EAB /* DDScene.m in Sources */,
+				C45BDEB918B2034A00E49376 /* DDConnectedToExternalScene.m in Sources */,
 				C4AE2FE91894CD6A00D23E30 /* DDPacket.m in Sources */,
 				C4AE2FEE1894CDB900D23E30 /* NSData+Networking.m in Sources */,
 				C428899618769D3C001FFB3A /* main.m in Sources */,
@@ -784,12 +772,12 @@
 				C45EE13E18769921003DF245 /* TCProgressTimerForegroundCropNode.m in Sources */,
 				C45EE13818769921003DF245 /* DDMotionRequirements.m in Sources */,
 				C45EE13418769921003DF245 /* DDDanceMove.m in Sources */,
-				C478E26F1897ABFD007B60EC /* DDConnectedToExternalScene.m in Sources */,
 				C441CC6218A783AC007F0920 /* DDPacketShowDanceMoveInstructions.m in Sources */,
 				C478E23318979FD7007B60EC /* DDGameManager.m in Sources */,
 				C45EE13C18769921003DF245 /* SKMultilineLabel.m in Sources */,
 				C437064C1896450700BF6ECC /* main.m in Sources */,
 				C4A84F4B18B0AEAA00ECE8F6 /* DDConnectToExternalScene.m in Sources */,
+				C45BDEB818B2034A00E49376 /* DDConnectedToExternalScene.m in Sources */,
 				C45EE14018769921003DF245 /* TCProgressTimerNode.m in Sources */,
 				C437063E1896450700BF6ECC /* DDViewController.m in Sources */,
 				C441CC6618A78D97007F0920 /* DDPacketShowNextInstruction.m in Sources */,

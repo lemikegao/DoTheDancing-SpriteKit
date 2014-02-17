@@ -8,7 +8,7 @@
 
 #import "DDESearchingForControllerScene.h"
 #import "DDEMainMenuScene.h"
-#import "DDEConnectedToControllerScene.h"
+#import "DDConnectedToExternalScene.h"
 
 @interface DDESearchingForControllerScene() <MCNearbyServiceBrowserDelegate>
 
@@ -105,7 +105,7 @@
     // Stop browsing
     [[DDGameManager sharedGameManager].browser stopBrowsingForPeers];
     
-    [self.view presentScene:[DDEConnectedToControllerScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
+    [self.view presentScene:[DDConnectedToExternalScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
 }
 
 #pragma mark - MCNearbyServiceBrowserDelegate methods
