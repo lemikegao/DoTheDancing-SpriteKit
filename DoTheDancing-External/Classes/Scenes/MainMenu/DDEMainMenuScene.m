@@ -31,9 +31,6 @@
     bg.anchorPoint = CGPointMake(0, 1);
     bg.position = CGPointMake(0, self.size.height);
     [self addChild:bg];
-    
-#warning - Remove (temporary asset stretching)
-    bg.size = self.size;
 }
 
 - (void)_displayLogo

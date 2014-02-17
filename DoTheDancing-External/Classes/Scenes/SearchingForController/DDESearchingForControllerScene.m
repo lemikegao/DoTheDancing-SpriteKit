@@ -21,8 +21,9 @@
     self = [super initWithSize:size];
     if (self)
     {
-        [self _displaySearchingMessage];
-        [self _displayBackButton];
+        [self _displayBackground];
+        [self _displayTopBar];
+        [self _displaySearchingForController];
         [self _startSearchingForDevice];
         
         // Register for notifications when connected to advertiser
@@ -36,24 +37,49 @@
 }
 
 #pragma mark - Setup UI
-
-- (void)_displaySearchingMessage
+- (void)_displayBackground
 {
-    SKLabelNode *searchingLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica-Bold"];
-    searchingLabel.fontSize = 50;
-    searchingLabel.fontColor = [UIColor blackColor];
-    searchingLabel.text = @"Searching for device...";
-    searchingLabel.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.5);
-    [self addChild:searchingLabel];
+    SKSpriteNode *bg = [SKSpriteNode spriteNodeWithImageNamed:@"mainmenu-bg"];
+    bg.anchorPoint = CGPointMake(0, 1);
+    bg.position = CGPointMake(0, self.size.height);
+    [self addChild:bg];
 }
 
-- (void)_displayBackButton
+- (void)_displayTopBar
 {
+    // Top banner bg
+    SKSpriteNode *topBannerBg = [SKSpriteNode spriteNodeWithColor:RGB(56, 56, 56) size:CGSizeMake(self.size.width, 43*self.sizeMultiplier)];
+    topBannerBg.anchorPoint = CGPointMake(0, 1);
+    topBannerBg.position = CGPointMake(0, self.size.height);
+    [self addChild:topBannerBg];
+    
+    // Title label
+    SKLabelNode *titleLabel = [SKLabelNode labelNodeWithFontNamed:@"Economica-Bold"];
+    titleLabel.fontSize = 32*self.sizeMultiplier;
+    titleLabel.text = @"Single Player";
+    titleLabel.fontColor = RGB(249, 185, 56);
+    titleLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
+    titleLabel.position = CGPointMake(self.size.width * 0.5f, -topBannerBg.size.height * 0.5);
+    [topBannerBg addChild:titleLabel];
+    
+    // Back button
     SKButton *backButton = [SKButton buttonWithImageNamedNormal:@"back" selected:@"back-highlight"];
-    backButton.anchorPoint = CGPointMake(0, 1);
-    backButton.position = CGPointMake(0, self.size.height);
+    backButton.anchorPoint = CGPointMake(0, 0.5);
+    backButton.position = CGPointMake(0, -topBannerBg.size.height * 0.5);
     [backButton setTouchUpInsideTarget:self action:@selector(_pressedBack:)];
-    [self addChild:backButton];
+    [topBannerBg addChild:backButton];
+}
+
+- (void)_displaySearchingForController
+{
+    // Sprite - Connecting
+    SKSpriteNode *connectingSprite = [SKSpriteNode spriteNodeWithImageNamed:@"connecting1"];
+    connectingSprite.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.7);
+    [self addChild:connectingSprite];
+    
+    // Animate connecting
+    SKAction *connectingAnimation = [SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"connecting2"], [SKTexture textureWithImageNamed:@"connecting1"]] timePerFrame:0.25];
+    [connectingSprite runAction:[SKAction repeatActionForever:connectingAnimation]];
 }
 
 #pragma mark - Button actions
