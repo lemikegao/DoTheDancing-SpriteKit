@@ -21,8 +21,8 @@ typedef enum
     kSceneTypeDanceMoveResults,
     kSceneTypeMultiplayerHostOrJoin,
     kSceneTypeMultiplayerWaitingRoom,
-    kSceneTypeSearchingForIpad,
-    kSceneTypeConnectedToIpad,
+    kSceneTypeSearchingForExternal,
+    kSceneTypeConnectedToExternal,
 } SceneTypes;
 
 typedef enum

@@ -1,17 +1,16 @@
 //
-//  DDConnectToExternalScene.m
+//  DDMultiplayerHostOnExternalScene.m
 //  DoTheDancing
 //
 //  Created by Michael Gao on 2/16/14.
 //  Copyright (c) 2014 Chin and Cheeks LLC. All rights reserved.
 //
 
-#import "DDConnectToExternalScene.h"
-#import "DDMainMenuScene.h"
-#import "DDDanceMoveSelectionScene.h"
+#import "DDMultiplayerHostOnExternalScene.h"
+#import "DDMultiplayerHostOrJoinScene.h"
 #import "DDSearchingForExternalScene.h"
 
-@implementation DDConnectToExternalScene
+@implementation DDMultiplayerHostOnExternalScene
 
 - (id)initWithSize:(CGSize)size
 {
@@ -46,7 +45,7 @@
     // Title label
     SKLabelNode *titleLabel = [SKLabelNode labelNodeWithFontNamed:@"Economica-Bold"];
     titleLabel.fontSize = 32;
-    titleLabel.text = @"Single Player";
+    titleLabel.text = @"Multiplayer";
     titleLabel.fontColor = RGB(249, 185, 56);
     titleLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
     titleLabel.position = CGPointMake(self.size.width * 0.5f, -topBannerBg.size.height * 0.5);
@@ -62,30 +61,29 @@
 
 - (void)_displayMenu
 {
-    // Label - Connect
-#warning - Update font and fontColor
-    SKLabelNode *connectLabel = [SKLabelNode labelNodeWithFontNamed:@"Economica-Bold"];
-    connectLabel.fontSize = 28;
-    connectLabel.text = @"Connect to external screen?";
-    connectLabel.fontColor = [UIColor blackColor];
-    connectLabel.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.8);
-    [self addChild:connectLabel];
-    
     // Menu - Bg
-    SKSpriteNode *menuBg = [SKSpriteNode spriteNodeWithColor:RGB(249, 228, 172) size:CGSizeMake(227, 165)];
+    SKSpriteNode *menuBg = [SKSpriteNode spriteNodeWithColor:RGB(249, 228, 172) size:CGSizeMake(227, 170)];
     menuBg.anchorPoint = CGPointMake(0.5, 1);
-    menuBg.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.74);
+    menuBg.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.787);
     [self addChild:menuBg];
+    
+    // Label - Connect
+    SKLabelNode *connectLabel = [SKLabelNode labelNodeWithFontNamed:@"Economica-Bold"];
+    connectLabel.fontSize = 20;
+    connectLabel.text = @"Host party on external screen?";
+    connectLabel.fontColor = RGB(56, 56, 56);
+    connectLabel.position = CGPointMake(0, -menuBg.size.height * 0.15);
+    [menuBg addChild:connectLabel];
     
     // Menu - Yes button
     SKButton *singleButton = [SKButton buttonWithImageNamedNormal:@"button-yes" selected:@"button-yes-highlight"];
-    singleButton.position = CGPointMake(0, -menuBg.size.height * 0.25);
+    singleButton.position = CGPointMake(0, -menuBg.size.height * 0.40);
     [singleButton setTouchUpInsideTarget:self action:@selector(_pressedYesButton:)];
     [menuBg addChild:singleButton];
     
     // Menu - No button
     SKButton *multiButton = [SKButton buttonWithImageNamedNormal:@"button-no" selected:@"button-no-highlight"];
-    multiButton.position = CGPointMake(0, -menuBg.size.height * 0.75);
+    multiButton.position = CGPointMake(0, -menuBg.size.height * 0.78);
     [multiButton setTouchUpInsideTarget:self action:@selector(_pressedNoButton:)];
     [menuBg addChild:multiButton];
 }
@@ -93,17 +91,18 @@
 #pragma mark - Button actions
 - (void)_pressedBack:(id)sender
 {
-    [self.view presentScene:[DDMainMenuScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionRight duration:0.25]];
+    [self.view presentScene:[DDMultiplayerHostOrJoinScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionRight duration:0.25]];
 }
 
 - (void)_pressedYesButton:(id)sender
 {
-    [self.view presentScene:[DDSearchingForExternalScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
+#warning - TODO Segue to multiplayer lobby if coming from MultiplayerHostOnExternalScene
+//    [self.view presentScene:[DDSearchingForExternalScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
 }
 
 - (void)_pressedNoButton:(id)sender
 {
-    [self.view presentScene:[DDDanceMoveSelectionScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
+    
 }
 
 @end

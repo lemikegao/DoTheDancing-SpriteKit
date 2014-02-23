@@ -10,6 +10,8 @@
 #import "DDDanceMoveInstructionsScene.h"
 #import "DDDanceMoveBernie.h"
 #import "DDPacketShowDanceMoveInstructions.h"
+#import "DDConnectedToExternalScene.h"
+#import "DDPacketTransitionToScene.h"
 
 #if CONTROLLER
 #import "DDMainMenuScene.h"
@@ -176,13 +178,25 @@
 #pragma mark - Button actions
 - (void)_pressedBack:(id)sender
 {
-    Class mainMenuClass;
+    // Segue back to ConnectedToExternal screen
+    if ([DDGameManager sharedGameManager].sessionManager.isConnected)
+    {
+        NSError *error;
+        DDPacketTransitionToScene *packet = [DDPacketTransitionToScene packetWithSceneType:kSceneTypeConnectedToExternal];
+        [[DDGameManager sharedGameManager].sessionManager sendDataToAllPeers:[packet data] withMode:MCSessionSendDataUnreliable error:&error];
+        
+        [self.view presentScene:[DDConnectedToExternalScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionRight duration:0.25]];
+    }
+    else
+    {
+        Class mainMenuClass;
 #if CONTROLLER
-    mainMenuClass = [DDMainMenuScene class];
+        mainMenuClass = [DDMainMenuScene class];
 #else
-    mainMenuClass = [DDEMainMenuScene class];
+        mainMenuClass = [DDEMainMenuScene class];
 #endif
-    [self.view presentScene:[mainMenuClass sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionRight duration:0.25]];
+        [self.view presentScene:[mainMenuClass sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionRight duration:0.25]];
+    }
 }
 
 - (void)_showDanceInstructions:(id)sender
@@ -208,10 +222,31 @@
 #pragma mark - Networking
 - (void)_didReceiveData:(NSNotification *)notification
 {
-    DanceMoves danceMoveType = (DanceMoves)[notification.userInfo[@"data"] intValue];
-    [DDGameManager sharedGameManager].individualDanceMove = [self _danceMoveForType:danceMoveType];
+    PacketType packetType = (PacketType)[notification.userInfo[@"type"] intValue];
     
-    [self.view presentScene:[DDDanceMoveInstructionsScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
+    if (packetType == PacketTypeTransitionToScene)
+    {
+        SceneTypes sceneType = (SceneTypes)[notification.userInfo[@"data"] intValue];
+        SKScene *scene;
+        switch (sceneType)
+        {
+            case kSceneTypeConnectedToExternal:
+                scene = [DDConnectedToExternalScene sceneWithSize:self.size];
+                break;
+                
+            default:
+                break;
+        }
+        
+        [self.view presentScene:scene transition:[SKTransition pushWithDirection:SKTransitionDirectionRight duration:0.25]];
+    }
+    else if (packetType == PacketTypeShowDanceMoveInstructions)
+    {
+        DanceMoves danceMoveType = (DanceMoves)[notification.userInfo[@"data"] intValue];
+        [DDGameManager sharedGameManager].individualDanceMove = [self _danceMoveForType:danceMoveType];
+        
+        [self.view presentScene:[DDDanceMoveInstructionsScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
+    }
 }
 
 #pragma mark - Private methods

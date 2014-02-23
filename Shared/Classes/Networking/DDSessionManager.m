@@ -18,7 +18,7 @@
     {
         _session = [[MCSession alloc] initWithPeer:peerId];
         _session.delegate = self;
-        _peerIDs = [[NSMutableArray alloc] init];
+        _peerIDs = [[NSMutableSet alloc] init];
         _isConnected = NO;
     }
     
@@ -28,7 +28,7 @@
 - (BOOL)sendDataToAllPeers:(NSData *)data withMode:(MCSessionSendDataMode)mode error:(NSError **)error
 {
     NSLog(@"DDSessionManager -> sendDataToAllPeers: %@", self.peerIDs);
-    return [self.session sendData:data toPeers:self.peerIDs withMode:mode error:error];
+    return [self.session sendData:data toPeers:[self.peerIDs allObjects] withMode:mode error:error];
 }
 
 #pragma mark - MCSessionDelegate methods
@@ -52,6 +52,7 @@
     else if (state == MCSessionStateNotConnected)
     {
         self.isConnected = NO;
+        [self.peerIDs removeObject:peerID];
     }
 }
 

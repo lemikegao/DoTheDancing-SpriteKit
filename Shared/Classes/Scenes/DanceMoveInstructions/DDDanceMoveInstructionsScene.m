@@ -279,6 +279,8 @@
         SceneTypes sceneType = (SceneTypes)[notification.userInfo[@"data"] intValue];
         SKScene *scene;
         SKTransitionDirection direction = SKTransitionDirectionLeft;
+        
+        [[DDGameManager sharedGameManager] pauseBackgroundMusic];
         switch (sceneType)
         {
             case kSceneTypeDanceMoveSelection:

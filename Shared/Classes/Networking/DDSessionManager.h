@@ -9,7 +9,7 @@
 @interface DDSessionManager : NSObject <MCSessionDelegate>
 
 @property (nonatomic, strong) MCSession *session;
-@property (nonatomic, copy, readonly) NSMutableArray *peerIDs;
+@property (nonatomic, copy, readonly) NSMutableSet *peerIDs;
 @property (nonatomic, assign) BOOL isConnected;
 
 - (instancetype)initWithPeer:(MCPeerID *)peerId;

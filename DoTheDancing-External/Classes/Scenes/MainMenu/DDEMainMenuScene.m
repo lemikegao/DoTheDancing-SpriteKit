@@ -48,29 +48,27 @@
 - (void)_displayMenu
 {
     // Menu - Bg
-    SKSpriteNode *menuBg = [SKSpriteNode spriteNodeWithColor:RGB(249, 228, 172) size:CGSizeMake(500, 320)];
-    menuBg.anchorPoint = CGPointMake(0.5, 1);
-    menuBg.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.74);
+    SKSpriteNode *menuBg = [SKSpriteNode spriteNodeWithColor:RGB(249, 228, 172) size:CGSizeMake(560, 150)];
+    menuBg.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.6);
     [self addChild:menuBg];
-    
-    // Menu - Single Player button
-    SKButton *singleButton = [SKButton buttonWithImageNamedNormal:@"mainmenu-button-single" selected:@"mainmenu-button-single-highlight"];
-    singleButton.position = CGPointMake(0, -menuBg.size.height * 0.25);
-    [singleButton setTouchUpInsideTarget:self action:@selector(_pressedSingleButton:)];
-    [menuBg addChild:singleButton];
-    
-    // Menu - Multiplayer button
-    SKButton *multiButton = [SKButton buttonWithImageNamedNormal:@"mainmenu-button-multi" selected:@"mainmenu-button-multi-highlight"];
-    multiButton.position = CGPointMake(0, -menuBg.size.height * 0.75);
-    [multiButton setTouchUpInsideTarget:self action:@selector(_pressedMultiplayerButton:)];
-    [menuBg addChild:multiButton];
+
+    // Button - Connect to Controller
+    SKButton *controllerButton = [SKButton buttonWithImageNamedNormal:@"mainmenu-button-connect" selected:@"mainmenu-button-connect-highlight"];
+    controllerButton.position = CGPointMake(0, 0);
+    [controllerButton setTouchUpInsideTarget:self action:@selector(_pressedConnectToControllerButton:)];
+    [menuBg addChild:controllerButton];
+
 }
 
 #pragma mark - Button actions
+- (void)_pressedConnectToControllerButton:(id)sender
+{
+    [self.view presentScene:[DDESearchingForControllerScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
+}
+
 - (void)_pressedSingleButton:(id)sender
 {
-    // Present scene
-    [self.view presentScene:[DDESearchingForControllerScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
+    
 }
 
 - (void)_pressedMultiplayerButton:(id)sender

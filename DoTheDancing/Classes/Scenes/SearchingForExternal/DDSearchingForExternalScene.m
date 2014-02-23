@@ -56,7 +56,7 @@
     // Title label
     SKLabelNode *titleLabel = [SKLabelNode labelNodeWithFontNamed:@"Economica-Bold"];
     titleLabel.fontSize = 32;
-    titleLabel.text = @"Single Player";
+    titleLabel.text = @"Controller";
     titleLabel.fontColor = RGB(249, 185, 56);
     titleLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
     titleLabel.position = CGPointMake(self.size.width * 0.5f, -topBannerBg.size.height * 0.5);
@@ -104,7 +104,7 @@
     // Stop advertising
     [[DDGameManager sharedGameManager].advertiser stopAdvertisingPeer];
     
-    // TODO: Segue to connected to ipad scene
+#warning TODO: Segue to multiplayer lobby if coming from MultiplayerHostOnExternalScene
     [self.view presentScene:[DDConnectedToExternalScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
 }
 

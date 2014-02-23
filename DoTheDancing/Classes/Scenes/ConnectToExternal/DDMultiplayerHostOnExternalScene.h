@@ -1,5 +1,5 @@
 //
-//  DDConnectToExternalScene.h
+//  DDMultiplayerHostOnExternalScene.h
 //  DoTheDancing
 //
 //  Created by Michael Gao on 2/16/14.
@@ -8,6 +8,6 @@
 
 #import "DDScene.h"
 
-@interface DDConnectToExternalScene : DDScene
+@interface DDMultiplayerHostOnExternalScene : DDScene
 
 @end

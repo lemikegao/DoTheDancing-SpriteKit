@@ -56,7 +56,7 @@
     // Title label
     SKLabelNode *titleLabel = [SKLabelNode labelNodeWithFontNamed:@"Economica-Bold"];
     titleLabel.fontSize = 32*self.sizeMultiplier;
-    titleLabel.text = @"Single Player";
+    titleLabel.text = @"External Screen";
     titleLabel.fontColor = RGB(249, 185, 56);
     titleLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
     titleLabel.position = CGPointMake(self.size.width * 0.5f, -topBannerBg.size.height * 0.5);

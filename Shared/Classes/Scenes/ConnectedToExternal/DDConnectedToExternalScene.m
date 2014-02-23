@@ -7,8 +7,9 @@
 //
 
 #import "DDConnectedToExternalScene.h"
-#import "DDDanceMoveSelectionScene.h"
 #import "DDPacketTransitionToScene.h"
+#import "DDDanceMoveSelectionScene.h"
+#import "DDMultiplayerHostOrJoinScene.h"
 
 #if CONTROLLER
 #import "DDMainMenuScene.h"
@@ -57,7 +58,10 @@
     // Title label
     SKLabelNode *titleLabel = [SKLabelNode labelNodeWithFontNamed:@"Economica-Bold"];
     titleLabel.fontSize = 32*self.sizeMultiplier;
-    titleLabel.text = @"Single Player";
+    titleLabel.text = @"Controller";
+#if EXTERNAL
+    titleLabel.text = @"External Screen";
+#endif
     titleLabel.fontColor = RGB(249, 185, 56);
     titleLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
     titleLabel.position = CGPointMake(self.size.width * 0.5f, -topBannerBg.size.height * 0.5);
@@ -74,9 +78,9 @@
 - (void)_displayConnected
 {
     // Menu - Bg
-    SKSpriteNode *menuBg = [SKSpriteNode spriteNodeWithColor:RGB(249, 228, 172) size:CGSizeMake(227*self.sizeMultiplier, 120*self.sizeMultiplier)];
+    SKSpriteNode *menuBg = [SKSpriteNode spriteNodeWithColor:RGB(249, 228, 172) size:CGSizeMake(227*self.sizeMultiplier, 170*self.sizeMultiplier)];
     menuBg.anchorPoint = CGPointMake(0.5, 1);
-    menuBg.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.74);
+    menuBg.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.787);
     [self addChild:menuBg];
     
     // Label - Connected
@@ -84,13 +88,19 @@
     connectedLabel.fontSize = 24*self.sizeMultiplier;
     connectedLabel.text = @"You're now connected!";
     connectedLabel.fontColor = RGB(56, 56, 56);
-    connectedLabel.position = CGPointMake(0, -menuBg.size.height * 0.27);
+    connectedLabel.position = CGPointMake(0, -menuBg.size.height * 0.18);
     [menuBg addChild:connectedLabel];
     
-    // Button - Let's Dance!
-    SKButton *danceButton = [SKButton buttonWithImageNamedNormal:@"button-lets-dance" selected:@"button-lets-dance-highlight"];
-    danceButton.position = CGPointMake(0, -menuBg.size.height * 0.65);
-    [danceButton setTouchUpInsideTarget:self action:@selector(_pressedPlayButton:)];
+    // Button - Single player
+    SKButton *singleButton = [SKButton buttonWithImageNamedNormal:@"mainmenu-button-single" selected:@"mainmenu-button-single-highlight"];
+    singleButton.position = CGPointMake(0, -menuBg.size.height * 0.40);
+    [singleButton setTouchUpInsideTarget:self action:@selector(_pressedSingleButton:)];
+    [menuBg addChild:singleButton];
+    
+    // Button - Multiplayer
+    SKButton *danceButton = [SKButton buttonWithImageNamedNormal:@"mainmenu-button-multi" selected:@"mainmenu-button-multi-highlight"];
+    danceButton.position = CGPointMake(0, -menuBg.size.height * 0.78);
+    [danceButton setTouchUpInsideTarget:self action:@selector(_pressedMultiButton:)];
     [menuBg addChild:danceButton];
 }
 
@@ -104,12 +114,12 @@
     mainMenuClass = [DDEMainMenuScene class];
 #endif
 
-#warning TODO: Disconnect session
+    [[DDGameManager sharedGameManager].sessionManager.session disconnect];
     
     [self.view presentScene:[mainMenuClass sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionRight duration:0.25]];
 }
 
-- (void)_pressedPlayButton:(id)sender
+- (void)_pressedSingleButton:(id)sender
 {
     if ([DDGameManager sharedGameManager].sessionManager.isConnected == YES)
     {
@@ -122,6 +132,19 @@
     [self.view presentScene:[DDDanceMoveSelectionScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
 }
 
+- (void)_pressedMultiButton:(id)sender
+{
+    if ([DDGameManager sharedGameManager].sessionManager.isConnected == YES)
+    {
+        NSError *error;
+        DDPacketTransitionToScene *packet = [DDPacketTransitionToScene packetWithSceneType:kSceneTypeMultiplayerHostOrJoin];
+        [[DDGameManager sharedGameManager].sessionManager sendDataToAllPeers:[packet data] withMode:MCSessionSendDataUnreliable error:&error];
+    }
+    
+    // Show multipplayer host or join scene
+    [self.view presentScene:[DDMultiplayerHostOrJoinScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
+}
+
 #pragma mark - Networking
 - (void)_didReceiveData:(NSNotification *)notification
 {
@@ -131,6 +154,10 @@
     {
         case kSceneTypeDanceMoveSelection:
             scene = [DDDanceMoveSelectionScene sceneWithSize:self.size];
+            break;
+            
+        case kSceneTypeMultiplayerHostOrJoin:
+            scene = [DDMultiplayerHostOrJoinScene sceneWithSize:self.size];
             break;
             
         default:

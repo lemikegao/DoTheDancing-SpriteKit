@@ -7,7 +7,9 @@
 //
 
 #import "DDMainMenuScene.h"
-#import "DDConnectToExternalScene.h"
+#import "DDDanceMoveSelectionScene.h"
+#import "DDSearchingForExternalScene.h"
+#import "DDMultiplayerHostOrJoinScene.h"
 
 @implementation DDMainMenuScene
 
@@ -48,34 +50,64 @@
 - (void)_displayMenu
 {
     // Menu - Bg
-    SKSpriteNode *menuBg = [SKSpriteNode spriteNodeWithColor:RGB(249, 228, 172) size:CGSizeMake(227, 165)];
+    SKSpriteNode *menuBg = [SKSpriteNode spriteNodeWithColor:RGB(249, 228, 172) size:CGSizeMake(227, 265)];
     menuBg.anchorPoint = CGPointMake(0.5, 1);
     menuBg.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.74);
     [self addChild:menuBg];
     
-    // Menu - Single Player button
+    // Button - Single Player
     SKButton *singleButton = [SKButton buttonWithImageNamedNormal:@"mainmenu-button-single" selected:@"mainmenu-button-single-highlight"];
-    singleButton.position = CGPointMake(0, -menuBg.size.height * 0.25);
+    singleButton.position = CGPointMake(0, -menuBg.size.height * 0.15);
     [singleButton setTouchUpInsideTarget:self action:@selector(_pressedSingleButton:)];
     [menuBg addChild:singleButton];
     
-    // Menu - Multiplayer button
+    // Button - Multiplayer
     SKButton *multiButton = [SKButton buttonWithImageNamedNormal:@"mainmenu-button-multi" selected:@"mainmenu-button-multi-highlight"];
-    multiButton.position = CGPointMake(0, -menuBg.size.height * 0.75);
+    multiButton.position = CGPointMake(0, -menuBg.size.height * 0.40);
     [multiButton setTouchUpInsideTarget:self action:@selector(_pressedMultiplayerButton:)];
     [menuBg addChild:multiButton];
+    
+    // - or -
+    SKSpriteNode *line1 = [SKSpriteNode spriteNodeWithColor:RGB(56, 56, 56) size:CGSizeMake(menuBg.size.width * 0.25, 1)];
+    line1.anchorPoint = CGPointMake(0, 0.5);
+    line1.position = CGPointMake(-menuBg.size.width * 0.35, -menuBg.size.height * 0.62);
+    [menuBg addChild:line1];
+    
+    SKLabelNode *orLabel = [SKLabelNode labelNodeWithFontNamed:@"ACaslonPro-BoldItalic"];
+    orLabel.fontColor = RGB(56, 56, 56);
+    orLabel.text = @"or";
+    orLabel.fontSize = 28;
+    orLabel.position = CGPointMake(0, line1.position.y);
+    orLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
+    [menuBg addChild:orLabel];
+    
+    SKSpriteNode *line2 = [SKSpriteNode spriteNodeWithColor:line1.color size:line1.size];
+    line2.anchorPoint = CGPointMake(1, 0.5);
+    line2.position = CGPointMake(menuBg.size.width * 0.35, line1.position.y);
+    [menuBg addChild:line2];
+    
+    // Button - Connect to external screen
+    SKButton *externalButton = [SKButton buttonWithImageNamedNormal:@"mainmenu-button-external" selected:@"mainmenu-button-external-highlight"];
+    externalButton.anchorPoint = CGPointMake(0.5, 0);
+    externalButton.position = CGPointMake(0, -menuBg.size.height * 0.95);
+    [externalButton setTouchUpInsideTarget:self action:@selector(_pressedConnectToExternalButton:)];
+    [menuBg addChild:externalButton];
 }
 
 #pragma mark - Button actions
 - (void)_pressedSingleButton:(id)sender
 {
-    // Present scene
-    [self.view presentScene:[DDConnectToExternalScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
+    [self.view presentScene:[DDDanceMoveSelectionScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
 }
 
 - (void)_pressedMultiplayerButton:(id)sender
 {
-    
+    [self.view presentScene:[DDMultiplayerHostOrJoinScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
+}
+
+- (void)_pressedConnectToExternalButton:(id)sender
+{
+    [self.view presentScene:[DDSearchingForExternalScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
 }
 
 @end
