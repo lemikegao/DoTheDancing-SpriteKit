@@ -18,7 +18,7 @@
     {
         _session = [[MCSession alloc] initWithPeer:peerId];
         _session.delegate = self;
-        _peerIDs = [[NSMutableSet alloc] init];
+        _connectedPeers = [[NSMutableDictionary alloc] init];
         _isConnected = NO;
     }
     
@@ -27,8 +27,8 @@
 
 - (BOOL)sendDataToAllPeers:(NSData *)data withMode:(MCSessionSendDataMode)mode error:(NSError **)error
 {
-    NSLog(@"DDSessionManager -> sendDataToAllPeers: %@", self.peerIDs);
-    return [self.session sendData:data toPeers:[self.peerIDs allObjects] withMode:mode error:error];
+    NSLog(@"DDSessionManager -> sendDataToAllPeers: %@", [self.connectedPeers allKeys]);
+    return [self.session sendData:data toPeers:[self.connectedPeers allKeys] withMode:mode error:error];
 }
 
 #pragma mark - MCSessionDelegate methods
@@ -38,7 +38,7 @@
     if (state == MCSessionStateConnected && self.session)
     {
         self.isConnected = YES;
-        [self.peerIDs addObject:peerID];
+        [self.connectedPeers setObject:[NSNull null] forKey:peerID];
         
         // For programmatic discovery, send a notification to the custom advertiser
         // that an invitation was accepted.
@@ -52,7 +52,7 @@
     else if (state == MCSessionStateNotConnected)
     {
         self.isConnected = NO;
-        [self.peerIDs removeObject:peerID];
+        [self.connectedPeers removeObjectForKey:peerID];
     }
 }
 

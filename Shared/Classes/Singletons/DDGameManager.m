@@ -65,6 +65,9 @@ static DDGameManager *_sharedGameManager = nil;   // singleton
         _advertiser = [[MCNearbyServiceAdvertiser alloc] initWithPeer:peerID discoveryInfo:nil serviceType:kServiceType];
         _browser = [[MCNearbyServiceBrowser alloc] initWithPeer:peerID serviceType:kServiceType];
         _sessionManager = [[DDSessionManager alloc] initWithPeer:peerID];
+        
+        // Multiplayer
+        _player = [[DDPlayer alloc] init];
     }
     
     return self;

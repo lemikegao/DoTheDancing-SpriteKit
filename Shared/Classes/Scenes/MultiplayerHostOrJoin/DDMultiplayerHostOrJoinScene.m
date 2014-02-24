@@ -9,18 +9,23 @@
 #import "DDMultiplayerHostOrJoinScene.h"
 #import "DDPacketTransitionToScene.h"
 #import "DDConnectedToExternalScene.h"
+#import "DDPacketHostParty.h"
 
 #if CONTROLLER
 #import "DDMainMenuScene.h"
 #import "DDMultiplayerHostOnExternalScene.h"
+#import "DDPlayerAvatarScene.h"
 #else
 #import "DDEMainMenuScene.h"
+#import "DDEWaitingRoomScene.h"
 #endif
 
 @interface DDMultiplayerHostOrJoinScene() <UITextFieldDelegate>
 
 @property (nonatomic, strong) UITextField *textField;
 @property (nonatomic, strong) SKSpriteNode *hostOrJoinMenuBg;
+@property (nonatomic, strong) SKButton *fadeLayer;
+@property (nonatomic) BOOL didPressHost;
 
 @end
 
@@ -31,6 +36,8 @@
     self = [super initWithSize:size];
     if (self)
     {
+        _didPressHost = NO;
+        
         [self _displayBackground];
         [self _displayTopBar];
         [self _displayMenu];
@@ -140,22 +147,25 @@
 
 - (void)_pressedHostButton:(id)sender
 {
-#if CONTROLLER
-    if ([DDGameManager sharedGameManager].sessionManager.isConnected == NO)
-    {
-        [self.view presentScene:[DDMultiplayerHostOnExternalScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
-    }
-#endif
+    self.didPressHost = YES;
+    
+    [self _showNicknamePrompt];
 }
 
 - (void)_pressedJoinButton:(id)sender
 {
+    self.didPressHost = NO;
     [self _showNicknamePrompt];
 }
 
 - (void)_pressedDanceButton:(id)sender
 {
-    
+    [self _segueToNextScene];
+}
+
+- (void)_pressedOutsideKeyboard:(id)sender
+{
+    [self _hideNicknamePromptAndShowHostOrJoinMenu];
 }
 
 #pragma mark - Nickname
@@ -164,16 +174,18 @@
     CGFloat menuBgPositionY = self.size.height * 0.74;
 #warning TODO - Do not show on external screen. So what then?
     // Hide previous menu immediately & display fade layer
-    self.hostOrJoinMenuBg.hidden = YES;
-    SKSpriteNode *fadeLayer = [SKSpriteNode spriteNodeWithColor:RGBA(0, 0, 0, 0.5) size:self.size];
-    fadeLayer.anchorPoint = CGPointMake(0, 0);
-    [self addChild:fadeLayer];
+    self.hostOrJoinMenuBg.position = CGPointMake(self.size.width * 0.5, 0);
+    self.fadeLayer = [[SKButton alloc] initWithColor:RGBA(0, 0, 0, 0.7) size:self.size];
+    [self.fadeLayer setTouchDownTarget:self action:@selector(_pressedOutsideKeyboard:)];
+    self.fadeLayer.isEnabled = NO;
+    self.fadeLayer.anchorPoint = CGPointMake(0, 0);
+    [self addChild:self.fadeLayer];
     
     // Menu bg
     SKSpriteNode *menuBg = [SKSpriteNode spriteNodeWithColor:RGB(249, 228, 172) size:CGSizeMake(227*self.sizeMultiplier, 144*self.sizeMultiplier)];
     menuBg.anchorPoint = CGPointMake(0.5, 1);
     menuBg.position = CGPointMake(self.size.width * 0.5, 0);
-    [fadeLayer addChild:menuBg];
+    [self.fadeLayer addChild:menuBg];
     
     // Label - Dancer name?
     SKLabelNode *nameLabel = [SKLabelNode labelNodeWithFontNamed:@"Economica-Bold"];
@@ -194,6 +206,8 @@
     self.textField.textColor = RGB(219, 133, 20);
     self.textField.font = [UIFont fontWithName:@"Economica-Bold" size:18];
     self.textField.autocorrectionType = UITextAutocorrectionTypeNo;
+    self.textField.returnKeyType = UIReturnKeyDone;
+    self.textField.keyboardType = UIKeyboardTypeNamePhonePad;
     self.textField.delegate = self;
     // Add padding on left side
     UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 8, 20)];
@@ -214,27 +228,108 @@
     SKAction *showTextFieldAction = [SKAction runBlock:^{
         self.textField.hidden = NO;
         [self.textField becomeFirstResponder];
+        self.fadeLayer.isEnabled = YES;
     }];
     
     [menuBg runAction:[SKAction sequence:@[moveAction, showTextFieldAction]]];
 }
 
+- (void)_hideNicknamePromptAndShowHostOrJoinMenu
+{
+    [self.textField resignFirstResponder];
+    
+    // Remove fade layer and existing menu
+    self.textField.hidden = YES;
+    [self.fadeLayer removeFromParent];
+    
+    // Animate old menu back to previous position
+    SKAction *moveAction = [SKAction moveTo:CGPointMake(self.size.width * 0.5, self.size.height * 0.74) duration:0.25];
+    [self.hostOrJoinMenuBg runAction:moveAction];
+}
+
+#pragma mark - Private methods
+- (void)_segueToNextScene
+{
+#if CONTROLLER
+    [self.textField resignFirstResponder];
+    [self.textField removeFromSuperview];
+    
+    // Save nickname
+    DDPlayer *player = [DDGameManager sharedGameManager].player;
+    player.nickname = self.textField.text;
+    
+    if (self.didPressHost)
+    {
+        // Ask if user wants to connect to external screen first
+        if ([DDGameManager sharedGameManager].sessionManager.isConnected == NO)
+        {
+            [self.view presentScene:[DDMultiplayerHostOnExternalScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
+        }
+        else
+        {
+            /* Segue external screen to waiting room */
+            [DDGameManager sharedGameManager].isHost = YES;
+            
+            // Randomly select color of player
+            DDPlayerColor randomColor = arc4random() % DDPlayerColorCount;
+            player.playerColor = randomColor;
+            
+            // Send packet to external screen
+            NSError *error;
+            DDPacketHostParty *packet = [DDPacketHostParty packetWithPlayerColor:player.playerColor nickname:player.nickname];
+            [[DDGameManager sharedGameManager].sessionManager sendDataToAllPeers:[packet data] withMode:MCSessionSendDataUnreliable error:&error];
+            
+            // Segue to playerAvatarScene
+            [self.view presentScene:[DDPlayerAvatarScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
+        }
+    }
+#endif
+}
+
+#pragma mark - UITextFieldDelegate protocol methods
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self _segueToNextScene];
+    
+    return YES;
+}
+
 #pragma mark - Networking
 - (void)_didReceiveData:(NSNotification *)notification
 {
-    SceneTypes sceneType = (SceneTypes)[notification.userInfo[@"data"] intValue];
-    SKScene *scene;
-    SKTransitionDirection direction = SKTransitionDirectionRight;
-    switch (sceneType)
-    {
-        case kSceneTypeConnectedToExternal:
-            scene = [DDConnectedToExternalScene sceneWithSize:self.size];
-            
-        default:
-            break;
-    }
+    PacketType packetType = (PacketType)[notification.userInfo[@"type"] intValue];
     
-    [self.view presentScene:scene transition:[SKTransition pushWithDirection:direction duration:0.25]];
+    if (packetType == PacketTypeTransitionToScene)
+    {
+        SceneTypes sceneType = (SceneTypes)[notification.userInfo[@"data"] intValue];
+        SKScene *scene;
+        SKTransitionDirection direction = SKTransitionDirectionRight;
+        switch (sceneType)
+        {
+            case kSceneTypeConnectedToExternal:
+                scene = [DDConnectedToExternalScene sceneWithSize:self.size];
+                
+            default:
+                break;
+        }
+        
+        [self.view presentScene:scene transition:[SKTransition pushWithDirection:direction duration:0.25]];
+    }
+    else if (packetType == PacketTypeHostParty)
+    {
+#if EXTERNAL
+        // Store player info in sessionManager
+        NSString *peerID = notification.userInfo[@"peerID"];
+        DDPlayerColor playerColor = [notification.userInfo[@"playerColor"] intValue];
+        NSString *nickname = notification.userInfo[@"nickname"];
+        
+        DDPlayer *player = [DDPlayer playerWithPlayerColor:playerColor nickname:nickname];
+        [[DDGameManager sharedGameManager].sessionManager.connectedPeers setObject:player forKey:peerID];
+        
+        // Segue to waiting room
+        [self.view presentScene:[DDEWaitingRoomScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
+#endif
+    }
 }
 
 @end

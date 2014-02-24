@@ -57,6 +57,12 @@
 		C4474A9B18B88E7B005A3AEA /* DDMultiplayerHostOnExternalScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C4474A9A18B88E7B005A3AEA /* DDMultiplayerHostOnExternalScene.m */; };
 		C4474A9F18B9A5F0005A3AEA /* DDMultiplayerHostOrJoinScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C4474A9E18B9A5F0005A3AEA /* DDMultiplayerHostOrJoinScene.m */; };
 		C4474AA018B9A5F0005A3AEA /* DDMultiplayerHostOrJoinScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C4474A9E18B9A5F0005A3AEA /* DDMultiplayerHostOrJoinScene.m */; };
+		C4474AA318BAE8C6005A3AEA /* DDPacketHostParty.m in Sources */ = {isa = PBXBuildFile; fileRef = C4474AA218BAE8C6005A3AEA /* DDPacketHostParty.m */; };
+		C4474AA418BAE8C6005A3AEA /* DDPacketHostParty.m in Sources */ = {isa = PBXBuildFile; fileRef = C4474AA218BAE8C6005A3AEA /* DDPacketHostParty.m */; };
+		C4474AA718BB0606005A3AEA /* DDPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C4474AA618BB0606005A3AEA /* DDPlayer.m */; };
+		C4474AA818BB0606005A3AEA /* DDPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C4474AA618BB0606005A3AEA /* DDPlayer.m */; };
+		C4474AAD18BB13F9005A3AEA /* DDEWaitingRoomScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C4474AAC18BB13F9005A3AEA /* DDEWaitingRoomScene.m */; };
+		C4474AB218BB179F005A3AEA /* DDPlayerAvatarScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C4474AB118BB179F005A3AEA /* DDPlayerAvatarScene.m */; };
 		C4585EF5189F8FA500458392 /* DDPacketSendResults.m in Sources */ = {isa = PBXBuildFile; fileRef = C4585EF4189F8FA500458392 /* DDPacketSendResults.m */; };
 		C4585EF6189F8FA500458392 /* DDPacketSendResults.m in Sources */ = {isa = PBXBuildFile; fileRef = C4585EF4189F8FA500458392 /* DDPacketSendResults.m */; };
 		C45BDEB818B2034A00E49376 /* DDConnectedToExternalScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C45BDEB718B2034A00E49376 /* DDConnectedToExternalScene.m */; };
@@ -141,6 +147,14 @@
 		C4474A9A18B88E7B005A3AEA /* DDMultiplayerHostOnExternalScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMultiplayerHostOnExternalScene.m; sourceTree = "<group>"; };
 		C4474A9D18B9A5F0005A3AEA /* DDMultiplayerHostOrJoinScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMultiplayerHostOrJoinScene.h; sourceTree = "<group>"; };
 		C4474A9E18B9A5F0005A3AEA /* DDMultiplayerHostOrJoinScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMultiplayerHostOrJoinScene.m; sourceTree = "<group>"; };
+		C4474AA118BAE8C6005A3AEA /* DDPacketHostParty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDPacketHostParty.h; sourceTree = "<group>"; };
+		C4474AA218BAE8C6005A3AEA /* DDPacketHostParty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDPacketHostParty.m; sourceTree = "<group>"; };
+		C4474AA518BB0606005A3AEA /* DDPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDPlayer.h; sourceTree = "<group>"; };
+		C4474AA618BB0606005A3AEA /* DDPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDPlayer.m; sourceTree = "<group>"; };
+		C4474AAB18BB13F9005A3AEA /* DDEWaitingRoomScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDEWaitingRoomScene.h; sourceTree = "<group>"; };
+		C4474AAC18BB13F9005A3AEA /* DDEWaitingRoomScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDEWaitingRoomScene.m; sourceTree = "<group>"; };
+		C4474AB018BB179F005A3AEA /* DDPlayerAvatarScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDPlayerAvatarScene.h; sourceTree = "<group>"; };
+		C4474AB118BB179F005A3AEA /* DDPlayerAvatarScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDPlayerAvatarScene.m; sourceTree = "<group>"; };
 		C4585EF3189F8FA500458392 /* DDPacketSendResults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDPacketSendResults.h; sourceTree = "<group>"; };
 		C4585EF4189F8FA500458392 /* DDPacketSendResults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDPacketSendResults.m; sourceTree = "<group>"; };
 		C45BDEB618B2034A00E49376 /* DDConnectedToExternalScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDConnectedToExternalScene.h; sourceTree = "<group>"; };
@@ -247,6 +261,7 @@
 			children = (
 				C478E2581897A1C5007B60EC /* MainMenu */,
 				C478E2701897AC31007B60EC /* SearchingForController */,
+				C4474AA918BB13E8005A3AEA /* Multiplayer */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -368,6 +383,7 @@
 				C478E25C1897A1D8007B60EC /* MainMenu */,
 				C478E2681897ABF7007B60EC /* SearchingForExternal */,
 				C4474A9818B88E7B005A3AEA /* MultiplayerHostOnExternal */,
+				C4474AAE18BB1786005A3AEA /* Multiplayer */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -408,6 +424,40 @@
 			path = MultiplayerHostOrJoin;
 			sourceTree = "<group>";
 		};
+		C4474AA918BB13E8005A3AEA /* Multiplayer */ = {
+			isa = PBXGroup;
+			children = (
+				C4474AAA18BB13E8005A3AEA /* WaitingRoom */,
+			);
+			path = Multiplayer;
+			sourceTree = "<group>";
+		};
+		C4474AAA18BB13E8005A3AEA /* WaitingRoom */ = {
+			isa = PBXGroup;
+			children = (
+				C4474AAB18BB13F9005A3AEA /* DDEWaitingRoomScene.h */,
+				C4474AAC18BB13F9005A3AEA /* DDEWaitingRoomScene.m */,
+			);
+			path = WaitingRoom;
+			sourceTree = "<group>";
+		};
+		C4474AAE18BB1786005A3AEA /* Multiplayer */ = {
+			isa = PBXGroup;
+			children = (
+				C4474AAF18BB1786005A3AEA /* PlayerAvatar */,
+			);
+			path = Multiplayer;
+			sourceTree = "<group>";
+		};
+		C4474AAF18BB1786005A3AEA /* PlayerAvatar */ = {
+			isa = PBXGroup;
+			children = (
+				C4474AB018BB179F005A3AEA /* DDPlayerAvatarScene.h */,
+				C4474AB118BB179F005A3AEA /* DDPlayerAvatarScene.m */,
+			);
+			path = PlayerAvatar;
+			sourceTree = "<group>";
+		};
 		C45BDEB518B2033E00E49376 /* ConnectedToExternal */ = {
 			isa = PBXGroup;
 			children = (
@@ -435,6 +485,8 @@
 				C4AE2FE51894CD4000D23E30 /* Networking */,
 				C4AE2FEA1894CD8800D23E30 /* Categories */,
 				C478E23018979FD7007B60EC /* Singletons */,
+				C4474AA518BB0606005A3AEA /* DDPlayer.h */,
+				C4474AA618BB0606005A3AEA /* DDPlayer.m */,
 				C45EE12618769921003DF245 /* SKButton.h */,
 				C45EE12718769921003DF245 /* SKButton.m */,
 				C45EE12818769921003DF245 /* SKMultilineLabel.h */,
@@ -619,6 +671,8 @@
 				C441CC6118A783AC007F0920 /* DDPacketShowDanceMoveInstructions.m */,
 				C441CC6418A78D97007F0920 /* DDPacketShowNextInstruction.h */,
 				C441CC6518A78D97007F0920 /* DDPacketShowNextInstruction.m */,
+				C4474AA118BAE8C6005A3AEA /* DDPacketHostParty.h */,
+				C4474AA218BAE8C6005A3AEA /* DDPacketHostParty.m */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -758,6 +812,7 @@
 				C408D63118769E610070FC43 /* DDMotionRequirements.m in Sources */,
 				C478E2381897A070007B60EC /* DDSessionManager.m in Sources */,
 				C478E2531897A187007B60EC /* DDDanceMoveSelectionScene.m in Sources */,
+				C4474AA418BAE8C6005A3AEA /* DDPacketHostParty.m in Sources */,
 				C408D63318769E610070FC43 /* SKButton.m in Sources */,
 				C478E24F1897A187007B60EC /* DDDanceMoveResultsScene.m in Sources */,
 				C441CC6718A78D97007F0920 /* DDPacketShowNextInstruction.m in Sources */,
@@ -767,6 +822,7 @@
 				C478E24D1897A187007B60EC /* DDDanceMoveInstructionsScene.m in Sources */,
 				C478E2511897A187007B60EC /* DDDanceMoveSeeInActionScene.m in Sources */,
 				C478E2551897A187007B60EC /* DDDanceMoveTryItOutScene.m in Sources */,
+				C4474AA818BB0606005A3AEA /* DDPlayer.m in Sources */,
 				C478E23418979FD7007B60EC /* DDGameManager.m in Sources */,
 				C441CC5F18A75703007F0920 /* DDPacketTransitionToScene.m in Sources */,
 				C408D63918769E610070FC43 /* TCProgressTimerNode.m in Sources */,
@@ -775,6 +831,7 @@
 				C4474AA018B9A5F0005A3AEA /* DDMultiplayerHostOrJoinScene.m in Sources */,
 				C4AE2FE91894CD6A00D23E30 /* DDPacket.m in Sources */,
 				C4AE2FEE1894CDB900D23E30 /* NSData+Networking.m in Sources */,
+				C4474AAD18BB13F9005A3AEA /* DDEWaitingRoomScene.m in Sources */,
 				C428899618769D3C001FFB3A /* main.m in Sources */,
 				C408D62518769DD60070FC43 /* DDEViewController.m in Sources */,
 				C408D62618769DD60070FC43 /* DDEAppDelegate.m in Sources */,
@@ -802,9 +859,12 @@
 				C478E26B1897ABF7007B60EC /* DDSearchingForExternalScene.m in Sources */,
 				C478E25F1897A1D8007B60EC /* DDMainMenuScene.m in Sources */,
 				C4AE2FED1894CDB900D23E30 /* NSData+Networking.m in Sources */,
+				C4474AA718BB0606005A3AEA /* DDPlayer.m in Sources */,
+				C4474AB218BB179F005A3AEA /* DDPlayerAvatarScene.m in Sources */,
 				C45EE13618769921003DF245 /* DDDanceMoveBernie.m in Sources */,
 				C478E24C1897A187007B60EC /* DDDanceMoveInstructionsScene.m in Sources */,
 				C4474A9B18B88E7B005A3AEA /* DDMultiplayerHostOnExternalScene.m in Sources */,
+				C4474AA318BAE8C6005A3AEA /* DDPacketHostParty.m in Sources */,
 				C4AE2FE81894CD6A00D23E30 /* DDPacket.m in Sources */,
 				C441CC5E18A75703007F0920 /* DDPacketTransitionToScene.m in Sources */,
 				C45EE13A18769921003DF245 /* SKButton.m in Sources */,

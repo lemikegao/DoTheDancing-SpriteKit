@@ -10,13 +10,13 @@
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
 #import "DDSessionManager.h"
 #import "DDDanceMove.h"
+#import "DDPlayer.h"
 @import AVFoundation;
 
 @interface DDGameManager : NSObject
 
 @property (nonatomic) BOOL isMusicOn;
 @property (nonatomic) BOOL isSoundEffectsOn;
-@property (nonatomic) GameManagerSoundState managerSoundState;
 @property (nonatomic, strong) NSMutableDictionary *listOfSoundEffectFiles;
 @property (nonatomic, strong) NSMutableDictionary *soundEffectsState;
 
@@ -27,6 +27,10 @@
 @property (nonatomic, strong) MCNearbyServiceBrowser *browser;
 @property (nonatomic, strong) MCNearbyServiceAdvertiser *advertiser;
 @property (nonatomic, strong) DDSessionManager *sessionManager;
+
+// Multiplayer
+@property (nonatomic, strong) DDPlayer *player;
+@property (nonatomic) BOOL isHost;
 
 +(DDGameManager*)sharedGameManager;
 

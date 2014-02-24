@@ -9,7 +9,7 @@
 #ifndef DoTheDancing_SpriteKit_DTDConstants_h
 #define DoTheDancing_SpriteKit_DTDConstants_h
 
-typedef enum
+typedef NS_ENUM(NSInteger, SceneTypes)
 {
     kSceneTypeNone = -1,
     kSceneTypeTestMotion,
@@ -23,33 +23,41 @@ typedef enum
     kSceneTypeMultiplayerWaitingRoom,
     kSceneTypeSearchingForExternal,
     kSceneTypeConnectedToExternal,
-} SceneTypes;
+};
 
-typedef enum
+typedef NS_ENUM(NSInteger, DanceMoves)
 {
     kDanceMoveNone = -1,
     kDanceMoveBernie,
     kDanceMoveNum
-} DanceMoves;
+};
 
-typedef enum
-{
-    kAudioManagerUninitialized = 0,
-    kAudioManagerFailed = 1,
-    kAudioManagerInitializing = 2,
-    kAudioManagerInitialized = 100,
-    kAudioManagerLoading = 200,
-    kAudioManagerReady = 300
-} GameManagerSoundState;
-
-typedef enum
+typedef NS_ENUM(NSInteger, QuitReason)
 {
     QuitReasonNone,
 	QuitReasonNoNetwork,          // no Wi-Fi or Bluetooth
 	QuitReasonConnectionDropped,  // communication failure with server
 	QuitReasonUserQuit,           // the user terminated the connection
 	QuitReasonHostQuit,           // the host quit the game (on purpose)
-} QuitReason;
+};
+
+typedef NS_ENUM(NSInteger, DDPlayerColor)
+{
+    DDPlayerColorNone = -1,
+    DDPlayerColorDarkGray,
+    DDPlayerColorLightGray,
+    DDPlayerColorGray,
+    DDPlayerColorRed,
+    DDPlayerColorGreen,
+    DDPlayerColorBlue,
+    DDPlayerColorCyan,
+    DDPlayerColorYellow,
+    DDPlayerColorMagenta,
+    DDPlayerColorOrange,
+    DDPlayerColorPurple,
+    DDPlayerColorBrown,
+    DDPlayerColorCount
+};
 
 #define kServiceType @"dtd-service"
 #define kSessionContextType @"dtd-connect-context"

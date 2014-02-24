@@ -11,6 +11,7 @@
 #import "DDPacketTransitionToScene.h"
 #import "DDPacketShowDanceMoveInstructions.h"
 #import "DDPacketShowNextInstruction.h"
+#import "DDPacketHostParty.h"
 
 const size_t PACKET_HEADER_SIZE = 10;
 
@@ -67,6 +68,10 @@ const size_t PACKET_HEADER_SIZE = 10;
             packet = [DDPacketShowNextInstruction packetWithData:data];
             break;
             
+        case PacketTypeHostParty:
+            packet = [DDPacketHostParty packetWithData:data];
+            break;
+            
 		default:
 			NSLog(@"Error: Packet has invalid type");
 			return nil;
@@ -101,6 +106,7 @@ const size_t PACKET_HEADER_SIZE = 10;
 {
     // Override data in subclass
     NSDictionary *dict = @{@"type": @(self.packetType),
+                           @"peerID": [DDGameManager sharedGameManager].sessionManager.session.myPeerID,
                            @"data":[NSNull null]};
     
     return dict;
