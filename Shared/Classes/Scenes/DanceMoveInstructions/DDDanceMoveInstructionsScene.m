@@ -131,7 +131,7 @@
     
     if (IS_IPHONE_4 || IS_IPAD)
     {
-        self.illustration.scale = 0.75;
+        [self.illustration setScale:0.75];
     }
     
     [self addChild:self.illustration];

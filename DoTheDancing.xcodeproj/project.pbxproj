@@ -104,6 +104,8 @@
 		C4AE2FE91894CD6A00D23E30 /* DDPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = C4AE2FE71894CD6A00D23E30 /* DDPacket.m */; };
 		C4AE2FED1894CDB900D23E30 /* NSData+Networking.m in Sources */ = {isa = PBXBuildFile; fileRef = C4AE2FEC1894CDB900D23E30 /* NSData+Networking.m */; };
 		C4AE2FEE1894CDB900D23E30 /* NSData+Networking.m in Sources */ = {isa = PBXBuildFile; fileRef = C4AE2FEC1894CDB900D23E30 /* NSData+Networking.m */; };
+		C4D5F05A18BC89E2000765C6 /* UIColor+PlayerColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D5F05918BC89E2000765C6 /* UIColor+PlayerColor.m */; };
+		C4D5F05B18BC89E2000765C6 /* UIColor+PlayerColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D5F05918BC89E2000765C6 /* UIColor+PlayerColor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -209,6 +211,8 @@
 		C4AE2FE71894CD6A00D23E30 /* DDPacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDPacket.m; sourceTree = "<group>"; };
 		C4AE2FEB1894CDB900D23E30 /* NSData+Networking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Networking.h"; sourceTree = "<group>"; };
 		C4AE2FEC1894CDB900D23E30 /* NSData+Networking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Networking.m"; sourceTree = "<group>"; };
+		C4D5F05818BC89E2000765C6 /* UIColor+PlayerColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+PlayerColor.h"; sourceTree = "<group>"; };
+		C4D5F05918BC89E2000765C6 /* UIColor+PlayerColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+PlayerColor.m"; sourceTree = "<group>"; };
 		C4EC61B6188FA4CF00DF4F20 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		C4EC61B8188FA4D700DF4F20 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		C4EC61BA188FA4DD00DF4F20 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
@@ -682,6 +686,8 @@
 			children = (
 				C4AE2FEB1894CDB900D23E30 /* NSData+Networking.h */,
 				C4AE2FEC1894CDB900D23E30 /* NSData+Networking.m */,
+				C4D5F05818BC89E2000765C6 /* UIColor+PlayerColor.h */,
+				C4D5F05918BC89E2000765C6 /* UIColor+PlayerColor.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -808,6 +814,7 @@
 				C408D62D18769E610070FC43 /* DDDanceMove.m in Sources */,
 				C408D62F18769E610070FC43 /* DDDanceMoveBernie.m in Sources */,
 				C478E25B1897A1C5007B60EC /* DDEMainMenuScene.m in Sources */,
+				C4D5F05B18BC89E2000765C6 /* UIColor+PlayerColor.m in Sources */,
 				C441CC6318A783AC007F0920 /* DDPacketShowDanceMoveInstructions.m in Sources */,
 				C408D63118769E610070FC43 /* DDMotionRequirements.m in Sources */,
 				C478E2381897A070007B60EC /* DDSessionManager.m in Sources */,
@@ -849,6 +856,7 @@
 				C478E23318979FD7007B60EC /* DDGameManager.m in Sources */,
 				C45EE13C18769921003DF245 /* SKMultilineLabel.m in Sources */,
 				C437064C1896450700BF6ECC /* main.m in Sources */,
+				C4D5F05A18BC89E2000765C6 /* UIColor+PlayerColor.m in Sources */,
 				C45BDEB818B2034A00E49376 /* DDConnectedToExternalScene.m in Sources */,
 				C45EE14018769921003DF245 /* TCProgressTimerNode.m in Sources */,
 				C437063E1896450700BF6ECC /* DDViewController.m in Sources */,

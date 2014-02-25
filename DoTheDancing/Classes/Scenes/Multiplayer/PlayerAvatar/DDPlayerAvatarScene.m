@@ -7,6 +7,7 @@
 //
 
 #import "DDPlayerAvatarScene.h"
+#import "UIColor+PlayerColor.h"
 
 @implementation DDPlayerAvatarScene
 
@@ -15,7 +16,10 @@
     self = [super initWithSize:size];
     if (self)
     {
+        [self _displayBackground];
         [self _displayTopBar];
+        [self _displayAvatar];
+        [self _displayMenu];
         
         [[NSNotificationCenter defaultCenter]
          addObserver:self
@@ -27,6 +31,14 @@
 }
 
 #pragma mark - Setup UI
+- (void)_displayBackground
+{
+    SKSpriteNode *bg = [SKSpriteNode spriteNodeWithImageNamed:@"mainmenu-bg"];
+    bg.anchorPoint = CGPointMake(0, 1);
+    bg.position = CGPointMake(0, self.size.height);
+    [self addChild:bg];
+}
+
 - (void)_displayTopBar
 {
     // Top banner bg
@@ -43,6 +55,70 @@
     titleLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
     titleLabel.position = CGPointMake(self.size.width * 0.5f, -topBannerBg.size.height * 0.5);
     [topBannerBg addChild:titleLabel];
+}
+
+- (void)_displayAvatar
+{
+    SKSpriteNode *avatar = [SKSpriteNode spriteNodeWithImageNamed:@"playeravatar-avatar"];
+    avatar.color = [UIColor colorWithPlayerColor:[DDGameManager sharedGameManager].player.playerColor];
+    avatar.colorBlendFactor = 0.5;
+    avatar.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.59);
+    [self addChild:avatar];
+    
+    // Scale for iPhone4
+    if (IS_IPHONE_4)
+    {
+        [avatar setScale:0.75];
+    }
+}
+
+- (void)_displayMenu
+{
+    // Menu - Bg
+    SKSpriteNode *menuBg = [SKSpriteNode spriteNodeWithColor:RGB(249, 228, 172) size:CGSizeMake(227, 130)];
+    menuBg.anchorPoint = CGPointMake(0.5, 0);
+    menuBg.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.03);
+    [self addChild:menuBg];
+    
+    if ([DDGameManager sharedGameManager].isHost)
+    {
+        // Button - Start the Party!
+        SKButton *startButton = [SKButton buttonWithImageNamedNormal:@"playeravatar-button-start" selected:@"playeravatar-button-start-highlight"];
+        startButton.anchorPoint = CGPointMake(0.5, 1);
+        startButton.position = CGPointMake(0, menuBg.size.height * 0.93);
+        [startButton setTouchUpInsideTarget:self action:@selector(_pressedStartButton:)];
+        [menuBg addChild:startButton];
+    }
+    else
+    {
+        menuBg.size = CGSizeMake(menuBg.size.width, 100);
+        
+        // Label - Leave party?
+        SKLabelNode *leavePartyLabel = [SKLabelNode labelNodeWithFontNamed:@"Economica-Bold"];
+        leavePartyLabel.fontColor = RGB(56, 56, 56);
+        leavePartyLabel.text = @"Want to leave the party?";
+        leavePartyLabel.fontSize = 22;
+        leavePartyLabel.position = CGPointMake(0, menuBg.size.height * 0.72);
+        [menuBg addChild:leavePartyLabel];
+    }
+    
+    // Button - Disconnect
+    SKButton *disconnectButton = [SKButton buttonWithImageNamedNormal:@"playeravatar-button-disconnect" selected:@"playeravatar-button-disconnect-highlight"];
+    disconnectButton.anchorPoint = CGPointMake(0.5, 0);
+    disconnectButton.position = CGPointMake(0, menuBg.size.height * 0.07);
+    [disconnectButton setTouchUpInsideTarget:self action:@selector(_pressedDisconnectButton:)];
+    [menuBg addChild:disconnectButton];
+}
+
+#pragma mark - Button actions
+- (void)_pressedStartButton:(id)sender
+{
+    
+}
+
+- (void)_pressedDisconnectButton:(id)sender
+{
+    
 }
 
 #pragma mark - Networking

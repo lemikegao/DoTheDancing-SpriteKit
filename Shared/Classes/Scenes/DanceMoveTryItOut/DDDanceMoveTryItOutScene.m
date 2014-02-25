@@ -241,7 +241,7 @@
     [self.stepTimer setProgress:0.999f];
     if (IS_IPHONE_4 || IS_IPAD)
     {
-        self.stepTimer.scale = 0.7;
+        [self.stepTimer setScale:0.7];
         self.stepTimer.position = CGPointMake(self.size.width * 0.6, self.stepCountLabel.position.y * 1.75);
     }
     self.stepTimer.hidden = YES;
@@ -482,7 +482,7 @@
     self.movesCompletedCountLabel.text = [NSString stringWithFormat:@"%i", num];
     
     // Enlarge and shrink animation
-    self.movesCompletedCountLabel.scale = 2.5;
+    [self.movesCompletedCountLabel setScale:2.5];
     [self.movesCompletedCountLabel runAction:[SKAction scaleTo:1.0 duration:0.2]];
 }
 
