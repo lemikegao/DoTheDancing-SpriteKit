@@ -147,8 +147,7 @@
         // Left arrow button
         self.leftArrowButton = [SKButton buttonWithImageNamedNormal:@"instructions-arrow" selected:nil];
         self.leftArrowButton.zRotation = DegreesToRadians(180);
-        self.leftArrowButton.alpha = 0.4;
-        self.leftArrowButton.isEnabled = NO;
+        [self.leftArrowButton disableButton];
         self.leftArrowButton.position = CGPointMake(self.size.width * 0.1, self.illustration.position.y);
         [self.leftArrowButton setTouchDownTarget:self action:@selector(_pressedLeftButton:)];
         [self addChild:self.leftArrowButton];
@@ -347,11 +346,10 @@
         
         if (self.currentShownStep == 1)
         {
-            self.leftArrowButton.alpha = 0.4;
-            self.leftArrowButton.isEnabled = NO;
+            [self.leftArrowButton disableButton];
         }
         
-        self.rightArrowButton.isEnabled = YES;
+        [self.rightArrowButton enableButton];
         [self _updateInstructionsForNewStep];
     }
 }
@@ -364,11 +362,10 @@
         self.leftArrowButton.alpha = 1;
         
         if (self.currentShownStep == self.danceMove.numSteps) {
-            self.rightArrowButton.alpha = 0.4;
-            self.rightArrowButton.isEnabled = NO;
+            [self.rightArrowButton disableButton];
         }
         
-        self.leftArrowButton.isEnabled = YES;
+        [self.leftArrowButton enableButton];
         [self _updateInstructionsForNewStep];
     }
 }
@@ -383,7 +380,7 @@
     [self _animateIllustration];
     
     // update step count
-    self.stepCountLabel.text = [NSString stringWithFormat:@"Step %i", self.currentShownStep];
+    self.stepCountLabel.text = [NSString stringWithFormat:@"Step %lu", (unsigned long)self.currentShownStep];
     
     // update instructions
     self.instructionsLabel.text = self.danceMove.instructionsForSteps[self.currentShownStep - 1];

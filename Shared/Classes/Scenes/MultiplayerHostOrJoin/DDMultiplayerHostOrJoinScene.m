@@ -108,13 +108,11 @@
     // Disable join button if connected to another device (like external screen)
     if ([DDGameManager sharedGameManager].sessionManager.isConnected)
     {
-        joinButton.isEnabled = NO;
-        joinButton.alpha = 0.5;
+        [joinButton disableButton];
     }
     else
     {
-        joinButton.isEnabled = YES;
-        joinButton.alpha = 1.0;
+        [joinButton enableButton];
     }
 }
 
@@ -319,12 +317,12 @@
     {
 #if EXTERNAL
         // Store player info in sessionManager
-        NSString *peerID = notification.userInfo[@"peerID"];
+        MCPeerID *peerID = notification.userInfo[@"peerID"];
         DDPlayerColor playerColor = [notification.userInfo[@"playerColor"] intValue];
         NSString *nickname = notification.userInfo[@"nickname"];
         
         DDPlayer *player = [DDPlayer playerWithPlayerColor:playerColor nickname:nickname];
-        [[DDGameManager sharedGameManager].sessionManager.connectedPeers setObject:player forKey:peerID];
+        [[DDGameManager sharedGameManager].sessionManager.connectedPlayers setObject:player forKey:peerID];
         
         // Segue to waiting room
         [self.view presentScene:[DDEWaitingRoomScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];

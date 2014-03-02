@@ -40,4 +40,7 @@
 - (void)setTouchDownTarget:(id)target action:(SEL)action;
 - (void)setTouchUpTarget:(id)target action:(SEL)action;
 
+- (void)disableButton;
+- (void)enableButton;
+
 @end

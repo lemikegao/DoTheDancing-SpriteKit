@@ -330,7 +330,7 @@
     {
         self.currentStep++;
         self.timeToMoveToNextStep = [self.danceMove.timePerSteps[self.currentStep-1] floatValue];
-        self.stepCountLabel.text = [NSString stringWithFormat:@"Step %i", self.currentStep];
+        self.stepCountLabel.text = [NSString stringWithFormat:@"Step %lu", (unsigned long)self.currentStep];
         self.currentStepElapsedTime = 0;
         
         [self _updateIllustrations];
@@ -425,7 +425,7 @@
 
 - (void)_updateIterationCountWithNum:(NSUInteger)num
 {
-    self.movesCompletedCountLabel.text = [NSString stringWithFormat:@"%i", num];
+    self.movesCompletedCountLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)num];
 
     // Enlarge and shrink animation
     [self.movesCompletedCountLabel setScale:2.5];

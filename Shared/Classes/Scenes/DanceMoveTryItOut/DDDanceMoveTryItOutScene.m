@@ -308,7 +308,7 @@
             (totalAcceleration.y < currentPartMotionRequirements.accelerationYMax) &&
             (totalAcceleration.z > currentPartMotionRequirements.accelerationZMin) &&
             (totalAcceleration.z < currentPartMotionRequirements.accelerationZMax)) {
-            NSLog(@"iteration: %i, step: %i, part: %i detected", self.currentIteration, self.currentStep, self.currentPart);
+            NSLog(@"iteration: %lu, step: %lu, part: %lu detected", (unsigned long)self.currentIteration, (unsigned long)self.currentStep, (unsigned long)self.currentPart);
             
             [self _moveOnToNextPart];
         }
@@ -341,7 +341,7 @@
     {
         self.currentStep++;
         self.timeToMoveToNextStep = [self.danceMove.timePerSteps[self.currentStep-1] floatValue];
-        self.stepCountLabel.text = [NSString stringWithFormat:@"Step %i", self.currentStep];
+        self.stepCountLabel.text = [NSString stringWithFormat:@"Step %lu", (unsigned long)self.currentStep];
         self.currentDanceStepParts = self.danceMove.stepsArray[self.currentStep-1];
         self.currentPart = 1;
         self.shouldDetectDanceMove = YES;
@@ -357,7 +357,7 @@
     {
         // Step detected!
         self.shouldDetectDanceMove = NO;
-        NSLog(@"Iteration: %i, Step: %i Successfully Detected!", self.currentIteration, self.currentStep);
+        NSLog(@"Iteration: %lu, Step: %lu Successfully Detected!", (unsigned long)self.currentIteration, (unsigned long)self.currentStep);
         self.currentIterationStepsDetected[self.currentStep-1] = @(YES);
     }
     else
@@ -479,7 +479,7 @@
 
 - (void)_updateIterationCountWithNum:(NSUInteger)num
 {
-    self.movesCompletedCountLabel.text = [NSString stringWithFormat:@"%i", num];
+    self.movesCompletedCountLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)num];
     
     // Enlarge and shrink animation
     [self.movesCompletedCountLabel setScale:2.5];

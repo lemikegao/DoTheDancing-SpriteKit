@@ -62,6 +62,7 @@ typedef NS_ENUM(NSInteger, DDPlayerColor)
 #define kServiceType @"dtd-service"
 #define kSessionContextType @"dtd-connect-context"
 #define kPeerConnectionAcceptedNotification @"com.chinandcheeks.DoTheDancing-SpriteKit:PeerConnectionAcceptedNotification"
+#define kPeerConnectionDisconnectedNotification @"com.chinandcheeks.DoTheDancing-SpriteKit:PeerConnectionDisconnectedNotification"
 #define kPeerDidReceiveDataNotification @"com.chinandcheeks.DoTheDancing-SpriteKit:PeerDidReceiveDataNotification"
 
 #define kDanceMoveBernieName @"Bernie"

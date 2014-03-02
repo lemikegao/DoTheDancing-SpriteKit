@@ -126,10 +126,8 @@
     }
     
     // Temporarily disable dance moves that are not yet implemented
-    peterGriffinButton.alpha = 0.4;
-    catDaddyButton.alpha = 0.4;
-    peterGriffinButton.isEnabled = NO;
-    catDaddyButton.isEnabled = NO;
+    [peterGriffinButton disableButton];
+    [catDaddyButton disableButton];
 }
 
 - (void)_displayBottomPageControls
@@ -144,10 +142,8 @@
     [self addChild:nextButton];
     
     // Temporarily disable menu buttons
-    previousButton.alpha = 0.4;
-    nextButton.alpha = 0.4;
-    previousButton.isEnabled = NO;
-    nextButton.isEnabled = NO;
+    [previousButton disableButton];
+    [nextButton disableButton];
     
     // Page info
     SKLabelNode *currentPageLabel = [SKLabelNode labelNodeWithFontNamed:@"Economica-Bold"];

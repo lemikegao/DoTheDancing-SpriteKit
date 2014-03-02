@@ -204,4 +204,18 @@ _Pragma("clang diagnostic pop") \
     }
 }
 
+#pragma -
+#pragma mark Enable/disable button
+- (void)disableButton
+{
+    self.isEnabled = NO;
+    self.alpha = 0.4;
+}
+
+- (void)enableButton
+{
+    self.isEnabled = YES;
+    self.alpha = 1.0;
+}
+
 @end

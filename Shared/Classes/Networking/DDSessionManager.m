@@ -18,17 +18,39 @@
     {
         _session = [[MCSession alloc] initWithPeer:peerId];
         _session.delegate = self;
-        _connectedPeers = [[NSMutableDictionary alloc] init];
-        _isConnected = NO;
+        
+#if EXTERNAL
+        _connectedPlayers = [[NSMutableDictionary alloc] init];
+#endif
     }
     
     return self;
 }
 
+- (BOOL)isConnected
+{
+    return (self.session.connectedPeers.count > 0);
+}
+
 - (BOOL)sendDataToAllPeers:(NSData *)data withMode:(MCSessionSendDataMode)mode error:(NSError **)error
 {
-    NSLog(@"DDSessionManager -> sendDataToAllPeers: %@", [self.connectedPeers allKeys]);
-    return [self.session sendData:data toPeers:[self.connectedPeers allKeys] withMode:mode error:error];
+    NSLog(@"DDSessionManager -> sendDataToAllPeers: %@", self.session.connectedPeers);
+    return [self.session sendData:data toPeers:self.session.connectedPeers withMode:mode error:error];
+}
+
+- (void)disconnect
+{
+    [self.session disconnect];
+    
+#if CONTROLLER
+    self.externalPeerID = nil;
+#endif
+    
+#if EXTERNAL
+    NSLog(@"ALICE MONG 2");
+    self.controllerHostPeerID = nil;
+    [self.connectedPlayers removeAllObjects];
+#endif
 }
 
 #pragma mark - MCSessionDelegate methods
@@ -37,8 +59,20 @@
 {
     if (state == MCSessionStateConnected && self.session)
     {
-        self.isConnected = YES;
-        [self.connectedPeers setObject:[NSNull null] forKey:peerID];
+        NSLog(@"DDSessionManager -> peer connected: %@, total connected peer count: %i", peerID, session.connectedPeers.count);
+#if CONTROLLER
+        self.externalPeerID = peerID;
+#endif
+        
+#if EXTERNAL
+        if (self.session.connectedPeers.count == 1)
+        {
+            NSLog(@"LOKI: CONTROLLER HOST PEER ID IS BEING SET AS %@", peerID);
+            self.controllerHostPeerID = peerID;
+        }
+        
+        [self.connectedPlayers setObject:[NSNull null] forKey:peerID];
+#endif
         
         // For programmatic discovery, send a notification to the custom advertiser
         // that an invitation was accepted.
@@ -51,8 +85,28 @@
     }
     else if (state == MCSessionStateNotConnected)
     {
-        self.isConnected = NO;
-        [self.connectedPeers removeObjectForKey:peerID];
+        NSLog(@"DDSessionManager -> peer disconnected: %@, total connected peer count: %i", peerID, session.connectedPeers.count);
+#if CONTROLLER
+        [self disconnect];
+#endif
+        
+#if EXTERNAL
+        [self.connectedPlayers removeObjectForKey:peerID];
+        NSLog(@"GAO: PEERID: %@ & controller host peer ID: %@", peerID, self.controllerHostPeerID);
+        if ([peerID isEqual:self.controllerHostPeerID])
+        {
+            NSLog(@"ALICE MONG");
+            [self disconnect];
+        }
+#endif
+        
+        NSLog(@"ALICE MONG 3 ");
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:kPeerConnectionDisconnectedNotification
+             object:nil
+             userInfo:nil];
+        });
     }
 }
 

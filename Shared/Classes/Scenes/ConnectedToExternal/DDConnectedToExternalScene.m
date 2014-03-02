@@ -114,7 +114,7 @@
     mainMenuClass = [DDEMainMenuScene class];
 #endif
 
-    [[DDGameManager sharedGameManager].sessionManager.session disconnect];
+    [[DDGameManager sharedGameManager].sessionManager disconnect];
     
     [self.view presentScene:[mainMenuClass sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionRight duration:0.25]];
 }

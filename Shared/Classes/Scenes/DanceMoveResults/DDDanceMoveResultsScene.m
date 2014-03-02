@@ -111,7 +111,7 @@
         moveLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
         moveLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
         moveLabel.position = CGPointMake(-bg.size.width * 0.43, 0);
-        moveLabel.text = [NSString stringWithFormat:@"Move %i", i+1];
+        moveLabel.text = [NSString stringWithFormat:@"Move %lu", (unsigned long)i+1];
         [bg addChild:moveLabel];
         
         // Add result

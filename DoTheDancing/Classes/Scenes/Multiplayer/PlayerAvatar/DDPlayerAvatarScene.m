@@ -8,6 +8,13 @@
 
 #import "DDPlayerAvatarScene.h"
 #import "UIColor+PlayerColor.h"
+#import "DDMainMenuScene.h"
+
+@interface DDPlayerAvatarScene()
+
+@property (nonatomic) NSInteger connectedPlayers;
+
+@end
 
 @implementation DDPlayerAvatarScene
 
@@ -16,6 +23,9 @@
     self = [super initWithSize:size];
     if (self)
     {
+        // Property for host (disable or enable start button)
+        _connectedPlayers = 1;
+        
         [self _displayBackground];
         [self _displayTopBar];
         [self _displayAvatar];
@@ -88,6 +98,12 @@
         startButton.position = CGPointMake(0, menuBg.size.height * 0.93);
         [startButton setTouchUpInsideTarget:self action:@selector(_pressedStartButton:)];
         [menuBg addChild:startButton];
+        
+        // Disable startButton until there's >1 connected player
+        if (self.connectedPlayers <= 1)
+        {
+            [startButton disableButton];
+        }
     }
     else
     {
@@ -118,13 +134,16 @@
 
 - (void)_pressedDisconnectButton:(id)sender
 {
+    [[DDGameManager sharedGameManager].sessionManager disconnect];
     
+    // Segue back to main menu
+    [self.view presentScene:[DDMainMenuScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionRight duration:0.25]];
 }
 
 #pragma mark - Networking
 - (void)_didReceiveData:(NSNotification *)notification
 {
-    
+    // TODO: Receive message from host when another player connects or disconnects; Increment or decrement connectedPlayers; Enable or disable start button
 }
 
 @end
