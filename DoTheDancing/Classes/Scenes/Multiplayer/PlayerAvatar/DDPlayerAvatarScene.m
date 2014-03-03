@@ -12,7 +12,7 @@
 
 @interface DDPlayerAvatarScene()
 
-@property (nonatomic) NSInteger connectedPlayers;
+@property (nonatomic) NSInteger connectedPlayersCount;
 
 @end
 
@@ -24,7 +24,7 @@
     if (self)
     {
         // Property for host (disable or enable start button)
-        _connectedPlayers = 1;
+        _connectedPlayersCount = 1;
         
         [self _displayBackground];
         [self _displayTopBar];
@@ -100,7 +100,7 @@
         [menuBg addChild:startButton];
         
         // Disable startButton until there's >1 connected player
-        if (self.connectedPlayers <= 1)
+        if (self.connectedPlayersCount <= 1)
         {
             [startButton disableButton];
         }

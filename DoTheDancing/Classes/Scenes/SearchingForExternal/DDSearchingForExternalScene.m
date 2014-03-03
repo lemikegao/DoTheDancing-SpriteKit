@@ -1,5 +1,5 @@
 //
-//  DTDSearchingForIpadScene.m
+//  DDSearchingForExternalScene.m
 //  DoTheDancing-SpriteKit
 //
 //  Created by Michael Gao on 1/24/14.
@@ -9,8 +9,12 @@
 #import "DDSearchingForExternalScene.h"
 #import "DDMainMenuScene.h"
 #import "DDConnectedToExternalScene.h"
+#import "DDPlayerAvatarScene.h"
+#import "DDPacketJoinParty.h"
 
 @interface DDSearchingForExternalScene() <MCNearbyServiceAdvertiserDelegate>
+
+@property (nonatomic) BOOL isJoiningParty;
 
 @end
 
@@ -21,6 +25,8 @@
     self = [super initWithSize:size];
     if (self)
     {
+        _isJoiningParty = NO;
+        
         [self _displayBackground];
         [self _displayTopBar];
         [self _displaySearchingForExternal];
@@ -33,6 +39,17 @@
          name:kPeerConnectionAcceptedNotification
          object:nil];
     }
+    return self;
+}
+
+- (id)initWithSize:(CGSize)size isJoiningParty:(BOOL)isJoiningParty
+{
+    self = [self initWithSize:size];
+    if (self)
+    {
+        _isJoiningParty = isJoiningParty;
+    }
+    
     return self;
 }
 
@@ -104,8 +121,22 @@
     // Stop advertising
     [[DDGameManager sharedGameManager].advertiser stopAdvertisingPeer];
     
-#warning TODO: Segue to multiplayer lobby if coming from MultiplayerHostOnExternalScene
-    [self.view presentScene:[DDConnectedToExternalScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
+    if (self.isJoiningParty)
+    {
+        DDPlayer *player = [DDGameManager sharedGameManager].player;
+        
+        // Send packet to external screen
+        NSError *error;
+        DDPacketJoinParty *packet = [DDPacketJoinParty packetWithPlayerColor:player.playerColor nickname:player.nickname];
+#warning TODO: Don't send data to ALL peers. Just send to external screen
+        [[DDGameManager sharedGameManager].sessionManager sendDataToAllPeers:[packet data] withMode:MCSessionSendDataUnreliable error:&error];
+        
+        [self.view presentScene:[DDPlayerAvatarScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
+    }
+    else
+    {
+        [self.view presentScene:[DDConnectedToExternalScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
+    }
 }
 
 #pragma mark - MCNearbyServiceAdvertiserDelegate methods

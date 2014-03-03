@@ -1,14 +1,14 @@
 //
-//  DDPacketHostParty.m
+//  DDPacketJoinParty.m
 //  DoTheDancing
 //
-//  Created by Michael Gao on 2/23/14.
+//  Created by Michael Gao on 3/2/14.
 //  Copyright (c) 2014 Chin and Cheeks LLC. All rights reserved.
 //
 
-#import "DDPacketHostParty.h"
+#import "DDPacketJoinParty.h"
 
-@implementation DDPacketHostParty
+@implementation DDPacketJoinParty
 
 + (id)packetWithData:(NSData *)data
 {
@@ -26,7 +26,7 @@
 
 - (id)initWithPlayerColor:(DDPlayerColor)playerColor nickname:(NSString *)nickname
 {
-    if ((self = [super initWithType:PacketTypeHostParty]))
+    if ((self = [super initWithType:PacketTypeJoinParty]))
     {
         self.playerColor = playerColor;
         self.nickname = nickname;

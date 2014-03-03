@@ -100,12 +100,15 @@
 		C493367C185453010027C38C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C493367B185453010027C38C /* CoreGraphics.framework */; };
 		C493367E185453010027C38C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C493367D185453010027C38C /* UIKit.framework */; };
 		C4933680185453010027C38C /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C493367F185453010027C38C /* SpriteKit.framework */; };
+		C4A7F0F218C3F00F00252C87 /* DDPacketJoinParty.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A7F0F118C3F00F00252C87 /* DDPacketJoinParty.m */; };
+		C4A7F0F318C3F00F00252C87 /* DDPacketJoinParty.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A7F0F118C3F00F00252C87 /* DDPacketJoinParty.m */; };
 		C4AE2FE81894CD6A00D23E30 /* DDPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = C4AE2FE71894CD6A00D23E30 /* DDPacket.m */; };
 		C4AE2FE91894CD6A00D23E30 /* DDPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = C4AE2FE71894CD6A00D23E30 /* DDPacket.m */; };
 		C4AE2FED1894CDB900D23E30 /* NSData+Networking.m in Sources */ = {isa = PBXBuildFile; fileRef = C4AE2FEC1894CDB900D23E30 /* NSData+Networking.m */; };
 		C4AE2FEE1894CDB900D23E30 /* NSData+Networking.m in Sources */ = {isa = PBXBuildFile; fileRef = C4AE2FEC1894CDB900D23E30 /* NSData+Networking.m */; };
 		C4D5F05A18BC89E2000765C6 /* UIColor+PlayerColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D5F05918BC89E2000765C6 /* UIColor+PlayerColor.m */; };
 		C4D5F05B18BC89E2000765C6 /* UIColor+PlayerColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D5F05918BC89E2000765C6 /* UIColor+PlayerColor.m */; };
+		C4D9F4B318C444AB00A5F270 /* DDEAvatarOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D9F4B218C444AB00A5F270 /* DDEAvatarOrder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -207,12 +210,16 @@
 		C493367D185453010027C38C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C493367F185453010027C38C /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		C493369F185453010027C38C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		C4A7F0F018C3F00F00252C87 /* DDPacketJoinParty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDPacketJoinParty.h; sourceTree = "<group>"; };
+		C4A7F0F118C3F00F00252C87 /* DDPacketJoinParty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDPacketJoinParty.m; sourceTree = "<group>"; };
 		C4AE2FE61894CD6A00D23E30 /* DDPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDPacket.h; sourceTree = "<group>"; };
 		C4AE2FE71894CD6A00D23E30 /* DDPacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDPacket.m; sourceTree = "<group>"; };
 		C4AE2FEB1894CDB900D23E30 /* NSData+Networking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Networking.h"; sourceTree = "<group>"; };
 		C4AE2FEC1894CDB900D23E30 /* NSData+Networking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Networking.m"; sourceTree = "<group>"; };
 		C4D5F05818BC89E2000765C6 /* UIColor+PlayerColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+PlayerColor.h"; sourceTree = "<group>"; };
 		C4D5F05918BC89E2000765C6 /* UIColor+PlayerColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+PlayerColor.m"; sourceTree = "<group>"; };
+		C4D9F4B118C444AB00A5F270 /* DDEAvatarOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDEAvatarOrder.h; sourceTree = "<group>"; };
+		C4D9F4B218C444AB00A5F270 /* DDEAvatarOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDEAvatarOrder.m; sourceTree = "<group>"; };
 		C4EC61B6188FA4CF00DF4F20 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		C4EC61B8188FA4D700DF4F20 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		C4EC61BA188FA4DD00DF4F20 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
@@ -256,6 +263,8 @@
 				C408D62018769DD60070FC43 /* DDEViewController.m */,
 				C408D62118769DD60070FC43 /* Scenes */,
 				C408D62218769DD60070FC43 /* Singletons */,
+				C4D9F4B118C444AB00A5F270 /* DDEAvatarOrder.h */,
+				C4D9F4B218C444AB00A5F270 /* DDEAvatarOrder.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -677,6 +686,8 @@
 				C441CC6518A78D97007F0920 /* DDPacketShowNextInstruction.m */,
 				C4474AA118BAE8C6005A3AEA /* DDPacketHostParty.h */,
 				C4474AA218BAE8C6005A3AEA /* DDPacketHostParty.m */,
+				C4A7F0F018C3F00F00252C87 /* DDPacketJoinParty.h */,
+				C4A7F0F118C3F00F00252C87 /* DDPacketJoinParty.m */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -810,6 +821,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4A7F0F318C3F00F00252C87 /* DDPacketJoinParty.m in Sources */,
 				C478E2731897AC31007B60EC /* DDESearchingForControllerScene.m in Sources */,
 				C408D62D18769E610070FC43 /* DDDanceMove.m in Sources */,
 				C408D62F18769E610070FC43 /* DDDanceMoveBernie.m in Sources */,
@@ -820,6 +832,7 @@
 				C478E2381897A070007B60EC /* DDSessionManager.m in Sources */,
 				C478E2531897A187007B60EC /* DDDanceMoveSelectionScene.m in Sources */,
 				C4474AA418BAE8C6005A3AEA /* DDPacketHostParty.m in Sources */,
+				C4D9F4B318C444AB00A5F270 /* DDEAvatarOrder.m in Sources */,
 				C408D63318769E610070FC43 /* SKButton.m in Sources */,
 				C478E24F1897A187007B60EC /* DDDanceMoveResultsScene.m in Sources */,
 				C441CC6718A78D97007F0920 /* DDPacketShowNextInstruction.m in Sources */,
@@ -881,6 +894,7 @@
 				C478E2501897A187007B60EC /* DDDanceMoveSeeInActionScene.m in Sources */,
 				C43706481896450700BF6ECC /* DDAppDelegate.m in Sources */,
 				C4474A9F18B9A5F0005A3AEA /* DDMultiplayerHostOrJoinScene.m in Sources */,
+				C4A7F0F218C3F00F00252C87 /* DDPacketJoinParty.m in Sources */,
 				C478E2541897A187007B60EC /* DDDanceMoveTryItOutScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

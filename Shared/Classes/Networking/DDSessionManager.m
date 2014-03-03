@@ -47,7 +47,6 @@
 #endif
     
 #if EXTERNAL
-    NSLog(@"ALICE MONG 2");
     self.controllerHostPeerID = nil;
     [self.connectedPlayers removeAllObjects];
 #endif
@@ -59,66 +58,88 @@
 {
     if (state == MCSessionStateConnected && self.session)
     {
-        NSLog(@"DDSessionManager -> peer connected: %@, total connected peer count: %i", peerID, session.connectedPeers.count);
+        NSLog(@"DDSessionManager -> peer connected: %@, total connected peer count: %lu", peerID, (unsigned long)session.connectedPeers.count);
 #if CONTROLLER
-        self.externalPeerID = peerID;
+        if ([peerID.displayName isEqualToString:@"External"] && self.externalPeerID == nil)
+        {
+            self.externalPeerID = peerID;
+            
+            // Only send notification if controller connects to external screen (not another controller)
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter]
+                 postNotificationName:kPeerConnectionAcceptedNotification
+                 object:nil
+                 userInfo:nil];
+            });
+        }
 #endif
         
 #if EXTERNAL
-        if (self.session.connectedPeers.count == 1)
+        if (self.controllerHostPeerID == nil)
         {
-            NSLog(@"LOKI: CONTROLLER HOST PEER ID IS BEING SET AS %@", peerID);
             self.controllerHostPeerID = peerID;
         }
         
         [self.connectedPlayers setObject:[NSNull null] forKey:peerID];
-#endif
         
-        // For programmatic discovery, send a notification to the custom advertiser
-        // that an invitation was accepted.
+        // Send notification if a new controller connects
         dispatch_async(dispatch_get_main_queue(), ^{
             [[NSNotificationCenter defaultCenter]
              postNotificationName:kPeerConnectionAcceptedNotification
              object:nil
              userInfo:nil];
         });
+#endif
     }
     else if (state == MCSessionStateNotConnected)
     {
-        NSLog(@"DDSessionManager -> peer disconnected: %@, total connected peer count: %i", peerID, session.connectedPeers.count);
+        NSLog(@"DDSessionManager -> peer disconnected: %@, total connected peer count: %lu", peerID, (unsigned long)session.connectedPeers.count);
 #if CONTROLLER
-        [self disconnect];
+        // Disconnect controller if external display disconnected
+        if ([peerID isEqual:self.externalPeerID])
+        {
+            [self disconnect];
+            
+            // Only send notification if external screen disconnects
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter]
+                 postNotificationName:kPeerConnectionDisconnectedNotification
+                 object:nil
+                 userInfo:nil];
+            });
+        }
 #endif
         
 #if EXTERNAL
         [self.connectedPlayers removeObjectForKey:peerID];
-        NSLog(@"GAO: PEERID: %@ & controller host peer ID: %@", peerID, self.controllerHostPeerID);
         if ([peerID isEqual:self.controllerHostPeerID])
         {
-            NSLog(@"ALICE MONG");
             [self disconnect];
         }
-#endif
         
-        NSLog(@"ALICE MONG 3 ");
+        // Send notification if any controller disconnects
         dispatch_async(dispatch_get_main_queue(), ^{
             [[NSNotificationCenter defaultCenter]
              postNotificationName:kPeerConnectionDisconnectedNotification
              object:nil
              userInfo:nil];
         });
+#endif
     }
 }
 
 // Received data from remote peer
 - (void)session:(MCSession *)session didReceiveData:(NSData *)data fromPeer:(MCPeerID *)peerID
 {
+    NSMutableDictionary *dict = [[[DDPacket packetWithData:data] dict] mutableCopy];
+    dict[@"peerID"] = peerID;
+    
     NSLog(@"DDSessionManager -> didReceiveData: %@ fromPeer: %@", data, peerID);
     dispatch_async(dispatch_get_main_queue(), ^{
         [[NSNotificationCenter defaultCenter]
          postNotificationName:kPeerDidReceiveDataNotification
          object:nil
-         userInfo:[[DDPacket packetWithData:data] dict]];
+         userInfo:[dict copy]];
     });
 }
 

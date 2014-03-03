@@ -15,6 +15,7 @@
 #import "DDMainMenuScene.h"
 #import "DDMultiplayerHostOnExternalScene.h"
 #import "DDPlayerAvatarScene.h"
+#import "DDSearchingForExternalScene.h"
 #else
 #import "DDEMainMenuScene.h"
 #import "DDEWaitingRoomScene.h"
@@ -255,6 +256,10 @@
     // Save nickname
     DDPlayer *player = [DDGameManager sharedGameManager].player;
     player.nickname = self.textField.text;
+    // Randomly select color of player
+    DDPlayerColor randomColor = arc4random() % DDPlayerColorCount;
+    player.playerColor = randomColor;
+    
     
     if (self.didPressHost)
     {
@@ -268,10 +273,6 @@
             /* Segue external screen to waiting room */
             [DDGameManager sharedGameManager].isHost = YES;
             
-            // Randomly select color of player
-            DDPlayerColor randomColor = arc4random() % DDPlayerColorCount;
-            player.playerColor = randomColor;
-            
             // Send packet to external screen
             NSError *error;
             DDPacketHostParty *packet = [DDPacketHostParty packetWithPlayerColor:player.playerColor nickname:player.nickname];
@@ -280,6 +281,13 @@
             // Segue to playerAvatarScene
             [self.view presentScene:[DDPlayerAvatarScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
         }
+    }
+    else
+    {
+        // Join party!
+        [DDGameManager sharedGameManager].isHost = NO;
+        
+        [self.view presentScene:[[DDSearchingForExternalScene alloc] initWithSize:self.size isJoiningParty:YES] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
     }
 #endif
 }

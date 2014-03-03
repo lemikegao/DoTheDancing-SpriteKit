@@ -58,7 +58,7 @@
     return self;
 }
 
-- (void)addPayloadToData:(NSMutableData*)data
+- (void)addPayloadToData:(NSMutableData *)data
 {
     // Add num iterations
     [data rw_appendInt8:self.danceMoveResults.count];

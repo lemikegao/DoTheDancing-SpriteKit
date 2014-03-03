@@ -16,6 +16,9 @@
     // Initialize game manager
     [DDGameManager sharedGameManager];
     
+    // Disable idle timer (prevent screen from blacking out)
+    [application setIdleTimerDisabled:YES];
+    
     return YES;
 }
 							

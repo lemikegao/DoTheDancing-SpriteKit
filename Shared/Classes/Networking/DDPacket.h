@@ -15,6 +15,7 @@ typedef enum
     PacketTypeShowDanceMoveInstructions,        // external <> controller
     PacketTypeShowNextInstruction,              // external <> controller
     PacketTypeHostParty,                        // controller to external
+    PacketTypeJoinParty,                        // controller to external
 }
 PacketType;
 
