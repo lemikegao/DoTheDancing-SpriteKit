@@ -122,7 +122,7 @@
             [[NSNotificationCenter defaultCenter]
              postNotificationName:kPeerConnectionDisconnectedNotification
              object:nil
-             userInfo:nil];
+             userInfo:@{@"peerID": peerID}];
         });
 #endif
     }

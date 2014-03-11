@@ -10,7 +10,7 @@
 #import "DDEMainMenuScene.h"
 #import "DDConnectedToExternalScene.h"
 
-@interface DDESearchingForControllerScene() <MCNearbyServiceBrowserDelegate>
+@interface DDESearchingForControllerScene() <MCNearbyServiceAdvertiserDelegate>
 
 @end
 
@@ -23,8 +23,8 @@
     {
         [self _displayBackground];
         [self _displayTopBar];
-        [self _displaySearchingForController];
-        [self _startSearchingForDevice];
+        [self _displayConnectingToController];
+        [self _startAdvertisingToDevice];
         
         // Register for notifications when connected to advertiser
         [[NSNotificationCenter defaultCenter]
@@ -70,7 +70,7 @@
     [topBannerBg addChild:backButton];
 }
 
-- (void)_displaySearchingForController
+- (void)_displayConnectingToController
 {
     // Sprite - Connecting
     SKSpriteNode *connectingSprite = [SKSpriteNode spriteNodeWithImageNamed:@"connecting1"];
@@ -85,50 +85,48 @@
 #pragma mark - Button actions
 - (void)_pressedBack:(id)sender
 {
-    // Stop browsing
-    [[DDGameManager sharedGameManager].browser stopBrowsingForPeers];
+    // Stop advertising
+    [[DDGameManager sharedGameManager].advertiser stopAdvertisingPeer];
     
     [self.view presentScene:[DDEMainMenuScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionRight duration:0.25]];
 }
 
 #pragma mark - Networking
-- (void)_startSearchingForDevice
+- (void)_startAdvertisingToDevice
 {
-    NSLog(@"DDESearchingForControllerScene -> Start browsing for peers");
-    MCNearbyServiceBrowser *browser = [DDGameManager sharedGameManager].browser;
-    browser.delegate = self;
-    [browser startBrowsingForPeers];
+    NSLog(@"DDEWaitingRoomScene -> Start advertising to controllers");
+    MCNearbyServiceAdvertiser *advertiser = [DDGameManager sharedGameManager].advertiser;
+    advertiser.delegate = self;
+    [advertiser startAdvertisingPeer];
 }
 
 - (void)_peerConnected:(NSNotification *)notification
 {
-    // Stop browsing
-    [[DDGameManager sharedGameManager].browser stopBrowsingForPeers];
+    // Stop advertising
+    [[DDGameManager sharedGameManager].advertiser stopAdvertisingPeer];
     
     [self.view presentScene:[DDConnectedToExternalScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.25]];
 }
 
-#pragma mark - MCNearbyServiceBrowserDelegate methods
-// Found a nearby advertising peer
-- (void)browser:(MCNearbyServiceBrowser *)browser foundPeer:(MCPeerID *)peerID withDiscoveryInfo:(NSDictionary *)info
+#pragma mark - MCNearbyServiceAdvertiserDelegate methods
+// Incoming invitation request.  Call the invitationHandler block with YES and a valid session to connect the inviting peer to the session.
+- (void)advertiser:(MCNearbyServiceAdvertiser *)advertiser didReceiveInvitationFromPeer:(MCPeerID *)peerID withContext:(NSData *)context invitationHandler:(void(^)(BOOL accept, MCSession *session))invitationHandler
 {
-    NSLog(@"Found peer! %@", peerID);
-    // TODO: Allow multiple peers; currently only single player
-    // Send invite to peer
-    [browser invitePeer:peerID toSession:[DDGameManager sharedGameManager].sessionManager.session withContext:[kSessionContextType dataUsingEncoding:NSUTF8StringEncoding] timeout:10];
+    NSLog(@"DDSearchingForExternalScene -> didReceiveInvitationFromPeer: %@", peerID);
+    if ([[NSString stringWithUTF8String:[context bytes]] isEqualToString:kSessionContextType])
+    {
+        // Accept the invitation immediately for single player mode
+        invitationHandler(YES, [DDGameManager sharedGameManager].sessionManager.session);
+        
+        NSLog(@"Accepted invitation from peer: %@", peerID);
+    }
 }
 
-// A nearby peer has stopped advertising
-- (void)browser:(MCNearbyServiceBrowser *)browser lostPeer:(MCPeerID *)peerID
+// Advertising did not start due to an error
+- (void)advertiser:(MCNearbyServiceAdvertiser *)advertiser didNotStartAdvertisingPeer:(NSError *)error
 {
-    // TODO: Required
-}
-
-// Browsing did not start due to an error
-- (void)browser:(MCNearbyServiceBrowser *)browser didNotStartBrowsingForPeers:(NSError *)error
-{
-    // TODO: Optional
-    NSLog(@"Error browsing: %@", error.localizedDescription);
+    // Optional
+    NSLog(@"DDSearchingForExternalScene -> didNotStartAdvertisingPeer error: %@", error);
 }
 
 @end

@@ -12,7 +12,7 @@
 #import "DDPlayerAvatarScene.h"
 #import "DDPacketJoinParty.h"
 
-@interface DDSearchingForExternalScene() <MCNearbyServiceAdvertiserDelegate>
+@interface DDSearchingForExternalScene() <MCNearbyServiceBrowserDelegate>
 
 @property (nonatomic) BOOL isJoiningParty;
 
@@ -30,7 +30,7 @@
         [self _displayBackground];
         [self _displayTopBar];
         [self _displaySearchingForExternal];
-        [self _startSearchingForExternal];
+        [self _startBrowsingForExternal];
         
         // Register for notifications when connected to browser
         [[NSNotificationCenter defaultCenter]
@@ -102,24 +102,24 @@
 #pragma mark - Button actions
 - (void)_pressedBack:(id)sender
 {
-    // Stop advertising
-    [[DDGameManager sharedGameManager].advertiser stopAdvertisingPeer];
+    // Stop browsing
+    [[DDGameManager sharedGameManager].browser stopBrowsingForPeers];
     
     [self.view presentScene:[DDMainMenuScene sceneWithSize:self.size] transition:[SKTransition pushWithDirection:SKTransitionDirectionRight duration:0.25]];
 }
 
 #pragma mark - Networking
-- (void)_startSearchingForExternal
+- (void)_startBrowsingForExternal
 {
-    MCNearbyServiceAdvertiser *advertiser = [DDGameManager sharedGameManager].advertiser;
-    advertiser.delegate = self;
-    [advertiser startAdvertisingPeer];
+    MCNearbyServiceBrowser *browser = [DDGameManager sharedGameManager].browser;
+    browser.delegate = self;
+    [browser startBrowsingForPeers];
 }
 
 - (void)_peerConnected:(NSNotification *)notification
 {
-    // Stop advertising
-    [[DDGameManager sharedGameManager].advertiser stopAdvertisingPeer];
+    // Stop browsing
+    [[DDGameManager sharedGameManager].browser stopBrowsingForPeers];
     
     if (self.isJoiningParty)
     {
@@ -139,23 +139,28 @@
     }
 }
 
-#pragma mark - MCNearbyServiceAdvertiserDelegate methods
-// Incoming invitation request.  Call the invitationHandler block with YES and a valid session to connect the inviting peer to the session.
-- (void)advertiser:(MCNearbyServiceAdvertiser *)advertiser didReceiveInvitationFromPeer:(MCPeerID *)peerID withContext:(NSData *)context invitationHandler:(void(^)(BOOL accept, MCSession *session))invitationHandler
+#pragma mark - MCNearbyServiceBrowserDelegate methods
+// Found a nearby advertising peer
+- (void)browser:(MCNearbyServiceBrowser *)browser foundPeer:(MCPeerID *)peerID withDiscoveryInfo:(NSDictionary *)info
 {
-    if ([[NSString stringWithUTF8String:[context bytes]] isEqualToString:kSessionContextType])
-    {
-        // Accept the invitation immediately for single player mode
-        invitationHandler(YES, [DDGameManager sharedGameManager].sessionManager.session);
-        
-        NSLog(@"Accepted invitation from peer: %@", peerID);
-    }
+    NSLog(@"DDEWaitingRoomScene -> Found peer! %@. Inviting peer to connect", peerID);
+    // Send invite to peer
+    [browser invitePeer:peerID toSession:[DDGameManager sharedGameManager].sessionManager.session withContext:[kSessionContextType dataUsingEncoding:NSUTF8StringEncoding] timeout:10];
 }
 
-// Advertising did not start due to an error
-- (void)advertiser:(MCNearbyServiceAdvertiser *)advertiser didNotStartAdvertisingPeer:(NSError *)error
+// A nearby peer has stopped advertising
+- (void)browser:(MCNearbyServiceBrowser *)browser lostPeer:(MCPeerID *)peerID
 {
-    // Optional
+    // TODO: Required
+    NSLog(@"DDEWaitingRoomScene -> Lost peer: %@", peerID);
 }
+
+// Browsing did not start due to an error
+- (void)browser:(MCNearbyServiceBrowser *)browser didNotStartBrowsingForPeers:(NSError *)error
+{
+    // TODO: Optional
+    NSLog(@"DDEWaitingRoomScene -> Error browsing: %@", error.localizedDescription);
+}
+
 
 @end

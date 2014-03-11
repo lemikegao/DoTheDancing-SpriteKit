@@ -11,7 +11,7 @@
 #import "UIColor+PlayerColor.h"
 #import "DDEAvatarOrder.h"
 
-@interface DDEWaitingRoomScene() <MCNearbyServiceBrowserDelegate>
+@interface DDEWaitingRoomScene() <MCNearbyServiceAdvertiserDelegate>
 
 @property (nonatomic) NSUInteger currentAvatarOrder;
 @property (nonatomic, strong) NSMutableDictionary *avatars;     // Key: PeerID; Value: DDEAvatarOrder
@@ -32,7 +32,7 @@
         [self _displayTopBar];
         [self _displayWaitingPrompt];
         [self _displayHostAvatar];
-        [self _startSearchingForControllers];
+        [self _startAdvertisingToControllers];
         
         [[NSNotificationCenter defaultCenter]
          addObserver:self
@@ -113,18 +113,19 @@
     [self _addNewAvatarForPlayer:hostPlayer forPeerID:[DDGameManager sharedGameManager].sessionManager.controllerHostPeerID];
 }
 
-- (void)_startSearchingForControllers
+- (void)_startAdvertisingToControllers
 {
-    NSLog(@"DDEWaitingRoomScene -> Start browsing for peers");
-    MCNearbyServiceBrowser *browser = [DDGameManager sharedGameManager].browser;
-    browser.delegate = self;
-    [browser startBrowsingForPeers];
+    NSLog(@"DDEWaitingRoomScene -> Start advertising to controllers");
+    MCNearbyServiceAdvertiser *advertiser = [DDGameManager sharedGameManager].advertiser;
+    advertiser.delegate = self;
+    [advertiser startAdvertisingPeer];
 }
 
 #pragma mark -
 #pragma Avatar handling
 - (void)_saveAvatar:(SKSpriteNode *)avatar andPlayer:(DDPlayer *)player forPeerID:(MCPeerID *)peerID
 {
+    #warning - Remove sorting order. Have new player replace the spot of the most recent player who left. If no missing spot, add to end of the line
     DDEAvatarOrder *avatarOrder = [[DDEAvatarOrder alloc] initWithAvatar:avatar player:player order:self.currentAvatarOrder];
     self.currentAvatarOrder++;
     
@@ -145,11 +146,25 @@
     [self _saveAvatar:avatar andPlayer:player forPeerID:peerID];
 }
 
+- (void)_removeAvatarForPeerID:(MCPeerID *)peerID
+{
+    DDEAvatarOrder *avatarOrder = self.avatars[peerID];
+    
+    // Fade out and then remove avatar sprite
+    SKAction *fadeOut = [SKAction fadeOutWithDuration:0.3];
+    [avatarOrder.avatar runAction:fadeOut completion:^{
+        [avatarOrder.avatar removeFromParent];
+        
+        // Remove from avatars dict
+        [self.avatars removeObjectForKey:peerID];
+    }];
+}
+
 #pragma mark - Button actions
 - (void)_pressedBack:(id)sender
 {
-    // Stop browsing
-    [[DDGameManager sharedGameManager].browser stopBrowsingForPeers];
+    // Stop advertising
+    [[DDGameManager sharedGameManager].advertiser stopAdvertisingPeer];
     
     // Disconnect session and segue to main menu
     [[DDGameManager sharedGameManager].sessionManager disconnect];
@@ -173,27 +188,37 @@
     [self _addNewAvatarForPlayer:player forPeerID:peerID];
 }
 
-#pragma mark - MCNearbyServiceBrowserDelegate methods
-// Found a nearby advertising peer
-- (void)browser:(MCNearbyServiceBrowser *)browser foundPeer:(MCPeerID *)peerID withDiscoveryInfo:(NSDictionary *)info
+- (void)peerDisconnected:(NSNotification *)notification
 {
-    NSLog(@"DDEWaitingRoomScene -> Found peer! %@. Inviting peer to connect", peerID);
-    // TODO: Allow multiple peers; currently only single player
-    // Send invite to peer
-    [browser invitePeer:peerID toSession:[DDGameManager sharedGameManager].sessionManager.session withContext:[kSessionContextType dataUsingEncoding:NSUTF8StringEncoding] timeout:10];
+    [super peerDisconnected:notification];
+    
+    // If host controller was not disconnected, remove player from waiting room
+    if ([DDGameManager sharedGameManager].sessionManager.controllerHostPeerID != nil)
+    {
+        MCPeerID *peerID = notification.userInfo[@"peerID"];
+        [self _removeAvatarForPeerID:peerID];
+    }
 }
 
-// A nearby peer has stopped advertising
-- (void)browser:(MCNearbyServiceBrowser *)browser lostPeer:(MCPeerID *)peerID
+#pragma mark - MCNearbyServiceAdvertiserDelegate methods
+// Incoming invitation request.  Call the invitationHandler block with YES and a valid session to connect the inviting peer to the session.
+- (void)advertiser:(MCNearbyServiceAdvertiser *)advertiser didReceiveInvitationFromPeer:(MCPeerID *)peerID withContext:(NSData *)context invitationHandler:(void(^)(BOOL accept, MCSession *session))invitationHandler
 {
-    // TODO: Required
+    NSLog(@"DDSearchingForExternalScene -> didReceiveInvitationFromPeer: %@", peerID);
+    if ([[NSString stringWithUTF8String:[context bytes]] isEqualToString:kSessionContextType])
+    {
+        // Accept the invitation immediately for single player mode
+        invitationHandler(YES, [DDGameManager sharedGameManager].sessionManager.session);
+        
+        NSLog(@"Accepted invitation from peer: %@", peerID);
+    }
 }
 
-// Browsing did not start due to an error
-- (void)browser:(MCNearbyServiceBrowser *)browser didNotStartBrowsingForPeers:(NSError *)error
+// Advertising did not start due to an error
+- (void)advertiser:(MCNearbyServiceAdvertiser *)advertiser didNotStartAdvertisingPeer:(NSError *)error
 {
-    // TODO: Optional
-    NSLog(@"DDEWaitingRoomScene -> Error browsing: %@", error.localizedDescription);
+    // Optional
+    NSLog(@"DDSearchingForExternalScene -> didNotStartAdvertisingPeer error: %@", error);
 }
 
 @end

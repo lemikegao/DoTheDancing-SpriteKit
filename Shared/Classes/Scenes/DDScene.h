@@ -12,4 +12,6 @@
 
 @property (nonatomic, readonly) NSUInteger sizeMultiplier;
 
+- (void)peerDisconnected:(NSNotification *)notification;
+
 @end

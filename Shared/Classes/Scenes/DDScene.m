@@ -52,7 +52,6 @@
 #endif
     
 #if EXTERNAL
-    NSLog(@"Peer disconnected. Controller host peer ID: %@", [DDGameManager sharedGameManager].sessionManager.controllerHostPeerID);
     // If host controller disconnected, then external should return to main menu
     if ([DDGameManager sharedGameManager].sessionManager.controllerHostPeerID == nil)
     {
