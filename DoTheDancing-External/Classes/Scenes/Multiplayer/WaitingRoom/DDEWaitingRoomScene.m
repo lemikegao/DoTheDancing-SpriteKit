@@ -9,12 +9,11 @@
 #import "DDEWaitingRoomScene.h"
 #import "DDEMainMenuScene.h"
 #import "UIColor+PlayerColor.h"
-#import "DDEAvatarOrder.h"
+#import "DDEPlayerAvatar.h"
 
 @interface DDEWaitingRoomScene() <MCNearbyServiceAdvertiserDelegate>
 
-@property (nonatomic) NSUInteger currentAvatarOrder;
-@property (nonatomic, strong) NSMutableDictionary *avatars;     // Key: PeerID; Value: DDEAvatarOrder
+@property (nonatomic, strong) NSMutableArray *avatars;
 
 @end
 
@@ -25,8 +24,7 @@
     self = [super initWithSize:size];
     if (self)
     {
-        _currentAvatarOrder = 0;
-        _avatars = [[NSMutableDictionary alloc] init];
+        _avatars = [[NSMutableArray alloc] initWithCapacity:4];
         
         [self _displayBackground];
         [self _displayTopBar];
@@ -123,40 +121,74 @@
 
 #pragma mark -
 #pragma Avatar handling
-- (void)_saveAvatar:(SKSpriteNode *)avatar andPlayer:(DDPlayer *)player forPeerID:(MCPeerID *)peerID
-{
-    #warning - Remove sorting order. Have new player replace the spot of the most recent player who left. If no missing spot, add to end of the line
-    DDEAvatarOrder *avatarOrder = [[DDEAvatarOrder alloc] initWithAvatar:avatar player:player order:self.currentAvatarOrder];
-    self.currentAvatarOrder++;
-    
-    [self.avatars setObject:avatarOrder forKey:peerID];
-}
-
 - (void)_addNewAvatarForPlayer:(DDPlayer *)player forPeerID:(MCPeerID *)peerID
 {
     SKSpriteNode *avatar = [SKSpriteNode spriteNodeWithImageNamed:@"waitingroom-avatar"];
-    avatar.position = CGPointMake(self.size.width * 0.2 + avatar.size.width * 1.5 * self.avatars.count, self.size.height * 0.35);
-    [self addChild:avatar];
-    
     // Set to correct color
     avatar.color = [UIColor colorWithPlayerColor:player.playerColor];
     avatar.colorBlendFactor = 0.5;
     
-    // Save host avatar
-    [self _saveAvatar:avatar andPlayer:player forPeerID:peerID];
+    // Find first empty slot in array for new player. If no empty slots, add to end of the line!
+    DDEPlayerAvatar *pa = [[DDEPlayerAvatar alloc] initWithAvatar:avatar player:player peerID:peerID];
+    
+    // Add host
+    if (self.avatars.count == 0)
+    {
+        [self.avatars addObject:pa];
+        [self _displayAvatar:avatar AtIndex:0];
+    }
+    else
+    {
+        [self.avatars enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            // If empty slot exists, place avatar there
+            if ([obj isEqual:[NSNull null]])
+            {
+                self.avatars[idx] = pa;
+                [self _displayAvatar:avatar AtIndex:idx];
+                *stop = YES;
+            }
+            // If no empty slots in array, add to the end
+            else if (idx == (self.avatars.count-1))
+            {
+                [self.avatars addObject:pa];
+                [self _displayAvatar:avatar AtIndex:idx+1];
+                *stop = YES;
+            }
+        }];
+    }
+}
+
+- (void)_displayAvatar:(SKSpriteNode *)avatar AtIndex:(NSUInteger)idx
+{
+    avatar.position = CGPointMake(self.size.width * 0.2 + avatar.size.width * 1.5 * idx, self.size.height * 0.35);
+    avatar.alpha = 0;
+    [self addChild:avatar];
+    
+    // Fade in newly added avatar
+    SKAction *fadeIn = [SKAction fadeInWithDuration:0.3];
+    [avatar runAction:fadeIn];
 }
 
 - (void)_removeAvatarForPeerID:(MCPeerID *)peerID
 {
-    DDEAvatarOrder *avatarOrder = self.avatars[peerID];
+    NSUInteger playerIndex = [self.avatars indexOfObjectPassingTest:^BOOL(DDEPlayerAvatar *obj, NSUInteger idx, BOOL *stop) {
+        if ([obj.peerID isEqual:peerID])
+        {
+            *stop = YES;
+            return YES;
+        }
+        
+        return NO;
+    }];
+    
+    DDEPlayerAvatar *pa = self.avatars[playerIndex];
+    // Replace player with an empty slot
+    self.avatars[playerIndex] = [NSNull null];
     
     // Fade out and then remove avatar sprite
     SKAction *fadeOut = [SKAction fadeOutWithDuration:0.3];
-    [avatarOrder.avatar runAction:fadeOut completion:^{
-        [avatarOrder.avatar removeFromParent];
-        
-        // Remove from avatars dict
-        [self.avatars removeObjectForKey:peerID];
+    [pa.avatar runAction:fadeOut completion:^{
+        [pa.avatar removeFromParent];
     }];
 }
 

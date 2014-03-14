@@ -6,18 +6,18 @@
 //  Copyright (c) 2014 Chin and Cheeks LLC. All rights reserved.
 //
 
-#import "DDEAvatarOrder.h"
+#import "DDEPlayerAvatar.h"
 
-@implementation DDEAvatarOrder
+@implementation DDEPlayerAvatar
 
-- (instancetype)initWithAvatar:(SKSpriteNode *)avatar player:(DDPlayer *)player order:(NSUInteger)order
+- (instancetype)initWithAvatar:(SKSpriteNode *)avatar player:(DDPlayer *)player peerID:(MCPeerID *)peerID
 {
     self = [super init];
     if (self)
     {
         _avatar = avatar;
         _player = player;
-        _order = order;
+        _peerID = peerID;
     }
     
     return self;

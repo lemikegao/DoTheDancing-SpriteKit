@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DDEAvatarOrder : NSObject
+@interface DDEPlayerAvatar : NSObject
 
-@property (nonatomic) NSUInteger order;
 @property (nonatomic, strong) SKSpriteNode *avatar;
 @property (nonatomic, strong) DDPlayer *player;
+@property (nonatomic, strong) MCPeerID *peerID;
 
-- (instancetype)initWithAvatar:(SKSpriteNode *)avatar player:(DDPlayer *)player order:(NSUInteger)order;
+- (instancetype)initWithAvatar:(SKSpriteNode *)avatar player:(DDPlayer *)player peerID:(MCPeerID *)peerID;
 
 @end
