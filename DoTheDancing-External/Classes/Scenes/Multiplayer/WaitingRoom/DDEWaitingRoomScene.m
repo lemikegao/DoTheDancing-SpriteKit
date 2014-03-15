@@ -123,19 +123,30 @@
 #pragma Avatar handling
 - (void)_addNewAvatarForPlayer:(DDPlayer *)player forPeerID:(MCPeerID *)peerID
 {
+    // Avatar
     SKSpriteNode *avatar = [SKSpriteNode spriteNodeWithImageNamed:@"waitingroom-avatar"];
     // Set to correct color
     avatar.color = [UIColor colorWithPlayerColor:player.playerColor];
     avatar.colorBlendFactor = 0.5;
     
+    // Player name
+    SKSpriteNode *nameBg = [SKSpriteNode spriteNodeWithImageNamed:@"waitingroom-namebg"];
+    
+    SKLabelNode *nameLabel = [SKLabelNode labelNodeWithFontNamed:@"Economica-Bold"];
+    nameLabel.fontSize = 32;
+    nameLabel.fontColor = RGB(249, 228, 172);
+    nameLabel.text = player.nickname;
+    nameLabel.position = CGPointMake(0, -nameBg.size.height * 0.08);
+    [nameBg addChild:nameLabel];
+    
     // Find first empty slot in array for new player. If no empty slots, add to end of the line!
-    DDEPlayerAvatar *pa = [[DDEPlayerAvatar alloc] initWithAvatar:avatar player:player peerID:peerID];
+    DDEPlayerAvatar *pa = [[DDEPlayerAvatar alloc] initWithAvatar:avatar nameBg:nameBg player:player peerID:peerID];
     
     // Add host
     if (self.avatars.count == 0)
     {
         [self.avatars addObject:pa];
-        [self _displayAvatar:avatar AtIndex:0];
+        [self _displayAvatarAndNameForPlayer:pa AtIndex:0];
     }
     else
     {
@@ -144,29 +155,39 @@
             if ([obj isEqual:[NSNull null]])
             {
                 self.avatars[idx] = pa;
-                [self _displayAvatar:avatar AtIndex:idx];
+                [self _displayAvatarAndNameForPlayer:pa AtIndex:idx];
                 *stop = YES;
             }
             // If no empty slots in array, add to the end
             else if (idx == (self.avatars.count-1))
             {
                 [self.avatars addObject:pa];
-                [self _displayAvatar:avatar AtIndex:idx+1];
+                [self _displayAvatarAndNameForPlayer:pa AtIndex:idx+1];
                 *stop = YES;
             }
         }];
     }
 }
 
-- (void)_displayAvatar:(SKSpriteNode *)avatar AtIndex:(NSUInteger)idx
+- (void)_displayAvatarAndNameForPlayer:(DDEPlayerAvatar *)pa AtIndex:(NSUInteger)idx
 {
+    SKSpriteNode *avatar = pa.avatar;
+    SKSpriteNode *nameBg = pa.nameBg;
+    
+    // Avatar
     avatar.position = CGPointMake(self.size.width * 0.2 + avatar.size.width * 1.5 * idx, self.size.height * 0.35);
     avatar.alpha = 0;
     [self addChild:avatar];
     
+    // Player name
+    nameBg.position = CGPointMake(avatar.position.x, avatar.position.y + avatar.size.height*0.75);
+    nameBg.alpha = 0;
+    [self addChild:nameBg];
+    
     // Fade in newly added avatar
     SKAction *fadeIn = [SKAction fadeInWithDuration:0.3];
     [avatar runAction:fadeIn];
+    [nameBg runAction:fadeIn];
 }
 
 - (void)_removeAvatarForPeerID:(MCPeerID *)peerID
@@ -185,10 +206,14 @@
     // Replace player with an empty slot
     self.avatars[playerIndex] = [NSNull null];
     
-    // Fade out and then remove avatar sprite
+    // Fade out and then remove avatar sprite + name sprite & label
     SKAction *fadeOut = [SKAction fadeOutWithDuration:0.3];
     [pa.avatar runAction:fadeOut completion:^{
         [pa.avatar removeFromParent];
+    }];
+    
+    [pa.nameBg runAction:fadeOut completion:^{
+        [pa.nameBg removeFromParent];
     }];
 }
 

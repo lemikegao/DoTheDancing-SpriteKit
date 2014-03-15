@@ -10,12 +10,13 @@
 
 @implementation DDEPlayerAvatar
 
-- (instancetype)initWithAvatar:(SKSpriteNode *)avatar player:(DDPlayer *)player peerID:(MCPeerID *)peerID
+- (instancetype)initWithAvatar:(SKSpriteNode *)avatar nameBg:(SKSpriteNode *)nameBg player:(DDPlayer *)player peerID:(MCPeerID *)peerID
 {
     self = [super init];
     if (self)
     {
         _avatar = avatar;
+        _nameBg = nameBg;
         _player = player;
         _peerID = peerID;
     }
