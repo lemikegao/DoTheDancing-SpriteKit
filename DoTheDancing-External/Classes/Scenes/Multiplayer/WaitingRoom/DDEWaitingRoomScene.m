@@ -247,13 +247,22 @@
 
 - (void)peerDisconnected:(NSNotification *)notification
 {
-    [super peerDisconnected:notification];
-    
-    // If host controller was not disconnected, remove player from waiting room
-    if ([DDGameManager sharedGameManager].sessionManager.controllerHostPeerID != nil)
+    // Stop advertising if host controller disconnected
+    if ([DDGameManager sharedGameManager].sessionManager.controllerHostPeerID == nil)
     {
-        MCPeerID *peerID = notification.userInfo[@"peerID"];
-        [self _removeAvatarForPeerID:peerID];
+        [[DDGameManager sharedGameManager].advertiser stopAdvertisingPeer];
+        
+        // Segue to main menu
+        [super peerDisconnected:notification];
+    }
+    else
+    {
+        // If host controller was not disconnected, remove player from waiting room
+        if ([DDGameManager sharedGameManager].sessionManager.controllerHostPeerID != nil)
+        {
+            MCPeerID *peerID = notification.userInfo[@"peerID"];
+            [self _removeAvatarForPeerID:peerID];
+        }
     }
 }
 
