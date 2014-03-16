@@ -28,6 +28,11 @@
 @property (nonatomic, strong) SKButton *fadeLayer;
 @property (nonatomic) BOOL didPressHost;
 
+// Nickname
+@property (nonatomic) CGFloat menuBgPositionY;
+@property (nonatomic, strong) SKSpriteNode *nicknameBg;
+@property (nonatomic, strong) SKLabelNode *maxCharacterErrorLabel;
+
 @end
 
 @implementation DDMultiplayerHostOrJoinScene
@@ -37,11 +42,13 @@
     self = [super initWithSize:size];
     if (self)
     {
+        _menuBgPositionY = self.size.height * 0.74;
         _didPressHost = NO;
         
         [self _displayBackground];
         [self _displayTopBar];
         [self _displayMenu];
+        [self _initNicknamePrompt];
         
         [[NSNotificationCenter defaultCenter]
          addObserver:self
@@ -89,22 +96,22 @@
 - (void)_displayMenu
 {
     // Menu - Bg
-    self.hostOrJoinMenuBg = [SKSpriteNode spriteNodeWithColor:RGB(249, 228, 172) size:CGSizeMake(227*self.sizeMultiplier, 144*self.sizeMultiplier)];
-    self.hostOrJoinMenuBg.anchorPoint = CGPointMake(0.5, 1);
-    self.hostOrJoinMenuBg.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.74);
-    [self addChild:self.hostOrJoinMenuBg];
+    _hostOrJoinMenuBg = [SKSpriteNode spriteNodeWithColor:RGB(249, 228, 172) size:CGSizeMake(227*self.sizeMultiplier, 144*self.sizeMultiplier)];
+    _hostOrJoinMenuBg.anchorPoint = CGPointMake(0.5, 1);
+    _hostOrJoinMenuBg.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.74);
+    [self addChild:_hostOrJoinMenuBg];
     
     // Menu - Host button
     SKButton *hostButton = [SKButton buttonWithImageNamedNormal:@"multiplayer-hostorjoin-button-host" selected:@"multiplayer-hostorjoin-button-host-highlight"];
-    hostButton.position = CGPointMake(0, -self.hostOrJoinMenuBg.size.height * 0.27);
+    hostButton.position = CGPointMake(0, -_hostOrJoinMenuBg.size.height * 0.27);
     [hostButton setTouchUpInsideTarget:self action:@selector(_pressedHostButton:)];
-    [self.hostOrJoinMenuBg addChild:hostButton];
+    [_hostOrJoinMenuBg addChild:hostButton];
     
     // Menu - Join button
     SKButton *joinButton = [SKButton buttonWithImageNamedNormal:@"multiplayer-hostorjoin-button-join" selected:@"multiplayer-hostorjoin-button-join-highlight"];
-    joinButton.position = CGPointMake(0, -self.hostOrJoinMenuBg.size.height * 0.73);
+    joinButton.position = CGPointMake(0, -_hostOrJoinMenuBg.size.height * 0.73);
     [joinButton setTouchUpInsideTarget:self action:@selector(_pressedJoinButton:)];
-    [self.hostOrJoinMenuBg addChild:joinButton];
+    [_hostOrJoinMenuBg addChild:joinButton];
     
     // Disable join button if connected to another device (like external screen)
     if ([DDGameManager sharedGameManager].sessionManager.isConnected)
@@ -115,6 +122,73 @@
     {
         [joinButton enableButton];
     }
+}
+
+- (void)_initNicknamePrompt
+{
+    // Fade layer
+    _fadeLayer = [[SKButton alloc] initWithColor:RGBA(0, 0, 0, 0.7) size:self.size];
+    [_fadeLayer setTouchDownTarget:self action:@selector(_pressedOutsideKeyboard:)];
+    _fadeLayer.anchorPoint = CGPointMake(0, 0);
+    _fadeLayer.position = CGPointMake(0, -self.size.height);        // Initialized off screen so button is not blocking user interaction
+    [self addChild:_fadeLayer];
+    
+    // Max character error
+    _maxCharacterErrorLabel = [SKLabelNode labelNodeWithFontNamed:@"Economica-Bold"];
+    _maxCharacterErrorLabel.text = @"Name must be 1-4 characters!";
+#warning - TODO: Update font color
+    _maxCharacterErrorLabel.fontColor = [UIColor redColor];
+    _maxCharacterErrorLabel.fontSize = 22;
+    _maxCharacterErrorLabel.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.82);
+    _maxCharacterErrorLabel.alpha = 0;
+    [_fadeLayer addChild:_maxCharacterErrorLabel];
+    
+    // Nickname bg
+    _nicknameBg = [SKSpriteNode spriteNodeWithColor:RGB(249, 228, 172) size:CGSizeMake(227*self.sizeMultiplier, 144*self.sizeMultiplier)];
+    _nicknameBg.anchorPoint = CGPointMake(0.5, 1);
+    _nicknameBg.position = CGPointMake(self.size.width * 0.5, 0);
+    [_fadeLayer addChild:_nicknameBg];
+    
+    // Label - Dancer name?
+    SKLabelNode *nameLabel = [SKLabelNode labelNodeWithFontNamed:@"Economica-Bold"];
+    nameLabel.fontSize = 20;
+    nameLabel.text = @"What's your dancer name?";
+    nameLabel.fontColor = RGB(56, 56, 56);
+    nameLabel.position = CGPointMake(0, -_nicknameBg.size.height * 0.15);
+    [_nicknameBg addChild:nameLabel];
+    
+    // Sprite - Fake UITextField for SpriteKit
+    SKSpriteNode *fakeTextField = [SKSpriteNode spriteNodeWithColor:RGB(255, 251, 231) size:CGSizeMake(_nicknameBg.size.width * 0.84, 32)];
+    fakeTextField.position = CGPointMake(0, -_nicknameBg.size.height * 0.32);
+    [_nicknameBg addChild:fakeTextField];
+    
+    // Button - Let's Dance!
+    SKButton *danceButton = [SKButton buttonWithImageNamedNormal:@"multiplayer-hostorjoin-button-lets-dance" selected:@"multiplayer-hostorjoin-button-lets-dance-highlight"];
+    danceButton.position = CGPointMake(0, -_nicknameBg.size.height * 0.73);
+    [danceButton setTouchUpInsideTarget:self action:@selector(_pressedDanceButton:)];
+    [_nicknameBg addChild:danceButton];
+}
+
+- (void)didMoveToView:(SKView *)view
+{
+    // UITextField
+    self.textField = [[UITextField alloc] initWithFrame:CGRectMake(self.nicknameBg.position.x - self.nicknameBg.size.width * 0.42 , self.size.height - (self.menuBgPositionY - self.nicknameBg.size.height * 0.21), self.nicknameBg.size.width * 0.84, 32)];
+    self.textField.backgroundColor = RGB(255, 251, 231);
+    self.textField.textColor = RGB(219, 133, 20);
+    self.textField.font = [UIFont fontWithName:@"Economica-Bold" size:18];
+    self.textField.autocorrectionType = UITextAutocorrectionTypeNo;
+    self.textField.returnKeyType = UIReturnKeyDone;
+    self.textField.keyboardType = UIKeyboardTypeNamePhonePad;
+    self.textField.placeholder = @"4 characters max";
+    self.textField.delegate = self;
+    
+    // Add padding on left side
+    UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 8, 20)];
+    paddingView.backgroundColor = self.textField.backgroundColor;
+    self.textField.leftView = paddingView;
+    self.textField.leftViewMode = UITextFieldViewModeAlways;
+    self.textField.hidden = YES;
+    [self.view addSubview:self.textField];
 }
 
 #pragma mark - Button actions
@@ -159,7 +233,15 @@
 
 - (void)_pressedDanceButton:(id)sender
 {
-    [self _segueToNextScene];
+    if (self.textField.text.length == 0)
+    {
+        [self _showMaxCharacterErrorLabel];
+        
+    }
+    else
+    {
+        [self _segueToNextScene];
+    }
 }
 
 - (void)_pressedOutsideKeyboard:(id)sender
@@ -170,67 +252,24 @@
 #pragma mark - Nickname
 - (void)_showNicknamePrompt
 {
-    CGFloat menuBgPositionY = self.size.height * 0.74;
 #warning TODO - Do not show on external screen. So what then?
     // Hide previous menu immediately & display fade layer
     self.hostOrJoinMenuBg.position = CGPointMake(self.size.width * 0.5, 0);
-    self.fadeLayer = [[SKButton alloc] initWithColor:RGBA(0, 0, 0, 0.7) size:self.size];
-    [self.fadeLayer setTouchDownTarget:self action:@selector(_pressedOutsideKeyboard:)];
+    
+    // Show fade layer
     self.fadeLayer.isEnabled = NO;
-    self.fadeLayer.anchorPoint = CGPointMake(0, 0);
-    [self addChild:self.fadeLayer];
-    
-    // Menu bg
-    SKSpriteNode *menuBg = [SKSpriteNode spriteNodeWithColor:RGB(249, 228, 172) size:CGSizeMake(227*self.sizeMultiplier, 144*self.sizeMultiplier)];
-    menuBg.anchorPoint = CGPointMake(0.5, 1);
-    menuBg.position = CGPointMake(self.size.width * 0.5, 0);
-    [self.fadeLayer addChild:menuBg];
-    
-    // Label - Dancer name?
-    SKLabelNode *nameLabel = [SKLabelNode labelNodeWithFontNamed:@"Economica-Bold"];
-    nameLabel.fontSize = 20;
-    nameLabel.text = @"What's your dancer name?";
-    nameLabel.fontColor = RGB(56, 56, 56);
-    nameLabel.position = CGPointMake(0, -menuBg.size.height * 0.15);
-    [menuBg addChild:nameLabel];
-    
-    // Sprite - Fake UITextField for SpriteKit
-    SKSpriteNode *fakeTextField = [SKSpriteNode spriteNodeWithColor:RGB(255, 251, 231) size:CGSizeMake(menuBg.size.width * 0.84, 32)];
-    fakeTextField.position = CGPointMake(0, -menuBg.size.height * 0.32);
-    [menuBg addChild:fakeTextField];
-    
-    // UITextField
-    self.textField = [[UITextField alloc] initWithFrame:CGRectMake(menuBg.position.x - menuBg.size.width * 0.42 , self.size.height - (menuBgPositionY - menuBg.size.height * 0.21), menuBg.size.width * 0.84, 32)];
-    self.textField.backgroundColor = RGB(255, 251, 231);
-    self.textField.textColor = RGB(219, 133, 20);
-    self.textField.font = [UIFont fontWithName:@"Economica-Bold" size:18];
-    self.textField.autocorrectionType = UITextAutocorrectionTypeNo;
-    self.textField.returnKeyType = UIReturnKeyDone;
-    self.textField.keyboardType = UIKeyboardTypeNamePhonePad;
-    self.textField.delegate = self;
-    // Add padding on left side
-    UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 8, 20)];
-    paddingView.backgroundColor = self.textField.backgroundColor;
-    self.textField.leftView = paddingView;
-    self.textField.leftViewMode = UITextFieldViewModeAlways;
-    self.textField.hidden = YES;
-    [self.view addSubview:self.textField];
-    
-    // Button - Let's Dance!
-    SKButton *danceButton = [SKButton buttonWithImageNamedNormal:@"multiplayer-hostorjoin-button-lets-dance" selected:@"multiplayer-hostorjoin-button-lets-dance-highlight"];
-    danceButton.position = CGPointMake(0, -menuBg.size.height * 0.73);
-    [danceButton setTouchUpInsideTarget:self action:@selector(_pressedDanceButton:)];
-    [menuBg addChild:danceButton];
+    self.fadeLayer.position = CGPointZero;
     
     // Animations! Move new menu up to previous menu position and focus on textfield
-    SKAction *moveAction = [SKAction moveTo:CGPointMake(self.size.width * 0.5, menuBgPositionY) duration:0.25];
+    SKAction *moveAction = [SKAction moveTo:CGPointMake(self.size.width * 0.5, self.menuBgPositionY) duration:0.25];
     SKAction *showTextFieldAction = [SKAction runBlock:^{
         self.textField.hidden = NO;
-        [self.textField becomeFirstResponder];
         self.fadeLayer.isEnabled = YES;
     }];
     
-    [menuBg runAction:[SKAction sequence:@[moveAction, showTextFieldAction]]];
+    // TODO: Fix delay of keyboard appearing on first time
+    [self.textField becomeFirstResponder];
+    [self.nicknameBg runAction:[SKAction sequence:@[moveAction, showTextFieldAction]]];
 }
 
 - (void)_hideNicknamePromptAndShowHostOrJoinMenu
@@ -239,7 +278,11 @@
     
     // Remove fade layer and existing menu
     self.textField.hidden = YES;
-    [self.fadeLayer removeFromParent];
+    self.textField.text = @"";
+    self.fadeLayer.position = CGPointMake(0, -self.size.height);
+    
+    // Reset nickname bg to hidden position
+    self.nicknameBg.position = CGPointMake(self.size.width * 0.5, 0);
     
     // Animate old menu back to previous position
     SKAction *moveAction = [SKAction moveTo:CGPointMake(self.size.width * 0.5, self.size.height * 0.74) duration:0.25];
@@ -292,10 +335,40 @@
 #endif
 }
 
+- (void)_showMaxCharacterErrorLabel
+{
+    [self.maxCharacterErrorLabel removeAllActions];
+    self.maxCharacterErrorLabel.alpha = 1;
+    
+    // Fade out
+    SKAction *fadeOutLabel = [SKAction sequence:@[[SKAction waitForDuration:3], [SKAction fadeOutWithDuration:0.5]]];
+    [self.maxCharacterErrorLabel runAction:fadeOutLabel];
+}
+
 #pragma mark - UITextFieldDelegate protocol methods
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
+    if (textField.text.length == 0)
+    {
+        [self _showMaxCharacterErrorLabel];
+        
+        return NO;
+    }
+    
     [self _segueToNextScene];
+    
+    return YES;
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    // Display error message if textField will contain over 4 letters
+    if (range.location >= 4)
+    {
+        [self _showMaxCharacterErrorLabel];
+        
+        return NO;
+    }
     
     return YES;
 }
