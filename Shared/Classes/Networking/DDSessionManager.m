@@ -44,6 +44,11 @@
     
 #if CONTROLLER
     self.externalPeerID = nil;
+    
+    // Set up new session in separate thread
+    dispatch_async(dispatch_queue_create("com.chinandcheeks.dothedancing.bgqueue", NULL), ^{
+        [[DDGameManager sharedGameManager] setUpSession];
+    });
 #endif
     
 #if EXTERNAL
@@ -58,7 +63,7 @@
 {
     if (state == MCSessionStateConnected && self.session)
     {
-        NSLog(@"DDSessionManager -> peer connected: %@, total connected peer count: %lu", peerID, (unsigned long)session.connectedPeers.count);
+        NSLog(@"DDSessionManager -> peer connected: %@, session: %@", peerID, session.description);
 #if CONTROLLER
         if ([peerID.displayName isEqualToString:@"External"] && self.externalPeerID == nil)
         {
@@ -126,6 +131,10 @@
         });
 #endif
     }
+    else if (state == MCSessionStateConnecting)
+    {
+        NSLog(@"DDSessionManager -> peer is connecting: %@", peerID);
+    }
 }
 
 // Received data from remote peer
@@ -159,6 +168,12 @@
 - (void)session:(MCSession *)session didFinishReceivingResourceWithName:(NSString *)resourceName fromPeer:(MCPeerID *)peerID atURL:(NSURL *)localURL withError:(NSError *)error
 {
     
+}
+
+// Made first contact with peer and have identity information about the remote peer (certificate may be nil)
+- (void)session:(MCSession *)session didReceiveCertificate:(NSArray *)certificate fromPeer:(MCPeerID *)peerID certificateHandler:(void(^)(BOOL accept))certificateHandler
+{
+    certificateHandler(YES);
 }
 
 @end

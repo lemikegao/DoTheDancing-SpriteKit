@@ -24,15 +24,17 @@
 @property (nonatomic, strong) DDDanceMove *individualDanceMove;
 
 // Networking
-@property (nonatomic, strong) MCNearbyServiceBrowser *browser;
-@property (nonatomic, strong) MCNearbyServiceAdvertiser *advertiser;
-@property (nonatomic, strong) DDSessionManager *sessionManager;
+@property (nonatomic, strong, readonly) MCPeerID *peerID;
+@property (nonatomic, strong, readonly) MCNearbyServiceBrowser *browser;
+@property (nonatomic, strong, readonly) MCNearbyServiceAdvertiser *advertiser;
+@property (nonatomic, strong, readonly) DDSessionManager *sessionManager;
 
 // Multiplayer
 @property (nonatomic, strong) DDPlayer *player;
 @property (nonatomic) BOOL isHost;
 
 +(DDGameManager*)sharedGameManager;
+- (void)setUpSession;
 
 // Audio
 - (void)playBackgroundMusic:(NSString *)filename;

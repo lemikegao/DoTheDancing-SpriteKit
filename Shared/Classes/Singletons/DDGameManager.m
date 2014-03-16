@@ -57,20 +57,25 @@ static DDGameManager *_sharedGameManager = nil;   // singleton
         // Individual dance moves practice
         _individualDanceMove = nil;
         
-        NSString *peerDisplayName = @"Controller";
-#if EXTERNAL
-        peerDisplayName = @"External";
-#endif
-        MCPeerID *peerID = [[MCPeerID alloc] initWithDisplayName:peerDisplayName];
-        _advertiser = [[MCNearbyServiceAdvertiser alloc] initWithPeer:peerID discoveryInfo:nil serviceType:kServiceType];
-        _browser = [[MCNearbyServiceBrowser alloc] initWithPeer:peerID serviceType:kServiceType];
-        _sessionManager = [[DDSessionManager alloc] initWithPeer:peerID];
+        [self setUpSession];
         
         // Multiplayer
         _player = [[DDPlayer alloc] init];
     }
     
     return self;
+}
+
+- (void)setUpSession
+{
+    NSString *peerDisplayName = @"Controller";
+#if EXTERNAL
+    peerDisplayName = @"External";
+#endif
+    _peerID = [[MCPeerID alloc] initWithDisplayName:peerDisplayName];
+    _advertiser = [[MCNearbyServiceAdvertiser alloc] initWithPeer:_peerID discoveryInfo:nil serviceType:kServiceType];
+    _browser = [[MCNearbyServiceBrowser alloc] initWithPeer:_peerID serviceType:kServiceType];
+    _sessionManager = [[DDSessionManager alloc] initWithPeer:_peerID];
 }
 
 - (void)playBackgroundMusic:(NSString *)filename
